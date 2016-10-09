@@ -39,6 +39,7 @@
     padding: 11px 18px;
     font-size: 16px;
     color: #ffffff;
+    cursor:pointer;
 }
 /*图书分类部分*/
 .book{
@@ -47,6 +48,7 @@
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
     margin-top:30px;
+    position: relative;
 }
 .book .sort{
     border-bottom: 1px dashed #d8d8d8;
@@ -72,6 +74,7 @@
     margin-left: 14px;
     display: inline-block;
     font-family: "Microsoft YaHei", serif;
+    cursor:pointer;
 }
 .book .grade p{
     font-weight: bold;
@@ -93,6 +96,7 @@
     margin-left: 14px;
     display: inline-block;
     font-family: "Microsoft YaHei", serif;
+    cursor:pointer;
 }
 .book .grade {
     padding-bottom: 27px;
@@ -100,25 +104,84 @@
 }
 /*图书列表部分*/
 .list{
-    margin-top:23px;
+    margin-top:11px;
+    float: left;
 }
 .list .list-book{
-    margin:17px;
+    margin-top:17px;
+    margin-left: 14px;
+    margin-right: 8px;
+    position: relative;
+    top: 0;
+    font-family: "Microsoft YaHei", serif;
 }
 .list .list-book .image {
     width: 129px;
     height: 230px;
-    position: relative;
-    top: 0;
+    border: 1px solid #e8e8e8;
     padding: 20px 14px 20px 15px ;
     background: #ffffff;
 }
-.list .list-book .image img {
-
+.list .list-book .image img{
+    cursor:pointer;
 }
-
-
-
+.list .list-book .image span {
+    position: absolute;
+    top: 183px;
+    left: 97px;
+    width: 48px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: #f99d32;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+}
+.list .list-book .book-name{
+    position: absolute;
+    top: 225px;
+    left: 41px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor:pointer;
+}
+.list .list-book .type{
+    position: absolute;
+    top: 246px;
+    left: 16px;
+    font-size: 12px;
+    color: #999999;
+    cursor:pointer;
+}
+.list .list-book p{
+    position: absolute;
+    top: 246px;
+    left: 118px;
+    font-size: 12px;
+    color: #f99d32;
+    cursor:pointer;
+}
+/*.page {*/
+    /*cursor:pointer;*/
+    /*position: absolute;*/
+    /*top: 935px;*/
+    /*left: 300px;*/
+/*}*/
+/*.page .up-page{*/
+    /*width: 65px;*/
+    /*height: 26px;*/
+    /*border: 1px solid #f99d32;*/
+    /*color: #f99d32;*/
+    /*padding: 5px;*/
+/*}*/
+/*.page .down-page{*/
+    /*width: 65px;*/
+    /*height: 26px;*/
+    /*border: 1px solid #f99d32;*/
+    /*color: #f99d32;*/
+    /*padding: 5px;*/
+/*}*/
 
 
 
