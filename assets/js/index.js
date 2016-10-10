@@ -1,12 +1,8 @@
-/**
- * Created by yilong on 2016/10/9.
- */
-/*
-$('#id').jqPaginator({
-    totalPages: 100,
-    visiblePages: 10,
-    currentPage: 1,
-    onPageChange: function (num, type) {
-        $('#text').html('当前第' + num + '页');
+//分页部分的js
+$(".tcdPageCode").createPage({
+    pageCount:20,
+    current:1,
+    backFn:function(p){
+        //console.log(p);
     }
-});*/
+});
