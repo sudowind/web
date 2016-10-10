@@ -2,6 +2,7 @@
     background: #fff;
     width: 770px;
     height: 1250px;
+    float: left;
 }
 .content{
     padding:21px 20px;

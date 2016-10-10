@@ -4,138 +4,94 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/book.css">
 </head>
 <body background="../../../assets/img/background.png">
 
 <div class="main-body">
     <div id="left_bar"></div>
 
-    <!--<div style="background: #ffffff;height: 900px; width: 65.0%; float: left;"></div>-->
-    <div id="library" style="height: 1250px; float: left; background: #ffffff;">
+    <div id="library">
         <div class="content">
             <div class="title">
                 <h3>Library</h3>
                 <span class="down"></span>
             </div>
-            <div class="seek">
-            <span class="frame">
-                <input type="text" placeholder="请输入图书名"/>
-            </span>
-                <span class="button">
-                <input  type="submit" value="搜索一下"/>
-            </span>
-            </div>
-            <div class="book ">
-                <div class="sort">
-                    <p>图书类别：</p>
-                    <span>全部</span>
-                    <span>儿童文学</span>
-                    <span>漫画</span>
-                    <span>绘本</span>
-                    <span>社科</span>
-                    <span>国学</span>
-                    <span>科幻</span>
-                    <span>卡通</span>
-                    <span>主题学习丛书</span>
+            <div class="book-info-box">
+                <div class="book-image">
+                    <img src="../../../assets/img/student/book/duck_ridding.png" alt="" width="90%" height="90%">
+                    <p class="btn" data-toggle="modal" data-target="#myModal">添加到“阅读任务”</p>
                 </div>
-                <div class="grade">
-                    <p>适读年纪：</p>
-                    <span>全部</span>
-                    <span>一年级</span>
-                    <span>二年级</span>
-                    <span>三年级</span>
-                    <span>四年级</span>
-                    <span>五年级</span>
-                    <span>六年级</span>
-                </div>
-                <div class="list">
-                    <div class="list-book">
-                        <div class="image">
-                            <img src=../../../assets/img/1.png alt=""/>
-                            <span>0.0</span>
-                        </div>
-                        <div class="book-name">阿凡提你真帅</div>
-                        <span class="type">儿童文学</span>
-                        <p>有题</p>
-                    </div>
-                </div>
-                <div class="list">
-                    <div class="list-book">
-                        <div class="image">
-                            <img src=../../../assets/img/1.png alt=""/>
-                            <span>0.0</span>
-                        </div>
-                        <div class="book-name">阿凡提你真帅</div>
-                        <span class="type">儿童文学</span>
-                        <p>有题</p>
-                    </div>
-                </div>
-                <div class="list">
-                    <div class="list-book">
-                        <div class="image">
-                            <img src=../../../assets/img/1.png alt=""/>
-                            <span>0.0</span>
-                        </div>
-                        <div class="book-name">阿凡提你真帅</div>
-                        <span class="type">儿童文学</span>
-                        <p>有题</p>
-                    </div>
-                </div>
-                <div class="list">
-                    <div class="list-book">
-                        <div class="image">
-                            <img src=../../../assets/img/1.png alt=""/>
-                            <span>0.0</span>
-                        </div>
-                        <div class="book-name">阿凡提你真帅</div>
-                        <span class="type">儿童文学</span>
-                        <p>有题</p>
-                    </div>
-                </div>
-                <div class="list">
-                    <div class="list-book">
-                        <div class="image">
-                            <img src=../../../assets/img/1.png alt=""/>
-                            <span>0.0</span>
-                        </div>
-                        <div class="book-name">阿凡提你真帅</div>
-                        <span class="type">儿童文学</span>
-                        <p>有题</p>
-                    </div>
-                </div>
-                <div class="list">
-                    <div class="list-book">
-                        <div class="image">
-                            <img src=../../../assets/img/1.png alt=""/>
-                            <span>0.0</span>
-                        </div>
-                        <div class="book-name">阿凡提你真帅</div>
-                        <span class="type">儿童文学</span>
-                        <p>有题</p>
-                    </div>
-                </div>
-
-
-                <!--<div class="page">-->
-                <!--<span class="up-page">上一页</span>-->
-                <!--<span>1</span>-->
-                <!--<span class="down-page">下一页</span>-->
-                <!--</div>-->
-                <div id="page" class="pagination">
-                    <ul>
-                        <li class="first"></li>
-                        <li class="prev"></li>
-                        <li class="first"></li>
-                        <li class="next"></li>
-                        <li class="last"></li>
-                    </ul>
+                <div class="book-info">
+                    <div id="book_name"><h3><b>鸭子骑行记&nbsp;</b><small>故事</small></h3></div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>作者&nbsp;&nbsp;<span>大卫夏农</span></td>
+                                <td>出版社&nbsp;&nbsp;<span>海南出版公司</span></td>
+                            </tr>
+                            <tr>
+                                <td>字数&nbsp;&nbsp;<span>5000</span></td>
+                                <td>ISBN编号&nbsp;&nbsp;<span>843957640</span></td>
+                            </tr>
+                            <tr>
+                                <td>适合年级&nbsp;&nbsp;<span>二年级</span></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            <div class="book-detail-box">
+                <div class="nav-bar">
+                    <div class="nav-button">
+                        <img src="../../../assets/img/student/book/intro_selected.png" alt="">
+                        <div>简介</div>
+                    </div>
+                    <div class="nav-button" style="background: #f9f9f9;">
+                        <img src="../../../assets/img/student/book/comment_unselected.png" alt="">
+                        <div>评论</div>
+                    </div>
+                </div>
+                <div class="book-detail-content">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗、老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们干了一件很不平凡的事情…作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</p>
+                </div>
+            </div>
+
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" style="width: 400px; margin-top: 200px;">
+                    <div class="modal-content">
+                        <!--<div class="modal-header">-->
+                            <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">-->
+                                <!--&times;-->
+                            <!--</button>-->
+                            <!--<h4 class="modal-title" id="myModalLabel">-->
+                                <!--模态框（Modal）标题-->
+                            <!--</h4>-->
+                        <!--</div>-->
+                        <div class="modal-body" style="height: 150px;">
+                            <h4 align="center">鸭子骑车记</h4>
+                            <div>开始时间</div>
+                        </div>
+                        <div class="modal-footer" style="height: 50px;">
+                            <div>确定</div>
+                            <div>取消</div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+
         </div>
+
+
+
     </div>
 
     <div id="right_bar"></div>
@@ -146,6 +102,8 @@
 
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/remodal/dist/remodal.min.js"></script>
 <script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/student/book.js"></script>
 </body>
 </html>
