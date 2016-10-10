@@ -84,8 +84,8 @@
 .left-sidebar {
     position: relative;
     background: #776c60;
-    height:900px;
-    width: 20%;
+    height: 1250px;
+    width: 240px;
     float: left;
 
     font-size: 18px;
@@ -96,8 +96,8 @@
 /*右导航栏主体*/
 .right-sidebar {
     background: #776c60;
-    height:900px;
-    width: 15%;
+    height: 1250px;
+    width: 180px;
     float: left;
 }
 
@@ -114,4 +114,11 @@
     width: 61.8%;
     float: left;
     margin-top: 10px;
+}
+
+.main-body {
+    width: 1300px;
+    height: 1250px;
+    margin: 70px auto 50px auto;
+    padding: 0 50px;
 }
