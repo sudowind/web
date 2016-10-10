@@ -1,0 +1,104 @@
+/*图书摘要信息部分*/
+.book-info-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+.book-info-box .book-image {
+    width: 150px;
+    margin: 20px 20px;
+    float: left;
+    text-align: center;
+}
+
+.book-info-box .book-image p {
+    background: #fb9e1d;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 7px 10px;
+
+}
+
+.book-info-box .book-info {
+    width: 450px;
+    margin: 20px 10px;
+    float: left;
+}
+
+.book-info-box .book-info table {
+    float: left;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.book-info-box .book-info table tbody tr td{
+    height: 40px;
+    padding-right: 20px;
+}
+
+.book-info-box .book-info table tbody tr td span{
+    color: #afafaf;
+}
+
+/*文章详细信息部分*/
+.book-detail-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 800px;
+    font-size: 16px;
+}
+
+.book-detail-box .nav-bar {
+    height: 50px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.book-detail-box .nav-bar .nav-button{
+    width: 50%;
+    height: 50px;
+    background: #fb9e1d;
+    float: left;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.book-detail-box .nav-bar .nav-button img {
+    margin: 12px 0 0 150px;
+    float: left;
+}
+
+.book-detail-box .nav-bar .nav-button div {
+    padding-top: 12px;
+    padding-left: 10px;
+    float: left;
+}
+
+.book-detail-box .book-detail-content {
+    padding: 20px;
+}
+
+.book-detail-box .book-detail-content p {
+    line-height: 150%;
+}
+
+/*模态框*/
+.modal-footer div {
+    float: left;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: -7px;
+}
+
+.modal-footer div:nth-child(1) {
+    background: #fb9e1d;
+    margin-left: 115px;
+}
+
+.modal-footer div:nth-child(2) {
+    background: #776c60;
+    margin-left: 30px;
+}
