@@ -29,7 +29,7 @@ html{_background-image:url(about:blank); _background-attachment:fixed;}
 .laydate_body .laydate_top{position:relative; height:26px; padding:5px; *width:100%; z-index:99;}
 .laydate_body .laydate_ym{position:relative; float:left; height:24px; cursor:pointer;}
 .laydate_body .laydate_ym input{float:left; height:24px; line-height:24px; text-align:center; border:none; cursor:pointer;}
-.laydate_body .laydate_ym .laydate_yms{position:absolute; left: -1px; top: 24px; height:181px;}
+.laydate_body .laydate_ym .laydate_yms{position:absolute; left: -1px; top: 24px; height:320px;}
 .laydate_body .laydate_y{width:121px; margin-right:6px;}
 .laydate_body .laydate_y input{width:64px; margin-right:15px;}
 .laydate_body .laydate_y .laydate_yms{width:121px; text-align:center;}

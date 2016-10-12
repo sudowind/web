@@ -2,9 +2,206 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
+    <meta name="viewport" content="width=device-width">
     <title>Title</title>
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/students/tasks/index.css">
 </head>
-<body>
+<body background="../../../assets/img/background.png">
 
+<div class="main-body">
+    <div id="left_bar"></div>
+    <!--<div style="background: #ffffff;height: 900px; width: 65.0%; float: left;"></div>-->
+    <div id="task">
+        <div class="content">
+            <div class="title">
+                <h3>Task</h3>
+                <span class="down"></span>
+            </div>
+            <div class="seek">
+            <span class="frame">
+                <input type="text" placeholder="请输入图书名"/>
+            </span>
+            <span class="button">
+                <input  type="submit" value="搜索一下"/>
+            </span>
+            <span class="add-task">
+                <p>
+                    <img src="../../../assets/img/student/tasks/add.png" alt=""/>添加任务
+                </p>
+            </span>
+            </div>
+
+
+            <div class="book ">
+                <div class="sort">
+                    <p>类别：</p>
+                    <span class="index reading" >阅读中</span>
+                    <span class="read">已读完</span>
+                </div>
+                <div class="grade">
+                    <p>任务来源：</p>
+                    <span class="index">自主发布</span>
+                    <span>这个老师发布</span>
+                    <span>那个老师发布</span>
+                    <span>那个老师发布</span>
+                    <span>那个老师发布</span>
+                    <span>那个老师发布</span>
+                    <span>那个老师发布</span>
+                </div>
+
+                <div class="list">
+                    <div class="list-book">
+                        <div class="image">
+                            <img src=../../../assets/img/1.png alt=""/>
+                            <span>0.0</span>
+                        </div>
+                        <div class="book-name">阿凡提你真帅</div>
+                        <!--进度条部分-->
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                <span class="sr-only">45% Complete</span>
+                            </div>
+                        </div>
+                        <p class="plan">进度<span>0</span>%</p>
+                        <div class="pages"><span>1</span>页/<span>999</span>页</div>
+                        <div class="reading" style="display: none;">
+                            <p  class="continue-read">
+                                <span>继续阅读</span>
+                            </p>
+                            <p class="appraisal">
+                                <span>做测评</span>
+                            </p>
+                        </div>
+                        <div class="check">
+                            <p>查看</p>
+                        </div>
+                        <div class="remove">
+                            <img src="../../../assets/img/student/tasks/remove.png" alt=""/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list">
+                    <div class="list-book">
+                        <div class="image">
+                            <img src=../../../assets/img/1.png alt=""/>
+                            <span>0.0</span>
+                        </div>
+                        <div class="book-name">阿凡提你真帅</div>
+                        <!--进度条部分-->
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                <span class="sr-only">45% Complete</span>
+                            </div>
+                        </div>
+                        <p class="plan">进度<span>0</span>%</p>
+                        <div class="pages"><span>1</span>页/<span>999</span>页</div>
+                        <div class="reading" style="display: none;">
+                            <p  class="continue-read">
+                                <span>继续阅读</span>
+                            </p>
+                            <p class="appraisal">
+                                <span>做测评</span>
+                            </p>
+                        </div>
+                        <div class="check">
+                            <p>查看</p>
+                        </div>
+                        <div class="remove">
+                            <img src="../../../assets/img/student/tasks/remove.png" alt=""/>
+                        </div>
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="list-book">
+                        <div class="image">
+                            <img src=../../../assets/img/1.png alt=""/>
+                            <span>0.0</span>
+                        </div>
+                        <div class="book-name">阿凡提你真帅</div>
+                        <!--进度条部分-->
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                <span class="sr-only">45% Complete</span>
+                            </div>
+                        </div>
+                        <p class="plan">进度<span>0</span>%</p>
+                        <div class="pages"><span>1</span>页/<span>999</span>页</div>
+                        <div class="reading" style="display: none;">
+                            <p  class="continue-read">
+                                <span>继续阅读</span>
+                            </p>
+                            <p class="appraisal">
+                                <span>做测评</span>
+                            </p>
+                        </div>
+                        <div class="check">
+                            <p>查看</p>
+                        </div>
+                        <div class="remove">
+                            <img src="../../../assets/img/student/tasks/remove.png" alt=""/>
+                        </div>
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="list-book">
+                        <div class="image">
+                            <img src=../../../assets/img/1.png alt=""/>
+                            <span>0.0</span>
+                        </div>
+                        <div class="book-name">阿凡提你真帅</div>
+                        <!--进度条部分-->
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                <span class="sr-only">45% Complete</span>
+                            </div>
+                        </div>
+                        <p class="plan">进度<span>0</span>%</p>
+                        <div class="pages"><span>1</span>页/<span>999</span>页</div>
+                        <div class="reading" style="display: none;">
+                            <p  class="continue-read">
+                                <span>继续阅读</span>
+                            </p>
+                            <p class="appraisal">
+                                <span>做测评</span>
+                            </p>
+                        </div>
+                        <div class="check">
+                            <p>查看</p>
+                        </div>
+                        <div class="remove">
+                            <img src="../../../assets/img/student/tasks/remove.png" alt=""/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--分页-->
+                <div class="tcdPageCode"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="right_bar"></div>
+
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/student/tasks/tasks.js"></script>
+<script>
+    load('../../../include/html/');
+</script>
 </body>
 </html>

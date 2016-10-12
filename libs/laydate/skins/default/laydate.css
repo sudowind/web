@@ -36,7 +36,7 @@
 .laydate_body .laydate_top{border-top:1px solid #C6C6C6;}
 .laydate_body .laydate_ym .laydate_yms{border:1px solid #C6C6C6; background-color:#fff;}
 .laydate_body .laydate_y .laydate_yms a{border-bottom:1px solid #C6C6C6;}
-.laydate_body .laydate_y .laydate_yms .laydate_chdown{border-top:1px solid #C6C6C6; border-bottom:none;}
+.laydate_body .laydate_y .laydate_yms .laydate_chdown{border-top:1px solid #C6C6C6; border-bottom:none;margin-top: 140px;}
 .laydate_body .laydate_choose{border-left:1px solid #C6C6C6;}
 .laydate_body .laydate_chprev{border-left:none; border-right:1px solid #C6C6C6;}
 .laydate_body .laydate_choose:hover, 
