@@ -4,6 +4,12 @@
 /**
  * Created by wind on 2016/10/10.
  */
+
+// 左右导航栏的回调函数
+function left_bar_cb() {
+    $('#tasks_button').attr('class', 'side-button-selected left-side-button');
+}
+
 //简介与评论之间的tab切换函数
 var button_ids = ['intro', 'comment', 'note', 'test'];
 

@@ -75,24 +75,7 @@
     padding-top: 12px;
     padding-left: 10px;
     float: left;
-    color: #ffffff;
-}
-.book-detail-box .nav-bar .nav-button-two{
-    width: 50%;
-    height: 50px;
-    /*background: #fb9e1d;*/
-    float: left;
-    border-bottom: 1px solid #e8e8e8;
-}
-.book-detail-box .nav-bar .nav-button-two img {
-    margin: 12px 0 0 150px;
-    float: left;
-}
-
-.book-detail-box .nav-bar .nav-button-two div {
-    padding-top: 12px;
-    padding-left: 10px;
-    float: left;
+    color: #000000;
 }
 
 .book-detail-box .book-detail-content {
