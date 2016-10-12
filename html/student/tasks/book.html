@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
+    <link rel="stylesheet" href="../../../libs/select2-4.0.3/dist/css/select2.css">
+    <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
+    <link rel="stylesheet" href="../../../assets/css/students/tasks/book.css">
+</head>
+<body background="../../../assets/img/background.png">
+
+<div class="main-body">
+    <div id="left_bar"></div>
+
+    <div id="library">
+        <div class="content">
+            <div class="title">
+                <h3>Tasks</h3>
+                <span class="down"></span>
+            </div>
+
+            <div align="right" class="return-button btn"><p>返回</p></div>
+
+            <div class="book-info-box">
+                <div class="book-image">
+                    <img src="../../../assets/img/student/book/duck_ridding.png" alt="" width="90%" height="90%">
+                    <!--<p class="btn" data-toggle="modal" data-target="#myModal">添加到“阅读任务”</p>-->
+                </div>
+                <div class="book-info">
+                    <div id="book_name"><h3><b>鸭子骑车记&nbsp;</b><small>故事</small></h3></div>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>作者&nbsp;&nbsp;<span>大卫夏农</span></td>
+                            <td>出版社&nbsp;&nbsp;<span>海南出版公司</span></td>
+                        </tr>
+                        <tr>
+                            <td>字数&nbsp;&nbsp;<span>5000</span></td>
+                            <td>ISBN编号&nbsp;&nbsp;<span>843957640</span></td>
+                        </tr>
+                        <tr>
+                            <td>适合年级&nbsp;&nbsp;<span>二年级</span></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    开始时间 2016-10-10--结束时间 2016-11-10
+                </p>
+            </div>
+            <!--图书标签介绍-->
+            <div class="book-detail-box" >
+                <div class="nav-bar">
+                    <div class="nav-button" id="intro_button" onclick="on_button_click(this);" value="1">
+                        <img src="../../../assets/img/student/book/intro_selected.png" alt="">
+                        <div class="introduce" style="color: #ffffff;">简介</div>
+                    </div>
+                    <div class="nav-button" id="comment_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0">
+                        <img src="../../../assets/img/student/book/comment_unselected.png" alt="">
+                        <div class="comments">评论</div>
+                    </div>
+                    <div class="nav-button" id="note_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0">
+                        <img src="../../../assets/img/student/book/note_unselected.png" alt="">
+                        <div class="introduce">我的笔记</div>
+                    </div>
+                    <div class="nav-button" id="test_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0">
+                        <img src="../../../assets/img/student/book/test_unselected.png" alt="">
+                        <div class="comments">测试题</div>
+                    </div>
+                </div>
+                <div class="book-detail-content" id="intro_part">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗、老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们干了一件很不平凡的事情…作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</p>
+                </div>
+
+                <div class="book-comment" style="display: none;" id="comment_part">
+                    <div class="comment">
+                        <div class="comment-img">
+                            <img src="../../../assets/img/student/book/comment_photo.png">
+                        </div>
+                        <div class="comment-content">
+                            <h3>吴磊</h3>
+                            <div class="like">
+                                <img src="../../../assets/img/student/book/like.png" height="90%" width="90%">
+                            </div>
+                            <div class="like-count">74</div>
+                            <!--这里存在一个问题，如果点赞数过多，如何安排格式，有一种解决方法就是不显示点赞数目-->
+                            <p>我已经开始给孩子读了，每翻开一页都是一种。已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开</p>
+                            <div class="comment-date" align="right">
+                                2016-10-10
+                            </div>
+                        </div>
+                        <hr style="clear: both;"/>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-img">
+                            <img src="../../../assets/img/student/book/comment_photo.png">
+                        </div>
+                        <div class="comment-content">
+                            <h3>吴磊</h3>
+
+                            <div class="like">
+                                <img src="../../../assets/img/student/book/like.png" height="90%" width="90%">
+                            </div>
+                            <div class="like-count">74</div>
+
+                            <p>我已经开始给孩子读了，每翻开一页都是一种。已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开</p>
+                            <div class="comment-date" align="right">
+                                2016-10-10
+                            </div>
+                        </div>
+                        <hr style="clear: both;"/>
+                    </div>
+                    <textarea placeholder="发表一下你的评论吧……" id="user_comment"></textarea>
+                    <p class="btn" id="submit_comment" onclick="">发表评论</p>
+
+                    <!--分页-->
+                    <div class="tcdPageCode" id="comment_pagination">
+                        <span class="disabled">上一页</span>
+                        <span class="current">1</span>
+                        <a href="javascript:;" class="tcdNumber">2</a>
+                        <!--<a href="javascript:;" class="tcdNumber">3</a>-->
+                        <span>...</span>
+                        <a href="javascript:;" class="tcdNumber">4</a>
+                        <a href="javascript:;" class="nextPage">下一页</a>
+                    </div>
+                </div>
+
+                <div id="note_part">
+                    <div class="note">
+                        <div class="note_id">1</div>
+                        <div class="note_time">2016-10-10 12:00</div>
+                        <div class="note_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们都干了一件很不平凡的事情。作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</div>
+                        <hr style="clear: both;"/>
+                    </div>
+                    <div class="note">
+                        <div class="note_id">1</div>
+                        <div class="note_time">2016-10-10 12:00</div>
+                        <div class="note_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们都干了一件很不平凡的事情。作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</div>
+                        <hr style="clear: both;"/>
+                    </div>
+
+                    <div class="tcdPageCode" id="note_pagination">
+                        <span class="disabled">上一页</span>
+                        <span class="current">1</span>
+                        <a href="javascript:;" class="tcdNumber">2</a>
+                        <!--<a href="javascript:;" class="tcdNumber">3</a>-->
+                        <span>...</span>
+                        <a href="javascript:;" class="tcdNumber">4</a>
+                        <a href="javascript:;" class="nextPage">下一页</a>
+                    </div>
+                </div>
+
+                <div id="test_part">
+                    <div class="progress-part">
+                        <select>
+                            <option>第一章</option>
+                            <option>第二章</option>
+                            <option>第三章</option>
+                            <option>第四章</option>
+                        </select>
+                        <div id="progress_bar"></div>
+                        <div class="grade-board">
+                            <div class="grade-content">
+                                <div class="grade-example"><div style="color: #fb9e1d">●&nbsp;正确</div><div style="color: #08dec5;">●&nbsp;错误</div></div>
+                                <div class="grade-detail grade-wrong">1<br /><div class="grade-detail-answer">B</div></div>
+                                <div class="grade-detail grade-right">2<br /><div class="grade-detail-answer">B</div></div>
+                                <div class="grade-detail grade-wrong">3<br /><div class="grade-detail-answer">B</div></div>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="question-part">
+                        <p><b style="color: #9f502a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择题：请选择唯一正确答案的编号填入答卷中</b></p>
+                        <div class="question">
+                            <div class="question-res">
+                                <img src="../../../assets/img/student/tasks/wrong.png" alt="">
+                            </div>
+                            <div class="question-content">
+                                <div class="question-q">1. 林肯岛在几月份就进入了冬天？</div>
+                                <div class="select-option">A. 3月</div>
+                                <div class="select-option">B. 8月</div>
+                                <div class="select-option">C. 12月</div>
+                                <div class="select-option">D. 9月</div>
+                                <div class="answer">解析：test test</div>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <div class="question-res">
+                                <img src="../../../assets/img/student/tasks/right.png" alt="">
+                            </div>
+                            <div class="question-content">
+                                <div class="question-q">2. 林肯岛在几月份就进入了冬天？</div>
+                                <div class="select-option">A. 3月</div>
+                                <div class="select-option">B. 8月</div>
+                                <div class="select-option">C. 12月</div>
+                                <div class="select-option">D. 9月</div>
+                                <div class="answer">解析：test test</div>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <div class="question-res">
+                                <img src="../../../assets/img/student/tasks/wrong.png" alt="">
+                            </div>
+                            <div class="question-content">
+                                <div class="question-q">3. 林肯岛在几月份就进入了冬天？</div>
+                                <div class="select-option">A. 3月</div>
+                                <div class="select-option">B. 8月</div>
+                                <div class="select-option">C. 12月</div>
+                                <div class="select-option">D. 9月</div>
+                                <div class="answer">解析：test test</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <div id="right_bar"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/remodal/dist/remodal.min.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/select2.js"></script>
+
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/student/tasks/book.js"></script>
+
+<script>
+//    $('select').select2();
+    on_button_click($('#test_button'));
+    bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+    bar.text.style.fontSize = '2rem';
+
+    bar.set(0.10);  // Number from 0.0 to 1.0
+    bar.animate(0.30);  // Number from 0.0 to 1.0
+
+</script>
+
+</body>
+</html>

@@ -28,9 +28,10 @@ function tab_introduce(){
     $('.nav-button img').attr("src","../../../assets/img/student/book/intro_unselected.png");
     $('.nav-button-two img').attr("src","../../../assets/img/student/book/comment_selected.png");
 }
+
 //添加书库之后确认日期的点击事件
 $('.modal-footer .btn').one("click",function(){
-    $("#myModal").css("display","none");
+    $('#myModal').modal('hide');
     $(".book-image .btn").html("已添加“阅读任务”");
 
 });

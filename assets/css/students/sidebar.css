@@ -29,6 +29,15 @@
     text-align: left;
 }
 
+/*以下两个CSS控制导航栏按钮变色*/
+.left-side-button:hover,.right-side-button:hover {
+    background: #5d544c;
+}
+
+.side-button-selected {
+    background: #5d544c;
+}
+
 /*退出图片*/
 .exit-img {
     position: absolute;

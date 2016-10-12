@@ -14,10 +14,10 @@
                 obj.empty();
 
                 if(args.current > 1){
-                    obj.append('<a href="javascript:;" class="prevPage">下一页</a>');
+                    obj.append('<a href="javascript:;" class="prevPage">上一页</a>');
                 }else{
                     obj.remove('.prevPage');
-                    obj.append('<span class="disabled">下一页</span>');
+                    obj.append('<span class="disabled">上一页</span>');
                 }
 
                 if(args.current != 1 && args.current >= 4 && args.pageCount != 4){
