@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
-    <link rel="stylesheet" href="../../../libs/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.css">
+    <!--<link rel="stylesheet" href="../../../libs/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.css">-->
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
@@ -47,24 +47,27 @@
                             </tr>
                         </tbody>
                     </table>
+                    <!--<div class="begin-online">开始线上阅读</div>-->
+                    <!--<div class="begin-offline">开始线下阅读</div>-->
                 </div>
             </div>
-            <div class="book-detail-box">
+            <!--图书标签介绍-->
+            <div class="book-detail-box" >
                 <div class="nav-bar">
-                    <div class="nav-button">
+                    <div class="nav-button"  onclick="tab_comment()">
                         <img src="../../../assets/img/student/book/intro_selected.png" alt="">
-                        <div>简介</div>
+                        <div class="introduce">简介</div>
                     </div>
-                    <div class="nav-button" style="background: #f9f9f9;">
+                    <div class="nav-button-two" style="background: #f9f9f9" onclick="tab_introduce()">
                         <img src="../../../assets/img/student/book/comment_unselected.png" alt="">
-                        <div>评论</div>
+                        <div class="comments">评论</div>
                     </div>
                 </div>
-                <div class="book-detail-content" style="display: none;">
+                <div class="book-detail-content" >
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗、老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们干了一件很不平凡的事情…作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</p>
                 </div>
 
-                <div class="book-comment">
+                <div class="book-comment" style="display: none;">
                     <div class="comment">
                         <div class="comment-img">
                             <img src="../../../assets/img/student/book/comment_photo.png">
@@ -103,13 +106,22 @@
                         </div>
                         <hr style="clear: both;"/>
                     </div>
-
                     <textarea placeholder="发表一下你的评论吧……" id="user_comment"></textarea>
                     <p class="btn" id="submit_comment" onclick="submit_comment()">发表评论</p>
+
+                    <!--分页-->
+                    <div class="tcdPageCode">
+                        <span class="disabled">上一页</span>
+                        <span class="current">1</span>
+                        <a href="javascript:;" class="tcdNumber">2</a>
+                        <!--<a href="javascript:;" class="tcdNumber">3</a>-->
+                        <span>...</span>
+                        <a href="javascript:;" class="tcdNumber">4</a>
+                        <a href="javascript:;" class="nextPage">下一页</a>
+                    </div>
                 </div>
-
-
             </div>
+
 
 
 
@@ -120,7 +132,7 @@
                         <div class="modal-body" style="height: 150px;">
                             <h4 align="center">鸭子骑车记</h4>
                             <div>
-                                <label for="finish_time">开始时间</label>
+                                <label for="finish_time">结束时间</label>
                                 <input id="finish_time" class="laydate" onclick="laydate()">
                             </div>
                         </div>
@@ -133,7 +145,6 @@
                 </div><!-- /.modal -->
             </div>
         </div>
-
     </div>
 
     <div id="right_bar"></div>
@@ -141,15 +152,16 @@
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 
-
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../libs/remodal/dist/remodal.min.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
-<script src="../../../libs/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.js"></script>
-<script src="../../../libs/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<!--<script src="../../../libs/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.js"></script>-->
+<!--<script src="../../../libs/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>-->
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../assets/js/student/book.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/page.js"></script>
 
 <script>
 
