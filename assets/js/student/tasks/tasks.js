@@ -21,6 +21,6 @@ $(".book .sort .read").click(function(){
 $(".book .sort .reading").click(function(){
     $(".book .sort .reading").addClass("index");
     $(".book .sort .read").removeClass("index");
-    $(".list").unbind("mouseenter mouseleave");
+    $(".list").off("mouseenter mouseleave");
 });
 

@@ -70,7 +70,7 @@ $('.modal-footer .btn').one("click",function(){
 
 // 给题目答案的每个选项绑定点击事件
 $('.select-option').bind('click', function() {
-    $(this).siblings('.select-option').attr('class', 'select-option')
+    $(this).siblings('.select-option').attr('class', 'select-option');
     $(this).attr('class', 'select-option option-selected');
     $(this).siblings('.answer').show('500');
 });

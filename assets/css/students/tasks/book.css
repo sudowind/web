@@ -220,6 +220,7 @@
     width: 100px;
     margin: 10px;
     padding: 3px 10px;
+    margin-top: 190px;
     border-radius: 3px;
 }
 
@@ -229,11 +230,10 @@
 
 #progress_bar {
     float: left;
-    width: 120px;
-    height: 120px;
+    width: 172px;
+    height: 172px;
     margin: 10px;
-    left: 163px;
-    /*padding: 10px;*/
+    left: 138px;
     position: relative;
 }
 

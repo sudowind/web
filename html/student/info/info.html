@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
+    <!--<meta name="viewport" content="width=device-width">-->
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/students/info/info.css">
+</head>
+<body background="../../../assets/img/background.png">
+
+<div class="main-body">
+    <div id="left_bar"></div>
+    <!--<div style="background: #ffffff;height: 900px; width: 65.0%; float: left;"></div>-->
+    <div id="info">
+        <div class="content">
+            <div class="title">
+                <h3>Information</h3>
+                <span class="down"></span>
+            </div>
+            <div class="information">
+                <div class="change-head">
+                    <p>
+                        <img src="../../../assets/img/student/info/1.png" alt=""/>
+                    </p>
+                    <p class="change">
+                        <img src="../../../assets/img/student/info/camera.png" alt=""/><span>修改头像</span>
+                    </p>
+                </div>
+                <div class="info-list">
+                    <form action="">
+                        <p class="name">
+                            姓名：<span>萌萌哒</span>
+                        </p>
+                        <p class=""sex>性别:
+                            <span>
+                                男<input id="boy" type="radio" name="x1" disabled="disabled" checked>&nbsp;&nbsp;女<input id="girl" type="radio" disabled="disabled" name="x1">
+                            </span>
+                        </p>
+                        <p class="birth">
+                            出生年月：<input class="laydate"  onclick="laydate()"style="display: none" >
+                        </p>
+                        <p class="city">
+                            城市：<span>北京市海淀区</span>
+                        </p>
+                        <p class="school">
+                            学校：<span>彩和坊小学</span>
+                        </p>
+                        <p class="classname">
+                            班级：<span>一年级一班</span>
+                        </p>
+                        <p>
+                           邮箱：<input  class="mail" type="text" style="display: none"/> <input class="btn" type="button" value="免费获取验证码" />
+                        </p>
+                        <p class="code">
+                            验证码：<input type="text" placeholder="6位数字"/>
+                        </p>
+
+                        <input class="change-info" type="button"  onclick="Change()" value="修改" />
+                        <input class="off"  type="button"  onclick="Back()" value="取消" style="display: none"/>
+                        <input class="sure"  type="button"  onclick="Sure()" value="确定" style="display: none"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="right_bar"></div>
+
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/student/info/info.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script>
+    load('../../../include/html/');
+</script>
+</body>
+</html>
