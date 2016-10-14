@@ -44,7 +44,7 @@
     float: left;
 }
 .change-head .change img{
-    padding-bottom: 6px;
+    padding-bottom: 14px;
 }
 .change-head .change span{
     margin-left: 8px;
@@ -60,10 +60,42 @@
     background: #f9f9f9;
     position: relative;
 }
+
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: #FFFFFF;
+    border: none;
+    margin-top: 6px;
+    padding: 6px 0  0  6px;
+    overflow: hidden;
+    color: #000;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.file:hover {
+    background: #FFFFFF;
+    /*border-color: #78C3F3;*/
+    color: #000000;
+    text-decoration: none;
+}
+
 .info-list p{
     margin: 10px 0 0 34px;
     font-size: 16px;
     font-weight: bold;
+    height: 25px;
+    line-height: 25px;
 }
 .info-list p input{
     margin-left: 15px;
@@ -75,13 +107,23 @@
 }
 .info-list .code input{
     width: 78px;
-    height: 21px;
+    height: 25px;
     font-weight: normal;
     font-size: 10px;
 }
 .info-list .mail {
     width: 160px;
     height: 25px;
+}
+.info-list .btn{
+    width: 100px;
+    height: 23px;
+    line-height: 22px;
+    text-align: center;
+    font-size: 12px;
+    padding: 0px;
+    color: #FFFFFF;
+    background: #999999;
 }
 .info-list .laydate{
     width: 160px;
@@ -123,8 +165,9 @@
     position: absolute;
     top: 290px;
     left: 260px;
-
 }
+input::-ms-input-placeholder{text-align: center;}
+input::-webkit-input-placeholder{text-align: center;}
 
 
 

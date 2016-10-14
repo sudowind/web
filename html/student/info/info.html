@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
-    <!--<meta name="viewport" content="width=device-width">-->
+    <meta name="viewport" content="width=device-width">
     <title>Title</title>
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
@@ -28,7 +28,10 @@
                         <img src="../../../assets/img/student/info/1.png" alt=""/>
                     </p>
                     <p class="change">
-                        <img src="../../../assets/img/student/info/camera.png" alt=""/><span>修改头像</span>
+                        <img src="../../../assets/img/student/info/camera.png" alt=""/>
+                        <a href="#" class="file">
+                            <input type="file">修改头像</input>
+                        </a>
                     </p>
                 </div>
                 <div class="info-list">
@@ -50,19 +53,19 @@
                         <p class="school">
                             学校：<span>彩和坊小学</span>
                         </p>
-                        <p class="classname">
+                        <p class="class-name">
                             班级：<span>一年级一班</span>
                         </p>
                         <p>
-                           邮箱：<input  class="mail" type="text" style="display: none"/> <input class="btn" type="button" value="免费获取验证码" />
+                           邮箱：<input  class="mail" type="email" style="display: none"/> <input class="btn" type="button" value="免费获取验证码" style="display: none" />
                         </p>
-                        <p class="code">
+                        <p class="code" style="display: none">
                             验证码：<input type="text" placeholder="6位数字"/>
                         </p>
 
                         <input class="change-info" type="button"  onclick="Change()" value="修改" />
                         <input class="off"  type="button"  onclick="Back()" value="取消" style="display: none"/>
-                        <input class="sure"  type="button"  onclick="Sure()" value="确定" style="display: none"/>
+                        <input class="sure"  type="button"  onclick="Sure()" value="保存" style="display: none"/>
                     </form>
                 </div>
             </div>
