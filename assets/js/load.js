@@ -16,5 +16,4 @@ function load(src) {
             right_bar_cb();
         }
     });
-
 }

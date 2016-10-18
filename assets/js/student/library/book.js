@@ -88,11 +88,3 @@ $('.modal-footer .btn').one("click",function(){
 
 
 
-
-
-
-
-
-
-
-

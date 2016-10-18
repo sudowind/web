@@ -14,7 +14,7 @@ function left_bar_cb() {
 var button_ids = ['intro', 'comment', 'note', 'test'];
 
 function on_button_click(e) {
-    // alert($(e).attr('id'));
+     //alert($(e).attr('id'));
     if ($(e).attr('value') == '0') {
         for (var i = 0; i < button_ids.length; ++i) {
             var curr_id = button_ids[i] + '_button';

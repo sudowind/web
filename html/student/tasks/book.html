@@ -25,7 +25,7 @@
                 <span class="down"></span>
             </div>
 
-            <div align="right" class="return-button btn"><p>返回</p></div>
+            <a href="index.html"><div align="right" class="return-button btn"><p>返回</p></div></a>
 
             <div class="book-info-box">
                 <div class="book-image">
@@ -105,12 +105,10 @@
                         </div>
                         <div class="comment-content">
                             <h3>吴磊</h3>
-
                             <div class="like">
                                 <img src="../../../assets/img/student/book/like.png" height="90%" width="90%">
                             </div>
                             <div class="like-count">74</div>
-
                             <p>我已经开始给孩子读了，每翻开一页都是一种。已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开</p>
                             <div class="comment-date" align="right">
                                 2016-10-10
@@ -158,7 +156,7 @@
                     </div>
                 </div>
 
-                <div id="test_part">
+                <div id="test_part" style="display: none">
                     <div class="progress-part">
                         <select>
                             <option>第一章</option>
@@ -247,7 +245,7 @@
 
 <script>
     load('../../../include/html/');
-    on_button_click($('#test_button'));
+    on_button_click($('#intro_button'));
     bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
     bar.text.style.fontSize = '2rem';
 

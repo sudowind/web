@@ -16,11 +16,15 @@ $(".book .sort .read").click(function(){
         function(){
             $(this).find(".list-book .remove ").css({"display":"none"});
         }
-    )
+    );
+    $(".check").css("display","block");
+    $(".list-book .reading").css("display","none");
 });
 $(".book .sort .reading").click(function(){
     $(".book .sort .reading").addClass("index");
     $(".book .sort .read").removeClass("index");
     $(".list").off("mouseenter mouseleave");
+    $(".check").css("display","none");
+    $(".list-book .reading").css("display","block");
 });
 
