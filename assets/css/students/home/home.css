@@ -1,0 +1,104 @@
+#home{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.content{
+    padding:21px 20px;
+    position: relative;
+    top: 0px;
+}
+.title h3{
+    width: 81px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+    padding-bottom: 30px;
+}
+.title .down{
+    width: 649px;;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #cccccc;
+    float: right;
+}
+.sign-in{
+    width: 230px;
+    height: 310px;
+    position: relative;
+    float: left;
+    box-shadow: 1px 1px 4px #ccc;
+    border-radius: 6px;
+    background: #f0f0f0;
+}
+.sign-in .bg img{
+    width: 230px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.sign-in .cont{
+    width: 100px;
+    height: 240px;
+    position: absolute;
+    top: 52px;
+    left: 67px;
+    text-align: center;
+}
+.sign-in .cont .name{
+    margin-top: 16px;
+    font-size: 19px;
+}
+.sign-in .cont p{
+    margin-top: 16px;
+    font-size: 14px;
+}
+.sign-in .cont .right{
+    margin-top: 8px;
+}
+.sign-in .btn{
+    width: 98px;
+    height: 30px;
+    margin-top: 8px;
+    background: #776c60;
+    border-radius: 4px;
+    color: #FFFFFF;
+    line-height: 17px;
+}
+.statistics {
+    width: 483px;
+    height: 88px;
+    border: 1px solid #ccc;
+    float: right;
+}
+.statistics .list{
+    padding: 14px 0px;
+}
+.statistics .list .list-details{
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
