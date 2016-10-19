@@ -1,0 +1,191 @@
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.login-box {
+    margin: 170px auto;
+    height: 500px;
+    width: 750px;
+    background: #edeef0;
+}
+
+.login-nav {
+    height: 500px;
+    width: 31.25%;
+    float: left;
+    background: #776c60;
+}
+
+.login-nav-logo {
+    height: 70px;
+    background: #fb9e1d;
+}
+
+.login-logo-img {
+    margin-left: -43px;
+    margin-top: -53px;
+}
+
+.login-nav-button {
+    height: 70px;
+    background: #5d544c;
+    cursor: pointer;
+}
+
+.login-nav-img {
+    margin-left: 50px;
+    margin-top: 25px;
+    float: left;
+}
+
+.login-nav-content {
+    float: left;
+    margin-top: 23px;
+    margin-left: 10px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.drop-down-icon-close {
+    margin-left: 50px;
+    margin-top: 28px;
+    float: left;
+}
+
+.drop-down-icon-open {
+    margin-left: 44px;
+    margin-top: 32px;
+    float: left;
+}
+
+.sub-menu {
+    display: none;
+}
+
+.main-button {
+    border-bottom: solid 1px #776c60;
+}
+
+/*以下是登录界面主体部分*/
+.login-content {
+    height: 500px;
+    width: 68.75%;
+    float: left;
+    background: #edeef0;
+}
+
+#login_model {
+    padding-top: 100px;
+}
+
+.login-input {
+    width: 300px;
+    margin: 15px auto;
+}
+
+.login-input input {
+    border: solid 1px #e8e8e8;
+    font-size: 18px;
+    border-radius: 30px;
+    margin: 10px auto 10px auto;
+    width: 300px;
+    padding: 10px 10px 10px 70px;
+}
+
+#user_name_label {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    margin: 23px 0 0 40px;
+    background: url(../img/login/user_name_icon.png) no-repeat;
+}
+
+#password_label {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    margin: 23px 0 0 40px;
+    background: url(../img/login/password_icon.png) no-repeat;
+}
+
+#submit_button {
+    width: 300px;
+    height: 45px;
+    background: #fb9e1d;
+    margin: 30px auto 10px auto;
+    border-radius: 30px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px;
+}
+
+#login_model p {
+    position: absolute;
+    margin: -15px 0 0 150px;
+    color: red;
+}
+
+#rem_psd {
+    margin-left: 110px;
+    float: left;
+    width: 230px;
+}
+
+#forget_password {
+    float: left;
+}
+
+#forget_password a {
+    cursor: pointer;
+}
+
+/*找回密码部分*/
+#find_password {
+    display: none;
+    padding: 23px;
+}
+
+#fp_header {
+    font-size: 18px;
+    height: 25px;
+    margin-bottom: 22px;
+}
+
+.fp-function {
+    background: #ffffff;
+    height: 50px;
+    width: 270px;
+    border: solid 1px #e8e8e8;
+}
+
+.fp-function-content {
+    float: left;
+    margin-top: 12px;
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.fp-function img:first-child {
+    float: left;
+    margin-top: 16px;
+    margin-left: 20px;
+}
+
+.fp-function img:last-child {
+    float: left;
+    margin-top: 17px;
+    margin-left: 60px;
+}
+
+.fp-sub-menu {
+    height: 100px;
+    width: 270px;
+}
+
+.fp-sub-menu .fp-function {
+    border-bottom: none;
+    border-top: none;
+}

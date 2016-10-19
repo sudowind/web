@@ -3,8 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/students/library/reset.css">
 </head>
-<body>
+<body background="../assets/img/background.png">
 
+<div class="main-body">
+    <div class="login-box">
+        <div class="login-nav">
+            <div class="login-nav-logo">
+                <img src="../assets/img/logo.png" alt="" class="login-logo-img">
+            </div>
+            <div class="login-nav-button main-button" id="drop_down" onclick="on_drop_down_click();">
+                <img src="../assets/img/login/student.png" alt="" class="login-nav-img">
+                <div class="login-nav-content">我是学生</div>
+                <img src="../assets/img/login/dropdown_close.png" alt="" class="drop-down-icon-close" id="drop_down_icon">
+            </div>
+            <div class="sub-menu">
+                <div class="login-nav-button sub-button">
+                    <img src="../assets/img/login/student.png" alt="" class="login-nav-img">
+                    <div class="login-nav-content">我是学生</div>
+                </div>
+                <div class="login-nav-button sub-button">
+                    <img src="../assets/img/login/teacher.png" alt="" class="login-nav-img">
+                    <div class="login-nav-content">我是老师</div>
+                </div>
+                <div class="login-nav-button sub-button">
+                    <img src="../assets/img/login/school_master.png" alt="" class="login-nav-img">
+                    <div class="login-nav-content">我是校长</div>
+                </div>
+            </div>
+        </div>
+        <div class="login-content">
+            <div id="login_model">
+                <div class="login-input">
+                    <label for="user_name" id="user_name_label"></label>
+                    <input id="user_name" placeholder="用户名">
+                </div>
+                <div class="login-input">
+                    <label for="password" id="password_label"></label>
+                    <input id="password" type="password" placeholder="密码">
+                </div>
+                <p>账号或密码输入错误，请重新输入</p>
+                <div id="submit_button">
+                    登&nbsp;&nbsp;&nbsp;&nbsp;录
+                </div>
+                <div id="rem_psd">
+                    <label for="remember_password"></label>
+                    <input type="checkbox" id="remember_password">
+                    记住密码
+                </div>
+                <div id="forget_password">
+                    <a onclick="forget_password()">忘记密码</a>
+                </div>
+            </div>
+            <div id="find_password">
+                <div id="fp_header"><b>找回密码</b></div>
+                <div class="fp-function grey-border">
+                    <img src="../assets/img/login/mail.png" alt="">
+                    <div class="fp-function-content">通过邮箱找回密码</div>
+                    <img src="../assets/img/login/black_drop_down_close.png">
+                </div>
+
+                <!--TODO 需要将通过老师找回密码的icon稍微右移-->
+
+                <div class="fp-sub-menu">
+                    <div class="fp-function">
+                        <img src="../assets/img/login/mail.png" alt="">
+                        <div class="fp-function-content">通过邮箱找回密码</div>
+                    </div>
+                    <div class="fp-function">
+                        <img src="../assets/img/login/teacher_black.png" alt="">
+                        <div class="fp-function-content" style="margin-left: 20px;">通过老师找回密码</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="page_footer" class="fixed-bottom" style="background: #edeef0"></div>
+
+<script src="../libs/jquery-3.1.1.min.js"></script>
+<script src="../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../assets/js/login.js"></script>
+<script>
+    // 为了保证页脚始终在低端，并且保证横向缩放页脚始终居中，分别改变了marginTop和width
+    $('#page_footer').load('../include/html/footer.html', function() {
+        $('.qrcode').attr('src', '../assets/img/qrcode.png');
+        $('.footer').css('marginTop', '0').css('width', '100%');
+    });
+
+    $('#login_model').hide();
+    $('#find_password').show();
+</script>
 </body>
 </html>
