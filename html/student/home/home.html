@@ -33,24 +33,135 @@
                     <div class="right">
                         <img src="../../../assets/img/student/home/right.png" alt=""/>
                     </div>
-                <div class="btn">签到</div>
+                    <div class="btn">签到</div>
+                    <!--<div class="btn-already">已签到</div>-->
                 </div>
             </div>
             <div class="statistics">
                 <div class="list">
                     <div class="list-details">
-                        <p>分得分为</p>
-                        <p><strong>3</strong>纷纷为范围</p>
+                        <p>目前为止阅读了</p>
+                        <p><strong>2</strong>本读物</p>
                     </div>
                     <div class="list-details">
-                        <p>分得分为</p>
-                        <p><strong>3</strong>纷纷为范围</p>
+                        <p>共阅读了</p>
+                        <p><strong>2150</strong>个字</p>
                     </div>
                     <div class="list-details">
-                        <p>分得分为</p>
-                        <p><strong>3</strong>纷纷为范围</p>
+                        <p>总阅读时间</p>
+                        <p><strong>305</strong>分钟</p>
                     </div>
                 </div>
+            </div>
+            <div class="cla-ranking">
+                <h3>
+                    <img src="../../../assets/img/student/home/title.png" alt=""/>班级排名
+                </h3>
+                <div class="progress" >
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                        <img src="../../../assets/img/student/home/read.png" alt=""/>阅读量&nbsp&nbsp&nbsp<span class="current-page">12</span>&nbsp/&nbsp<span class="page">60</span>
+                    </div>
+                </div>
+                <div class="progress" >
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        <img src="../../../assets/img/student/home/pass.png" alt=""/>测试通过率&nbsp&nbsp&nbsp<span class="current-page">12</span>&nbsp/&nbsp<span class="page">60</span>
+                    </div>
+                </div>
+                <div class="progress" >
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                        <img src="../../../assets/img/student/home/ability.png" alt=""/>阅读能力&nbsp&nbsp&nbsp<span class="current-page">12</span>&nbsp/&nbsp<span class="page">60</span>
+                    </div>
+                </div>
+            </div>
+            <div class="top">
+                <h3 class="title">
+                    <img src="../../../assets/img/student/home/cup.png" alt=""/><span>学霸榜</span>
+                </h3>
+                <div class="top-list">
+                    <div class="me">
+                        <div class="me-rank">10</div>
+                        <img src="../../../assets/img/student/home/head.png" alt=""/>
+                        <div class="me-right">
+                            <p class="me-name">名字</p>
+                            <strong><span>456</span>万字</strong>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="rank">10</div>
+                            <img src="../../../assets/img/student/home/head.png" alt=""/>
+                            <div class="right">
+                                <p class="name">名字</p>
+                                <strong><span>456</span>万字</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rank">10</div>
+                            <img src="../../../assets/img/student/home/head.png" alt=""/>
+                            <div class="right">
+                                <p class="name">名字</p>
+                                <strong><span>456</span>万字</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rank">10</div>
+                            <img src="../../../assets/img/student/home/head.png" alt=""/>
+                            <div class="right">
+                                <p class="name">名字</p>
+                                <strong><span>456</span>万字</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rank">10</div>
+                            <img src="../../../assets/img/student/home/head.png" alt=""/>
+                            <div class="right">
+                                <p class="name">名字</p>
+                                <strong><span>456</span>万字</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rank">10</div>
+                            <img src="../../../assets/img/student/home/head.png" alt=""/>
+                            <div class="right">
+                                <p class="name">名字</p>
+                                <strong><span>456</span>万字</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rank">10</div>
+                            <img src="../../../assets/img/student/home/head.png" alt=""/>
+                            <div class="right">
+                                <p class="name">名字</p>
+                                <strong><span>456</span>万字</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rank">10</div>
+                            <img src="../../../assets/img/student/home/head.png" alt=""/>
+                            <div class="right">
+                                <p class="name">名字</p>
+                                <strong><span>456</span>万字</strong>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="term-plan">
+                <h3>
+                    <img src="../../../assets/img/student/home/plan.png" alt=""/>
+                    本学年阅读进度
+                    <span>(字数/个)</span>
+                </h3>
+                <!--饼状图-->
+                <div id="progress_bar"></div>
+            </div>
+            <div class="dimensionality">
+                <h3>
+                    <img src="../../../assets/img/student/home/dimensionality.png" alt=""/>
+                    阅读能力维度解析
+                </h3>
+                <!--维度图-->
+                <div id="main"></div>
             </div>
         </div>
     </div>
@@ -60,9 +171,16 @@
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../assets/js/load.js"></script>
+<script src="../../../libs/echarts-all.js"></script>
+<script src="../../../libs/progressbar.js"></script>
 <script src="../../../assets/js/student/home/home.js"></script>
 <script>
     load('../../../include/html/');
+    bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+    bar.text.style.fontSize = '2rem';
+
+    bar.set(0.10);  // Number from 0.0 to 1.0
+    bar.animate(0.70);  // Number from 0.0 to 1.0
 </script>
 
 </body>
