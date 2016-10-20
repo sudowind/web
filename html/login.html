@@ -108,7 +108,14 @@
                         <div id="fp_teacher_confirm_button" class="btn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
                         <div>提交后你的老师给你重新设置密码</div>
                     </div>
-                    <div id="after_input"></div>
+                    <div id="after_input">
+                        <div>
+                            <b>用户名/学号&nbsp;&nbsp;&nbsp;&nbsp;你好</b><br />
+                            你的密码设置申请已交给老师<br />
+                            请等待他和你联系
+                        </div>
+                        <div id="return_to_login" class="btn"><a href="login.html">返回登录</a></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,9 +134,9 @@
         $('.footer').css('marginTop', '0').css('width', '100%');
     });
 
-//    $('#login_model').hide();
-//    $('#find_password').show();
-    $('#find_by_teacher').hide();
+    $('#login_model').hide();
+    $('#find_password').show();
+    $('#find_by_mail').hide();
 </script>
 </body>
 </html>

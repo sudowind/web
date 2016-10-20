@@ -20,8 +20,9 @@
     color: #ffffff;
     border-radius: 5px;
     padding: 5px;
-    margin: 12px 10px;
-
+    margin: 12px 4px;
+    width: 140px;
+    text-align: center;
 }
 
 .book-info-box .book-info {

@@ -71,5 +71,6 @@ function send_vc() {
 }
 
 $('#fp_teacher_confirm_button').click(function () {
-    $('#before_input div:last-child').show();
+    $('#before_input').hide();
+    $('#after_input').show();
 });

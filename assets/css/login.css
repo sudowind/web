@@ -278,7 +278,7 @@
     border-radius: 20px;
 }
 
-#fp_teacher_confirm_button,#fp_mail_confirm_button {
+#fp_teacher_confirm_button,#fp_mail_confirm_button,#return_to_login {
     text-align: center;
     margin: 30px 0 0 65px;
     width: 350px;
@@ -296,5 +296,14 @@
     margin-left: 150px;
     color: red;
     font-size: 12px;
+}
+
+#after_input {
     display: none;
+}
+
+#after_input div:first-child {
+    padding-top: 30px;
+    text-align: center;
+    line-height: 40px;
 }
