@@ -114,7 +114,7 @@
     width: 300px;
     height: 45px;
     background: #fb9e1d;
-    margin: 30px auto 10px auto;
+    margin: 30px auto 10px 108px;
     border-radius: 30px;
     text-align: center;
     color: #ffffff;
@@ -123,7 +123,7 @@
 }
 
 #login_model p {
-    position: absolute;
+    position: fixed;
     margin: -15px 0 0 150px;
     color: red;
 }
@@ -159,6 +159,7 @@
     height: 50px;
     width: 270px;
     border: solid 1px #e8e8e8;
+    cursor: pointer;
 }
 
 .fp-function-content {
@@ -174,18 +175,126 @@
     margin-left: 20px;
 }
 
-.fp-function img:last-child {
+.fp-close {
     float: left;
     margin-top: 17px;
     margin-left: 60px;
 }
 
+.fp-open {
+    float: left;
+    margin-top: 21px;
+    margin-left: 54px;
+}
+
 .fp-sub-menu {
     height: 100px;
     width: 270px;
+    position: absolute;
+    display: none;
 }
 
 .fp-sub-menu .fp-function {
     border-bottom: none;
     border-top: none;
+}
+
+#fp_message {
+    float: left;
+    margin: 7px 0 20px 0;
+    font-size: 12px;
+    width: 350px;
+}
+
+#go_to_mail {
+    text-align: center;
+    width: 60px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #ffffff;
+    background: #fb9e1d;
+    float: left;
+}
+
+.fp-input-container {
+    clear: both;
+    /*margin-top: 50px;*/
+}
+
+.fp-input-group {
+    margin: 40px;
+}
+
+.input-label {
+    height: 40px;
+    padding-top: 10px;
+    clear: left;
+    width: 120px;
+    text-align: right;
+    float: left;
+}
+
+.fp-input {
+    border: solid 1px #e8e8e8;
+    height: 40px;
+    float: left;
+    padding-left: 8px;
+}
+
+#send_vc {
+    height: 40px;
+    border-radius: 5px;
+    background: #ffffff;
+    border: solid 1px #e8e8e8;
+    padding: 10px 0;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+    font-size: 10px;
+    width: 95px;
+}
+
+#diff_message {
+    font-size: 12px;
+    color: red;
+    margin-top: -17px;
+    margin-left: 160px;
+    position: fixed;
+}
+
+#info_message {
+    color: #999999;
+    margin-left: 75px;
+    font-size: 12px;
+    position: fixed;
+}
+
+.confirm_button {
+    text-align: center;
+    margin: 30px 0 0 65px;
+    width: 350px;
+    color: #ffffff;
+    background: #fb9e1d;
+    border-radius: 20px;
+}
+
+#fp_teacher_confirm_button,#fp_mail_confirm_button {
+    text-align: center;
+    margin: 30px 0 0 65px;
+    width: 350px;
+    color: #ffffff;
+    background: #fb9e1d;
+    border-radius: 20px;
+}
+
+#before_input {
+    padding-top: 50px;
+}
+
+#before_input div:last-child {
+    margin-top: 10px;
+    margin-left: 150px;
+    color: red;
+    font-size: 12px;
+    display: none;
 }

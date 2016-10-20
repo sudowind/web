@@ -47,7 +47,7 @@
                     <input id="password" type="password" placeholder="密码">
                 </div>
                 <p>账号或密码输入错误，请重新输入</p>
-                <div id="submit_button">
+                <div id="submit_button" class="btn">
                     登&nbsp;&nbsp;&nbsp;&nbsp;录
                 </div>
                 <div id="rem_psd">
@@ -61,23 +61,54 @@
             </div>
             <div id="find_password">
                 <div id="fp_header"><b>找回密码</b></div>
-                <div class="fp-function grey-border">
-                    <img src="../assets/img/login/mail.png" alt="">
+                <div class="fp-function grey-border" onclick="on_fp_drop_down_click()">
+                    <img src="../assets/img/login/mail.png" alt="" id="fp_function_icon">
                     <div class="fp-function-content">通过邮箱找回密码</div>
-                    <img src="../assets/img/login/black_drop_down_close.png">
+                    <img src="../assets/img/login/black_drop_down_close.png" class="fp-close" id="fp_drop_down_icon">
                 </div>
 
-                <!--TODO 需要将通过老师找回密码的icon稍微右移-->
-
                 <div class="fp-sub-menu">
-                    <div class="fp-function">
+                    <div class="fp-function" value="mail">
                         <img src="../assets/img/login/mail.png" alt="">
                         <div class="fp-function-content">通过邮箱找回密码</div>
                     </div>
-                    <div class="fp-function">
+                    <div class="fp-function" value="teacher">
                         <img src="../assets/img/login/teacher_black.png" alt="">
-                        <div class="fp-function-content" style="margin-left: 20px;">通过老师找回密码</div>
+                        <div class="fp-function-content">通过老师找回密码</div>
                     </div>
+                </div>
+                <div id="find_by_mail">
+                    <div id="fp_message">设置新密码的验证码已发送到你绑定的邮箱8723*****@qq.com</div>
+                    <div id="go_to_mail" class="btn">去邮箱</div>
+                    <div class="fp-input-container">
+                        <div class="fp-input-group">
+                            <div class="input-label">收到的验证码：</div>
+                            <label for="code_input"></label><input id="code_input" class="fp-input">
+                            <div id="send_vc" class="btn" onclick="send_vc()">发送验证码</div>
+                        </div>
+                        <div class="fp-input-group">
+                            <div class="input-label">新密码：</div>
+                            <label for="new_password"></label><input id="new_password" class="fp-input" type="password">
+                        </div>
+                        <div class="fp-input-group">
+                            <div class="input-label">确认新密码：</div>
+                            <label for="new_password_confirm"></label><input id="new_password_confirm" class="fp-input" type="password">
+                        </div>
+                    </div>
+                    <div id="diff_message"><p>新密码输入不一样，请重新输入</p></div>
+                    <div id="info_message">6-16位字符，建议由字母、数字和符号两种以上组合</div>
+                    <div id="fp_mail_confirm_button" class="btn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                </div>
+                <div id="find_by_teacher">
+                    <div id="before_input">
+                        <div class="fp-input-group">
+                            <div class="input-label">账号：</div>
+                            <label for="fp_account"></label><input id="fp_account" class="fp-input">
+                        </div>
+                        <div id="fp_teacher_confirm_button" class="btn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                        <div>提交后你的老师给你重新设置密码</div>
+                    </div>
+                    <div id="after_input"></div>
                 </div>
             </div>
         </div>
@@ -96,8 +127,9 @@
         $('.footer').css('marginTop', '0').css('width', '100%');
     });
 
-    $('#login_model').hide();
-    $('#find_password').show();
+//    $('#login_model').hide();
+//    $('#find_password').show();
+    $('#find_by_teacher').hide();
 </script>
 </body>
 </html>

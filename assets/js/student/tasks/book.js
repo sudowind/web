@@ -53,7 +53,7 @@ var bar = new ProgressBar.Circle('#progress_bar', {
         circle.path.setAttribute('stroke-width', state.width);
 
         var value = Math.round(circle.value() * 100);
-        if (value === 0) {
+        if (value == 0) {
             circle.setText('0%');
         } else {
             circle.setText(value + '%');
