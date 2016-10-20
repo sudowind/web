@@ -65,6 +65,7 @@
     background: #fb9e1d;
     float: left;
     border-bottom: 1px solid #e8e8e8;
+    cursor: pointer;
 }
 
 .book-detail-box .nav-bar .nav-button img {

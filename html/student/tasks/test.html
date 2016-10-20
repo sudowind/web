@@ -3,8 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
+    <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
+    <link rel="stylesheet" href="../../../assets/css/students/tasks/test.css">
 </head>
-<body>
+<body background="../../../assets/img/background.png">
+
+<div class="main-body">
+    <div id="left_bar"></div>
+
+    <div id="library">
+        <div class="content">
+            <div class="title">
+                <h3>Tasks</h3>
+                <span class="down"></span>
+            </div>
+
+            <!--<a href="index.html"><div align="right" class="return-button btn"><p>返回</p></div></a>-->
+
+            <div id="test_part">
+                <div class="test-header">
+                    <div>阅读测评</div>
+                </div>
+                <div id="test_info">
+                    《鸭子骑车记》挑战测评任务<br />
+                    任务分配：宋老师
+                </div>
+                <div id="choose_chapter">
+                    <div>选择章节：</div>
+                    <label for="chapter_selector"></label>
+                    <select id="chapter_selector">
+                        <option>第一章</option>
+                        <option>第二章</option>
+                        <option>第三章</option>
+                        <option>第四章</option>
+                    </select>
+                </div>
+                <div class="question-part">
+                    <div class="question-class"><b style="color: #9f502a;">&nbsp;&nbsp;&nbsp;&nbsp;选择题：请选择唯一正确答案的编号填入答卷中</b></div>
+                    <div class="question">
+                        <div class="question-res">
+                            <img src="../../../assets/img/student/tasks/wrong.png" alt="">
+                        </div>
+                        <div class="question-content">
+                            <div class="question-q">1. 林肯岛在几月份就进入了冬天？</div>
+                            <div class="select-option">A. 3月</div>
+                            <div class="select-option">B. 8月</div>
+                            <div class="select-option">C. 12月</div>
+                            <div class="select-option">D. 9月</div>
+                            <div class="answer">解析：test test</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-res">
+                            <img src="../../../assets/img/student/tasks/wrong.png" alt="">
+                        </div>
+                        <div class="question-content">
+                            <div class="question-q">2. 林肯岛在几月份就进入了冬天？</div>
+                            <div class="select-option">A. 3月</div>
+                            <div class="select-option">B. 8月</div>
+                            <div class="select-option">C. 12月</div>
+                            <div class="select-option">D. 9月</div>
+                            <div class="answer">解析：test test</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-res">
+                            <img src="../../../assets/img/student/tasks/wrong.png" alt="">
+                        </div>
+                        <div class="question-content">
+                            <div class="question-q">2. 林肯岛在几月份就进入了冬天？</div>
+                            <div class="select-option">A. 3月</div>
+                            <div class="select-option">B. 8月</div>
+                            <div class="select-option">C. 12月</div>
+                            <div class="select-option">D. 9月</div>
+                            <div class="answer">解析：test test</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-res">
+                            <img src="../../../assets/img/student/tasks/wrong.png" alt="">
+                        </div>
+                        <div class="question-content">
+                            <div class="question-q">3. 林肯岛在几月份就进入了冬天？</div>
+                            <div class="select-option">A. 3月</div>
+                            <div class="select-option">B. 8月</div>
+                            <div class="select-option">C. 12月</div>
+                            <div class="select-option">D. 9月</div>
+                            <div class="answer">解析：test test</div>
+                        </div>
+                    </div>
+                    <div class="question-class"><br/><b style="color: #9f502a;">&nbsp;&nbsp;&nbsp;&nbsp;问答题：请填入正确答案</b></div>
+                    <div class="question">
+                        <div class="question-res">
+                            <img src="../../../assets/img/student/tasks/wrong.png" alt="">
+                        </div>
+                        <div class="question-content">
+                            <div class="question-q">1. 史密斯口中的宝石是指？</div>
+                            <div class="answer-text-area">
+                                <textarea placeholder="最多输入200字" maxlength="200"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-res">
+                            <img src="../../../assets/img/student/tasks/right.png" alt="">
+                        </div>
+                        <div class="question-content">
+                            <div class="question-q">2. 他们发现的箱子里有哪些东西？</div>
+                            <div class="answer-text-area">
+                                <textarea placeholder="最多输入200字" maxlength="200"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn" id="test_submit">交卷</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right_bar"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/remodal/dist/remodal.min.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/student/tasks/test.js"></script>
+
+<script>
+    load('../../../include/html/');
+//    $('.question-res').children('img').hide();
+</script>
 
 </body>
 </html>

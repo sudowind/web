@@ -1,0 +1,117 @@
+#test_part {
+    background: #f9f9f9;
+    height: 1100px;
+    border: 1px solid #e8e8e8;
+}
+
+/*header部分*/
+.test-header {
+    border-bottom: solid 1px #fb9e1d;
+}
+
+.test-header div {
+    text-align: center;
+    width: 140px;
+    padding: 5px 10px;
+    background: #fb9e1d;
+    color: #FFFFFF;
+    font-size: 22px;
+}
+
+#test_info {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#choose_chapter {
+    padding: 20px;
+}
+
+#choose_chapter div {
+    float: left;
+    width: 70px;
+}
+
+#chapter_selector {
+    float: left;
+    width: 100px;
+    padding: 1px 5px;
+    border: solid 1px #e8e8e8;
+    border-radius: 5px;
+}
+
+/*测试题部分*/
+.question-part {
+    margin: 10px;
+    padding: 10px;
+    background: #ffffff;
+    height: 880px;
+    overflow: auto;
+}
+
+.question {
+    float: left;
+    margin-top: 10px;
+}
+
+.question-q {
+    color: #9f502a;
+    width: 400px;
+}
+
+.question-res {
+    width: 25px;
+    height: 20px;
+    float: left;
+    margin-left: -5px;
+}
+
+.question-content {
+    float: left;
+    width: 620px;
+}
+
+.select-option {
+    padding: 3px 0 3px 10px;
+    margin: 5px 10px 5px 15px;
+    background: #f5ebcb;
+}
+
+.select-option:hover {
+    background: #08dec5;
+}
+
+.option-selected {
+    background: #fb9e1d;
+}
+
+.answer {
+    padding: 7px 0 7px 10px;
+    margin: 10px 10px 10px 15px;
+    border: solid 1px #e8e8e8;
+    color: #fb9e1d;
+    display: none;
+}
+
+.question-class {
+    margin-top: 10px;
+    clear: both;
+}
+
+textarea {
+    border: solid 1px #e8e8e8;
+    width: 595px;
+    height: 100px;
+    margin-left: 14px;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+#test_submit {
+    background: #fb9e1d;
+    color: #FFFFFF;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px 0 100px 310px;
+}
