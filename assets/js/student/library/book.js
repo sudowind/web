@@ -81,7 +81,9 @@ $('.modal-footer .btn').one("click",function(){
 
 });
 
-
+$('#add_to_task').click(function () {
+    $(this).html('已添加到“阅读任务”');
+});
 
 
 
