@@ -82,13 +82,26 @@ $('.modal-footer .btn').one("click",function(){
 });
 
 $('#online_read').click(function () {
-
+    window.open('reading.html', '_self');
 });
 
 $('#offline_read').click(function () {
-
+    window.open('read_offline.html', '_self');
 });
 
+
+function submit_note() {
+
+}
+
+$('#user_note').bind('input propertychange', function () {
+    if ($(this).val().length > 0) {
+        $('#submit_note').removeClass('disabled button-disabled').addClass('button-able');
+    }
+    else {
+        $('#submit_note').addClass('disabled button-disabled').removeClass('button-able');
+    }
+});
 
 
 

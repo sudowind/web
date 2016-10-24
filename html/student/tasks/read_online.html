@@ -49,8 +49,8 @@
                         </tbody>
                     </table>
                 </div>
-                <p class="btn" id="online_read">转线下阅读</p>
-                <p class="btn" id="offline_read">继续线上阅读</p>
+                <p class="btn" id="offline_read">转线下阅读</p>
+                <p class="btn" id="online_read">继续线上阅读</p>
             </div>
             <!--图书标签介绍-->
             <div class="book-detail-box" >
@@ -129,7 +129,36 @@
                 </div>
 
                 <div id="note_part">
-                    写读书笔记
+
+                    <div class="note-title"><b>写读书笔记：</b></div>
+
+                    <label for="user_note"></label><textarea id="user_note"></textarea>
+                    <p class="btn disabled button-disabled" id="submit_note" onclick="submit_note()">确定</p>
+
+                    <div class="note-title"><b>我的读书笔记：</b></div>
+
+                    <div class="note">
+                        <div class="note_id">1</div>
+                        <div class="note_time">2016-10-10 12:00</div>
+                        <div class="note_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们都干了一件很不平凡的事情。作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</div>
+                        <hr style="clear: both;"/>
+                    </div>
+                    <div class="note">
+                        <div class="note_id">1</div>
+                        <div class="note_time">2016-10-10 12:00</div>
+                        <div class="note_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们都干了一件很不平凡的事情。作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</div>
+                        <hr style="clear: both;"/>
+                    </div>
+
+                    <div class="tcdPageCode" id="note_pagination">
+                        <span class="disabled">上一页</span>
+                        <span class="current">1</span>
+                        <a href="javascript:;" class="tcdNumber">2</a>
+                        <!--<a href="javascript:;" class="tcdNumber">3</a>-->
+                        <span>...</span>
+                        <a href="javascript:;" class="tcdNumber">4</a>
+                        <a href="javascript:;" class="nextPage">下一页</a>
+                    </div>
                 </div>
             </div>
 

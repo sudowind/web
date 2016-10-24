@@ -3,7 +3,7 @@
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
     height: 250px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     position: relative;
     top: 0;
 }
@@ -51,11 +51,84 @@
     color: #afafaf;
 }
 
+/*进度填写部分*/
+.progress-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 160px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.progress-box .nav-bar {
+    height: 50px;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.progress-box .nav-bar img {
+    margin-right: 10px;
+}
+
+.progress-content {
+    padding: 20px;
+}
+
+.progress-content input {
+    font-size: 16px;
+    border-radius: 0;
+    width: 100px;
+    float: left;
+    margin: -5px 10px 0 10px;
+}
+
+.progress-content label {
+    float: left;
+    clear: left;
+}
+
+.progress-content span {
+    float: left;
+}
+
+#today_page {
+    width: 50px;
+}
+
+.progress {
+    margin-left: 20px;
+    float: left;
+    position: static;
+}
+
+.plan {
+    left: 247px;
+    top: 475px;
+    position: absolute;
+    font-size: 12px;
+    color: #999999;
+}
+
+.pages {
+    left: 330px;
+    top: 475px;
+    position: absolute;
+    font-size: 12px;
+    color: #999999;
+}
+
+#record_button {
+    float: left;
+    margin-top: -26px;
+    margin-left: 277px;
+    color: #ffffff;
+}
+
 /*文章详细信息部分*/
 .book-detail-box {
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
-    height: 800px;
+    height: 700px;
     font-size: 16px;
 }
 
@@ -78,6 +151,11 @@
 
 .triple-button {
     width: 33.33%;
+}
+
+#note_button img {
+    margin: 12px 0 0 70px;
+    float: left;
 }
 
 .book-detail-box .nav-bar .nav-button:not(:first-child) {
@@ -188,6 +266,56 @@
     color: #ffffff;
 }
 
+/*笔记部分*/
+#note_part {
+    display: none;
+    padding: 20px;
+}
+
+.note_id {
+    background: #fb9e1d;
+    padding: 5px 10px;
+    color: #ffffff;
+    float: left;
+}
+
+.note_time {
+    padding: 5px;
+    float: right;
+}
+
+.note_content {
+    clear: both;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+#note_part textarea {
+    width: 660px;
+    height: 100px;
+    /*margin-top: 10px;*/
+    margin-left: 15px;
+    padding: 10px;
+    border: solid 1px #e8e8e8;
+}
+
+.note-title {
+    margin-bottom: 10px;
+}
+
+#submit_note {
+    margin: 10px 0 10px 621px;
+    color: #ffffff;
+}
+
+.button-able {
+    background: #fb9e1d;
+}
+
+.button-disabled {
+    background: #bababa;
+}
+
 /*模态框*/
 .modal-footer div {
     float: left;
@@ -209,8 +337,14 @@
 }
 
 .modal-body div {
-    padding: 50px;
+    padding: 25px;
 }
+
+#modal_confirm {
+    margin-left: 155px;
+    color: #ffffff;
+}
+
 /*转线上线下css样式*/
 
 /*.book-info .begin-online{*/
@@ -241,7 +375,7 @@
 
 /*分页部分*/
 a:hover{ text-decoration:none;}
-.tcdPageCode{padding: 15px 20px;text-align: left;color: #f99d32;position: absolute;top: 1040px;left:175px;}
+.tcdPageCode{padding: 15px 20px;text-align: left;color: #f99d32;position: absolute;top: 1165px;left:175px;}
 .tcdPageCode a{display: inline-block;color: #f99d32;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #f99d32;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
 .tcdPageCode a:hover{text-decoration: none;border: 1px solid #f99d32;}
 .tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #f9f9f9;background-color: #f99d32;	border: 1px solid #f99d32;border-radius: 4px;vertical-align: middle;}
