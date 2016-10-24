@@ -1,5 +1,5 @@
 //分页部分的js
- $(".tcdPageCode").createPage({
+ $("#tasks-index").createPage({
      pageCount:20,
      current:1,
      backFn:function(p){
