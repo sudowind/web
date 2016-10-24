@@ -193,9 +193,54 @@
     color: #ffffff;
 }
 
+/*笔记部分*/
 #note_part {
     display: none;
     padding: 20px;
+}
+
+.note_id {
+    background: #fb9e1d;
+    padding: 5px 10px;
+    color: #ffffff;
+    float: left;
+}
+
+.note_time {
+    padding: 5px;
+    float: right;
+}
+
+.note_content {
+    clear: both;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+#note_part textarea {
+    width: 660px;
+    height: 100px;
+    /*margin-top: 10px;*/
+    margin-left: 15px;
+    padding: 10px;
+    border: solid 1px #e8e8e8;
+}
+
+.note-title {
+    margin-bottom: 10px;
+}
+
+#submit_note {
+    margin: 10px 0 10px 621px;
+    color: #ffffff;
+}
+
+.button-able {
+    background: #fb9e1d;
+}
+
+.button-disabled {
+    background: #bababa;
 }
 
 /*模态框*/

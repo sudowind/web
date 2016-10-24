@@ -22,4 +22,3 @@ $("#note_pagination").createPage({
         //console.log(p);
     }
 });
-
