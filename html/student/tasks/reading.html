@@ -38,7 +38,8 @@
                     </div>
                     <p class="ratio"><span>90</span>%</p>
                     <div class="section-btn">
-                        <img src="../../../assets/img/student/tasks/open.png" alt=""/>
+                        <img class="unopen" src="../../../assets/img/student/tasks/unopen.png" alt=""/>
+                        <!--<img class="open" src="../../../assets/img/student/tasks/open.png" alt=""/>-->
                     </div>
                     <div class="up">
                         <img src="../../../assets/img/student/tasks/up.png" alt=""/>
@@ -50,13 +51,33 @@
             </div>
             <div class="right">
                 <div class="title">导读
-                    <img src="../../../assets/img/student/tasks/label.png" alt=""/>
+                    <img src="../../../assets/img/student/tasks/unlabel.png" alt=""/>
                 </div>
                 <div class="contents">
-                    <embed src="../../../assets/img/student/tasks/react.pdf"> </embed>
-                    <!--<iframe  width="600" height="900" src="../../../assets/img/student/tasks/read.pdf"> </iframe > &lt;!&ndash;<embed width="600" height="900" src="../../../assets/img/student/tasks/read.pdf"> </embed>&ndash;&gt;-->
+                    <!--<embed src="../../../assets/img/student/tasks/react.pdf"> </embed>-->
+                    <object id="pdf1">
+                        <param name="src" value="../../../assets/img/student/tasks/react.pdf">
+                    </object>
                 </div>
+                <div class="status">
+                    <p><span>本书已读完</span>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#">做测评</a></p>
+                </div>
+                <div class="cover" style="display: none"></div>
+                <div class="section" style="display: none">
+                    <div class="section-menu">
+                        <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
+                        <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
+                        <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
+                        <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
+                        <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
+                    </div>
+                    <div class="section-retract">
+                        <img src="../../../assets/img/student/tasks/section.png" alt=""/>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </div>
     <div id="right_bar"></div>
@@ -74,6 +95,8 @@
 
 <script>
     load('../../../include/html/');
+    pdf1.LoadFile("../../../assets/img/student/tasks/react.pdf");
+    pdf1.SetShowToolbar(false);
 </script>
 
 </body>
