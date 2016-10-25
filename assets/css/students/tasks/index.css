@@ -148,7 +148,6 @@
     background: #ffffff;
 }
 .list .list-book .image img{
-    cursor:pointer;
     width: 122px;
     height: 172px;
 }
@@ -166,12 +165,10 @@
     font-weight: bold;
 }
 .list .list-book .book-name{
-    position: absolute;
-    top: 194px;
-    left: 41px;
+    text-align: center;
+    margin-top: 6px;
     font-size: 13px;
     font-weight: bold;
-    cursor:pointer;
 }
 .list .list-book .plan{
     position: absolute;

@@ -78,7 +78,6 @@ function on_button_click(e) {
 $('.modal-footer .btn').one("click",function(){
     $('#myModal').modal('hide');
     $(".book-image .btn").html("已添加“阅读任务”");
-
 });
 
 $('#online_read').click(function () {

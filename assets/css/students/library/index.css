@@ -147,9 +147,8 @@
     font-weight: bold;
 }
 .list .list-book .book-name{
-    position: absolute;
-    top: 206px;
-    left: 41px;
+    text-align: center;
+    margin-top: 13px;
     font-size: 13px;
     font-weight: bold;
     cursor:pointer;
