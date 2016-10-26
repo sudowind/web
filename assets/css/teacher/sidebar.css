@@ -1,0 +1,157 @@
+/*左导航栏logo底*/
+.left-side-logo {
+    height: 70px;
+    background: #fe9e1d;
+}
+
+/*左导航栏logo图片*/
+.left-logo-img {
+    margin-left: -43px;
+    margin-top: -53px;
+}
+
+/*右导航栏个人信息*/
+.right-personal-info {
+    height: 80px;
+    background: #ac9c8b;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+/*左导航栏按钮*/
+.left-side-button {
+    height: 100px;
+    border: none 1px #5d544c;
+    border-bottom-style: solid;
+    background: #776c60;
+
+    text-align: left;
+}
+
+/*以下两个CSS控制导航栏按钮变色*/
+.left-side-button:hover,.right-side-button:hover {
+    background: #5d544c;
+}
+
+.side-button-selected {
+    background: #5d544c;
+}
+
+/*退出图片*/
+.exit-img {
+    position: absolute;
+    width: 30%;
+    height: 60px;
+    bottom: 0;
+    background: #fe9e1d;
+    float: left;
+
+    padding: 17px 0 0 22px;
+}
+
+/*退出按钮*/
+.exit-button {
+    position: absolute;
+    width: 70%;
+    height: 60px;
+    bottom: 0;
+    right: 0;
+    background: #e08a12;
+
+    text-align: center;
+    padding-top: 17px;
+}
+
+/*左导航栏按钮图片*/
+.left-sidebar-img {
+    margin-top: 35px;
+    margin-left: 40px;
+    float: left;
+}
+
+/*左导航栏按钮文字*/
+.left-sidebar-content {
+    padding-left: 80px;
+    padding-top: 35px;
+}
+
+/*右导航栏按钮*/
+.right-side-button {
+    height: 50px;
+    border: none 1px #5d544c;
+    border-bottom-style: solid;
+    background: #776c60;
+
+    color: #ffffff;
+    font-family: "Microsoft YaHei UI", serif;
+    text-align: center;
+    padding: 15px;
+}
+
+/*左导航栏主体*/
+.left-sidebar {
+    position: relative;
+    background: #776c60;
+    height: 1250px;
+    width: 240px;
+    float: left;
+
+    font-size: 18px;
+    color: #ffffff;
+    font-family: "Microsoft YaHei UI", serif;
+}
+
+/*右导航栏主体*/
+.right-sidebar {
+    background: #776c60;
+    height: 1250px;
+    width: 180px;
+    float: left;
+}
+
+/*右导航栏照片部分*/
+#teacher_photo {
+    height: 150px;
+    border: none 1px #5d544c;
+    border-bottom-style: solid;
+    background: #776c60;
+
+    color: #ffffff;
+    font-family: "Microsoft YaHei UI", serif;
+    text-align: center;
+    padding: 15px;
+}
+
+.right-photo {
+    display:inline-block;
+    position:relative;
+    width:80px;
+    height:80px;
+    overflow:hidden;
+    border-radius:50%;
+
+    margin: 5px auto 5px 0;
+}
+
+/*右部个人信息点缀*/
+.right-decorate-1 {
+    border: solid 2px #f99d32;
+    width: 38.2%;
+    float: left;
+    margin-top: 10px;
+}
+
+.right-decorate-2 {
+    border: solid 2px #5c554e;
+    width: 61.8%;
+    float: left;
+    margin-top: 10px;
+}
+
+.main-body {
+    width: 1300px;
+    height: 1250px;
+    margin: 70px auto 50px auto;
+    padding: 0 50px;
+}
