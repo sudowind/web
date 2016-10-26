@@ -1,0 +1,170 @@
+#task{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.content{
+    padding:21px 20px;
+    position: relative;
+    top: 0px;
+}
+.title h3{
+    width: 81px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+    padding-bottom: 30px;
+}
+.title .down{
+    width: 649px;;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #cccccc;
+    float: right;
+}
+.seek .frame{
+    margin-top: 15px;
+}
+.seek .frame input{
+    width: 398px;
+    height: 42px;
+    border: 1px solid #f99d32;
+    float: left;
+}
+.seek .button input{
+    background: #f99d32;
+    border: none;
+    padding: 11px 18px;
+    font-size: 14px;
+    color: #ffffff;
+    cursor:pointer;
+}
+.seek .add-task {
+    float: right;
+    margin-right: 3px;
+    width: 98px;
+    height: 40px;
+    border: 1px solid #f99d32;
+    border-radius: 6px;
+}
+
+.seek .add-task p{
+    line-height: 40px;
+    padding-left: 10px;
+    color: #f99d32;
+}
+.seek .add-task p img{
+    margin-right: 6px;
+    padding-bottom: 3px;
+}
+/*选择班级的css*/
+.content .class-name{
+    width: 728px;
+    height: 78px;
+    line-height: 78px;
+    border: 1px solid #e8e8e8;
+    background: #f9f9f9;
+    margin-top: 30px;
+}
+.content .class-name p{
+    font-size: 18px;
+    margin-left: 15px;
+}
+.content .class-name p span{
+    border: 1px solid #f99d32;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 7px 10px;
+    margin-left: 18px;
+}
+.content .class-name p .index{
+    padding: 6px 26px;
+    color: #FFFFFF;
+    background: #f99d32;
+}
+/*学生个人具体信息*/
+.information {
+    width: 728px;
+    height: 920px;
+    border: 1px solid #e8e8e8;
+    margin-top: 20px;
+    background: #f9f9f9;
+}
+.information .head{
+    width: 726px;
+    height: 36px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 20px;
+    border-bottom: 1px dashed #f99d32;
+}
+.information .head li{
+    float: left;
+    margin-left: 68px;
+}
+.information ul{
+    font-size: 16px;
+    height: 44px;
+}
+.information ul li{
+    float: left;
+    color: #000000;
+    line-height: 44px;
+}
+.information ul li:nth-of-type(1){
+    margin-left: 61px;
+}
+.information ul li:nth-of-type(2){
+    margin-left: 56px;
+}
+.information ul li:nth-of-type(3){
+    margin-left: 68px;
+}
+.information ul li:nth-of-type(4){
+    margin-left: 67px;
+}
+.information ul li:nth-of-type(5){
+    margin-left: 60px;
+}
+.information ul li:nth-of-type(6){
+    margin-left: 40px;
+}
+.information ul li:nth-of-type(7){
+    margin-left: 30px;
+}
+/*分页部分*/
+a:hover{ text-decoration:none;}
+.tcdPageCode{padding: 30px 20px;text-align: left;color: #f99d32;position: absolute;top: 1080px;left: 160px}
+.tcdPageCode a{display: inline-block;color: #f99d32;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #f99d32;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode a:hover{text-decoration: none;border: 1px solid #f99d32;}
+.tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #f9f9f9;background-color: #f99d32;	border: 1px solid #f99d32;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #f99d32;background: #f9f9f9;border: 1px solid #f99d32;border-radius: 4px;vertical-align:middle;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
