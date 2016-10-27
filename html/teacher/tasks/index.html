@@ -11,12 +11,106 @@
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/tasks/index.css">
+    <link rel="stylesheet" href="../../../assets/css/pagination.css">
 </head>
 <body background="../../../assets/img/background.png">
 
 <div class="main-body">
     <div id="left_bar"></div>
-    <div id="library"></div>
+    <div id="library">
+        <div class="content">
+            <div class="title">
+                <h3>Tasks</h3>
+                <span class="down"></span>
+
+                <div class="classes-part part-basis">
+                    <p>所带班级：</p>
+                    <span class="index option">2015级3班</span>
+                    <span class="option">2015级3班</span>
+                    <span class="option">2015级3班</span>
+                    <span class="option">2015级3班</span>
+                </div>
+
+                <div class="book-part part-basis">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>图书</td>
+                            <td>在线阅读人数</td>
+                            <td>测试平均分</td>
+                            <td>阅读时间</td>
+                            <td>操作</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div class="table-img">
+                                    <img src="../../../assets/img/1.png" alt="">
+                                    <span class="book-score">0.0</span>
+                                    <div>诗词里的科学</div>
+                                </div>
+                            </td>
+                            <td>
+                                <!--TODO 每一个progress_bar应该有自己单独的id，构造相应的自己的对象，然后调用相应的set函数-->
+                                <div class="progress-circle" id="progress_bar"></div>
+                            </td>
+                            <td>
+                                <div class="progress-circle" id="progress_bar2"></div>
+                            </td>
+                            <td>
+                                开始时间 <br/><input type="text" onclick="laydate()" class="laydate-icon"><br />
+                                结束时间 <br/><input type="text" onclick="laydate()" class="laydate-icon">
+                            </td>
+                            <td class="ops"><br/>删除<br /><br />查看</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-img">
+                                    <img src="../../../assets/img/1.png" alt="">
+                                    <span class="book-score">0.0</span>
+                                    <div>诗词里的科学</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-img">
+                                    <img src="../../../assets/img/1.png" alt="">
+                                    <span class="book-score">0.0</span>
+                                    <div>诗词里的科学</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-img">
+                                    <img src="../../../assets/img/1.png" alt="">
+                                    <span class="book-score">0.0</span>
+                                    <div>诗词里的科学</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="tcdPageCode" id="teacher_task_pagination">
+                        <span class="disabled">上一页</span>
+                        <span class="current">1</span>
+                        <a href="javascript:;" class="tcdNumber">2</a>
+                        <!--<a href="javascript:;" class="tcdNumber">3</a>-->
+                        <span>...</span>
+                        <a href="javascript:;" class="tcdNumber">4</a>
+                        <a href="javascript:;" class="nextPage">下一页</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div id="right_bar"></div>
 </div>
 
@@ -33,12 +127,14 @@
 
 <script>
     load('../../../include/html/', 'teacher');
+    init();
 //    on_button_click($('#intro_button'));
-//    bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+    bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 //    bar.text.style.fontSize = '2rem';
-//
-//    bar.set(0.10);  // Number from 0.0 to 1.0
+
+    bar.set(0.10);  // Number from 0.0 to 1.0
 //    bar.animate(0.90);  // Number from 0.0 to 1.0
+    bar1.set(0.2);
 </script>
 
 </body>
