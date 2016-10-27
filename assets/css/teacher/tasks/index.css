@@ -60,6 +60,10 @@ tbody tr td {
     border-bottom: 1px dotted #d7d6d6;
 }
 
+.ops span {
+    cursor: pointer;
+}
+
 .ops {
     width: 60px;
 }
