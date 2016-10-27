@@ -137,6 +137,18 @@
 .information ul li:nth-of-type(7){
     margin-left: 30px;
 }
+
+/*点击查看学生信息的弹窗*/
+.look-up{
+    width: 620px;
+    height: 460px;
+    /*background: #f9f9f9;*/
+    background:#f99d32;
+    position: absolute;
+    top: 320px;
+    left: 80px;
+}
+
 /*分页部分*/
 a:hover{ text-decoration:none;}
 .tcdPageCode{padding: 30px 20px;text-align: left;color: #f99d32;position: absolute;top: 1080px;left: 160px}
