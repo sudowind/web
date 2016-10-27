@@ -1,0 +1,105 @@
+.part-basis {
+    background: #f9f9f9;
+    border: solid 1px #e8e8e8;
+}
+
+/*选择班级部分*/
+.classes-part {
+    clear: both;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    padding: 20px;
+    height: 100%;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.classes-part p {
+    float: left;
+}
+
+.option  {
+    background: #ffffff;
+    color: #6e6e6e;
+    border: solid 1px #fb9e1d;
+    padding: 2px 10px;
+    margin-left: 14px;
+
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.index {
+    background: #fb9e1d;
+    color: #ffffff;
+}
+
+/*图书详情部分*/
+.book-part {
+    height: 1050px;
+}
+
+/*表格样式*/
+
+thead {
+    border-bottom: 1px dotted #fb9e1d;
+    text-align: center;
+}
+thead tr td {
+    padding: 15px;
+    line-height: 25px;
+}
+
+tbody tr td {
+    padding: 15px;
+    line-height: 25px;
+    border-bottom: 1px dotted #d7d6d6;
+}
+
+.ops span {
+    cursor: pointer;
+}
+
+.ops {
+    width: 60px;
+}
+
+.table-img {
+    position: relative;
+}
+
+.table-img img {
+    height: 150px;
+    margin: 15px 15px 0 15px;
+}
+
+.table-img span {
+    position: absolute;
+    top: 137px;
+    left: 68px;
+    width: 48px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: #f99d32;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.table-img div {
+    text-align: center;
+}
+
+/*进度条*/
+.progress-circle {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    position: relative;
+}
