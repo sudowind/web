@@ -74,3 +74,18 @@ $('#fp_teacher_confirm_button').click(function () {
     $('#before_input').hide();
     $('#after_input').show();
 });
+
+$('#submit_button').click(function () {
+    $.ajax({
+        type: 'POST',
+        url: 'http://192.168.1.119:8082/users/open/login',
+        data: {
+            account: 1,
+            password: 'M0FW0O',
+            userType: 5
+        },
+        success: function () {
+            alert('success!!!!!!!!!!');
+        }
+    });
+});

@@ -1,3 +1,8 @@
+.part-basis {
+    background: #f9f9f9;
+    border: solid 1px #e8e8e8;
+}
+
 #library{
     background: #fff;
     width: 770px;
@@ -7,7 +12,7 @@
 .content{
     padding:21px 20px;
     position: relative;
-    top: 0px;
+    top: 0;
 }
 .title h3{
     width: 81px;
