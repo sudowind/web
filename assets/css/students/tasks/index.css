@@ -139,6 +139,7 @@
     position: relative;
     top: 0;
     font-family: "Microsoft YaHei", serif;
+    box-shadow:2px 2px 2px #ccc;
 }
 .list .list-book .image {
     width: 156px;
