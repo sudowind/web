@@ -1,0 +1,162 @@
+/*返回按钮*/
+.return-button {
+    margin: -50px 0 0 675px;
+    background: #fb9e1d;
+    color: #ffffff;
+}
+
+.return-button p {
+    color: #ffffff;
+}
+
+/*图书摘要信息部分*/
+.book-info-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 210px;
+    margin-top: -12px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.book-info-box .book-image {
+    width: 150px;
+    margin: 20px 20px;
+    float: left;
+    text-align: center;
+}
+
+.book-info-box p {
+    clear: both;
+    padding-left: 27px;
+}
+
+.book-info-box .book-info {
+    width: 450px;
+    margin: 25px 40px 0 40px;
+    float: left;
+}
+
+.book-info-box .book-info table {
+    float: left;
+    font-size: 16px;
+    margin: 20px 0 0 0;
+}
+
+.book-info-box .book-info table tbody tr td{
+    height: 40px;
+    padding-right: 70px;
+}
+
+.book-info-box .book-info table tbody tr td span{
+    color: #afafaf;
+}
+
+hr {
+    clear: both;
+}
+
+/*选择班级部分*/
+.classes-part {
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    height: 100%;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.classes-part p {
+    float: left;
+}
+
+.option  {
+    background: #ffffff;
+    color: #6e6e6e;
+    border: solid 1px #fb9e1d;
+    padding: 2px 10px;
+    margin-left: 14px;
+
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.index {
+    background: #fb9e1d;
+    color: #ffffff;
+}
+
+/*学生信息表格部分*/
+.student-info-part {
+    height: 790px;
+}
+
+.student-info-part table thead {
+    font-size: 16px;
+    border-bottom: 1px dotted #fb9e1d;
+    text-align: center;
+}
+
+.student-info-part table tbody {
+    border-bottom: 1px dotted #fb9e1d;
+    text-align: center;
+}
+
+.student-info-part table thead tr td {
+    padding: 15px;
+    line-height: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.student-info-part table tbody tr {
+    height: 60px;
+}
+
+.student-info-part table tbody tr td {
+    padding: 15px 15px;
+    text-align: center;
+    height: 60px;
+}
+
+.student-info-part table tbody tr td:first-child {
+    width: 118px;
+}
+.student-info-part table tbody tr td:nth-child(2) {
+    width: 120px;
+}
+.student-info-part table tbody tr td:nth-child(5) {
+    width: 110px;
+}
+.student-info-part table tbody tr td:nth-child(6) {
+    width: 100px;
+}
+
+.progress-message{
+    float: left;
+    text-align: left;
+    width: 56px;
+    font-size: 8px;
+    position: static;
+    color: #a8a8a8;
+}
+
+.progress-part .progress-message:last-child {
+    text-align: right;
+    width: 84px;
+}
+
+.progress-part {
+    padding: 0;
+}
+
+.progress {
+    position: static;
+    border: 1px solid #febc3c;
+    margin-bottom:0;
+}

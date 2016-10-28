@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
     <link rel="stylesheet" href="../../../assets/css/pagination.css">
-    <link rel="stylesheet" href="../../../assets/css/teacher/tasks/book.css">
+    <link rel="stylesheet" href="../../../assets/css/teacher/library/assign_task.css">
 </head>
 <body background="../../../assets/img/background.png">
 
@@ -20,16 +21,17 @@
     <div id="library">
         <div class="content">
             <div class="title">
-                <h3>Tasks</h3>
+                <h3>Library</h3>
                 <span class="down"></span>
             </div>
 
-            <a href="index.html"><div align="right" class="return-button btn"><p>返回</p></div></a>
+            <a href="#"><div align="right" class="return-button btn"><p>返回</p></div></a>
 
             <div class="book-info-box">
                 <div class="book-image">
                     <img src="../../../assets/img/student/book/duck_ridding.png" alt="" width="90%" height="90%">
                     <!--<p class="btn" data-toggle="modal" data-target="#myModal">添加到“阅读任务”</p>-->
+
                 </div>
                 <div class="book-info">
                     <div id="book_name"><h3><b>鸭子骑车记&nbsp;</b><small>故事</small></h3></div>
@@ -50,32 +52,42 @@
                         </tbody>
                     </table>
                 </div>
+                <p id="online_read">5个同学已读</p>
             </div>
 
-            <div class="classes-part part-basis">
-                <p>所带班级：</p>
-                <span class="index option">2015级3班</span>
-                <span class="option">2015级3班</span>
-                <span class="option">2015级3班</span>
-                <span class="option">2015级3班</span>
+            <div class="part-basis" id="set_info_part">
+                <div id="set_time_title" class="set_info_title">
+                    <img src="../../../assets/img/teacher/library/set_time.png" alt=""><div>设定阅读时间</div>
+                </div>
+                <div class="content">
+                    <span>开始日期：</span><input class="laydate-icon" onclick="laydate()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>结束日期：</span><input class="laydate-icon" onclick="laydate()">
+                </div>
+                <div class="set_info_title">
+                    <img src="../../../assets/img/teacher/library/set_class.png" alt=""><div>选择班级</div>
+                </div>
+                <div class="content">
+                    <label for="class_selector"></label><select id="class_selector">
+                    <option value="">全部年级</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                </select>
+                </div>
             </div>
 
-            <div class="part-basis student-info-part">
+            <div id="choose_part" class="part-basis">
                 <table>
                     <thead>
                     <tr>
-                        <td>账号</td>
+                        <td>班级</td>
                         <td>姓名</td>
-                        <td>当前进度</td>
-                        <td>测试题分数</td>
-                        <td>读书笔记</td>
-                        <td>操作</td>
+                        <td>阅读能力</td>
+                        <td><img src="../../../assets/img/teacher/total_unselected.png" alt="" id="total_selector" value="0">&nbsp;&nbsp;全选</td>
                     </tr>
                     </thead>
                     <tbody>
                     <tr id="row0">
-                        <td></td>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -86,12 +98,8 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
                     </tr>
                     <tr id="row2">
-                        <td></td>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -102,12 +110,8 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
                     </tr>
                     <tr id="row4">
-                        <td></td>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -118,12 +122,8 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
                     </tr>
                     <tr id="row6">
-                        <td></td>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -134,29 +134,11 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row8">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row9">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
                     </tr>
                     </tbody>
                 </table>
 
-                <div class="tcdPageCode" id="teacher_task_pagination">
+                <div class="tcdPageCode" id="student_pagination">
                     <span class="disabled">上一页</span>
                     <span class="current">1</span>
                     <a href="javascript:;" class="tcdNumber">2</a>
@@ -165,11 +147,14 @@
                     <a href="javascript:;" class="tcdNumber">4</a>
                     <a href="javascript:;" class="nextPage">下一页</a>
                 </div>
+
+                <div id="confirm_button" class="btn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
 
         </div>
     </div>
     <div id="right_bar"></div>
+    <div id="tmp_modal"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
@@ -180,12 +165,12 @@
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../assets/js/page.js"></script>
-<script src="../../../assets/js/teacher/tasks/book.js"></script>
+<script src="../../../assets/js/teacher/library/assign_task.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
 
 <script>
     load('../../../include/html/', 'teacher');
     init();
-
 </script>
 
 </body>
