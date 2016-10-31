@@ -1,7 +1,10 @@
 /**
  * Created by yilong on 2016/10/18.
  */
-
+// 左右导航栏的回调函数
+function left_bar_cb() {
+    $('#homepage_button').attr('class', 'side-button-selected left-side-button');
+}
     //条形图
 var myChart = echarts.init(document.getElementById('main'));
 
