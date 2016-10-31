@@ -137,6 +137,89 @@
 .information ul li:nth-of-type(7){
     margin-left: 30px;
 }
+
+/*点击查看学生信息的弹窗*/
+.modal-body{
+    width: 620px;
+    height: 460px;
+    background: #f9f9f9;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 16px;
+    font-weight: bolder;
+    border-radius: 8px;
+}
+.out{
+    cursor: pointer;
+    float: right;
+}
+.modal-body form{
+    margin-left: 170px;
+    margin-top: 38px;
+}
+.modal-body form p{
+    margin-top: 20px;
+}
+.modal-body form p input{
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    margin-left: 70px;
+}
+.modal-body form .time input{
+    margin-left: 46px;
+}
+.modal-body form p select{
+    margin-left: 72px;
+    width: 200px;
+}
+.modal-body form .initial{
+    color: #b6b6b6;
+}
+.modal-body form .initial span{
+    margin-left: 117px;
+}
+.modal-body form .sex input{
+    width: 16px;
+    height: 16px;
+}
+.modal-body form .submit{
+    width: 150px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #f99d32;
+    border-radius: 8px;
+    margin-top: 25px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*分页部分*/
 a:hover{ text-decoration:none;}
 .tcdPageCode{padding: 30px 20px;text-align: left;color: #f99d32;position: absolute;top: 1080px;left: 160px}

@@ -34,3 +34,14 @@ function Back(){
     $(".off").css("display","none");
     $(".sure").css("display","none");
 }
+$.ajax({
+    type: 'POST',
+    url: "",
+    data: {
+
+    },
+    success: function(res){
+
+    },
+    dataType: dataType
+});

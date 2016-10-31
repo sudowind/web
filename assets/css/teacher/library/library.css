@@ -1,8 +1,3 @@
-.part-basis {
-    background: #f9f9f9;
-    border: solid 1px #e8e8e8;
-}
-
 #library{
     background: #fff;
     width: 770px;
@@ -12,7 +7,7 @@
 .content{
     padding:21px 20px;
     position: relative;
-    top: 0;
+    top: 0px;
 }
 .title h3{
     width: 81px;
@@ -52,8 +47,6 @@
 /*图书分类部分*/
 .book{
     width: 728px;
-    height: 1017px;
-    background: #f9f9f9;
     border: 1px solid #e8e8e8;
     margin-top:30px;
     position: relative;
@@ -61,6 +54,7 @@
 .book .sort{
     border-bottom: 1px dashed #d8d8d8;
     padding-bottom: 22px;
+    background: #f9f9f9;
 }
 .book .sort p{
     font-weight: bold;
@@ -96,13 +90,12 @@
     margin-bottom: 70px;
 }
 .book .grade span{
-    width: 78px;
+    width: 96px;
     height: 28px;
     line-height: 28px;
     text-align: center;
     border: 1px solid #f99d32;
     border-radius: 10px;
-    /*padding: 5px 24px;*/
     margin-top: 24px;
     margin-left: 14px;
     display: inline-block;
@@ -111,6 +104,64 @@
 }
 .book .grade {
     padding-bottom: 27px;
+    border-bottom: 1px dashed #e8e8e8;
+    background: #f9f9f9;
+}
+
+.book .read-lv{
+    height: 60px;
+    background: #f9f9f9;
+}
+.book .read-lv p{
+    float: left;font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.book .read-lv .box {
+    float: left;
+    margin: 15px ;
+}
+.book .read-lv .box input{
+    width: 78px;
+    height: 28px;
+    border: 1px solid #f99d32;
+    border-radius: 8px;
+}
+.book .read-lv .button{
+    padding-top: 15px;
+
+}
+.book .read-lv .button input{
+    width: 58px;
+    height: 28px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #f99d32;
+    margin-left: 10px;
+}
+.book .read-lv .button .submit{
+    background: #f99d32;
+    color: #ffffff;
+}
+.book .read-lv .button .del{
+    background: #ffffff;
+}
+/*下半部图书列表内容*/
+.books{
+    width: 728px;
+    height: 700px;
+    border: 1px solid #e8e8e8;
+    background: #f9f9f9;
+    margin-top: 20px;
+}
+.books .statistics{
+    height: 48px;
+    line-height: 48px;
+    padding-left: 15px;
+    font-size: 19px;
+    color: #f99d32;
+    font-weight: bold;
     border-bottom: 1px solid #e8e8e8;
 }
 /*图书列表部分*/
@@ -126,6 +177,17 @@
     top: 0;
     font-family: "Microsoft YaHei", serif;
     box-shadow:2px 2px 2px #ccc;
+}
+.list .list-book .already-reading{
+    width: 156px;
+    height: 32px;
+    background: #febc3c;
+    position: absolute;
+    top: 92px;
+    left: 0px;
+    color: #ffffff;
+    line-height: 32px;
+    text-align: center;
 }
 .list .list-book .image {
     width: 156px;
@@ -175,6 +237,29 @@
     color: #f99d32;
     cursor:pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*分页部分*/
 a:hover{ text-decoration:none;}
 .tcdPageCode{padding: 15px 20px;text-align: left;color: #f99d32;position: absolute;top: 910px;left:136px;}
