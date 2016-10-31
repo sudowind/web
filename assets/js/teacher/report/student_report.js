@@ -40,6 +40,12 @@ function on_button_click(e) {
     }
 }
 
+$('.slide-button').click(function () {
+    $('.book-info-box').fadeOut(function() {
+        $('.book-info-box').fadeIn();
+    });
+});
+
 function load_chart(element_id) {
     var myChart = echarts.init(document.getElementById(element_id));
     if (element_id.indexOf('count') >= 0) {
