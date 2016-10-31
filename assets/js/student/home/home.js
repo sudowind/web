@@ -30,9 +30,15 @@ option = {
     yAxis: [
         {
             type: 'category',
-            data: ['信息提取', '意义构建', '语义推论', '组织概况', '评价赏析']
+            data: ['信息提取', '意义构建', '语义推论', '组织概况', '评价赏析'],
+            axisTick: {
+
+            }
         }
     ],
+    grid: {
+        left: '20%'
+    },
     series: [
         {
             name: '我的平均分',
@@ -65,7 +71,7 @@ option = {
             }
         }
     ]
-}
+};
 // 为echarts对象加载数据
 myChart.setOption(option);
 

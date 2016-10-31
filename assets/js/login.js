@@ -78,11 +78,11 @@ $('#fp_teacher_confirm_button').click(function () {
 $('#submit_button').click(function () {
     $.ajax({
         type: 'POST',
-        url: 'http://192.168.1.119:8082/users/open/login',
+        url: 'http://debian8-01.internal.enjoyreading.com/users/open/login',
         data: {
-            account: 1,
-            password: 'M0FW0O',
-            userType: 5
+            account: 2,
+            password: '123456',
+            userType: 2
         },
         success: function () {
             alert('success!!!!!!!!!!');
