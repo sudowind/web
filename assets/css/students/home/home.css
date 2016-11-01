@@ -139,13 +139,16 @@
 }
 .top{
     width: 230px;
-    height: 800px;
+    height: 760px;
     float: left;margin-top: 30px;
+    box-shadow: 1px 1px 3px #ccc;
+    border-radius: 6px;
 }
 .top .title {
     height: 90px;
     width: 230px;
     background: #f0f0f0;
+    border-radius: 6px;
 }
 .top .title img{
     margin-left: 36px;
@@ -186,7 +189,7 @@
 .top-list ul li{
     height: 60px;
     font-size: 13px;
-    border: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
 }
 .top-list ul li .rank{
     float: left;
@@ -194,8 +197,10 @@
     margin-left: 34px;
     font-size: 25px;
     color: #febc3c;
+    width: 30px;
+    text-align: center;
 }
-.top-list ul li img{
+.top-list ul li .head{
     float: left;
     border: 2px solid #44bdef;
     border-radius: 100px;
