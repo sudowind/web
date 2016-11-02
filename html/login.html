@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../include/css/tip_modal.css">
 </head>
 <body background="../assets/img/background.png">
 
@@ -16,28 +17,28 @@
             <div class="login-nav-logo">
                 <img src="../assets/img/logo.png" alt="" class="login-logo-img">
             </div>
-            <div class="login-nav-button main-button" id="drop_down" onclick="on_drop_down_click();">
+            <div class="login-nav-button main-button" id="drop_down" onclick="on_drop_down_click();" value="2">
                 <img src="../assets/img/login/student.png" alt="" class="login-nav-img">
                 <div class="login-nav-content">我是学生</div>
                 <img src="../assets/img/login/dropdown_close.png" alt="" class="drop-down-icon-close" id="drop_down_icon">
             </div>
             <div class="sub-menu">
-                <div class="login-nav-button sub-button">
+                <div class="login-nav-button sub-button" value="2">
                     <img src="../assets/img/login/student.png" alt="" class="login-nav-img">
                     <div class="login-nav-content">我是学生</div>
                 </div>
-                <div class="login-nav-button sub-button">
+                <div class="login-nav-button sub-button" value="3">
                     <img src="../assets/img/login/teacher.png" alt="" class="login-nav-img">
                     <div class="login-nav-content">我是老师</div>
                 </div>
-                <div class="login-nav-button sub-button">
+                <div class="login-nav-button sub-button" value="4">
                     <img src="../assets/img/login/school_master.png" alt="" class="login-nav-img">
                     <div class="login-nav-content">我是校长</div>
                 </div>
             </div>
         </div>
         <div class="login-content">
-            <div id="login_model">
+            <form id="login_model">
                 <div class="login-input">
                     <label for="user_name" id="user_name_label"></label>
                     <input id="user_name" placeholder="用户名">
@@ -58,7 +59,7 @@
                 <div id="forget_password">
                     <a onclick="forget_password()">忘记密码</a>
                 </div>
-            </div>
+            </form>
             <div id="find_password">
                 <div id="fp_header"><b>找回密码</b></div>
                 <div class="fp-function grey-border" onclick="on_fp_drop_down_click()">
@@ -120,13 +121,14 @@
             </div>
         </div>
     </div>
-
+    <div id="tmp_modal"></div>
 </div>
 <div id="page_footer" class="fixed-bottom" style="background: #edeef0"></div>
 
 <script src="../libs/jquery-3.1.1.min.js"></script>
 <script src="../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../assets/js/login.js"></script>
+<script src="../assets/js/tip_modal.js"></script>
 <script>
     // 为了保证页脚始终在低端，并且保证横向缩放页脚始终居中，分别改变了marginTop和width
     $('#page_footer').load('../include/html/footer.html', function() {

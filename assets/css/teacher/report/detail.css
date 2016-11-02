@@ -9,6 +9,43 @@
     color: #ffffff;
 }
 
+/*学生照片部分*/
+.student-img-box {
+    float: left;
+    width: 170px;
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 250px;
+    margin-top: -12px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.student-img {
+    display:inline-block;
+    position:relative;
+    width:100px;
+    height:100px;
+    overflow:hidden;
+    border-radius:50%;
+
+    margin: 30px 5px 13px;
+}
+
+.student-img img {
+    width:auto;
+    height: 235%;
+    margin-left:-30%;
+}
+
+.student-img-box div {
+    font-size: 18px;
+}
+
+.student-img-box div small {
+    color: #999999;
+}
+
 /*图书摘要信息部分*/
 .book-info-box {
     background: #f9f9f9;
@@ -17,6 +54,7 @@
     margin-top: -12px;
     margin-bottom: 20px;
     position: relative;
+    float: left;
 }
 
 .book-info-box .book-image {
@@ -32,8 +70,8 @@
 }
 
 .book-info-box .book-info {
-    width: 450px;
-    margin: 25px 40px 0 40px;
+    width: 328px;
+    margin: 25px 10px 0 10px;
     float: left;
 }
 
@@ -45,7 +83,7 @@
 
 .book-info-box .book-info table tbody tr td{
     height: 40px;
-    padding-right: 70px;
+    padding-right: 20px;
 }
 
 .book-info-box .book-info table tbody tr td span{
@@ -58,6 +96,7 @@
     border: 1px solid #e8e8e8;
     height: 800px;
     font-size: 16px;
+    clear: both;
 }
 
 .book-detail-box .nav-bar {
@@ -317,12 +356,37 @@
     background: #fb9e1d;
 }
 
+/*解析答案*/
 .answer {
     padding: 7px 0 7px 10px;
     margin: 10px 10px 10px 15px;
     border: solid 1px #e8e8e8;
     color: #fb9e1d;
     display: none;
+    position: relative;
+}
+
+.answer-analysis {
+    width: 450px;
+    float: left;
+}
+
+.true-answer {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    color: #FFFFFF;
+    background: #fb9e1d;
+    padding-top: 14px;
+    margin-right:10px;
+
+    float: right;
+}
+
+.answer div:last-child {
+    clear: both;
 }
 
 hr {

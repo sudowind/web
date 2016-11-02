@@ -14,6 +14,8 @@ function on_drop_down_click() {
 }
 
 $('.sub-button').click(function () {
+    $('.fp-sub-menu').slideUp();
+    $('.main-button').attr('value', $(this).attr('value'));
     $('.main-button .login-nav-img').attr('src', $(this).children('img').attr('src'));
     $('.main-button .login-nav-content').html($(this).children('.login-nav-content').html());
     on_drop_down_click();
@@ -25,6 +27,10 @@ function forget_password() {
 }
 
 function on_fp_drop_down_click() {
+
+    if ($('.main-button').attr('value') != '2')
+        return;
+
     $('.fp-sub-menu').slideToggle();
     var tmp = $('#fp_drop_down_icon');
     if (tmp.attr('src') != '../assets/img/login/black_drop_down_open.png') {
@@ -51,6 +57,7 @@ $('.fp-sub-menu .fp-function').click(function () {
     on_fp_drop_down_click();
 });
 
+// 设置重发验证码的时间
 var t = 10;
 function reset_time() {
     t = 10;
@@ -76,16 +83,20 @@ $('#fp_teacher_confirm_button').click(function () {
 });
 
 $('#submit_button').click(function () {
+    var account = $('#user_name').val();
+    var password = $('#password').val();
+    var user_type = $('.main-button').attr('value');
+    user_type = '5';
     $.ajax({
         type: 'POST',
-        url: 'http://192.168.1.119:8082/users/open/login',
+        url: 'http://debian8-01.internal.enjoyreading.com/users/open/login',
         data: {
-            account: 1,
-            password: 'M0FW0O',
-            userType: 5
+            account: account,
+            password: password,
+            userType: user_type
         },
-        success: function () {
-            alert('success!!!!!!!!!!');
+        success: function (data) {
+            my_tip.alert(data.success);
         }
     });
 });
