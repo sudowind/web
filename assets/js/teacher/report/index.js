@@ -7,6 +7,9 @@
 function init() {
     for (var i = 0; i <= 6; ++i) {
         load_table_classes('#row' + i);
+    };
+    for(var i = 0;i <= 6 ;i ++){
+        load_table_
     }
 }
 
