@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
@@ -31,19 +32,19 @@
                     <p class="btn" id="add_to_task">添加到“阅读任务”</p>
                 </div>
                 <div class="book-info">
-                    <div id="book_name"><h3><b>鸭子骑车记&nbsp;</b><small>故事</small></h3></div>
+                    <div id="book_name"><h3><b>鸭子骑车记</b>&nbsp;<small id="display_type">故事</small></h3></div>
                     <table>
                         <tbody>
                             <tr>
-                                <td>作者&nbsp;&nbsp;<span>大卫夏农</span></td>
-                                <td>出版社&nbsp;&nbsp;<span>海南出版公司</span></td>
+                                <td>作者&nbsp;&nbsp;<span id="author">大卫夏农</span></td>
+                                <td>出版社&nbsp;&nbsp;<span id="publisher">海南出版公司</span></td>
                             </tr>
                             <tr>
-                                <td>字数&nbsp;&nbsp;<span>5000</span></td>
-                                <td>ISBN编号&nbsp;&nbsp;<span>843957640</span></td>
+                                <td>字数&nbsp;&nbsp;<span id="word_cont">5000</span></td>
+                                <td>ISBN编号&nbsp;&nbsp;<span id="isbn">843957640</span></td>
                             </tr>
                             <tr>
-                                <td>适合年级&nbsp;&nbsp;<span>二年级</span></td>
+                                <td>阅读等级&nbsp;&nbsp;<span id="grade">650</span></td>
                                 <td></td>
                             </tr>
                         </tbody>
@@ -123,29 +124,29 @@
                 </div>
             </div>
 
-
             <!-- 模态框（Modal） -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" style="width: 400px; margin-top: 200px;">
-                    <div class="modal-content">
-                        <div class="modal-body" style="height: 150px;">
-                            <h4 align="center">鸭子骑车记</h4>
-                            <div>
-                                <label for="finish_time">结束时间</label>
-                                <input id="finish_time" class="laydate" onclick="laydate()">
-                            </div>
-                        </div>
-                        <div class="modal-footer" style="height: 50px;">
-                            <div class="btn">确定</div>
-                            <div></div>
-                            <div class="btn">取消</div>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal -->
-            </div>
+            <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+                <!--<div class="modal-dialog" style="width: 400px; margin-top: 200px;">-->
+                    <!--<div class="modal-content">-->
+                        <!--<div class="modal-body" style="height: 150px;">-->
+                            <!--<h4 align="center">鸭子骑车记</h4>-->
+                            <!--<div>-->
+                                <!--<label for="finish_time">结束时间</label>-->
+                                <!--<input id="finish_time" class="laydate" onclick="laydate()">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="modal-footer" style="height: 50px;">-->
+                            <!--<div class="btn">确定</div>-->
+                            <!--<div></div>-->
+                            <!--<div class="btn">取消</div>-->
+                        <!--</div>-->
+                    <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+                <!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
+            <!--</div>-->
         </div>
     </div>
     <div id="right_bar"></div>
+    <div id="tmp_modal"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 
@@ -154,12 +155,14 @@
 <script src="../../../libs/remodal/dist/remodal.min.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
 <script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../assets/js/student/library/book.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
 
 <script>
     load('../../../include/html/');
+    load_page();
 </script>
 
 </body>

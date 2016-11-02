@@ -44,14 +44,15 @@
                     <span class="w">主题学习丛书</span>
                 </div>
                 <div class="grade">
-                    <p>适读年纪：</p>
+                    <p>阅读等级：</p>
                     <span style="background: #f99d32;color: #FFFFFF;">全部</span>
-                    <span>一年级</span>
-                    <span>二年级</span>
-                    <span>三年级</span>
-                    <span>四年级</span>
-                    <span>五年级</span>
-                    <span>六年级</span>
+                    <span>600-700k</span>
+                    <span>700-800k</span>
+                    <span>800-900k</span>
+                    <span>900-1000k</span>
+                    <span>1000-1100k</span>
+                    <span>1100-1200k</span>
+                    <img src="../../../assets/img/more_info.png" alt="" data-html="true" data-toggle="tooltip" title="" id="level_more_info">
                 </div>
                 <div class="list">
                     <div class="list-book">
@@ -182,6 +183,9 @@
 <script src="../../../assets/js/student/library/index.js"></script>
 <script>
     load('../../../include/html/');
+    var html = '<div align="left">推荐阅读等级：<br />一年级→600-700k<br />二年级→700-800k<br />三年级→800-900k<br />四年级→900-1000k<br />五年级→1000-1100k<br />六年级→1100-1200k</div>';
+    $('#level_more_info').attr('title', html);
+    $('[data-toggle=tooltip]').tooltip();
 </script>
 </body>
 </html>

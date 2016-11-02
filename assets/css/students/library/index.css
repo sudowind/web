@@ -96,7 +96,8 @@
     margin-bottom: 70px;
 }
 .book .grade span{
-    width: 78px;
+    min-width: 78px;
+    padding: 0 10px;
     height: 28px;
     line-height: 28px;
     text-align: center;
@@ -110,8 +111,14 @@
     cursor:pointer;
 }
 .book .grade {
+    position: relative;
     padding-bottom: 27px;
     border-bottom: 1px solid #e8e8e8;
+}
+
+.book .grade img {
+    margin: -5px 0 0 10px;
+    cursor: pointer;
 }
 /*图书列表部分*/
 .list{

@@ -254,7 +254,7 @@
     width: 95px;
 }
 
-#diff_message {
+.alert-message {
     font-size: 12px;
     color: red;
     margin-top: -17px;
@@ -306,4 +306,11 @@
     padding-top: 30px;
     text-align: center;
     line-height: 40px;
+}
+
+#copyright_notice {
+    text-align: center;
+    color: #ffffff;
+    top: 710px;
+    margin: -130px auto 0 auto;
 }

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
+    <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/school_master/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
+    <link rel="stylesheet" href="../../../assets/css/school_master/tasks/teacher_detail.css">
+    <link rel="stylesheet" href="../../../assets/css/pagination.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+</head>
+<body background="../../../assets/img/background.png">
+
+<div class="main-body">
+    <div id="left_bar"></div>
+    <div id="library">
+        <div class="content">
+            <div class="title">
+                <h3>Tasks</h3>
+                <span class="down"></span>
+                <div class="seek">
+                    <span class="frame">
+                        <input type="text" placeholder="请输入图书名"/>
+                    </span>
+                    <span class="button">
+                        <input  type="submit" value="搜索一下"/>
+                    </span>
+                </div>
+                <div class="part-basis select-part">
+                    <table>
+                        <tr>
+                            <td class="select-title">年&nbsp;&nbsp;&nbsp;&nbsp;级：</td>
+                            <td>
+                                <span class="index option">全部</span>
+                                <span class="option">2011级</span>
+                                <span class="option">2012级</span>
+                                <span class="option">2013级</span>
+                                <span class="option">2014级</span>
+                                <span class="option">2015级</span>
+                                <span class="option">2016级</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="select-title">老&nbsp;&nbsp;&nbsp;&nbsp;师：</td>
+                            <td>
+                                <span class="index option">全部</span>
+                                <span class="option">王澈</span>
+                                <span class="option">张爽</span>
+                                <span class="option">黄小佳</span>
+                                ……
+                                <span class="option">更多</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="select-title">所带班级：</td>
+                            <td>
+                                <span class="index option">2015级3班</span>
+                                <span class="option">2015级3班</span>
+                                <span class="option">2015级3班</span>
+                                <span class="option">2015级3班</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="book-part part-basis">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>图书</td>
+                            <td>在线阅读人数</td>
+                            <td>测试平均分</td>
+                            <td>阅读时间</td>
+                            <td>操作</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr id="row1"></tr>
+                        <tr id="row2"></tr>
+                        <tr id="row3"></tr>
+                        </tbody>
+                    </table>
+                    <div class="tcdPageCode" id="teacher_task_pagination">
+                        <span class="disabled">上一页</span>
+                        <span class="current">1</span>
+                        <a href="javascript:;" class="tcdNumber">2</a>
+                        <!--<a href="javascript:;" class="tcdNumber">3</a>-->
+                        <span>...</span>
+                        <a href="javascript:;" class="tcdNumber">4</a>
+                        <a href="javascript:;" class="nextPage">下一页</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="right_bar"></div>
+    <div id="tmp_modal"></div>
+</div>
+
+<div id="page_footer" style="background: #edeef0"></div>
+<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/remodal/dist/remodal.min.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/school_master/tasks/teacher_detail.js"></script>
+
+<script>
+    load('../../../include/html/', 'school_master');
+    init();
+
+</script>
+
+</body>
+</html>

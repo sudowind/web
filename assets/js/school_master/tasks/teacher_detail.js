@@ -11,7 +11,11 @@ function init () {
     load_table_row('#row1');
     load_table_row('#row2');
     load_table_row('#row3');
-    load_table_row('#row4');
+
+    var h = Number($('.select-part').height());
+
+    $('.book-part').css('height', (1050 - h).toString());
+
 }
 
 $('.option').click(function () {
