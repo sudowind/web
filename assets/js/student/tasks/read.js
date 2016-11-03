@@ -58,6 +58,8 @@ function on_button_click(e) {
     if ($(e).attr('value') == '0') {
         for (var i = 0; i < button_ids.length; ++i) {
             var curr_id = button_ids[i] + '_button';
+            console.log(curr_id);
+            console.log($(e).attr('id'))
             if (curr_id != $(e).attr('id')) {
                 $('#'+ curr_id + ' div').css('color', '#000000');
                 $('#'+ curr_id).attr('value', '0').css('background', '#f9f9f9');

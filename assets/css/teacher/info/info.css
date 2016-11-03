@@ -1,0 +1,191 @@
+/*头部信息*/
+#info{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.content{
+    padding:21px 20px;
+    position: relative;
+    top: 0px;
+}
+.title h3{
+    width: 81px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+    padding-bottom: 30px;
+}
+.title .down{
+    width: 649px;;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #e8e8e8;
+    float: right;
+}
+
+/*修改资料部分*/
+#info .content .information{
+    width: 728px;
+    height: 342px;
+    border: 1px solid #e8e8e8;
+}
+.change-head{
+    margin: 15px 0 0 60px;
+    width: 199px;
+    padding: 10px;
+    height: 312px;
+    border-right: 1px solid #e8e8e8;
+    float: left;
+}
+.change-head .change img{
+    padding-bottom: 14px;
+}
+.change-head .change span{
+    margin-left: 8px;
+    font-size: 16px;
+    display: inline-block;
+    margin-top: 15px;
+}
+.info-list{
+    float: right;
+    width: 450px;
+    height: 340px;
+    padding-left: 14px;
+    background: #f9f9f9;
+    position: relative;
+}
+.info-list form{
+    margin-top: 25px;
+}
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: #FFFFFF;
+    border: none;
+    margin-top: 6px;
+    padding: 6px 0  0  6px;
+    overflow: hidden;
+    color: #000;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.file:hover {
+    background: #FFFFFF;
+    /*border-color: #78C3F3;*/
+    color: #000000;
+    text-decoration: none;
+}
+
+.info-list p{
+    margin: 10px 0 0 34px;
+    font-size: 16px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 25px;
+}
+.info-list p input{
+    margin-left: 15px;
+
+}
+.info-list p span{
+    margin-left: 15px;
+    font-weight: normal;
+}
+.info-list .code input{
+    width: 78px;
+    height: 25px;
+    font-weight: normal;
+    font-size: 10px;
+}
+.info-list .mail {
+    width: 160px;
+    height: 25px;
+}
+.info-list .btn{
+    width: 100px;
+    height: 23px;
+    line-height: 22px;
+    text-align: center;
+    font-size: 12px;
+    padding: 0px;
+    color: #FFFFFF;
+    background: #999999;
+}
+.info-list .laydate{
+    width: 160px;
+    height: 25px;
+}
+.info-list .change-info {
+    font-size: 15px;
+    color: #ffffff;
+    background: #776c60;
+    border: none;
+    width: 98px;
+    height: 30px;
+    border-radius: 4px;
+    position: absolute;
+    top: 290px;
+    left: 170px;
+}
+.info-list .off {
+    font-size: 15px;
+    color: #ffffff;
+    background: #776c60;
+    border: none;
+    width: 98px;
+    height: 30px;
+    border-radius: 4px;
+    position: absolute;
+    top: 290px;
+    left: 90px;
+}
+
+.info-list .sure {
+    font-size: 15px;
+    color: #ffffff;
+    background: #fb9e1d;
+    border: none;
+    width: 98px;
+    height: 30px;
+    border-radius: 4px;
+    position: absolute;
+    top: 290px;
+    left: 260px;
+}
+input::-ms-input-placeholder{text-align: center;}
+input::-webkit-input-placeholder{text-align: center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
