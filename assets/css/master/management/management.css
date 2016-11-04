@@ -98,14 +98,6 @@ html{
     margin-top: 20px;
     background: #f9f9f9;
 }
-/*学生个人具体信息*/
-.information {
-    width: 728px;
-    height: 920px;
-    border: 1px solid #e8e8e8;
-    margin-top: 20px;
-    background: #f9f9f9;
-}
 .information .head{
     width: 726px;
     height: 36px;
@@ -118,10 +110,13 @@ html{
     float: left;
     margin-left: 68px;
 }
+.information .head li:nth-of-type(5){
+    margin-left: 114px;
+}
 .information ul{
     font-size: 16px;
     height: 44px;
-    padding-left: 36px;
+    padding: 0 36px;
 }
 .information ul li{
     float: left;
@@ -133,12 +128,7 @@ html{
 .information ul li:nth-of-type(4){
     width: 140px;
 }
-.information ul li:nth-of-type(6){
-    width: 44px;
-}
-.information ul li:nth-of-type(7){
-    width: 80px;
-}
+
 /*点击查看学生信息的弹窗*/
 .modal-body{
     width: 620px;
@@ -157,7 +147,7 @@ html{
 }
 .modal-body form{
     margin-left: 170px;
-    margin-top: 38px;
+    margin-top: 50px;
 }
 .modal-body form p{
     margin-top: 20px;
@@ -172,7 +162,7 @@ html{
     margin-left: 46px;
 }
 .modal-body form p select{
-    margin-left: 72px;
+    margin-left: 46px;
     width: 200px;
 }
 .modal-body form .initial{
@@ -193,27 +183,10 @@ html{
     color: #FFFFFF;
     background: #f99d32;
     border-radius: 8px;
-    margin-top: 25px;
+    margin-top: 46px;
     margin-left: 50px;
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

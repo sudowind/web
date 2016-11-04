@@ -46,3 +46,11 @@ $("#book_pagination").createPage({
         //console.log(p);
     }
 });
+
+$("#report_people_read").createPage({
+    pageCount:20,
+    current:1,
+    backFn:function(p){
+        //console.log(p);
+    }
+});
