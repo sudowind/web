@@ -1,0 +1,127 @@
+.select-part {
+    clear: both;
+    margin-bottom: 15px;
+    height: 100%;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.select-part table {
+    width: 100%;
+}
+
+.select-part td {
+    padding: 10px;
+}
+
+.select-part tr:not(:last-child) {
+    border-bottom: dotted 1px #d8d8d8;
+}
+
+.select-part span {
+    display: inline-block;
+    margin: 5px;
+    position: relative;
+    /*height: 28px;*/
+}
+
+.select-title {
+    padding: 10px;
+    width: 120px;
+}
+
+.option  {
+    min-width:76px;
+    background: #ffffff;
+    color: #6e6e6e;
+    border: solid 1px #fb9e1d;
+    padding: 2px 10px;
+    margin-left: 14px;
+
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.index {
+    background: #fb9e1d;
+    color: #ffffff;
+}
+
+/*创建部分*/
+.create-part {
+    height: 950px;
+    text-align: center;
+}
+
+#create_class_button {
+    margin: 10px;
+    background: #e8e8e8;
+    width:200px;
+    height: 250px;
+
+    cursor: pointer;
+}
+
+.create-part img {
+    margin: 50px auto 30px auto;
+}
+
+.create_message {
+    font-size: 24px;
+    color: #776c60;
+}
+
+/*删除班级的标签*/
+.select-class img {
+    display: none;
+    position: absolute;
+    left: 67px;
+    top: -8px;
+}
+
+#create_class_box {
+    margin: 40px;
+    padding: 40px 40px;
+    background: #ffffff;
+}
+
+.table-head {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#create_class_box table td{
+    border: solid 1px #e8e8e8;
+    width: 80px;
+    cursor: pointer;
+}
+
+td input {
+    color: #fb9e1d;
+    text-align: center;
+    border: none;
+}
+
+#class_submit_button {
+    margin-top: 20px;
+    background: #fb9e1d;
+    padding: 5px 10px;
+    color: #ffffff;
+}
+
+*::-webkit-input-placeholder {
+    color: #fb9e1d;
+}
+*:-moz-placeholder {
+    color: #fb9e1d;
+}
+*:-ms-input-placeholder {
+    /* IE10+ */
+    color: #fb9e1d;
+}

@@ -35,7 +35,7 @@ function load_404() {
             withCredentials: true
         },
         success: function(data) {
-            alert(data.userType);
+            // alert(data.userType);
             var type_str = '';
             switch (data.userType) {
                 case '2':

@@ -87,17 +87,21 @@ $('#submit_button').click(function () {
     var password = $('#password').val();
     var user_type = $('.main-button').attr('value');
     // user_type = 5;
+
     $.ajax({
         type: 'POST',
-        url: 'http://debian8-01.internal.enjoyreading.com/users/open/login',
+        url: 'http://debian8-01.internal.enjoyreading.com:8082/users/open/login',
+        xhrFields: {
+            withCredentials: true
+        },
         data: {
             account: account,
             password: password,
-            userType: user_type
+            userType: 5
         },
         success: function (data) {
-            // my_tip.alert(document.cookie);
-            alert('success!!!');
+            my_tip.alert(document.cookie);
+            // alert('success!!!');
         }
     });
 });
