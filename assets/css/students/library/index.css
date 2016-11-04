@@ -96,14 +96,17 @@
     margin-bottom: 70px;
 }
 .book .grade span{
+<<<<<<< HEAD
+    width: 92px;
+=======
     min-width: 78px;
     padding: 0 10px;
+>>>>>>> aa1c9b6ef9e711b824106a205a1ed8eccbb81c3a
     height: 28px;
     line-height: 28px;
     text-align: center;
     border: 1px solid #f99d32;
     border-radius: 10px;
-    /*padding: 5px 24px;*/
     margin-top: 24px;
     margin-left: 14px;
     display: inline-block;

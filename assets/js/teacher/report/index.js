@@ -3,16 +3,17 @@
  */
 
 
-//×Ô¶¯Éú³ÉÁĞ±í
+//è‡ªåŠ¨ç”Ÿæˆåˆ—è¡¨
 function init() {
     for (var i = 0; i <= 6; ++i) {
-        load_table_classes('#row' + i);
+        load_table_classes('#cla-row' + i);
     };
-    for(var i = 0;i <= 6 ;i ++){
-        load_table_
+    for (var i = 0;i <= 10 ;i ++){
+        load_table_student('#stu-row' + i);
     }
 }
 
+//ç­çº§è¡¨ç°çš„å‡½æ•°
 function load_table_classes (row_selector) {
     var sort = '1';
     var classes = '10010';
@@ -28,7 +29,27 @@ function load_table_classes (row_selector) {
     });
 }
 
-//¼ò½éÓëÆÀÂÛÖ®¼äµÄtabÇĞ»»º¯Êı
+
+//å­¦ç”Ÿè¡¨ç°çš„å‡½æ•°
+function load_table_student (stu_selector){
+    var sort = '1';
+    var name = 'æ˜“å³°';
+    var read_num = '50';
+    var book_num = '90';
+    var accuracy = '60';
+    var operation = 'æŸ¥çœ‹';
+    $(stu_selector).load('../../../include/html/teacher/report_student_show.html', function () {
+        $(stu_selector + ' .sort').html(sort);
+        $(stu_selector + ' .name').html(name);
+        $(stu_selector + ' .read-num').html(read_num);
+        $(stu_selector + ' .book-num').html(book_num);
+        $(stu_selector + ' .accuracy').html(accuracy + '%');
+        $(stu_selector + ' .operation').html('<a href="#">'+ operation +'</a>');
+    });
+}
+
+
+//ç®€ä»‹ä¸è¯„è®ºä¹‹é—´çš„tabåˆ‡æ¢å‡½æ•°
 var button_ids = ['classes', 'student', 'people'];
 
 function on_button_click(e) {
@@ -38,15 +59,15 @@ function on_button_click(e) {
             var curr_id = button_ids[i] + '_button';
             if (curr_id != $(e).attr('id')) {
                 $('#'+ curr_id + ' span').css('color', '#000000');
-                $('#'+ curr_id).attr('value', '0').css('background', '#f9f9f9');
+                $('#'+ curr_id ).attr('value', '0').css('background', '#f9f9f9');
                 $('#'+ curr_id + ' img').attr('src', '../../../assets/img/teacher/' + button_ids[i] + '_selected.png');
-                $('#' + button_ids[i] + '_part').css('display', 'none');
+                $('.' + button_ids[i] + '-part').css('display', 'none');
             }
             else {
                 $('#'+ curr_id + ' span').css('color', '#ffffff');
-                $('#'+ curr_id).attr('value', '1').css('background', '#fb9e1d');
+                $('#'+ curr_id ).attr('value', '1').css('background', '#fb9e1d');
                 $('#'+ curr_id + ' img').attr('src', '../../../assets/img/teacher/' + button_ids[i] + '_unselected.png');
-                $('#' + button_ids[i] + '_part').css('display', 'block');
+                $('.' + button_ids[i] + '-part').css('display', 'block');
             }
         }
     }

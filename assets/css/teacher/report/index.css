@@ -81,7 +81,7 @@
     text-align: center;
 }
 .tab .nav-bar .nav-button{
-    width: 160px;
+    width: 161px;
     float: left;
     line-height: 44px;
 }
@@ -95,11 +95,11 @@
 .tab .nav-bar .nav-button:nth-of-type(2){
     border-right: 1px solid #e8e8e8;
 }
-.tab .cla-ranking {
+.tab .cla-rank {
     border-bottom: 1px dashed #febc3c;
     height: 258px;
 }
-.tab .cla-ranking h3{
+.tab .cla-rank h3{
     font-size: 15px;
     font-weight: bold;
     padding-top: 19px;
@@ -125,6 +125,8 @@
     margin-left: 30px;
     margin-right: 5px;
 }
+
+/*班级表现*/
 .tab .classes-info-part {
     height: 415px;
     width: 483px;
@@ -149,6 +151,120 @@
     height: 50px;
     text-align: center;
 }
+/*学生表现*/
+.tab .student-show-list {
+    height: 415px;
+    width: 483px;
+}
+.tab .student-show-list table {
+    width: 483px;
+}
+.tab .student-show-list table thead{
+    font-size: 14px;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+}
+.tab .student-show-list table thead tr td{
+    padding:8px 12px;
+    line-height: 25px;
+    text-align: center;
+}
+.tab .student-show-list table thead tr td img{
+    margin-left: 4px;
+    padding-bottom: 4px;
+}
+.tab .student-show-list table tbody tr {
+    height: 50px;
+}
+.tab .student-show-list table tbody tr td{
+    height: 50px;
+    text-align: center;
+}
+.tab .student-show-list table tbody tr td a{
+    color: #000000;
+}
+
+/*个人阅读详情*/
+.people-part .down-load{
+    width: 153px;
+    height: 30px;
+    background: #fb9e1d;
+    color: #FFFFFF;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 6px;
+    margin: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    /*position: relative;*/
+}
+.people-part .people-list{
+    width: 465px;
+    height: 623px;
+    margin: 10px;
+}
+.people-part .people-list ul{
+    width: 465px;
+    height: 50px;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #e8e8e8;
+    border-right: none;
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+.people-part .people-list ul li{
+    width: 60px;
+    padding: 16px 10px;
+    float: left;
+    height: 50px;
+    border-right: 1px solid #e8e8e8;
+
+}
+.people-part .people-list ul li:nth-of-type(3){
+    width: 158px;
+}
+.people-part .people-list ul li:nth-of-type(4){
+    width: 126px;
+}
+.people-part .people-list ul li:nth-of-type(5){
+    padding: 8px;
+    border-radius: 8px;
+}
+.people-part .people-list table {
+    margin-top: 10px;
+    border: 1px solid #e8e8e8;
+    width: 465px;
+    background: #FFFFFF;
+    text-align: center;
+    font-size: 13px;
+}
+
+.people-part .people-list table tbody {
+    width: 465px;
+    height: 97px;
+}
+.people-part .people-list table tbody tr td{
+    /*width: 60px;*/
+    height: 48px;
+    border: 1px dashed #e8e8e8;
+}
+.people-part .people-list table tbody .tr td:nth-of-type(1){
+    width: 60px;
+}
+.people-part .people-list table tbody .tr td:nth-of-type(2){
+    width: 60px;
+}
+.people-part .people-list table tbody .tr td:nth-of-type(3){
+    width: 158px;
+}
+.people-part .people-list table tbody .tr td:nth-of-type(6){
+    width: 60px;
+}
+
+
+
+/*学霸榜部分*/
 .top{
     width: 230px;
     height: 800px;
@@ -227,3 +343,19 @@
     margin-left: 12px;
     line-height: 16px;
 }
+
+
+/*分页部分*/
+a:hover{ text-decoration:none;}
+.tcdPageCode{padding: 15px 20px;text-align: left;color: #f99d32;position: absolute;top: 860px;left:320px;}
+.tcdPageCode a{display: inline-block;color: #f99d32;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #f99d32;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode a:hover{text-decoration: none;border: 1px solid #f99d32;}
+.tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #f9f9f9;background-color: #f99d32;	border: 1px solid #f99d32;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #f99d32;background: #f9f9f9;border: 1px solid #f99d32;border-radius: 4px;vertical-align:middle;}
+
+
+
+
+
+
+
