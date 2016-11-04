@@ -86,7 +86,7 @@ $('#submit_button').click(function () {
     var account = $('#user_name').val();
     var password = $('#password').val();
     var user_type = $('.main-button').attr('value');
-    user_type = '5';
+    // user_type = 5;
     $.ajax({
         type: 'POST',
         url: 'http://debian8-01.internal.enjoyreading.com/users/open/login',
@@ -96,7 +96,8 @@ $('#submit_button').click(function () {
             userType: user_type
         },
         success: function (data) {
-            my_tip.alert(data.success);
+            // my_tip.alert(document.cookie);
+            alert('success!!!');
         }
     });
 });

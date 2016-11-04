@@ -103,7 +103,7 @@
     text-align: center;
     padding: 5px 15px;
     line-height: 25px;
-    border-bottom: 1px dotted #d7d6d6;
+    border: 1px dotted #d7d6d6;
 }
 
 .book-part tbody tr td:nth-child(1) {
