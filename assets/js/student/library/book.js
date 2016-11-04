@@ -49,7 +49,7 @@ function submit_comment() {
     // alert($('#user_comment').val());
     $('#myModal').modal('show');
     setTimeout(function(){ $('#myModal').modal('hide'); }, 1000);
-};
+}
 
 var button_ids = ['intro', 'comment'];
 
@@ -85,8 +85,29 @@ $('#add_to_task').click(function () {
     $(this).html('已添加到“阅读任务”');
 });
 
+function fill_data(data) {
+    $('#book_name').find('h3 b').html(data.name);
+    $('#display_type').html(data.displayType);
+    $('#author').html(data.author);
+    $('#publisher').html(data.publisher);
+    $('#word_count').html(data.wordCount);
+    $('#isbn').html(data.isbn);
+    $('#grade').html(data.grade);
+    $('#intro_part').html(data['introduction']);
+}
 
-
-
-
-
+function load_page() {
+    var id = $.getUrlParam('book_id');
+    if (id == null) {
+        // 如果url中没有给id，应该导向别的页面
+        // my_tip.alert('gaga');
+    }
+    $.ajax({
+        type: 'GET',
+        url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/book/' + id,
+        success: function(data) {
+            // my_tip.alert(data.id);
+            fill_data(data);
+        }
+    });
+}

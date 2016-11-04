@@ -3,6 +3,10 @@
  */
 var circles = [];
 
+function left_bar_cb() {
+    $('#tasks_button').attr('class', 'side-button-selected left-side-button');
+}
+
 function init () {
     load_table_row('#row1');
     load_table_row('#row2');
