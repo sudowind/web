@@ -82,7 +82,21 @@ $('.modal-footer .btn').one("click",function(){
 });
 
 $('#add_to_task').click(function () {
-    $(this).html('已添加到“阅读任务”');
+
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'POST',
+        url: 'http://debian8-01.internal.enjoyreading.com:8083/tasks/web/task',
+        data: JSON.stringify({bookId: $.getUrlParam('book_id'), startTime: -1, endTime: -1}),
+        // dataType: "json",
+        contentType: "application/json",
+        success: function (data) {
+            $('#add_to_task').html('已添加到“阅读任务”');
+        }
+    });
+
 });
 
 function fill_data(data) {
