@@ -61,6 +61,8 @@
 
     text-align: center;
     padding-top: 17px;
+
+    cursor: pointer;
 }
 
 /*左导航栏按钮图片*/

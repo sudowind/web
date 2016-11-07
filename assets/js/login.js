@@ -97,11 +97,27 @@ $('#submit_button').click(function () {
         data: {
             account: account,
             password: password,
-            userType: 5
+            userType: user_type
         },
         success: function (data) {
-            my_tip.alert(document.cookie);
+            // my_tip.alert(document.cookie);
             // alert('success!!!');
+            if (data.success) {
+                switch (user_type) {
+                    case '2':
+                        window.open('../../../html/student/home/home.html', '_self');
+                        break;
+                    case '3':
+                        window.open('../../../html/teacher/tasks/index.html', '_self');
+                        break;
+                    case '4':
+                        window.open('../../../html/school_master/tasks/teacher_list.html', '_self');
+                        break;
+                }
+            }
+            else {
+                my_tip.alert('登陆失败！');
+            }
         }
     });
 });

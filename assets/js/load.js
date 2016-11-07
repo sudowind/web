@@ -12,6 +12,18 @@ function load(src, type) {
     $('#left_bar').load(src + type + '/left_bar.html', function() {
         if (typeof left_bar_cb != 'undefined') {
             left_bar_cb();
+            $('.exit-button').click(function () {
+                $.ajax({
+                    url: 'http://debian8-01.internal.enjoyreading.com:8082/users/open/logout',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    type: 'POST',
+                    success: function () {
+                        window.open('../../../html/login.html', '_self');
+                    }
+                });
+            });
         }
     });
 
@@ -31,3 +43,6 @@ function load(src, type) {
         return null;
     }
 })(jQuery);
+
+
+
