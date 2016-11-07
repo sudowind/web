@@ -20,35 +20,69 @@
                     obj.append('<span class="disabled">上一页</span>');
                 }
 
-                if(args.current != 1 && args.current >= 4 && args.pageCount != 4){
-                    obj.append('<a href="javascript:;" class="tcdNumber">'+1+'</a>');
-                }
-                if(args.current-2 > 2 && args.current <= args.pageCount && args.pageCount > 5){
-                    obj.append('<span>...</span>');
-                }
-                var start = args.current -2,end = args.current+2;
-                if((start > 1 && args.current < 4)||args.current == 1){
-                    end++;
-                }
-                if(args.current > args.pageCount-4 && args.current >= args.pageCount){
-                    start--;
-                }
-                for (;start <= end; start++) {
-                    if(start <= args.pageCount && start >= 1){
-                        if(start != args.current){
-                            obj.append('<a href="javascript:;" class="tcdNumber">'+ start +'</a>');
-                        }else{
-                            obj.append('<span class="current">'+ start +'</span>');
+                var start, end;
+                if (args.pageCount < 8) {
+                    start = 1;
+                    end = args.pageCount;
+                    for (;start <= end; start++) {
+                        if(start <= args.pageCount && start >= 1){
+                            if(start != args.current){
+                                obj.append('<a href="javascript:;" class="tcdNumber">'+ start +'</a>');
+                            }else{
+                                obj.append('<span class="current">'+ start +'</span>');
+                            }
                         }
                     }
                 }
-                if(args.current + 2 < args.pageCount - 1 && args.current >= 1 && args.pageCount > 5){
-                    obj.append('<span>...</span>');
-                }
-                if(args.current != args.pageCount && args.current < args.pageCount -2  && args.pageCount != 4){
-                    obj.append('<a href="javascript:;" class="tcdNumber">'+args.pageCount+'</a>');
-                }
+                else {
+                    if (args.current != 1 && args.current >= 3 && args.pageCount != 3) {
+                        obj.append('<a href="javascript:;" class="tcdNumber">' + 1 + '</a>');
+                    }
 
+                    if (args.current - 2 > 1 && args.current <= args.pageCount && args.pageCount > 5 && args.current != 4) {
+                        obj.append('<span class="tcdNumber disabled">...</span>');
+                    }
+                    else if (args.current == 4) {
+                        obj.append('<span class="tcdNumber disabled">' + 2 + '</span>');
+                    }
+
+                    start = args.current - 1;
+                    end = args.current + 1;
+
+                    // if((start > 1 && args.current < 4)||args.current == 1){
+                    //     end++;
+                    // }
+                    if (args.current < 5) {
+                        end = 5;
+                    }
+                    // if(args.current > args.pageCount-4 && args.current >= args.pageCount){
+                    //     start--;
+                    // }
+                    if (args.current > args.pageCount - 4) {
+                        start = args.pageCount - 4;
+                    }
+
+                    for (; start <= end; start++) {
+                        if (start <= args.pageCount && start >= 1) {
+                            if (start != args.current) {
+                                obj.append('<a href="javascript:;" class="tcdNumber">' + start + '</a>');
+                            } else {
+                                obj.append('<span class="current">' + start + '</span>');
+                            }
+                        }
+                    }
+
+                    if (args.current + 1 < args.pageCount - 1 && args.current >= 1 && args.pageCount > 5 && args.current != args.pageCount - 3) {
+                        obj.append('<span class="tcdNumber disabled">...</span>');
+                    }
+                    else if (args.current == args.pageCount - 3) {
+                        obj.append('<span class="tcdNumber disabled">' + (args.pageCount - 1) + '</span>');
+                    }
+
+                    if (args.current != args.pageCount && args.current < args.pageCount - 1 && args.pageCount != 3) {
+                        obj.append('<a href="javascript:;" class="tcdNumber">' + args.pageCount + '</a>');
+                    }
+                }
                 if(args.current < args.pageCount){
                     obj.append('<a href="javascript:;" class="nextPage">下一页</a>');
                 }else{
@@ -85,7 +119,7 @@
                 });
             })();
         }
-    }
+    };
     $.fn.createPage = function(options){
         var args = $.extend({
             pageCount : 10,
