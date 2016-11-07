@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
+    <meta name="viewport" content="width=device-width">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/teacher/report/index.css">
+</head>
+<body background="../../../assets/img/background.png">
+
+<div class="main-body">
+    <div id="left_bar"></div>
+    <div id="library">
+        <div class="content">
+            <div class="title">
+                <h3>Report</h3>
+                <span class="down"></span>
+            </div>
+            <div class="left">
+                <select name="" id="className">
+                    <option value="2015级1班">2015级1班</option>
+                    <option value="2015级2班">2015级2班</option>
+                    <option value="2015级3班">2015级3班</option>
+                </select>
+                <div class="top">
+                    <h3 class="title">
+                        <img src="../../../assets/img/student/home/cup.png" alt=""/><span>学霸榜</span>
+                    </h3>
+                    <div class="top-list">
+                        <!--<div class="me">-->
+                            <!--<div class="me-rank">10</div>-->
+                            <!--<img src="../../../assets/img/student/home/head.png" alt=""/>-->
+                            <!--<div class="me-right">-->
+                                <!--<p class="me-name">名字</p>-->
+                                <!--<strong><span>456</span>万字</strong>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <ul>
+                            <li>
+                                <div class="rank">
+                                    <img src="../../../assets/img/student/home/one.png" alt=""/>
+                                </div>
+                                <img class="head" src="../../../assets/img/student/home/head.png" alt=""/>
+                                <div class="right">
+                                    <p class="name">名字</p>
+                                    <strong><span>456</span>万字</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="rank">
+                                    <img src="../../../assets/img/student/home/two.png" alt=""/>
+                                </div>
+                                <img class="head" src="../../../assets/img/student/home/head.png" alt=""/>
+                                <div class="right">
+                                    <p class="name">名字</p>
+                                    <strong><span>456</span>万字</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="rank">
+                                    <img src="../../../assets/img/student/home/three.png" alt=""/>
+                                </div>
+                                <img class="head" src="../../../assets/img/student/home/head.png" alt=""/>
+                                <div class="right">
+                                    <p class="name">名字</p>
+                                    <strong><span>456</span>万字</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="rank">1</div>
+                                <img class="head" src="../../../assets/img/student/home/head.png" alt=""/>
+                                <div class="right">
+                                    <p class="name">名字</p>
+                                    <strong><span>456</span>万字</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="rank">10</div>
+                                <img class="head" src="../../../assets/img/student/home/head.png" alt=""/>
+                                <div class="right">
+                                    <p class="name">名字</p>
+                                    <strong><span>456</span>万字</strong>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="option">
+                    <div>班级
+                        <span>2015级1班</span>
+                        <span>2015级2班</span>
+                        <span>2015级3班</span>
+                    </div>
+                    <div>时间
+                        <input class="laydate laydate-icon" onclick="laydate()" placeholder="" >
+                        <img src="../../../assets/img/teacher/unheng.png" alt=""/>
+                        <input class="laydate laydate-icon" onclick="laydate()" placeholder="" >
+                    </div>
+                </div>
+                <div class="tab">
+                    <div class="nav-bar">
+                        <div class="nav-button" id="classes_button" style="background: #fb9e1d;color: #FFFFFF" onclick="on_button_click(this);" value="1">
+                            <img src="../../../assets/img/teacher/classes_unselected.png" alt="">
+                            <span class="classes">班级表现</span>
+                        </div>
+                        <div class="nav-button" id="student_button" onclick="on_button_click(this);" value="0">
+                            <img src="../../../assets/img/teacher/student_selected.png" alt="">
+                            <span class="student">学生表现</span>
+                        </div>
+                        <div class="nav-button" id="people_button"  onclick="on_button_click(this);" value="0">
+                            <img src="../../../assets/img/teacher/people_selected.png" alt="">
+                            <span class="people">个人阅读详情</span>
+                        </div>
+                    </div>
+
+                    <!--班级表现-->
+                    <div class="classes-part">
+                        <div class="cla-rank">
+                            <h3>同年级排名情况</h3>
+                            <div class="progress" >
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                                    <img src="../../../assets/img/student/home/read.png" alt=""/>阅读量&nbsp&nbsp&nbsp<span class="current-page">12</span>&nbsp/&nbsp<span class="page">60</span>
+                                </div>
+                            </div>
+                            <div class="progress" >
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                    <img src="../../../assets/img/student/home/pass.png" alt=""/>测试通过率&nbsp&nbsp&nbsp<span class="current-page">12</span>&nbsp/&nbsp<span class="page">60</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="classes-info-part">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td>排名</td>
+                                    <td>班级</td>
+                                    <td>阅读量（字）<img src="../../../assets/img/teacher/sort.png" alt=""/></td>
+                                    <td>书本量（本）<img src="../../../assets/img/teacher/sort.png" alt=""/></td>
+                                    <td>测试正确率 <img src="../../../assets/img/teacher/sort.png" alt=""/></td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr id="cla-row0">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!--学生表现-->
+                    <div class="student-part" style="display: none;">
+                        <div class="student-show-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td>账号</td>
+                                    <td>姓名</td>
+                                    <td>阅读量<img src="../../../assets/img/teacher/sort.png" alt=""/><p>（字）</p></td>
+                                    <td>书本量<img src="../../../assets/img/teacher/sort.png" alt=""/><p>（本）</p></td>
+                                    <td>测试正确率<img src="../../../assets/img/teacher/sort.png" alt=""/></td>
+                                    <td>操作</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="stu-row0">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!--个人阅读详情-->
+                    <div class="people-part" style="display: none">
+                        <div class="down-load">下载《个人阅读详情》</div>
+                        <div class="people-list">
+                            <ul>
+                                <li>账号</li>
+                                <li>姓名</li>
+                                <li>图书</li>
+                                <li>阅读量（字）</li>
+                                <li>测试<p>正确率</p></li>
+                            </ul>
+                            <table>
+                                <tbody>
+                                    <tr class="tr">
+                                        <td rowspan="2">10000</td>
+                                        <td rowspan="2">我是谁</td>
+                                        <td>鸭子骑车记<p>20160903-20160904</p></td>
+                                        <td>15000</td>
+                                        <td rowspan="2">30000</td>
+                                        <td>65%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>鸭子骑车记<p>20160903-20160904</p></td>
+                                        <td>15000</td>
+                                        <td>65%</td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td rowspan="2">10000</td>
+                                        <td rowspan="2">我是谁</td>
+                                        <td>鸭子骑车记<p>20160903-20160904</p></td>
+                                        <td>15000</td>
+                                        <td rowspan="2">30000</td>
+                                        <td>65%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>鸭子骑车记<p>20160903-20160904</p></td>
+                                        <td>15000</td>
+                                        <td>65%</td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td rowspan="2">10000</td>
+                                        <td rowspan="2">我是谁</td>
+                                        <td>鸭子骑车记<p>20160903-20160904</p></td>
+                                        <td>15000</td>
+                                        <td rowspan="2">30000</td>
+                                        <td>65%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>鸭子骑车记<p>20160903-20160904</p></td>
+                                        <td>15000</td>
+                                        <td>65%</td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td rowspan="2">10000</td>
+                                        <td rowspan="2">我是谁</td>
+                                        <td>鸭子骑车记<p>20160903-20160904</p></td>
+                                        <td>15000</td>
+                                        <td rowspan="2">30000</td>
+                                        <td>65%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>鸭子骑车记<p>20160903-20160904</p></td>
+                                        <td>15000</td>
+                                        <td>65%</td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td rowspan="2">10000</td>
+                                        <td rowspan="2">我是谁</td>
+                                        <td>鸭子骑车记<p>20160903-20160904</p></td>
+                                        <td>15000</td>
+                                        <td rowspan="2">30000</td>
+                                        <td>65%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>鸭子骑车记<p>20160903-20160904</p></td>
+                                        <td>15000</td>
+                                        <td>65%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!--分页-->
+                        <div class="tcdPageCode" id="\"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right_bar"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+<script src="../../../assets/js/teacher/report/index.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/page.js"></script>
+
+<script>
+    load('../../../include/html/','teacher');
+    init();
+</script>
+</body>
+</html>
