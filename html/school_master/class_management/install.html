@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+    <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/school_master/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
+    <link rel="stylesheet" href="../../../assets/css/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css/school_master/class_management/install.css">
+</head>
+<body background="../../../assets/img/background.png">
+
+<div class="main-body">
+    <div id="left_bar"></div>
+    <div id="library">
+        <div class="content">
+            <div class="title">
+                <h3>Install</h3>
+                <span class="down"></span>
+            </div>
+            <div class="part-basis select-part">
+                <table>
+                    <tr>
+                        <td class="select-title">年级信息：</td>
+                        <td class="select-grade">
+                            <span class="index option">2011级</span>
+                            <span class="option">2012级</span>
+                            <span class="option">2013级</span>
+                            <span class="option">2014级</span>
+                            <span class="option">2015级</span>
+                            <span class="option">2016级</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="select-title">班级信息：</td>
+                        <td class="select-class">
+                            <span class="option">1班<img src="../../../assets/img/school_master/delete.png" alt=""></span>
+                            <span class="option">2班<img src="../../../assets/img/school_master/delete.png" alt=""></span>
+                            <span class="option">3班<img src="../../../assets/img/school_master/delete.png" alt=""></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="part-basis create-part">
+                <div id="create_class_button">
+                    <img src="../../../assets/img/school_master/create_class.png" alt="">
+                    <div class="create_message">创建班级</div>
+                </div>
+
+                <div id="create_class_box" style="display: none;">
+                    <div>
+                        <div class="table-head">选择年级：</div>
+                        <table>
+                            <tr>
+                                <td class="grade-option">2011级</td>
+                                <td class="grade-option">2012级</td>
+                                <td class="grade-option">2013级</td>
+                                <td class="grade-option">2014级</td>
+                                <td class="grade-option">2015级</td>
+                                <td class="grade-option">2016级</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br />
+                    <div>
+                        <div class="table-head">选择班级：</div>
+                        <table>
+                            <tr>
+                                <td class="class-option">1班</td>
+                                <td class="class-option">1班</td>
+                                <td class="class-option">1班</td>
+                                <td class="class-option">1班</td>
+                                <td class="class-option">1班</td>
+                                <td class="class-option">1班</td>
+                            <tr>
+                                <td class="class-option">1班</td>
+                                <td class="class-option">1班</td>
+                                <td class="class-option">1班</td>
+                                <td class="class-option">1班</td>
+                                <td colspan="2" id="class_input"><input placeholder="请输入自定义班级名称"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="class_submit_button" class="btn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="right_bar"></div>
+    <div id="tmp_modal"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/remodal/dist/remodal.min.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/school_master/class_management/install.js"></script>
+
+<script>
+    load('../../../include/html/', 'school_master');
+
+//    init();
+</script>
+
+</body>
+</html>
