@@ -48,3 +48,12 @@ function fill_book(data) {
             '</div>';
 }
 
+$(".book .grade span").click(function(){
+    $(this).siblings().attr("class","");
+    $(this).attr("class","index");
+})
+$(".book .sort span").click(function(){
+    $(this).siblings().attr("class","");
+    $(this).attr("class","index");
+})
+
