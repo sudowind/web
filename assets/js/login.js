@@ -10,7 +10,6 @@ function on_drop_down_click() {
     else {
         tmp.attr('src', '../assets/img/login/dropdown_close.png').addClass('drop-down-icon-close').removeClass('drop-down-icon-open');
     }
-
 }
 
 $('.sub-button').click(function () {
@@ -81,7 +80,6 @@ $('#fp_teacher_confirm_button').click(function () {
     $('#before_input').hide();
     $('#after_input').show();
 });
-
 $('#submit_button').click(function () {
     var account = $('#user_name').val();
     var password = $('#password').val();
@@ -92,7 +90,6 @@ $('#submit_button').click(function () {
         my_tip.alert('请填写用户名和密码！');
         return;
     }
-
     $.ajax({
         type: 'POST',
         url: 'http://debian8-01.internal.enjoyreading.com:8082/users/open/login',
