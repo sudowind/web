@@ -180,6 +180,11 @@
     color: #f99d32;
     cursor:pointer;
 }
+
+#book_list {
+    height: 600px;
+}
+
 /*∑÷“≥≤ø∑÷*/
 a:hover{
     text-decoration:none;

@@ -88,6 +88,11 @@ $('#submit_button').click(function () {
     var user_type = $('.main-button').attr('value');
     // user_type = 5;
 
+    if (!account || !password) {
+        my_tip.alert('请填写用户名和密码！');
+        return;
+    }
+
     $.ajax({
         type: 'POST',
         url: 'http://debian8-01.internal.enjoyreading.com:8082/users/open/login',
@@ -100,8 +105,6 @@ $('#submit_button').click(function () {
             userType: user_type
         },
         success: function (data) {
-            // my_tip.alert(document.cookie);
-            // alert('success!!!');
             if (data.success) {
                 switch (user_type) {
                     case '2':

@@ -126,6 +126,8 @@
     position: fixed;
     margin: -15px 0 0 150px;
     color: red;
+
+    display: none;
 }
 
 #rem_psd {

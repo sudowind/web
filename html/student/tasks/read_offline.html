@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
     <meta name="viewport" content="width=device-width">
-    <title>Title</title>
+    <title>线下阅读</title>
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
@@ -32,19 +32,19 @@
 
                 </div>
                 <div class="book-info">
-                    <div id="book_name"><h3><b>鸭子骑车记&nbsp;</b><small>故事</small></h3></div>
+                    <div id="book_name"><h3><b>鸭子骑车记</b>&nbsp;<small id="display_type">故事</small></h3></div>
                     <table>
                         <tbody>
                         <tr>
-                            <td>作者&nbsp;&nbsp;<span>大卫夏农</span></td>
-                            <td>出版社&nbsp;&nbsp;<span>海南出版公司</span></td>
+                            <td>作者&nbsp;&nbsp;<span id="author">大卫夏农</span></td>
+                            <td>出版社&nbsp;&nbsp;<span id="publisher">海南出版公司</span></td>
                         </tr>
                         <tr>
-                            <td>字数&nbsp;&nbsp;<span>5000</span></td>
-                            <td>ISBN编号&nbsp;&nbsp;<span>843957640</span></td>
+                            <td>字数&nbsp;&nbsp;<span id="word_cont">5000</span></td>
+                            <td>ISBN编号&nbsp;&nbsp;<span id="isbn">843957640</span></td>
                         </tr>
                         <tr>
-                            <td>适合年级&nbsp;&nbsp;<span>二年级</span></td>
+                            <td>适读等级&nbsp;&nbsp;<span>700-800k</span></td>
                             <td></td>
                         </tr>
                         </tbody>
@@ -133,13 +133,6 @@
 
                     <!--分页-->
                     <div class="tcdPageCode" id="comment_pagination">
-                        <!--<span class="disabled">上一页</span>-->
-                        <!--<span class="current">1</span>-->
-                        <!--<a href="javascript:;" class="tcdNumber">2</a>-->
-                        <!--&lt;!&ndash;<a href="javascript:;" class="tcdNumber">3</a>&ndash;&gt;-->
-                        <!--<span>...</span>-->
-                        <!--<a href="javascript:;" class="tcdNumber">4</a>-->
-                        <!--<a href="javascript:;" class="nextPage">下一页</a>-->
                     </div>
 
 
@@ -225,6 +218,7 @@
 
 <script>
     load('../../../include/html/');
+    load_page();
 </script>
 
 </body>
