@@ -6,16 +6,13 @@
     <meta name="viewport" content="width=device-width">
     <title>Title</title>
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
-    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../assets/css/pagination.css">
-    <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
-    <link rel="stylesheet" href="../../../assets/css/students/tasks/reading.css">
+    <link rel="stylesheet" href="../../../assets/css/teacher/library/reading.css">
 </head>
 <body background="../../../assets/img/background.png">
-
 <div class="main-body">
     <div id="left_bar"></div>
     <div id="reading">
@@ -65,7 +62,7 @@
                     </object>
                 </div>
                 <div class="status">
-                    <p><span>本书已读完</span>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#">做测评</a></p>
+                    <p><span>上一章</span><span>下一章</span></p>
                 </div>
                 <div class="cover" style="display: none"></div>
                 <div class="section" style="display: none">
@@ -76,7 +73,7 @@
                         <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
                         <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
                     </div>
-                    <di\v class="section-retract">
+                    <div class="section-retract">
                         <img src="../../../assets/img/student/tasks/section.png" alt=""/>
                     </div>
                 </div>
@@ -91,14 +88,12 @@
 
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
-<script src="../../../libs/remodal/dist/remodal.min.js"></script>
-<script src="../../../libs/laydate/laydate.js"></script>
 <script src="../../../assets/js/load.js"></script>
-<script src="../../../assets/js/student/tasks/reading.js"></script>
+<script src="../../../assets/js/teacher/library/reading.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
 <script>
-    load('../../../include/html/');
+    load('../../../include/html/',"teacher");
 //    pdf1.LoadFile("../../../assets/img/student/tasks/react.pdf");
 //    pdf1.SetShowToolbar(false);
 </script>

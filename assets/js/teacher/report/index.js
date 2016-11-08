@@ -72,3 +72,8 @@ function on_button_click(e) {
         }
     }
 }
+//选择班级的 tab 切换
+$(".right .option span").click(function(){
+    $(this).siblings().removeClass("index");
+    $(this).addClass("index");
+});

@@ -54,6 +54,7 @@ html{
     height: 40px;
     border: 1px solid #f99d32;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .seek .add-task p{
@@ -84,6 +85,7 @@ html{
     font-size: 16px;
     padding: 7px 10px;
     margin-left: 18px;
+    cursor: pointer;
 }
 .content .class-name p .index{
     color: #FFFFFF;
@@ -134,9 +136,11 @@ html{
 }
 .information ul li:nth-of-type(6){
     width: 44px;
+    cursor: pointer;
 }
 .information ul li:nth-of-type(7){
     width: 80px;
+    cursor: pointer;
 }
 /*点击查看学生信息的弹窗*/
 .modal-body{
@@ -155,7 +159,7 @@ html{
     float: right;
 }
 .modal-body form{
-    margin-left: 170px;
+    margin-left: 168px;
     margin-top: 38px;
 }
 .modal-body form p{
@@ -193,15 +197,39 @@ html{
     background: #f99d32;
     border-radius: 8px;
     margin-top: 25px;
-    margin-left: 50px;
+    margin-left: 58px;
     cursor: pointer;
 }
-
-
-
-
-
-
+.modal-body .form-change-pwd{
+    margin-top: 100px;
+}
+.modal-body .form-change-pwd .change-pwd{
+    margin-left: 43px;
+}
+.modal-body .form-change-pwd .submit{
+    margin-top: 70px;
+}
+.modal-body .del img{
+    float: right;
+}
+.modal-body .del p{
+    float: left;
+    margin: 50px 0px 0px 90px;
+    font-size: 19px;font-weight: normal;
+}
+.modal-body .del .submit{
+    width: 150px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #f99d32;
+    border-radius: 8px;
+    margin-top: 25px;
+    margin-left: 152px;
+    cursor: pointer;
+    float: left;
+}
 
 
 

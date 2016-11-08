@@ -58,6 +58,10 @@
     margin-left: 14px;
     cursor: pointer;
 }
+.index{
+    background: #f99d32;
+    color: #FFFFFF;
+}
 .right .option div input{
     width: 118px;
     height: 28px;
@@ -183,7 +187,6 @@
 .tab .student-show-list table tbody tr td a{
     color: #000000;
 }
-
 /*¸öÈËÔÄ¶ÁÏêÇé*/
 .people-part .down-load{
     width: 153px;
