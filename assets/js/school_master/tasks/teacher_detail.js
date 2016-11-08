@@ -55,7 +55,6 @@ function load_table_row(row_selector) {
                     } else {
                         circle.setText(value + '%');
                     }
-
                 }
             });
             bars[i].set(Math.random());

@@ -80,6 +80,7 @@ $('#fp_teacher_confirm_button').click(function () {
     $('#before_input').hide();
     $('#after_input').show();
 });
+
 $('#submit_button').click(function () {
     var account = $('#user_name').val();
     var password = $('#password').val();
