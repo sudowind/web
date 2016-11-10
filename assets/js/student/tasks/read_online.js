@@ -11,7 +11,7 @@ function submit_comment() {
     // alert($('#user_comment').val());
     $('#myModal').modal('show');
     setTimeout(function(){ $('#myModal').modal('hide'); }, 1000);
-};
+}
 
 var button_ids = ['intro', 'comment', 'note'];
 

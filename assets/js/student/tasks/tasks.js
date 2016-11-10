@@ -47,16 +47,17 @@ function load_book(task_status, reporter_id, page, item_per_page) {
                 html += fill_book(data.data[i]);
             }
             $('#book_list').html(html);
-            $('.book-name').each(function() {
+            $('.book-meta-info').each(function() {
                 var obj = $(this);
-                var id = obj.attr('book-id');
+                var id = obj.find('.book-name').attr('book-id');
                 $.ajax({
                     type: 'GET',
                     url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/book/' + id,
                     success: function(book_data) {
                         // my_tip.alert(data.id);
                         // alert(obj.attr('value'));
-                        obj.html(book_data.name);
+                        obj.find('.book-name').html(book_data.name);
+                        obj.find('.level-score').html(book_data.levelScore);
                     }
                 });
             });
@@ -69,8 +70,9 @@ function fill_book(data) {
         '<div class="list-book">' +
         '<div class="image">' +
         '<img src=../../../assets/img/1.png alt=""/>' +
-        '<span>0.0</span>' +
-        '<div class="book-name" book-id="' + data.bookId + '" task-id="' + data.id + '"></div>' +
+        '<div class="book-meta-info">' +
+        '<span class="level-score"></span>' +
+        '<div class="book-name" book-id="' + data.bookId + '" task-id="' + data.id + '"></div></div>' +
         '</div>' +
         '' +
         '<!--进度条部分-->' +

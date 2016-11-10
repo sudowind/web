@@ -59,7 +59,7 @@ function fill_data(data) {
     $('#publisher').html(data.publisher);
     $('#word_count').html(data.wordCount);
     $('#isbn').html(data.isbn);
-    $('#grade').html(data.grade);
+    $('#level_score').html(data.levelScore);
     $('#intro_part').html(data['introduction']);
 }
 
@@ -79,7 +79,6 @@ function load_page() {
     });
 }
 
+function load_comments(page) {
 
-
-
-
+}

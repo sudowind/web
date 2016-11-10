@@ -101,12 +101,12 @@ $('#add_to_task').click(function () {
 
 function fill_data(data) {
     $('#book_name').find('h3 b').html(data.name);
-    $('#display_type').html(data.displayType);
+    $('#display_type').html(data.displayTypeName);
     $('#author').html(data.author);
     $('#publisher').html(data.publisher);
     $('#word_count').html(data.wordCount);
     $('#isbn').html(data.isbn);
-    $('#grade').html(data.grade);
+    $('#level_score').html(data.levelScore);
     $('#intro_part').html(data['introduction']);
 }
 

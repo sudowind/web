@@ -43,7 +43,7 @@
                         obj.append('<span class="tcdNumber disabled">...</span>');
                     }
                     else if (args.current == 4) {
-                        obj.append('<span class="tcdNumber disabled">' + 2 + '</span>');
+                        obj.append('<a href="javascript:;" class="tcdNumber">' + 2 + '</a>');
                     }
 
                     start = args.current - 1;
@@ -76,7 +76,7 @@
                         obj.append('<span class="tcdNumber disabled">...</span>');
                     }
                     else if (args.current == args.pageCount - 3) {
-                        obj.append('<span class="tcdNumber disabled">' + (args.pageCount - 1) + '</span>');
+                        obj.append('<a href="javascript:;" class="tcdNumber">' + (args.pageCount - 1) + '</a>');
                     }
 
                     if (args.current != args.pageCount && args.current < args.pageCount - 1 && args.pageCount != 3) {
@@ -127,5 +127,12 @@
             backFn : function(){}
         },options);
         ms.init(this,args);
+    };
+    $.fn.fillPage = function(options) {
+        var args = $.extend({
+            pageCount : 10,
+            current : 1
+        },options);
+        ms.fillHtml(this,args);
     }
 })(jQuery);
