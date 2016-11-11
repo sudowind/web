@@ -133,6 +133,7 @@
 <script src="../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../assets/js/login.js"></script>
 <script src="../assets/js/tip_modal.js"></script>
+<script src="../assets/js/cookie.js"></script>
 <script>
     // 为了保证页脚始终在低端，并且保证横向缩放页脚始终居中，分别改变了marginTop和width
     $('#page_footer').load('../include/html/footer.html', function() {
@@ -140,9 +141,8 @@
         $('.footer').css('marginTop', '0').css('width', '100%');
     });
 
-//    $('#login_model').hide();
-//    $('#find_password').show();
     $('#find_by_teacher').hide();
+    delCookie('USER');
 </script>
 </body>
 </html>

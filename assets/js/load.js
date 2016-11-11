@@ -13,6 +13,7 @@ function load(src, type) {
         if (typeof left_bar_cb != 'undefined') {
             left_bar_cb();
             $('.exit-button').click(function () {
+
                 $.ajax({
                     url: 'http://debian8-01.internal.enjoyreading.com:8082/users/open/logout',
                     xhrFields: {

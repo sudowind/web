@@ -78,7 +78,6 @@ function on_button_click(e) {
 $('.modal-footer .btn').one("click",function(){
     $('#myModal').modal('hide');
     $(".book-image .btn").html("已添加“阅读任务”");
-
 });
 
 $('#add_to_task').click(function () {
@@ -88,10 +87,10 @@ $('#add_to_task').click(function () {
             withCredentials: true
         },
         type: 'POST',
-        url: 'http://debian8-01.internal.enjoyreading.com:8083/tasks/web/task',
-        data: JSON.stringify({bookId: $.getUrlParam('book_id'), startTime: -1, endTime: -1}),
+        url: 'http://debian8-01.internal.enjoyreading.com:8083/tasks/web/task/student/current',
+        data: {bookId: $.getUrlParam('book_id')},
         // dataType: "json",
-        contentType: "application/json",
+        // contentType: "application/json",
         success: function (data) {
             $('#add_to_task').html('已添加到“阅读任务”');
         }

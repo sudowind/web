@@ -248,6 +248,7 @@
 .like {
     float: left;
     margin-left: 480px;
+    cursor: pointer;
 }
 
 .like-count {

@@ -23,12 +23,33 @@ function load_comments(page) {
             if (html == '') {
                 html = '<div class="comment" style="text-align: center">暂无评论</div>';
             }
+            $('#comment_count').html();
             $('#comment_container').html(html);
+
+            $('.like').click(function () {
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    type: 'POST',
+                    url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/bookComment/' + $.getUrlParam('book_id') + '/' + $(this).attr('value') + '/like',
+                    data: {
+
+                    },
+                    success: function() {
+                        my_tip.alert('点赞成功~');
+                        // $('#user_comment').val('');
+                        // has_load_comment_page = false;
+                        // load_comments(1);
+                    }
+                });
+            });
 
             if (!has_load_comment_page) {
                 has_load_comment_page = true;
+                var page_count = Math.ceil((data.totalItem * 1.0) / 2);
                 $('#comment_pagination').createPage({
-                    pageCount: data.totalPage,
+                    pageCount: page_count,
                     current: 1,
                     backFn: function(p) {
                         load_comments(p);
@@ -46,10 +67,10 @@ function create_comment(data) {
         '</div>' +
         '<div class="comment-content">' +
         '<h3>吴磊</h3>' +
-        '<div class="like">' +
+        '<div class="like" value="' + data.id + '">' +
         '<img src="../../../assets/img/student/book/like.png" height="90%" width="90%">' +
         '</div>' +
-        '<div class="like-count">74</div>' +
+        '<div class="like-count">' + data.likeCount + '</div>' +
         '<p>' + data.content + '</p>' +
         '<div class="comment-date" align="right">' +
         '2016-10-10' +
@@ -75,4 +96,6 @@ $('#submit_comment').click(function () {
         }
     });
 });
+
+
 

@@ -30,8 +30,9 @@ function load_notes(page) {
 
             if (!has_load_note_page) {
                 has_load_note_page = true;
+                var page_count = Math.ceil((data.totalItem * 1.0) / 2);
                 $('#note_pagination').createPage({
-                    pageCount: data.totalPage,
+                    pageCount: page_count,
                     current: 1,
                     backFn: function(p) {
                         load_notes(p);

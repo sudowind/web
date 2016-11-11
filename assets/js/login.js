@@ -115,6 +115,7 @@ $('#submit_button').click(function () {
                         window.open('../../../html/school_master/tasks/teacher_list.html', '_self');
                         break;
                 }
+                setCookie('USER', data.userId);
             }
             else {
                 my_tip.alert('登陆失败！');
