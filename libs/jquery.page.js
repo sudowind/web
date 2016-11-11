@@ -5,10 +5,20 @@
     var ms = {
         init:function(obj,args){
             return (function(){
+                ms.unbindEvent(obj, args);
                 ms.fillHtml(obj,args);
                 ms.bindEvent(obj,args);
             })();
         },
+
+        unbindEvent: function(obj, args) {
+            return (function() {
+                obj.off("click", "a.tcdNumber");
+                obj.off("click", "a.prevPage");
+                obj.off("click", "a.nextPage");
+            })();
+        },
+
         fillHtml:function(obj,args){
             return (function(){
                 obj.empty();
@@ -49,15 +59,10 @@
                     start = args.current - 1;
                     end = args.current + 1;
 
-                    // if((start > 1 && args.current < 4)||args.current == 1){
-                    //     end++;
-                    // }
                     if (args.current < 5) {
                         end = 5;
                     }
-                    // if(args.current > args.pageCount-4 && args.current >= args.pageCount){
-                    //     start--;
-                    // }
+
                     if (args.current > args.pageCount - 4) {
                         start = args.pageCount - 4;
                     }

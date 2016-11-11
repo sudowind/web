@@ -1,3 +1,7 @@
+.add-task {
+    cursor: pointer;
+}
+
 #task{
     background: #fff;
     width: 770px;

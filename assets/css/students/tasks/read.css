@@ -145,6 +145,20 @@
     width: 600px;
     font-size: 14px;
     height: 160px;
+    position: relative;
+}
+
+#comment_container {
+    height: 360px;
+}
+
+.comment-content .comment-date {
+    float: right;
+    color: #999999;
+    font-size: 12px;
+    left: 520px;
+    top: 130px;
+    position: absolute;
 }
 
 .comment-content h3 {
@@ -168,12 +182,6 @@
     clear: both;
 }
 
-.comment-content .comment-date {
-    float: right;
-    color: #999999;
-    font-size: 12px;
-}
-
 .book-comment textarea {
     border: none;
     width: 660px;
@@ -187,55 +195,6 @@
     background: #fb9e1d;
     color: #ffffff;
 }
-
-/*模态框*/
-.modal-footer div {
-    float: left;
-    font-size: 16px;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-top: -7px;
-}
-
-.modal-footer div:nth-child(1) {
-    background: #fb9e1d;
-    margin-left: 115px;
-}
-
-.modal-footer div:nth-child(3) {
-    background: #776c60;
-    margin-left: 10px;
-}
-
-.modal-body div {
-    padding: 50px;
-}
-/*转线上线下css样式*/
-
-/*.book-info .begin-online{*/
-/*position: absolute;*/
-/*top: 190px;*/
-/*left: 250px;*/
-/*border: 1px solid #fb9e1d;*/
-/*color: #fb9e1d;*/
-/*border-radius: 5px;*/
-/*padding: 6px 15px;*/
-/*margin: 7px 10px;*/
-/*cursor: pointer;*/
-/*}*/
-/*.book-info .begin-offline{*/
-/*position: absolute;*/
-/*top: 190px;*/
-/*left: 450px;*/
-/*color: #fb9e1d;*/
-/*border: 1px solid #fb9e1d;*/
-/*border-radius: 5px;*/
-/*padding: 6px 15px;*/
-/*margin: 7px 10px;*/
-/*cursor: pointer;*/
-/*}*/
-
 
 
 

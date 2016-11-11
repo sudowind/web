@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
     <link rel="stylesheet" href="../../../assets/css/students/tasks/read_offline.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
 </head>
 <body background="../../../assets/img/background.png">
 
@@ -91,17 +92,38 @@
                 </div>
 
                 <div class="book-comment" style="display: none;" id="comment_part">
-                    <div class="comment">
+                    <div id="comment_container">
+                        <div class="comment">
+                            <div class="comment-img">
+                                <img src="../../../assets/img/student/book/comment_photo.png">
+                            </div>
+                            <div class="comment-content">
+                                <h3>吴磊</h3>
+                                <div class="like">
+                                    <img src="../../../assets/img/student/book/like.png" height="90%" width="90%">
+                                </div>
+                                <div class="like-count">74</div>
+                                <!--这里存在一个问题，如果点赞数过多，如何安排格式，有一种解决方法就是不显示点赞数目-->
+                                <p>我已经开始给孩子读了，每翻开一页都是一种。已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开</p>
+                                <div class="comment-date" align="right">
+                                    2016-10-10
+                                </div>
+                            </div>
+                            <hr style="clear: both;"/>
+                        </div>
+
+                        <div class="comment">
                         <div class="comment-img">
                             <img src="../../../assets/img/student/book/comment_photo.png">
                         </div>
                         <div class="comment-content">
                             <h3>吴磊</h3>
+
                             <div class="like">
                                 <img src="../../../assets/img/student/book/like.png" height="90%" width="90%">
                             </div>
                             <div class="like-count">74</div>
-                            <!--这里存在一个问题，如果点赞数过多，如何安排格式，有一种解决方法就是不显示点赞数目-->
+
                             <p>我已经开始给孩子读了，每翻开一页都是一种。已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开</p>
                             <div class="comment-date" align="right">
                                 2016-10-10
@@ -109,28 +131,9 @@
                         </div>
                         <hr style="clear: both;"/>
                     </div>
-
-                    <div class="comment">
-                        <div class="comment-img">
-                            <img src="../../../assets/img/student/book/comment_photo.png">
-                        </div>
-                        <div class="comment-content">
-                            <h3>吴磊</h3>
-
-                            <div class="like">
-                                <img src="../../../assets/img/student/book/like.png" height="90%" width="90%">
-                            </div>
-                            <div class="like-count">74</div>
-
-                            <p>我已经开始给孩子读了，每翻开一页都是一种。已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开</p>
-                            <div class="comment-date" align="right">
-                                2016-10-10
-                            </div>
-                        </div>
-                        <hr style="clear: both;"/>
                     </div>
                     <textarea placeholder="发表一下你的评论吧……" id="user_comment"></textarea>
-                    <p class="btn" id="submit_comment" onclick="submit_comment()">发表评论</p>
+                    <p class="btn" id="submit_comment">发表评论</p>
 
                     <!--分页-->
                     <div class="tcdPageCode" id="comment_pagination">
@@ -144,21 +147,23 @@
                     <div class="note-title"><b>写读书笔记：</b></div>
 
                     <label for="user_note"></label><textarea id="user_note"></textarea>
-                    <p class="btn disabled button-disabled" id="submit_note" onclick="submit_note()">确定</p>
+                    <p class="btn disabled button-disabled" id="submit_note">确定</p>
 
                     <div class="note-title"><b>我的读书笔记：</b></div>
 
-                    <div class="note">
-                        <div class="note_id">1</div>
-                        <div class="note_time">2016-10-10 12:00</div>
-                        <div class="note_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们都干了一件很不平凡的事情。作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</div>
-                        <hr style="clear: both;"/>
-                    </div>
-                    <div class="note">
-                        <div class="note_id">1</div>
-                        <div class="note_time">2016-10-10 12:00</div>
-                        <div class="note_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们都干了一件很不平凡的事情。作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</div>
-                        <hr style="clear: both;"/>
+                    <div id="note_container">
+                        <div class="note">
+                            <div class="note_id">1</div>
+                            <div class="note_time">2016-10-10 12:00</div>
+                            <div class="note_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们都干了一件很不平凡的事情。作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</div>
+                            <hr style="clear: both;"/>
+                        </div>
+                        <div class="note">
+                            <div class="note_id">1</div>
+                            <div class="note_time">2016-10-10 12:00</div>
+                            <div class="note_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们都干了一件很不平凡的事情。作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</div>
+                            <hr style="clear: both;"/>
+                        </div>
                     </div>
 
                     <div class="tcdPageCode" id="note_pagination">
@@ -166,43 +171,9 @@
                 </div>
             </div>
 
-
-            <!-- 模态框（Modal） -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" style="width: 400px; margin-top: 200px;">
-                    <div class="modal-content">
-                        <div class="modal-body" style="height: 150px;">
-                            <h4 align="center">鸭子骑车记</h4>
-                            <div>
-                                <label for="finish_time">结束时间</label>
-                                <input id="finish_time" class="laydate" onclick="laydate()">
-                            </div>
-                        </div>
-                        <div class="modal-footer" style="height: 50px;">
-                            <div class="btn">确定</div>
-                            <div></div>
-                            <div class="btn">取消</div>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal -->
-            </div>
-
-            <div class="modal fade" id="alert_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" style="width: 400px; margin-top: 200px;">
-                    <div class="modal-content">
-                        <div class="modal-body" style="height: 150px;">
-                            <div style="text-align: center; font-size: 16px; display: none;"><img src="../../../assets/img/alert.png" alt="" style="margin-right: 10px;"><span>笔记内容不能少于10个字！</span></div>
-                            <div style="text-align: center; font-size: 16px; display: none;"><img src="../../../assets/img/alert.png" alt="" style="margin-right: 10px;"><span>必须大于已记录的页码！</span></div>
-                            <div style="text-align: center; font-size: 16px; display: none;"><img src="../../../assets/img/ok.png" alt="" style="margin-right: 10px;"><span>记录成功</span></div>
-                            <div style="text-align: center; font-size: 16px; "><img src="../../../assets/img/ok.png" alt="" style="margin-right: 10px;"><span>添加笔记成功</span></div>
-                            <p class="btn button-able" data-dismiss="modal" id="modal_confirm">确定</p>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal -->
-            </div>
-
         </div>
     </div>
+    <div id="tmp_modal"></div>
     <div id="right_bar"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
@@ -215,11 +186,15 @@
 <script src="../../../assets/js/student/tasks/read_offline.js"></script>
 <script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
-<script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/base.js"></script>
 
 <script>
     load('../../../include/html/');
     load_page();
+    load_comments(1);
+    load_notes(1);
 </script>
 
 </body>

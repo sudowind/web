@@ -10,6 +10,8 @@ var curr_type = 0;
 var curr_start_score = 600;
 var curr_end_score = 1200;
 
+var has_load_book = false;
+
 function load_book(type, page) {
     var html = '';
     curr_type = type;
@@ -32,6 +34,16 @@ function load_book(type, page) {
                 html += fill_book(data.data[i]);
             }
             $('#book_list').html(html);
+            if(!has_load_book) {
+                has_load_book = true;
+                $('#book_pagination').createPage({
+                    pageCount: data.totalPage,
+                    current: 1,
+                    backFn: function(p) {
+                        load_book(curr_type, p);
+                    }
+                });
+            }
         }
     });
 }
@@ -65,23 +77,15 @@ $(".book .grade span").click(function(){
         curr_start_score = start_score;
         curr_end_score = start_score + 100;
     }
-
+    has_load_book = false;
     load_book(curr_type, 1);
-
-    $('#book_pagination').fillPage({
-        pageCount: 20,
-        current: 1
-    });
 });
 $(".book .sort span").click(function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
 
+    has_load_book = false;
     load_book(Number($(this).attr('value')), 1);
 
-    $('#book_pagination').fillPage({
-        pageCount: 20,
-        current: 1
-    });
 });
 

@@ -121,7 +121,21 @@
     margin-left: 10px;
     width: 600px;
     font-size: 14px;
+    height: 160px;
+    position: relative;
+}
 
+#comment_container {
+    height: 360px;
+}
+
+.comment-content .comment-date {
+    float: right;
+    color: #999999;
+    font-size: 12px;
+    left: 520px;
+    top: 130px;
+    position: absolute;
 }
 
 .comment-content h3 {
@@ -143,12 +157,6 @@
 
 .comment-content p {
     clear: both;
-}
-
-.comment-content .comment-date {
-    float: right;
-    color: #999999;
-    font-size: 12px;
 }
 
 .book-comment textarea {

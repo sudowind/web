@@ -2,6 +2,8 @@
  * Created by yilong on 2016/10/12.
  */
 
+var has_load_book = false;
+
 function left_bar_cb() {
     $('#tasks_button').attr('class', 'side-button-selected left-side-button');
 }
@@ -19,6 +21,7 @@ $(".book .sort .read").click(function(){
     );
     $(".check").css("display","block");
     $(".list-book .reading").css("display","none");
+    load_book(1, 2, 0, 8);
 });
 $(".book .sort .reading").click(function(){
     $(".book .sort .reading").addClass("index");
@@ -26,6 +29,7 @@ $(".book .sort .reading").click(function(){
     $(".list").off("mouseenter mouseleave");
     $(".check").css("display","none");
     $(".list-book .reading").css("display","block");
+    load_book(1, 2, 0, 8);
 });
 
 function load_book(task_status, reporter_id, page, item_per_page) {
@@ -38,7 +42,7 @@ function load_book(task_status, reporter_id, page, item_per_page) {
         url: 'http://debian8-01.internal.enjoyreading.com:8083/tasks/web/task/student/current/list',
         data: {
             // taskStatus: task_status,
-            // reporterId: reporter_id,
+            reporterId: reporter_id,
             page: page,
             itemPerPage: item_per_page
         },
@@ -58,9 +62,20 @@ function load_book(task_status, reporter_id, page, item_per_page) {
                         // alert(obj.attr('value'));
                         obj.find('.book-name').html(book_data.name);
                         obj.find('.level-score').html(book_data.levelScore);
+
                     }
                 });
             });
+            if(!has_load_book) {
+                has_load_book = true;
+                $('#book_pagination').createPage({
+                    pageCount: data.totalPage,
+                    current: 1,
+                    backFn: function(p) {
+                        load_book(curr_type, p);
+                    }
+                });
+            }
         }
     });
 }
@@ -101,3 +116,11 @@ function fill_book(data) {
         '</div>';
 }
 
+$('.add-task').click(function () {
+    window.open('../library/index.html', '_self');
+});
+
+$('.grade').find('span').click(function () {
+    $(this).siblings('span').removeClass('index');
+    $(this).addClass('index');
+});

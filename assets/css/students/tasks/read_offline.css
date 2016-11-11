@@ -223,6 +223,20 @@
     width: 600px;
     font-size: 14px;
     height: 160px;
+    position: relative;
+}
+
+#comment_container {
+    height: 360px;
+}
+
+.comment-content .comment-date {
+    float: right;
+    color: #999999;
+    font-size: 12px;
+    left: 520px;
+    top: 130px;
+    position: absolute;
 }
 
 .comment-content h3 {
@@ -244,12 +258,6 @@
 
 .comment-content p {
     clear: both;
-}
-
-.comment-content .comment-date {
-    float: right;
-    color: #999999;
-    font-size: 12px;
 }
 
 .book-comment textarea {
@@ -304,6 +312,10 @@
     margin-bottom: 10px;
 }
 
+#note_container {
+    height: 336px;
+}
+
 #submit_note {
     margin: 10px 0 10px 621px;
     color: #ffffff;
@@ -317,46 +329,17 @@
     background: #bababa;
 }
 
-/*模态框*/
-.modal-footer div {
-    float: left;
-    font-size: 16px;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-top: -7px;
-}
-
-.modal-footer div:nth-child(1) {
-    background: #fb9e1d;
-    margin-left: 115px;
-}
-
-.modal-footer div:nth-child(3) {
-    background: #776c60;
-    margin-left: 10px;
-}
-
-.modal-body div {
-    padding: 25px;
-}
-
-#modal_confirm {
-    margin-left: 155px;
-    color: #ffffff;
-}
-
 hr {
     margin: 10px;
 }
 
 /*分页部分*/
 #comment_pagination {
-    padding-top: 98px;
+    padding-top: 80px;
 }
 
 #note_pagination {
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 

@@ -7,12 +7,6 @@ function left_bar_cb() {
     $('#tasks_button').attr('class', 'side-button-selected left-side-button');
 }
 
-function submit_comment() {
-    // alert($('#user_comment').val());
-    $('#myModal').modal('show');
-    setTimeout(function(){ $('#myModal').modal('hide'); }, 1000);
-}
-
 var button_ids = ['intro', 'comment', 'note'];
 
 function on_button_click(e) {
@@ -54,7 +48,7 @@ $('#offline_read').click(function () {
 
 function fill_data(data) {
     $('#book_name').find('h3 b').html(data.name);
-    $('#display_type').html(data.displayType);
+    $('#display_type').html(data.displayTypeName);
     $('#author').html(data.author);
     $('#publisher').html(data.publisher);
     $('#word_count').html(data.wordCount);
@@ -77,8 +71,4 @@ function load_page() {
             fill_data(data);
         }
     });
-}
-
-function load_comments(page) {
-
 }
