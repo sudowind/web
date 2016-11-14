@@ -26,7 +26,6 @@ function forget_password() {
 }
 
 function on_fp_drop_down_click() {
-
     if ($('.main-button').attr('value') != '2')
         return;
 
@@ -93,7 +92,7 @@ $('#submit_button').click(function () {
     }
     $.ajax({
         type: 'POST',
-        url: 'http://debian8-01.internal.enjoyreading.com:8082/users/open/login',
+        url: URL_BASE + '/users/open/login',
         xhrFields: {
             withCredentials: true
         },

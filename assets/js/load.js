@@ -2,6 +2,8 @@
  * Created by wind on 2016/10/9.
  */
 
+var URL_BASE = 'http://debian8-01.internal.enjoyreading.com';
+
 function load(src, type) {
 
     if (typeof type == 'undefined') {
@@ -15,7 +17,7 @@ function load(src, type) {
             $('.exit-button').click(function () {
 
                 $.ajax({
-                    url: 'http://debian8-01.internal.enjoyreading.com:8082/users/open/logout',
+                    url: URL_BASE + '/users/open/logout',
                     xhrFields: {
                         withCredentials: true
                     },
@@ -51,6 +53,9 @@ function fill_data(data) {
     $('#author').html(data.author);
     $('#publisher').html(data.publisher);
     $('#word_count').html(data.wordCount);
+    $('#page_count').html('/&nbsp;&nbsp;' + data.pageCount);
+    $('.page-count').html(data.pageCount);
+    $('.curr-page').html(data.pageCount);
     $('#isbn').html(data.isbn);
     $('#level_score').html(data.levelScore);
     $('#intro_part').html(data['introduction']);
@@ -62,12 +67,29 @@ function load_page() {
         // 如果url中没有给id，应该导向别的页面
         // my_tip.alert('gaga');
     }
-    $.ajax({
-        type: 'GET',
-        url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/book/' + id,
-        success: function(data) {
-            // my_tip.alert(data.id);
-            fill_data(data);
-        }
-    });
+    else {
+        $.ajax({
+            type: 'GET',
+            url: URL_BASE + '/books/web/book/' + id,
+            success: function (data) {
+                // my_tip.alert(data.id);
+                fill_data(data);
+            }
+        });
+    }
+
+    var task_id = $.getUrlParam('task_id');
+    if (task_id != null) {
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'GET',
+            url: URL_BASE + '/tasks/web/task/' + task_id,
+            success: function(data) {
+                // my_tip.alert(data.id);
+                // do some thing
+            }
+        });
+    }
 }

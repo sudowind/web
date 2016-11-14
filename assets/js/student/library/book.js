@@ -87,7 +87,7 @@ $('#add_to_task').click(function () {
             withCredentials: true
         },
         type: 'POST',
-        url: 'http://debian8-01.internal.enjoyreading.com:8083/tasks/web/task/student/current',
+        url: URL_BASE + '/tasks/web/task/student/current',
         data: {bookId: $.getUrlParam('book_id')},
         // dataType: "json",
         // contentType: "application/json",
@@ -117,7 +117,7 @@ function load_page() {
     }
     $.ajax({
         type: 'GET',
-        url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/book/' + id,
+        url: URL_BASE + '/books/web/book/' + id,
         success: function(data) {
             // my_tip.alert(data.id);
             fill_data(data);

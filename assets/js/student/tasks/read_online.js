@@ -84,7 +84,7 @@ function load_page() {
     }
     $.ajax({
         type: 'GET',
-        url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/book/' + id,
+        url: URL_BASE + '/books/web/book/' + id,
         success: function(data) {
             // my_tip.alert(data.id);
             fill_data(data);

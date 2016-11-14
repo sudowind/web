@@ -57,6 +57,7 @@
 .book-detail-box .nav-bar {
     height: 50px;
     border-bottom: 1px solid #e8e8e8;
+    text-align: center;
 }
 
 .book-detail-box .nav-bar .nav-button{
@@ -147,6 +148,7 @@
 .like {
     float: left;
     margin-left: 480px;
+    cursor: pointer;
 }
 
 .like-count {

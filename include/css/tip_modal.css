@@ -8,8 +8,8 @@
     height: 80px;
 }
 
-#modal_confirm_button {
+#modal_confirm_button, #modal_quit {
     background: #fb9e1d;
     color: #ffffff;
-    margin: auto;
+    margin: auto 10px;
 }

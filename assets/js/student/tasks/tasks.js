@@ -39,7 +39,7 @@ function load_book(task_status, reporter_id, page, item_per_page) {
             withCredentials: true
         },
         type: 'GET',
-        url: 'http://debian8-01.internal.enjoyreading.com:8083/tasks/web/task/student/current/list',
+        url: URL_BASE + '/tasks/web/task/student/current/list',
         data: {
             // taskStatus: task_status,
             reporterId: reporter_id,
@@ -56,7 +56,7 @@ function load_book(task_status, reporter_id, page, item_per_page) {
                 var id = obj.find('.book-name').attr('book-id');
                 $.ajax({
                     type: 'GET',
-                    url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/book/' + id,
+                    url: URL_BASE + '/books/web/book/' + id,
                     success: function(book_data) {
                         // my_tip.alert(data.id);
                         // alert(obj.attr('value'));

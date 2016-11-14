@@ -11,7 +11,7 @@ function load_notes(page) {
             withCredentials: true
         },
         type: 'GET',
-        url: 'http://debian8-01.internal.enjoyreading.com:8083/tasks/web/note/list',
+        url: URL_BASE + '/tasks/web/note/list',
         data: {
             page: page - 1,
             itemPerPage: 2,
@@ -62,7 +62,7 @@ $('#submit_note').click(function () {
             withCredentials: true
         },
         type: 'POST',
-        url: 'http://debian8-01.internal.enjoyreading.com:8083/tasks/web/note/book/' + $.getUrlParam('book_id'),
+        url: URL_BASE + '/tasks/web/note/book/' + $.getUrlParam('book_id'),
         data: { content: $('#user_note').val()},
         success: function() {
             my_tip.alert('笔记记录成功');

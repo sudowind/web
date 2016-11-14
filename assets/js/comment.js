@@ -10,7 +10,7 @@ function load_comments(page) {
             withCredentials: true
         },
         type: 'GET',
-        url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/bookComment/' + $.getUrlParam('book_id') + '/list',
+        url: URL_BASE + '/books/web/bookComment/' + $.getUrlParam('book_id') + '/list',
         data: {
             page: page - 1,
             itemPerPage: 2
@@ -23,26 +23,49 @@ function load_comments(page) {
             if (html == '') {
                 html = '<div class="comment" style="text-align: center">暂无评论</div>';
             }
-            $('#comment_count').html();
+            $('#comment_count').html(data.totalItem);
             $('#comment_container').html(html);
 
             $('.like').click(function () {
+                var obj = $(this);
                 $.ajax({
                     xhrFields: {
                         withCredentials: true
                     },
                     type: 'POST',
-                    url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/bookComment/' + $.getUrlParam('book_id') + '/' + $(this).attr('value') + '/like',
-                    data: {
-
-                    },
-                    success: function() {
-                        my_tip.alert('点赞成功~');
+                    url: URL_BASE + '/books/web/bookComment/' + $.getUrlParam('book_id') + '/' + $(this).attr('value') + '/like',
+                    success: function(data) {
+                        // my_tip.alert(data);
+                        if (data) {
+                            obj.siblings('.like-count').html(Number(obj.siblings('.like-count').html()) + 1);
+                            obj.find('img').attr('src', '../../../assets/img/student/book/like_true.png');
+                        }
+                        else {
+                            obj.siblings('.like-count').html(Number(obj.siblings('.like-count').html()) - 1);
+                            obj.find('img').attr('src', '../../../assets/img/student/book/like.png');
+                        }
                         // $('#user_comment').val('');
                         // has_load_comment_page = false;
                         // load_comments(1);
                     }
                 });
+            }).css('cursor', 'pointer');
+
+            $('.delete-comment').click(function() {
+                var obj = $(this);
+                my_tip.bind('确定要删除这条评论吗？', function(){
+                    $.ajax({
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        type: 'POST',
+                        url: URL_BASE + '/books/web/bookComment/' + $.getUrlParam('book_id') + '/' + obj.attr('value') + '/delete',
+                        success: function(data) {
+                            load_comments(1);
+                        }
+                    })
+                });
+
             });
 
             if (!has_load_comment_page) {
@@ -61,16 +84,25 @@ function load_comments(page) {
 }
 
 function create_comment(data) {
+    var liked = '';
+    if (data.liked) {
+        liked = '_true';
+    }
+    var del_html = '';
+    if (data.userId == getCookie('USER')) {
+        del_html = '<div class="delete-comment" value="' + data.id + '"><img src="../../../assets/img/delete.png" height="90%" width="90%"></div>'
+    }
     return '<div class="comment">' +
         '<div class="comment-img">' +
         '<img src="../../../assets/img/student/book/comment_photo.png">' +
         '</div>' +
         '<div class="comment-content">' +
-        '<h3>吴磊</h3>' +
+        '<h3>吴磊</h3>' + '<div class="like-option">' +
         '<div class="like" value="' + data.id + '">' +
-        '<img src="../../../assets/img/student/book/like.png" height="90%" width="90%">' +
+        '<img src="../../../assets/img/student/book/like' + liked + '.png" height="90%" width="90%">' +
         '</div>' +
-        '<div class="like-count">' + data.likeCount + '</div>' +
+        '<div class="like-count">' + data.likeCount + '</div>' + del_html +
+        '</div>' +
         '<p>' + data.content + '</p>' +
         '<div class="comment-date" align="right">' +
         '2016-10-10' +
@@ -86,7 +118,7 @@ $('#submit_comment').click(function () {
             withCredentials: true
         },
         type: 'POST',
-        url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/bookComment/' + $.getUrlParam('book_id'),
+        url: URL_BASE + '/books/web/bookComment/' + $.getUrlParam('book_id'),
         data: { content: $('#user_comment').val()},
         success: function() {
             my_tip.alert('评论发表成功');

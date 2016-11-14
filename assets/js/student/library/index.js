@@ -20,7 +20,7 @@ function load_book(type, page) {
             withCredentials: true
         },
         type: 'GET',
-        url: 'http://debian8-01.internal.enjoyreading.com:8081/books/web/library/list',
+        url: URL_BASE + '/books/web/library/list',
         data: {
             page: page - 1,
             typeId: type,

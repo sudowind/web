@@ -87,7 +87,7 @@
     clear: left;
 }
 
-.progress-content span {
+.progress-content #page_count {
     float: left;
 }
 
@@ -187,92 +187,6 @@
 
 .book-detail-box .book-detail-content p {
     line-height: 150%;
-}
-
-/*评论模块*/
-.comment {
-    /*height: 100px;*/
-    margin: 10px;
-    /*border-bottom: 1px solid #e8e8e8;*/
-}
-
-.comment div {
-    float: left;
-}
-
-.comment .comment-img{
-    display:inline-block;
-    position:relative;
-    width:80px;
-    height:80px;
-    overflow:hidden;
-    border-radius:50%;
-
-    margin: 5px 5px 13px 5px;
-}
-
-.comment .comment-img img{
-    width:auto;
-    height:100%;
-    margin-left:-30%;
-}
-
-.comment-content {
-    padding: 5px;
-    margin-left: 10px;
-    width: 600px;
-    font-size: 14px;
-    height: 160px;
-    position: relative;
-}
-
-#comment_container {
-    height: 360px;
-}
-
-.comment-content .comment-date {
-    float: right;
-    color: #999999;
-    font-size: 12px;
-    left: 520px;
-    top: 130px;
-    position: absolute;
-}
-
-.comment-content h3 {
-    float: left;
-    color: #fb9e1d;
-    margin-bottom: 5px;
-}
-
-.like {
-    float: left;
-    margin-left: 480px;
-    cursor: pointer;
-}
-
-.like-count {
-    margin-top: 5px;
-    width: 25px;
-    text-align: right;
-}
-
-.comment-content p {
-    clear: both;
-}
-
-.book-comment textarea {
-    border: none;
-    width: 660px;
-    height: 100px;
-    margin-left: 35px;
-    padding: 10px;
-}
-
-.book-comment #submit_comment {
-    margin: 10px 0 0 613px;
-    background: #fb9e1d;
-    color: #ffffff;
 }
 
 /*笔记部分*/

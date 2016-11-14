@@ -7,10 +7,20 @@ var TipModal = function() {};
 
 var my_tip = new TipModal();
 
+// 仅作为提示
 TipModal.prototype.alert = function (a) {
     // alert(a);
     $('#tmp_modal').load('../../../include/html/modal_base.html', function () {
         $('#modal_info').html(a);
+        $('#myModal').modal('show');
+    });
+};
+
+// 可以为按钮绑定一个事件
+TipModal.prototype.bind = function(a, b) {
+    $('#tmp_modal').load('../../../include/html/modal_two_choice.html', function () {
+        $('#modal_info').html(a);
+        $('#modal_confirm_button').click(b);
         $('#myModal').modal('show');
     });
 };
