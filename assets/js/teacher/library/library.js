@@ -17,7 +17,6 @@ $(".book .read-lv .button span").click(function(){
 
 function load_book(type, grade, page) {
     var html = '';
-
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -27,9 +26,10 @@ function load_book(type, grade, page) {
         data: {
             page: page,
             typeId: type,
-            gradeId: grade
+            gradeId: grade,
         },
         success: function(data) {
+            console.log(data)
             for (var i = 0; i < data.data.length; ++i) {
                 html += fill_book(data.data[i]);
             }

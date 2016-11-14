@@ -60,29 +60,26 @@
     background: #f9f9f9;
     position: relative;
 }
-
-
-.file {
-    position: relative;
-    display: inline-block;
-    background: #FFFFFF;
-    border: none;
-    margin-top: 6px;
-    padding: 6px 0  0  6px;
-    overflow: hidden;
-    color: #000;
-    text-decoration: none;
-    text-indent: 0;
-    line-height: 20px;
-}
-.file input {
-    position: absolute;
-    font-size: 100px;
-    right: 0;
-    top: 0;
-    opacity: 0;
-    cursor: pointer;
-}
+/*.file {*/
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*background: #FFFFFF;*/
+    /*border: none;*/
+    /*margin-top: 6px;*/
+    /*padding: 6px 0  0  6px;*/
+    /*/!*overflow: hidden;*!/*/
+    /*color: #000;*/
+    /*text-decoration: none;*/
+    /*text-indent: 0;*/
+    /*line-height: 20px;*/
+/*}*/
+/*.file input {*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 0;*/
+    /*opacity: 0;*/
+    /*cursor: pointer;*/
+/*}*/
 .file:hover {
     background: #FFFFFF;
     /*border-color: #78C3F3;*/

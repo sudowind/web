@@ -26,17 +26,19 @@
             <div class="information">
                 <div class="change-head">
                     <p>
-                        <img src="../../../assets/img/student/info/1.png" alt=""/>
+                        <img id="head" src="../../../assets/img/student/info/1.png" alt=""/>
                     </p>
                     <p class="change">
                         <img src="../../../assets/img/student/info/camera.png" alt=""/>
-                        <a href="#" class="file">
-                            <input type="file">修改头像</input>
-                        </a>
+                        <!--<form class="file" action="/users/web/user/current/headimg" enctype="multipart/form-data" method="put">-->
+                            <!--<input type="file" id="change-head"/>-->
+                        <!--</form>-->
+                        <label id="selectFile" class="selectFile">label select</label>
+                        <input id="file" type="file" name="files" value="IE 上传文件" class="" />
                     </p>
                 </div>
                 <div class="info-list">
-                    <form action="">
+                    <form action="/users/web/user/current/headimg">
                         <p class="name">
                             姓名：<span>萌萌哒</span>
                         </p>
@@ -66,7 +68,7 @@
 
                         <input class="change-info" type="button"  onclick="Change()" value="修改" />
                         <input class="off"  type="button"  onclick="Back()" value="取消" style="display: none"/>
-                        <input class="sure"  type="button"  onclick="Sure()" value="保存" style="display: none"/>
+                        <input class="sure"  type="submit"  onclick="Sure()" value="保存" style="display: none"/>
                     </form>
                 </div>
             </div>
@@ -86,6 +88,7 @@
 <script src="../../../libs/laydate/laydate.js"></script>
 <script>
     load('../../../include/html/');
+    upload("selectFile","file");
 </script>
 </body>
 </html>
