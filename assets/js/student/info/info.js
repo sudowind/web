@@ -1,6 +1,7 @@
 /**
  * Created by yilong on 2016/10/13.
  */
+//å–æ¶ˆç¡®å®šbuttonçš„ç‚¹å‡»äº‹ä»¶æ ·å¼
 function Change() {
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
@@ -11,6 +12,8 @@ function Change() {
     $(".change-info").css("display","none");
     $(".off").css("display","inline");
     $(".sure").css("display","inline");
+    $(".birth span").css("display","none");
+    //$(".email span").css("display","none");
 }
 function Sure(){
     document.getElementById("boy").disabled = true;
@@ -22,6 +25,8 @@ function Sure(){
     $(".change-info").css("display","block");
     $(".off").css("display","none");
     $(".sure").css("display","none");
+    $(".birth span").css("display","inline");
+    $(".email span").css("display","inline");
 }
 function Back(){
     document.getElementById("boy").disabled = true;
@@ -33,7 +38,79 @@ function Back(){
     $(".change-info").css("display","block");
     $(".off").css("display","none");
     $(".sure").css("display","none");
+    $(".birth span").css("display","inline");
+    $(".email span").css("display","inline");
+
 }
+//è½½å…¥è¯»å–ä¸ªäººä¿¡æ¯
+function load_info() {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/users/web/user/current',
+        success: function(data) {
+            //console.log(data);
+            $(".name span").html(data.name);
+            $(".birth span").html(data.birthday);
+            $(".email span").html(data.email);
+            $(".school span").html(data.school.name);
+            $(".class-name span").html(data.classes[0].name);
+            $(".city span").html(data.school.address);
+            if(data.gender == 1 ){
+                $("#boy").attr("checked","checked");
+            }else if(data.gender == 2 ){
+                $("#girl").attr("checked","");
+            }
+
+        }
+    });
+}
+
+//ä¿®æ”¹ä¸ªäººä¿¡æ¯
+
+function change_info(){
+    $(".sure").click(function(){
+        //var birthday = $(".laydate").val();
+        var email = $(".mail").val();
+        //var name  = $(".name span").;
+        if($("#boy").is(":checked")) {
+            var gender = 1;
+        }else if($("#girl").is(":checked")) {
+            var gender = 2;
+        };
+        alert(name);
+
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            contentType: 'application/json',
+            data: JSON.stringify({
+
+                    "birthday": 19910101,
+                    "email": "email",
+                    "gender": gender,
+                    "name": "ç‹æ¾ˆ111222333"
+            }),
+            type: 'PUT',
+            url: URL_BASE + '/users/web/user/current',
+            success: function(data) {
+                console.log(data);
+                load_info();
+
+
+
+            }
+        });
+    })
+};
+
+
+
+
+//ä¿®æ”¹å¤´åƒ
 //$(function(){
 //    var ChImg = $("#change-head").val();
 //    //$("#head").attr("src","ChImg");
@@ -56,119 +133,4 @@ function Back(){
 //        }
 //    });
 //})
-
-
-
-
-;(function(window,document){
-    var myUpload = function(option) {
-        var file,
-            fd = new FormData(),
-            xhr = new XMLHttpRequest(),
-            loaded, tot, per, uploadUrl,input;
-
-        input = document.createElement("input");
-        input.setAttribute('id',"myUpload-input");
-        input.setAttribute('type',"file");
-        input.setAttribute('name',"files");
-
-        input.click();
-
-        uploadUrl = option.uploadUrl;
-        callback = option.callback;
-        uploading = option.uploading;
-        beforeSend = option.beforeSend;
-
-        input.onchange= function(){
-            file = input.files[0];
-            if(beforeSend instanceof Function){
-                if(beforeSend(file) === false){
-                    return false;
-                }
-            }
-
-            fd.append("files", file);
-
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    if(callback instanceof Function){
-                        callback(xhr.responseText);
-                    }
-                }
-            }
-
-            //Õì²éµ±Ç°¸½¼şÉÏ´«Çé¿ö
-            xhr.upload.onprogress = function(evt) {
-                loaded = evt.loaded;
-                tot = evt.total;
-                per = Math.floor(100 * loaded / tot); //ÒÑ¾­ÉÏ´«µÄ°Ù·Ö±È
-                if(uploading instanceof Function){
-                    uploading(per);
-                }
-            };
-
-            xhr.open("post", uploadUrl);
-            xhr.send(fd);
-        }
-    };
-
-    window.myUpload = myUpload;
-})(window,document);
-
-function upload(labelID,fileID){
-    var ol = document.getElementById(labelID);
-    var of = document.getElementById(fileID);
-    var res = false;
-    try{
-        if(FormData!=undefined && FormData!=null){
-            res = true;
-        }
-    }
-    catch(e){}
-    if(res==true){
-        ol.onclick = function(e){
-            console.log(this);
-            console.log(e);
-            //ÓÃ·¨
-            //´¥·¢ÎÄ¼şÉÏ´«ÊÂ¼ş
-            myUpload({
-                //ÉÏ´«ÎÄ¼ş½ÓÊÕµØÖ·
-                uploadUrl: "/users/web/user/current/headimg",
-                //Ñ¡ÔñÎÄ¼şºó£¬·¢ËÍÎÄ¼şÇ°×Ô¶¨ÒåÊÂ¼ş
-                //fileÎªÉÏ´«µÄÎÄ¼şĞÅÏ¢£¬¿ÉÔÚ´Ë´¦×öÎÄ¼ş¼ì²â¡¢³õÊ¼»¯½ø¶ÈÌõµÈ¶¯×÷
-                beforeSend: function(file) {
-                    console.log("begin upload");
-                },
-                //ÎÄ¼şÉÏ´«Íê³Éºó»Øµ÷º¯Êı
-                //resÎªÎÄ¼şÉÏ´«ĞÅÏ¢
-                callback: function(res) {
-                    console.log(res);
-                },
-                //·µ»ØÉÏ´«¹ı³ÌÖĞ°üÀ¨ÉÏ´«½ø¶ÈµÄÏà¹ØĞÅÏ¢
-                //ÏêÏ¸Çë¿´res,¿ÉÔÚ´Ë¼ÓÈë½ø¶ÈÌõÏà¹Ø´úÂë
-                uploading: function(res) {
-                    console.log(res);
-                }
-            });
-        }
-    }
-    //else{
-        //ol.setAttribute("for",fileID);
-        //if(oiframe.attachEvent){
-        //    oiframe.attachEvent('onload', function(){
-        //        var responseData = oiframe.contentWindow.document.body.innerHTML;
-        //        console.log(responseData);
-        //        console.log('ie iframe onload');
-        //    });
-        //}
-        //else{
-        //    oiframe.onload = function(){
-        //        var responseData = this.contentDocument.body.textContent || this.contentWindow.document.body.textContent;
-        //        console.log(responseData);
-        //        console.log("arived");
-        //    };
-        //}
-        //of.onchange = function(){document.getElementsByTagName("form")[0].submit();}
-    //}
-}
 

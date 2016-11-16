@@ -25,30 +25,33 @@
             </div>
             <div class="information">
                 <div class="change-head">
-                    <p>
-                        <img id="head" src="../../../assets/img/student/info/1.png" alt=""/>
+                    <p class="head">
+                        <img id="head" src="../../../assets/img/student/info/2.jpg" alt=""/>
                     </p>
                     <p class="change">
                         <img src="../../../assets/img/student/info/camera.png" alt=""/>
-                        <!--<form class="file" action="/users/web/user/current/headimg" enctype="multipart/form-data" method="put">-->
-                            <!--<input type="file" id="change-head"/>-->
-                        <!--</form>-->
-                        <label id="selectFile" class="selectFile">label select</label>
-                        <input id="file" type="file" name="files" value="IE 上传文件" class="" />
+                        <a href="#" class="file">
+                            <form method="POST" enctype="multipart/form-data"  action="http://debian8-01.internal.enjoyreading.com:8081/users/web/user/current/headimg">
+                                <input name="img" type="file" accept="image/*"/>修改头像
+                                <input type="submit" id="submit"/>上传
+                            </form>
+
+                        </a>
                     </p>
                 </div>
                 <div class="info-list">
-                    <form action="/users/web/user/current/headimg">
+                    <!--<form action="/users/web/user/current/headimg" method="get">-->
                         <p class="name">
                             姓名：<span>萌萌哒</span>
                         </p>
-                        <p class=""sex>性别:
+                        <p class="sex">性别:
                             <span>
-                                男<input id="boy" type="radio" name="x1" disabled="disabled" checked>&nbsp;&nbsp;女<input id="girl" type="radio" disabled="disabled" name="x1">
+                                男<input id="boy" type="radio" disabled="disabled" value="男" name="auto" checked="checked">&nbsp;&nbsp;
+                                女<input id="girl" type="radio" disabled="disabled" value="女" name="auto">
                             </span>
                         </p>
                         <p class="birth">
-                            出生年月：<input class="laydate laydate-icon" onclick="laydate()"style="display: none" >
+                            出生年月：<input class="laydate laydate-icon" onclick="laydate()"style="display: none" ><span></span>
                         </p>
                         <p class="city">
                             城市：<span>北京市海淀区</span>
@@ -59,8 +62,8 @@
                         <p class="class-name">
                             班级：<span>一年级一班</span>
                         </p>
-                        <p>
-                           邮箱：<input  class="mail" type="email" style="display: none"/> <input class="btn" type="button" value="免费获取验证码" style="display: none" />
+                        <p class="email">
+                           邮箱：<input  class="mail" type="email" style="display: none"/><span>123123123123</span><input class="btn" type="button" value="免费获取验证码" style="display: none" />
                         </p>
                         <p class="code" style="display: none">
                             验证码：<input type="text" placeholder="6位数字"/>
@@ -68,8 +71,8 @@
 
                         <input class="change-info" type="button"  onclick="Change()" value="修改" />
                         <input class="off"  type="button"  onclick="Back()" value="取消" style="display: none"/>
-                        <input class="sure"  type="submit"  onclick="Sure()" value="保存" style="display: none"/>
-                    </form>
+                        <input class="sure"  type="button"  onclick="Sure()" value="保存" style="display: none"/>
+                    <!--</form>-->
                 </div>
             </div>
         </div>
@@ -88,7 +91,9 @@
 <script src="../../../libs/laydate/laydate.js"></script>
 <script>
     load('../../../include/html/');
-    upload("selectFile","file");
+//    upload("selectFile","file");
+    load_info();
+    change_info();
 </script>
 </body>
 </html>
