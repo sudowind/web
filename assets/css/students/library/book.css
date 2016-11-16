@@ -67,14 +67,18 @@
     float: left;
     border-bottom: 1px solid #e8e8e8;
     cursor: pointer;
+    padding-top: 12px;
 }
 
 .book-detail-box .nav-bar .nav-button img {
-    margin: 12px 0 0 150px;
-    float: left;
+    margin-right: 10px;
 }
 
-.book-detail-box .nav-bar .nav-button div {
+.btn-content-wrapper {
+    text-align: center;
+}
+
+.introduce, .comments, .introduce, .test {
     padding-top: 12px;
     padding-left: 10px;
     float: left;

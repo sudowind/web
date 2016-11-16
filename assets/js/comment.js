@@ -44,16 +44,13 @@ function load_comments(page) {
                             obj.siblings('.like-count').html(Number(obj.siblings('.like-count').html()) - 1);
                             obj.find('img').attr('src', '../../../assets/img/student/book/like.png');
                         }
-                        // $('#user_comment').val('');
-                        // has_load_comment_page = false;
-                        // load_comments(1);
                     }
                 });
             }).css('cursor', 'pointer');
 
             $('.delete-comment').click(function() {
                 var obj = $(this);
-                my_tip.bind('确定要删除这条评论吗？', function(){
+                my_tip.bind('确定要删除这条评论吗？', function() {
                     $.ajax({
                         xhrFields: {
                             withCredentials: true
@@ -61,9 +58,10 @@ function load_comments(page) {
                         type: 'POST',
                         url: URL_BASE + '/books/web/bookComment/' + $.getUrlParam('book_id') + '/' + obj.attr('value') + '/delete',
                         success: function(data) {
+                            has_load_comment_page = false;
                             load_comments(1);
                         }
-                    })
+                    });
                 });
 
             });

@@ -56,13 +56,11 @@
             <!--图书标签介绍-->
             <div class="book-detail-box" >
                 <div class="nav-bar">
-                    <div class="nav-button" id="intro_button" onclick="on_button_click(this);" value="1">
-                        <img src="../../../assets/img/student/book/intro_selected.png" alt="">
-                        <div class="introduce" style="color: #ffffff;">简介</div>
+                    <div class="nav-button" id="intro_button" onclick="on_button_click(this);" value="1" style="color: #FFFFFF" btn-type="introduce">
+                        <img src="../../../assets/img/student/book/intro_selected.png" alt="">简介
                     </div>
-                    <div class="nav-button" id="comment_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0">
-                        <img src="../../../assets/img/student/book/comment_unselected.png" alt="">
-                        <div class="comments">评论(<span id="comment_count"></span>)</div>
+                    <div class="nav-button" id="comment_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="comments">
+                        <img src="../../../assets/img/student/book/comment_unselected.png" alt="">评论(<span id="comment_count"></span>)
                     </div>
                 </div>
                 <div class="book-detail-content" id="intro_part">

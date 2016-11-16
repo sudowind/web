@@ -10,19 +10,17 @@ function left_bar_cb() {
 var button_ids = ['intro', 'comment', 'note'];
 
 function on_button_click(e) {
-    // alert($(e).attr('id'));
+    //alert($(e).attr('id'));
     if ($(e).attr('value') == '0') {
         for (var i = 0; i < button_ids.length; ++i) {
             var curr_id = button_ids[i] + '_button';
             if (curr_id != $(e).attr('id')) {
-                $('#'+ curr_id + ' div').css('color', '#000000');
-                $('#'+ curr_id).attr('value', '0').css('background', '#f9f9f9');
+                $('#'+ curr_id).css('color', '#000000').attr('value', '0').css('background', '#f9f9f9');
                 $('#'+ curr_id + ' img').attr('src', '../../../assets/img/student/book/' + button_ids[i] + '_unselected.png');
                 $('#' + button_ids[i] + '_part').css('display', 'none');
             }
             else {
-                $('#'+ curr_id + ' div').css('color', '#ffffff');
-                $('#'+ curr_id).attr('value', '1').css('background', '#fb9e1d');
+                $('#'+ curr_id).css('color', '#ffffff').attr('value', '1').css('background', '#fb9e1d');
                 $('#'+ curr_id + ' img').attr('src', '../../../assets/img/student/book/' + button_ids[i] + '_selected.png');
                 $('#' + button_ids[i] + '_part').css('display', 'block');
             }
@@ -50,19 +48,80 @@ $('#user_note').bind('input propertychange', function () {
     }
 });
 
-$('.progress-input').bind('input propertychange', function () {
-    // alert(1);
-    if ($('#start_read_time').val() && $('#finish_read_time').val() && $('#today_page').val()) {
-        $('#record_button').removeClass('disabled button-disabled').addClass('button-able');
-    }
-    else {
-        $('#record_button').addClass('disabled button-disabled').removeClass('button-able');
-    }
-});
-
+// $('.progress-input').bind('input propertychange', function () {
+//     // alert(1);
+//     if ($('#start_read_time').val() && $('#finish_read_time').val() && $('#today_page').val()) {
+//         $('#record_button').removeClass('disabled button-disabled').addClass('button-able');
+//     }
+//     else {
+//         $('#record_button').addClass('disabled button-disabled').removeClass('button-able');
+//     }
+// });
 
 $('#record_button').click(function () {
-    $('#alert_modal').modal('show');
+
+    if ($('#start_read_time').val() && $('#finish_read_time').val() && $('#today_page').val()) {
+
+        var start_time = new Date();
+        var start_time_array = $('#start_read_time').val().split(':');
+        start_time.setHours(start_time_array[0]);
+        var start_time_stamp = start_time.setMinutes(start_time_array[1]);
+        var end_time = new Date();
+        var end_time_array = $('#finish_read_time').val().split(':');
+        end_time.setHours(end_time_array[0]);
+        var end_time_stamp = end_time.setMinutes(end_time_array[1]);
+        var curr_page = $('#today_page').val();
+
+        if (Number(curr_page) > Number($('#page_count').html().split('&nbsp;')[2])) {
+            my_tip.alert('填写页码数不能超过本书总页码数!');
+            return;
+        }
+
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'POST',
+            url: URL_BASE + '/tasks/web/task/student/current/' + $.getUrlParam('task_id') + '/record',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "createTime": 0,
+                "currentPage": Number(curr_page),
+                "endTime": end_time_stamp,
+                "id": 0,
+                "onlineStatus": "1",
+                "startTime": start_time_stamp,
+                "taskId": 0
+            }),
+            success: function () {
+                // my_tip.alert('haha');
+                load_progress();
+                my_tip.alert('记录成功！');
+            }
+        });
+    }
+    else {
+        my_tip.alert('请填写阅读起始时间和阅读页码！');
+    }
 });
+
+function load_progress() {
+    var task_id = $.getUrlParam('task_id');
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/tasks/web/task/' + task_id,
+
+        success: function (data) {
+            var curr_page = data.currentPage;
+            var total_page = data.totalPage;
+            var percent = Math.round(curr_page * 100.0 / total_page);
+            $('.plan').find('span').html(percent);
+            $('.progress-bar').css('width', percent.toString() + '%');
+        }
+    });
+}
 
 

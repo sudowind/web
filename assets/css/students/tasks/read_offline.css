@@ -74,12 +74,20 @@
     padding: 20px;
 }
 
-.progress-content input {
+.progress-input {
     font-size: 16px;
     border-radius: 0;
     width: 100px;
     float: left;
     margin: -5px 10px 0 10px;
+}
+
+#start_read_time + .timepicker_wrap {
+    left: 121px;
+}
+
+#finish_read_time + .timepicker_wrap {
+    left: 275px;
 }
 
 .progress-content label {
@@ -92,7 +100,7 @@
 }
 
 #today_page {
-    width: 50px;
+    width: 90px;
 }
 
 .progress {
@@ -102,11 +110,13 @@
 }
 
 .plan {
-    left: 247px;
+    left: 277px;
     top: 475px;
     position: absolute;
     font-size: 12px;
     color: #999999;
+    width: 140px;
+    text-align: center;
 }
 
 .pages {
@@ -120,7 +130,7 @@
 #record_button {
     float: left;
     margin-top: -26px;
-    margin-left: 277px;
+    margin-left: 226px;
     color: #ffffff;
 }
 
@@ -138,24 +148,15 @@
 }
 
 .book-detail-box .nav-bar .nav-button{
+    cursor: pointer;
+    width: 33.33%;
     height: 50px;
     background: #fb9e1d;
     float: left;
     border-bottom: 1px solid #e8e8e8;
-    cursor: pointer;
-}
-
-.double-button {
-    width: 50%;
-}
-
-.triple-button {
-    width: 33.33%;
-}
-
-#note_button img {
-    margin: 12px 0 0 70px;
-    float: left;
+    text-align: center;
+    position: relative;
+    padding-top: 12px;
 }
 
 .book-detail-box .nav-bar .nav-button:not(:first-child) {
@@ -163,18 +164,14 @@
 }
 
 .book-detail-box .nav-bar .nav-button img {
-    float: left;
+    margin-right: 10px;
 }
 
-.double-button-img {
-    margin: 12px 0 0 150px;
+.btn-content-wrapper {
+    text-align: center;
 }
 
-.triple-button-img {
-    margin: 12px 0 0 86px;
-}
-
-.book-detail-box .nav-bar .nav-button div {
+.introduce, .comments, .introduce, .test {
     padding-top: 12px;
     padding-left: 10px;
     float: left;
