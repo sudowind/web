@@ -11,7 +11,7 @@
 .content{
     padding:21px 20px;
     position: relative;
-    top: 0px;
+    top: 0;
 }
 .title h3{
     width: 81px;
@@ -180,14 +180,18 @@
     top: 225px;
     left: 9px;
     font-size: 12px;
+    width: 140px;
     color: #999999;
+    text-align: center;
 }
 .list .list-book .pages{
     position: absolute;
     top: 224px;
-    left: 92px;
+    left: 50px;
     font-size: 12px;
     color: #999999;
+    width: 100px;
+    text-align: right;
 }
 .list .list-book .reading .continue-read{
     width: 54px;

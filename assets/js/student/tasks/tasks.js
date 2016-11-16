@@ -9,30 +9,34 @@ function left_bar_cb() {
 }
 
 $(".book .sort .read").click(function(){
-    $(".book .sort .read").addClass("index");
-    $(".book .sort .reading").removeClass("index");
-    $(".list").hover(
-        function(){
-            $(this).find(".list-book .remove ").css({"display":"block"});
-        },
-        function(){
-            $(this).find(".list-book .remove ").css({"display":"none"});
-        }
-    );
-    $(".check").css("display","block");
-    $(".list-book .reading").css("display","none");
-    load_book(1, 2, 0, 8);
+    load_book(3, getCookie('USER'), 0, 8, function() {
+        $(".book .sort .read").addClass("index");
+        $(".book .sort .reading").removeClass("index");
+        $(".list").hover(
+            function(){
+                $(this).find(".list-book .remove ").css({"display":"block"});
+            },
+            function(){
+                $(this).find(".list-book .remove ").css({"display":"none"});
+            }
+        );
+        $(".check").css("display","block");
+        $(".list-book .reading").css("display","none");
+    });
 });
 $(".book .sort .reading").click(function(){
-    $(".book .sort .reading").addClass("index");
-    $(".book .sort .read").removeClass("index");
-    $(".list").off("mouseenter mouseleave");
-    $(".check").css("display","none");
-    $(".list-book .reading").css("display","block");
-    load_book(1, 2, 0, 8);
+    load_book(1, getCookie('USER'), 0, 8, function() {
+        $(".book .sort .reading").addClass("index");
+        $(".book .sort .read").removeClass("index");
+        $(".list").off("mouseenter mouseleave");
+        $(".check").css("display","none");
+        $(".list-book .reading").css("display","block");
+    });
+
+
 });
 
-function load_book(task_status, reporter_id, page, item_per_page) {
+function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
     var html = '';
     $.ajax({
         xhrFields: {
@@ -41,7 +45,7 @@ function load_book(task_status, reporter_id, page, item_per_page) {
         type: 'GET',
         url: URL_BASE + '/tasks/web/task/student/current/list',
         data: {
-            // taskStatus: task_status,
+            taskStatus: task_status,
             reporterId: reporter_id,
             page: page,
             itemPerPage: item_per_page
@@ -66,21 +70,45 @@ function load_book(task_status, reporter_id, page, item_per_page) {
                     }
                 });
             });
+            $('.remove').click(function () {
+                var obj = $(this);
+                my_tip.bind('确认要删除这个阅读任务吗？', function() {
+                    var task_id = obj.attr('task-id');
+                    // alert(task_id);
+                    // obj.parent().parent().hide();
+                    $.ajax({
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        type: 'POST',
+                        url: URL_BASE + '/tasks/web/task/student/current/' + task_id + '/delete',
+                        success: function () {
+                            obj.parent().parent().hide();
+                        }
+                    });
+                });
+            });
             if(!has_load_book) {
                 has_load_book = true;
+                var page_count = Math.ceil((data.totalItem * 1.0) / data.itemPerPage);
                 $('#book_pagination').createPage({
-                    pageCount: data.totalPage,
+                    pageCount: page_count,
                     current: 1,
                     backFn: function(p) {
                         load_book(curr_type, p);
                     }
                 });
             }
+            cb_func();
         }
     });
 }
 
 function fill_book(data) {
+    var curr_page = data.currentPage;
+    var total_page = data.totalPage;
+    var percent = Math.round(curr_page * 100.0 / total_page);
+
     return '<div class="list">' +
         '<div class="list-book">' +
         '<div class="image">' +
@@ -89,15 +117,14 @@ function fill_book(data) {
         '<span class="level-score"></span>' +
         '<div class="book-name" book-id="' + data.bookId + '" task-id="' + data.id + '"></div></div>' +
         '</div>' +
-        '' +
         '<!--进度条部分-->' +
         '<div class="progress">' +
-        '<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 20%">' +
-        '<span class="sr-only">45% Complete</span>' +
+        '<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="' + percent.toString() + '" aria-valuemin="0" aria-valuemax="100" style="width: ' + percent.toString() + '%">' +
+        '<span class="sr-only">' + percent.toString() +'% Complete</span>' +
         '</div>' +
         '</div>' +
-        '<p class="plan">进度<span>0</span>%</p>' +
-        '<div class="pages"><span>1</span>页/<span>999</span>页</div>' +
+        '<p class="plan">进度<span>' + percent.toString() + '</span>%</p>' +
+        // '<div class="pages"><span>' + curr_page + '</span>页/<span>' + total_page + '</span>页</div>' +
         '<div class="reading">' +
         '<p  class="continue-read">' +
         '<a href="read.html?book_id=' + data.bookId + '&task_id=' + data.id + '"><span>继续阅读</span></a>' +
@@ -106,10 +133,10 @@ function fill_book(data) {
         '<a href="test.html"><span>做测评</span></a>' +
         '</p>' +
         '</div>' +
-        '<div class="check" style="display: none";>' +
-        '<a href="book.html"><p>查看</p></a>' +
+        '<div class="check" style="display: none">' +
+        '<a href="book.html?book_id=' + data.bookId + '&task_id=' + data.id + '"><p>查看</p></a>' +
         '</div>' +
-        '<div class="remove">' +
+        '<div class="remove" task-id="' + data.id + '">' +
         '<img src="../../../assets/img/student/tasks/remove.png" alt=""/>' +
         '</div>' +
         '</div>' +

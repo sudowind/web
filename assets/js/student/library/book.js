@@ -89,8 +89,6 @@ $('#add_to_task').click(function () {
         type: 'POST',
         url: URL_BASE + '/tasks/web/task/student/current',
         data: {bookId: $.getUrlParam('book_id')},
-        // dataType: "json",
-        // contentType: "application/json",
         success: function (data) {
             $('#add_to_task').html('已添加到“阅读任务”');
         }

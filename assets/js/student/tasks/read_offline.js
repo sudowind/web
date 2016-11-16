@@ -62,7 +62,61 @@ $('.progress-input').bind('input propertychange', function () {
 
 
 $('#record_button').click(function () {
-    $('#alert_modal').modal('show');
+    var start_time = new Date();
+    var start_time_array = $('#start_read_time').val().split(':');
+    start_time.setHours(start_time_array[0]);
+    var start_time_stamp = start_time.setMinutes(start_time_array[1]);
+    var end_time = new Date();
+    var end_time_array = $('#finish_read_time').val().split(':');
+    end_time.setHours(end_time_array[0]);
+    var end_time_stamp = end_time.setMinutes(end_time_array[1]);
+    var curr_page = $('#today_page').val();
+
+    if (Number(curr_page) > Number($('#page_count').html().split('&nbsp;')[2])) {
+        my_tip.alert('填写页码数不能超过本书总页码数!');
+        return;
+    }
+
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'POST',
+        url: URL_BASE + '/tasks/web/task/student/current/' + $.getUrlParam('task_id') + '/record',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            "createTime": 0,
+            "currentPage": Number(curr_page),
+            "endTime": end_time_stamp,
+            "id": 0,
+            "onlineStatus": "1",
+            "startTime": start_time_stamp,
+            "taskId": 0
+        }),
+        success: function () {
+            // my_tip.alert('haha');
+            load_progress();
+        }
+    });
 });
+
+function load_progress() {
+    var task_id = $.getUrlParam('task_id');
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/tasks/web/task/' + task_id,
+
+        success: function (data) {
+            var curr_page = data.currentPage;
+            var total_page = data.totalPage;
+            var percent = Math.round(curr_page * 100.0 / total_page);
+            $('.plan').find('span').html(percent);
+            $('.progress-bar').css('width', percent.toString() + '%');
+        }
+    });
+}
 
 

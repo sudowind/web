@@ -74,12 +74,20 @@
     padding: 20px;
 }
 
-.progress-content input {
+.progress-input {
     font-size: 16px;
     border-radius: 0;
     width: 100px;
     float: left;
     margin: -5px 10px 0 10px;
+}
+
+#start_read_time + .timepicker_wrap {
+    left: 121px;
+}
+
+#finish_read_time + .timepicker_wrap {
+    left: 275px;
 }
 
 .progress-content label {
@@ -92,7 +100,7 @@
 }
 
 #today_page {
-    width: 50px;
+    width: 70px;
 }
 
 .progress {
@@ -102,11 +110,13 @@
 }
 
 .plan {
-    left: 247px;
+    left: 277px;
     top: 475px;
     position: absolute;
     font-size: 12px;
     color: #999999;
+    width: 140px;
+    text-align: center;
 }
 
 .pages {
@@ -120,7 +130,7 @@
 #record_button {
     float: left;
     margin-top: -26px;
-    margin-left: 277px;
+    margin-left: 252px;
     color: #ffffff;
 }
 

@@ -36,8 +36,9 @@ function load_book(type, page) {
             $('#book_list').html(html);
             if(!has_load_book) {
                 has_load_book = true;
+                var page_count = Math.ceil((data.totalItem * 1.0) / data.itemPerPage);
                 $('#book_pagination').createPage({
-                    pageCount: data.totalPage,
+                    pageCount: page_count,
                     current: 1,
                     backFn: function(p) {
                         load_book(curr_type, p);
