@@ -72,6 +72,9 @@
     background: #fb9e1d;
     float: left;
     border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    position: relative;
+    padding-top: 12px;
 }
 
 .book-detail-box .nav-bar .nav-button:not(:first-child) {
@@ -79,21 +82,14 @@
 }
 
 .book-detail-box .nav-bar .nav-button img {
-    margin: 12px 0 0 57px;
-    float: left;
+    margin-right: 10px;
 }
 
-#note_button img {
-    margin: 12px 0 0 45px;
-    float: left;
+.btn-content-wrapper {
+    text-align: center;
 }
 
-#test_button img {
-    margin: 12px 0 0 50px;
-    float: left;
-}
-
-.book-detail-box .nav-bar .nav-button div {
+.introduce, .comments, .introduce, .test {
     padding-top: 12px;
     padding-left: 10px;
     float: left;

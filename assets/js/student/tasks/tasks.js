@@ -127,14 +127,14 @@ function fill_book(data) {
         // '<div class="pages"><span>' + curr_page + '</span>页/<span>' + total_page + '</span>页</div>' +
         '<div class="reading">' +
         '<p  class="continue-read">' +
-        '<a href="read.html?book_id=' + data.bookId + '&task_id=' + data.id + '"><span>继续阅读</span></a>' +
+        '<span onclick="window.open(\'read.html?book_id=' + data.bookId + '&task_id=' + data.id + '\', \'_self\')">继续阅读</span>' +
         '</p>' +
         '<p class="appraisal">' +
-        '<a href="test.html"><span>做测评</span></a>' +
+        '<span onclick="window.open(\'test.html\', \'_self\');">做测评</span>' +
         '</p>' +
         '</div>' +
         '<div class="check" style="display: none">' +
-        '<a href="book.html?book_id=' + data.bookId + '&task_id=' + data.id + '"><p>查看</p></a>' +
+        '<p onclick="window.open(\'book.html?book_id=' + data.bookId + '&task_id=' + data.id + '\', \'_self\')">查看</p>' +
         '</div>' +
         '<div class="remove" task-id="' + data.id + '">' +
         '<img src="../../../assets/img/student/tasks/remove.png" alt=""/>' +

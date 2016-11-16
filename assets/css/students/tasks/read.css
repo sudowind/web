@@ -65,19 +65,15 @@
 }
 
 .book-detail-box .nav-bar .nav-button{
+    cursor: pointer;
+    width: 50%;
     height: 50px;
     background: #fb9e1d;
     float: left;
     border-bottom: 1px solid #e8e8e8;
-    cursor: pointer;
-}
-
-.double-button {
-    width: 50%;
-}
-
-.triple-button {
-    width: 33.33%;
+    text-align: center;
+    position: relative;
+    padding-top: 12px;
 }
 
 .book-detail-box .nav-bar .nav-button:not(:first-child) {
@@ -85,7 +81,7 @@
 }
 
 .book-detail-box .nav-bar .nav-button img {
-    float: left;
+    margin-right: 10px;
 }
 
 .double-button-img {
@@ -96,7 +92,11 @@
     margin: 12px 0 0 86px;
 }
 
-.book-detail-box .nav-bar .nav-button div {
+.btn-content-wrapper {
+    text-align: center;
+}
+
+.introduce, .comments, .introduce, .test {
     padding-top: 12px;
     padding-left: 10px;
     float: left;
