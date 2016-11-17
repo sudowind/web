@@ -14,7 +14,14 @@ function on_drop_down_click() {
 
 $('.sub-button').click(function () {
     $('.fp-sub-menu').slideUp();
-    $('.main-button').attr('value', $(this).attr('value'));
+    var value = $(this).attr('value');
+    $('.main-button').attr('value', value);
+    if (value == '2') {
+        $('#user_name').attr('placeholder', '输入老师给的账号');
+    }
+    else {
+        $('#user_name').attr('placeholder', '输入账号');
+    }
     $('.main-button .login-nav-img').attr('src', $(this).children('img').attr('src'));
     $('.main-button .login-nav-content').html($(this).children('.login-nav-content').html());
     on_drop_down_click();

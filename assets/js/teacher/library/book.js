@@ -49,3 +49,7 @@ function load_table_line (row_selector) {
         $(row_selector + ' .progress div').css('width', percentage.toString() + '%');
     });
 }
+
+$('#add_to_task').click(function() {
+    window.open('assign_task.html', '_self');
+});

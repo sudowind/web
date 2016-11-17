@@ -1,13 +1,18 @@
 /**
  * Created by yilong on 2016/10/13.
  */
+
+function right_bar_cb() {
+    $('#info_button').attr('class', 'side-button-selected right-side-button');
+}
+
 //取消确定button的点击事件样式
 function Change() {
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
     $(".laydate").css("display","inline");
     $(".mail").css("display","inline");
-    $(".btn").css("display","inline");
+    $(".info-list .btn").css("display","inline");
     $(".code").css("display","block");
     $(".change-info").css("display","none");
     $(".off").css("display","inline");
@@ -20,7 +25,7 @@ function Sure(){
     document.getElementById("girl").disabled = true;
     $(".laydate").css("display","none");
     $(".mail").css("display","none");
-    $(".btn").css("display","none");
+    $(".info-list .btn").css("display","none");
     $(".code").css("display","none");
     $(".change-info").css("display","block");
     $(".off").css("display","none");
@@ -33,7 +38,7 @@ function Back(){
     document.getElementById("girl").disabled = true;
     $(".laydate").css("display","none");
     $(".mail").css("display","none");
-    $(".btn").css("display","none");
+    $(".info-list .btn").css("display","none");
     $(".code").css("display","none");
     $(".change-info").css("display","block");
     $(".off").css("display","none");
@@ -79,7 +84,7 @@ function change_info(){
             var gender = 1;
         }else if($("#girl").is(":checked")) {
             var gender = 2;
-        };
+        }
         alert(name);
 
         $.ajax({
@@ -105,13 +110,10 @@ function change_info(){
             }
         });
     })
-};
+}
 
-
-
-
-//修改头像
-//$(function(){
+// 修改头像
+// $(function(){
 //    var ChImg = $("#change-head").val();
 //    //$("#head").attr("src","ChImg");
 //    console.log(ChImg);
@@ -132,5 +134,27 @@ function change_info(){
 //            alert(2)
 //        }
 //    });
-//})
+// });
+
+$('#submit').click(function () {
+    $.ajax({
+        url: URL_BASE + '/users/web/user/current/headimg',
+        type: 'PUT',
+        xhrFields: {
+            withCredentials: true
+        },
+        data: new FormData($('#headimg_form')[0]),
+        processData: false,
+        contentType: false,
+        success: function () {
+            my_tip.alert('haha');
+        }
+    })
+});
+
+$('#modify_avatar').click(function () {
+        $('#avatar-modal').modal('show');
+    }
+);
+
 

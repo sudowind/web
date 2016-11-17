@@ -1,6 +1,11 @@
 /**
  * Created by yilong on 2016/10/14.
  */
+
+function right_bar_cb() {
+    $('#password_button').attr('class', 'side-button-selected right-side-button');
+}
+
 //正则验证表单格式提示
 
 function is_letter(val) {
