@@ -1,0 +1,106 @@
+#retroaction{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.head{
+    padding:21px 20px;
+    position: relative;
+    top: 0px;
+}
+.title h3{
+    width: 81px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+}
+.title .down{
+    width: 649px;;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #cccccc;
+    float: right;
+}
+
+.content{
+    width: 728px;
+    height: 698px;
+    border: 1px solid #e8e8e8;
+    background: #f9f9f9;
+    margin-left: 20px;
+}
+.content .left{
+    float: left;
+    font-size: 18px;
+    font-weight: bolder;
+    margin-top: 50px;
+}
+.content .left p{
+    width: 144px;
+    margin-top: 50px;
+    text-align: right;
+}
+.content .left p:nth-of-type(5){
+    margin-top: 202px;
+}
+.content .right{
+    float: right;
+    margin-top: 54px;
+    width: 570px;
+}
+.content .right input{
+    margin-top: 40px;
+    width: 250px;
+    text-align: left;
+    height: 38px;
+}
+.content .right span{
+    margin-left: 20px;
+    color: #8b8b8b;
+}
+.content .right span:nth-of-type(4){
+    bottom: 30px;
+}
+.content .right textarea{
+    margin-top: 42px;
+    width: 380px;
+    height: 172px;
+    overflow-y: hidden;
+}
+.content .right a{
+    margin-left: 6px;
+    color:#77c3fe;
+}
+.content .right .button{
+    width: 110px;
+    height: 40px;
+    background: #f99d32;
+    color: #FFFFFF;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

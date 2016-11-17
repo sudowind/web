@@ -15,6 +15,9 @@ function verification(password) {
     var has_digital = false;
     var has_punctuation = false;
     var verification_count = 0;
+    if( password.length < 6|| password.length >16){
+        return false;
+    }
     for (var i = 0; i < password.length; ++i) {
         var tmp_char = password[i];
         var ascii_num = tmp_char.charCodeAt();
@@ -42,8 +45,9 @@ function verification(password) {
 
 
 $("#password-1").blur(function(){
-    var oldPassword = $("#password-1").val()
+    var oldPassword = $("#password-1").val();
     var reg = /^[0-9]*$/;
+    //if(!verification(oldPassword)){
     if(!reg.test(oldPassword)){
         $(".old-pw span").css("display","block");
     }
@@ -54,6 +58,7 @@ $("#password-1").blur(function(){
 $("#password-2").blur(function(){
     var newPassword = $("#password-2").val();
     var reg = /^[0-9]*$/;
+    //if(!verification(newPassword)){
     if(!reg.test(newPassword)){
         $(".set-pw span").css("display","block");
     }
