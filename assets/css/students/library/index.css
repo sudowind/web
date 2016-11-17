@@ -37,15 +37,17 @@
 }
 .seek .frame input{
     width: 398px;
-    height: 42px;
+    height: 44px;
     border: 1px solid #f99d32;
     float: left;
+    padding-left: 10px;
+    font-size: 16px;
 }
 .seek .button input{
     background: #f99d32;
     border: none;
     padding: 11px 18px;
-    font-size: 14px;
+    font-size: 16px;
     color: #ffffff;
     cursor:pointer;
 }

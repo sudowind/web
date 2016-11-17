@@ -6,7 +6,7 @@ function left_bar_cb() {
 }
 
 function init() {
-    for (var i = 0; i < 9; ++i) {
+    for (var i = 0; i <= 9; ++i) {
         load_table_line('#row' + i.toString());
     }
 }
@@ -28,7 +28,6 @@ function on_single_select_click(e) {
     else {
         $(e).attr('src', '../../../assets/img/teacher/single_selected.png');
         $(e).attr('value', '1');
-        // $('#total_selector').attr('src', '../../../assets/img/teacher/total_unselected.png').attr('value', '1');
     }
 }
 

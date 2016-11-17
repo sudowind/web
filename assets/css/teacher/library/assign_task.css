@@ -108,12 +108,10 @@
 /*表格样式*/
 #choose_part table thead {
     font-size: 16px;
-    border-bottom: 1px dotted #fb9e1d;
     text-align: center;
 }
 
 #choose_part table tbody {
-    border-bottom: 1px dotted #fb9e1d;
     text-align: center;
 }
 
@@ -122,7 +120,7 @@
     line-height: 25px;
     font-weight: bold;
     text-align: center;
-    width: 182px;
+    width: 178px;
 }
 
 #choose_part table tbody tr {
@@ -133,7 +131,7 @@
     padding: 15px 15px;
     text-align: center;
     height: 50px;
-    width: 25%;
+    width: 178px;
 }
 
 thead tr td img {
@@ -145,18 +143,22 @@ td img {
 }
 
 #confirm_button {
-    margin-top: 70px;
+    margin-top: 20px;
     font-size: 16px;
     padding: 5px 20px;
     background: #fb9e1d;
     color: #ffffff;
 }
 
-/*分页部分*/
-a:hover{ text-decoration:none;}
-.tcdPageCode{padding: 15px 20px;text-align: left;color: #f99d32;position: absolute;top: 1060px;left:175px;}
-.tcdPageCode a{display: inline-block;color: #f99d32;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #f99d32;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
-.tcdPageCode a:hover{text-decoration: none;border: 1px solid #f99d32;}
-.tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #f9f9f9;background-color: #f99d32;	border: 1px solid #f99d32;border-radius: 4px;vertical-align: middle;}
-.tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #f99d32;background: #f9f9f9;border: 1px solid #f99d32;border-radius: 4px;vertical-align:middle;}
+#table_content {
+    overflow: auto;
+    height: 468px;
+    border-bottom: 1px dotted #fb9e1d;
+    border-top: 1px dotted #fb9e1d;
 
+}
+
+/*!*分页部分*!*/
+/*.tcdPageCode {*/
+    /*padding-top: 30px;*/
+/*}*/

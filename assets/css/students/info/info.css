@@ -83,10 +83,11 @@
 }
 .file input {
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
     opacity: 0;
     cursor: pointer;
+    width: 60px;
 }
 .file:hover {
     background: #FFFFFF;
@@ -104,7 +105,7 @@
 }
 .info-list p input{
     margin-left: 15px;
-    text-align: center;
+    /*text-align: center;*/
 }
 .info-list p span{
     margin-left: 15px;
@@ -171,8 +172,23 @@
     top: 290px;
     left: 260px;
 }
-input::-ms-input-placeholder{text-align: center;}
+input:-ms-input-placeholder {text-align: center;}
 input::-webkit-input-placeholder{text-align: center;}
+
+#modify_avatar {
+    background: #fb9e1d;
+    color: #ffffff;
+    position: absolute;
+    left: 115px;
+    top: 330px;
+}
+#alert_msg {
+    position: absolute;
+    right: 100px;
+    top: 16px;
+    color: red;
+    display: none;
+}
 
 
 

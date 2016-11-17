@@ -1,13 +1,18 @@
 /**
  * Created by yilong on 2016/10/13.
  */
+
+function right_bar_cb() {
+    $('#info_button').attr('class', 'side-button-selected right-side-button');
+}
+
 //取消确定button的点击事件样式
 function Change() {
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
     $(".laydate").css("display","inline");
     $(".mail").css("display","inline");
-    $(".btn").css("display","inline");
+    $(".info-list .btn").css("display","inline");
     $(".code").css("display","block");
     $(".change-info").css("display","none");
     $(".off").css("display","inline");
@@ -20,7 +25,7 @@ function Sure(){
     document.getElementById("girl").disabled = true;
     $(".laydate").css("display","none");
     $(".mail").css("display","none");
-    $(".btn").css("display","none");
+    $(".info-list .btn").css("display","none");
     $(".code").css("display","none");
     $(".change-info").css("display","block");
     $(".off").css("display","none");
@@ -33,7 +38,7 @@ function Back(){
     document.getElementById("girl").disabled = true;
     $(".laydate").css("display","none");
     $(".mail").css("display","none");
-    $(".btn").css("display","none");
+    $(".info-list .btn").css("display","none");
     $(".code").css("display","none");
     $(".change-info").css("display","block");
     $(".off").css("display","none");
@@ -60,6 +65,7 @@ function load_info() {
             $(".school span").html(data.school.name);
             $(".class-name span").html(data.classes[0].name);
             $(".city span").html(data.school.address);
+            $("#headimg").attr('src', data.headimg);
             if(data.gender == 1 ){
                 $("#boy").attr("checked","checked");
             }else if(data.gender == 2 ){
@@ -81,6 +87,11 @@ function change_info(){
         }else if($("#girl").is(":checked")) {
             var gender = 2;
         }
+<<<<<<< HEAD
+=======
+        alert(name);
+
+>>>>>>> 070820fc5db1382eea2753052c2676d2f4913da2
         $.ajax({
             xhrFields: {
                 withCredentials: true
@@ -105,6 +116,7 @@ function change_info(){
         });
     })
 }
+<<<<<<< HEAD
 
 
 
@@ -131,4 +143,52 @@ function change_head(){
         }
     });
 }
+=======
+
+// 修改头像
+// $(function(){
+//    var ChImg = $("#change-head").val();
+//    //$("#head").attr("src","ChImg");
+//    console.log(ChImg);
+//    //console.log(ChImg.substring(12));
+//    $.ajax({
+//        xhrFields: {
+//            withCredentials: true
+//        },
+//        type: 'PUT',
+//        url: 'http://debian8-01.internal.enjoyreading.com:8082/users/web/user/current/headimg',
+//        data: {
+//            img: ChImg
+//        },
+//        success: function(data) {
+//            alert(1);
+//        },
+//        error:function(data){
+//            alert(2)
+//        }
+//    });
+// });
+
+$('#submit').click(function () {
+    $.ajax({
+        url: URL_BASE + '/users/web/user/current/headimg',
+        type: 'PUT',
+        xhrFields: {
+            withCredentials: true
+        },
+        data: new FormData($('#headimg_form')[0]),
+        processData: false,
+        contentType: false,
+        success: function () {
+            my_tip.alert('haha');
+        }
+    })
+});
+
+$('#modify_avatar').click(function () {
+        $('#avatar-modal').modal('show');
+    }
+);
+
+>>>>>>> 070820fc5db1382eea2753052c2676d2f4913da2
 

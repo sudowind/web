@@ -28,7 +28,7 @@
 .comment .comment-img img{
     width:auto;
     height:100%;
-    margin-left:-30%;
+    /*margin-left:-30%;*/
 }
 
 .comment-content {
@@ -61,11 +61,15 @@
 
 .like-option {
     /*width: 500px;*/
+    float: right;
+    position: absolute;
+    right: 8px;
 }
 
 .like {
     float: right;
-    margin-left: 465px;
+    /*margin-left: 465px;*/
+
 }
 
 .like-count {

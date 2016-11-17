@@ -7,7 +7,10 @@
     <title>Title</title>
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link href="../../../libs/cropper/cropper.min.css" rel="stylesheet">
+    <link href="../../../libs/sitelogo/sitelogo.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
     <link rel="stylesheet" href="../../../assets/css/students/info/info.css">
@@ -15,6 +18,7 @@
 <body background="../../../assets/img/background.png">
 
 <div class="main-body">
+    <div id="tmp_modal"></div>
     <div id="left_bar"></div>
     <!--<div style="background: #ffffff;height: 900px; width: 65.0%; float: left;"></div>-->
     <div id="info">
@@ -24,6 +28,7 @@
                 <span class="down"></span>
             </div>
             <div class="information">
+<<<<<<< HEAD
                 <div class="change-head">
                     <p class="head">
                         <img id="head" src="../../../assets/img/student/info/2.jpg" alt=""/>
@@ -43,7 +48,15 @@
 
                         </a>
                     </p>
+=======
+                <div id="crop-avatar">
+                    <div class="avatar-view">
+                        <img data-toggle="tooltip" title="修改头像" id="headimg" src="" alt="Logo">
+                        <div class="btn" id="modify_avatar">修改头像</div>
+                    </div>
+>>>>>>> 070820fc5db1382eea2753052c2676d2f4913da2
                 </div>
+
                 <div class="info-list">
                     <!--<form action="/users/web/user/current/headimg" method="get">-->
                         <p class="name">
@@ -85,16 +98,68 @@
 
     <div id="right_bar"></div>
 
+    <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form class="avatar-form" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" type="button">&times;</button>
+                        <h4 class="modal-title" id="avatar-modal-label">修改头像</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="avatar-body">
+                            <div class="avatar-upload">
+                                <input class="avatar-src" name="avatar_src" type="hidden">
+                                <input class="avatar-data" name="avatar_data" type="hidden">
+                                <label for="avatarInput">图片上传(文件大小不能超过200kB)</label>
+                                <input class="avatar-input" id="avatarInput" name="img" type="file">
+                                <div id="alert_msg">文件过大，请重新选取</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="avatar-wrapper"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="preview-wrap-lg avatar-preview"><div class=" preview-lg"></div></div>
+                                    <div class="preview-wrap-md avatar-preview"><div class=" preview-md"></div></div>
+                                    <div class="preview-wrap-sm avatar-preview"><div class=" preview-sm"></div></div>
+                                </div>
+                            </div>
+                            <div class="row avatar-btns">
+                                <div class="col-md-9">
+                                    <div class="btn-group">
+                                        <button class="btn" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees"><i class="fa fa-undo"></i> 向左旋转</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees"><i class="fa fa-repeat"></i> 向右旋转</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn btn-block avatar-save" type="submit" id="headimg_submit"><i class="fa fa-save"></i> 保存修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
-<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/jquery-2.2.4.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../assets/js/student/info/info.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/cropper/cropper.min.js"></script>
+<script src="../../../libs/sitelogo/sitelogo.js"></script>
 <script>
+    $('[data-toggle=tooltip]').tooltip();
     load('../../../include/html/');
 //    upload("selectFile","file");
     load_info();
