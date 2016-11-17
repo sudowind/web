@@ -23,7 +23,11 @@ function load_comments(page) {
             if (html == '') {
                 html = '<div class="comment" style="text-align: center">暂无评论</div>';
             }
-            $('#comment_count').html(data.totalItem);
+            if (data.totalItem > 0)
+                $('#comment_count').html(data.totalItem);
+            else {
+                $('#comment_count').html('0');
+            }
             $('#comment_container').html(html);
 
             $('.like').click(function () {
@@ -92,10 +96,10 @@ function create_comment(data) {
     }
     return '<div class="comment">' +
         '<div class="comment-img">' +
-        '<img src="../../../assets/img/student/book/comment_photo.png">' +
+        '<img src="' + data.user.headimg + '">' +
         '</div>' +
         '<div class="comment-content">' +
-        '<h3>吴磊</h3>' + '<div class="like-option">' +
+        '<h3>' + data.user.name + '</h3>' + '<div class="like-option">' +
         '<div class="like" value="' + data.id + '">' +
         '<img src="../../../assets/img/student/book/like' + liked + '.png" height="90%" width="90%">' +
         '</div>' +
@@ -111,13 +115,18 @@ function create_comment(data) {
 }
 
 $('#submit_comment').click(function () {
+    var content = $('#user_comment').val();
+    if (content.length == 0) {
+        my_tip.alert('请填写评论内容！');
+        return;
+    }
     $.ajax({
         xhrFields: {
             withCredentials: true
         },
         type: 'POST',
         url: URL_BASE + '/books/web/bookComment/' + $.getUrlParam('book_id'),
-        data: { content: $('#user_comment').val()},
+        data: { content: content},
         success: function() {
             my_tip.alert('评论发表成功');
             $('#user_comment').val('');

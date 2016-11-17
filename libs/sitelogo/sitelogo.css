@@ -25,7 +25,8 @@
   display: block;
   float: left;
   clear: left;
-  width: 100px;
+  margin-right: 10px;
+  /*width: 100px;*/
 }
 
 .avatar-upload input {

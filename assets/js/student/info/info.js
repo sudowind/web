@@ -63,6 +63,7 @@ function load_info() {
             $(".school span").html(data.school.name);
             $(".class-name span").html(data.classes[0].name);
             $(".city span").html(data.school.address);
+            $("#headimg").attr('src', data.headimg);
             if(data.gender == 1 ){
                 $("#boy").attr("checked","checked");
             }else if(data.gender == 2 ){

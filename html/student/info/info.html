@@ -30,7 +30,7 @@
             <div class="information">
                 <div id="crop-avatar">
                     <div class="avatar-view">
-                        <img data-toggle="tooltip" title="修改头像" src="http://xykj-koala-test.oss-cn-beijing.aliyuncs.com/users/headimg/NKM99VU3NVGASSMTZK74OA5W2O663Q.jpg" alt="Logo">
+                        <img data-toggle="tooltip" title="修改头像" id="headimg" src="" alt="Logo">
                         <div class="btn" id="modify_avatar">修改头像</div>
                     </div>
                 </div>
@@ -89,8 +89,11 @@
                             <div class="avatar-upload">
                                 <input class="avatar-src" name="avatar_src" type="hidden">
                                 <input class="avatar-data" name="avatar_data" type="hidden">
-                                <label for="avatarInput">图片上传</label>
-                                <input class="avatar-input" id="avatarInput" name="img" type="file"></div>
+                                <label for="avatarInput">图片上传(文件大小不能超过200kB)</label>
+                                <input class="avatar-input" id="avatarInput" name="img" type="file">
+                                <div id="alert_msg">文件过大，请重新选取</div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="avatar-wrapper"></div>

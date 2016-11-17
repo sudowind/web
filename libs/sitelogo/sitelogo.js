@@ -88,7 +88,7 @@
           }),
           _this = this;
 
-      // Ready ifrmae
+      // Ready iframe
       $iframe.one('load', function () {
 
         // respond response
@@ -136,6 +136,11 @@
 
         if (files.length > 0) {
           file = files[0];
+
+          if (document.getElementById("avatarInput").files[0].size > 204800) {
+            this.alert('图片过大！');
+            return;
+          }
 
           if (this.isImageFile(file)) {
             if (this.url) {
@@ -224,18 +229,15 @@
     },
 
     ajaxUpload: function () {
-      var url = 'http://kylin.internal.enjoyreading.com:8081/users/web/user/current/headimg/test',
+      var url = URL_BASE + '/users/web/user/current/headimg',
           data = new FormData(this.$avatarForm[0]),
           _this = this;
-
       $.ajax(url, {
-        // headers: {'X-XSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         xhrFields: {
           withCredentials: true
         },
         type: 'put',
         data: data,
-        // dataType: 'json',
         processData: false,
         contentType: false,
 
@@ -246,6 +248,7 @@
         success: function (data) {
           // _this.submitDone(data);
           my_tip.alert('头像修改成功');
+          load_info();
           $('#avatar-modal').modal('hide');
         },
 

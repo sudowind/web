@@ -182,6 +182,13 @@ input::-webkit-input-placeholder{text-align: center;}
     left: 115px;
     top: 330px;
 }
+#alert_msg {
+    position: absolute;
+    right: 100px;
+    top: 16px;
+    color: red;
+    display: none;
+}
 
 
 
