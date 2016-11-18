@@ -87,11 +87,7 @@ function change_info(){
         }else if($("#girl").is(":checked")) {
             var gender = 2;
         }
-<<<<<<< HEAD
-=======
-        alert(name);
 
->>>>>>> 070820fc5db1382eea2753052c2676d2f4913da2
         $.ajax({
             xhrFields: {
                 withCredentials: true
@@ -116,7 +112,6 @@ function change_info(){
         });
     })
 }
-<<<<<<< HEAD
 
 
 
@@ -143,7 +138,7 @@ function change_head(){
         }
     });
 }
-=======
+
 
 // 修改头像
 // $(function(){
@@ -190,5 +185,4 @@ $('#modify_avatar').click(function () {
     }
 );
 
->>>>>>> 070820fc5db1382eea2753052c2676d2f4913da2
 
