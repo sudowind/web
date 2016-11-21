@@ -27,10 +27,10 @@
 
                 <div class="classes-part part-basis">
                     <p>所带班级：</p>
-                    <span class="index option">2015级3班</span>
-                    <span class="option">2015级3班</span>
-                    <span class="option">2015级3班</span>
-                    <span class="option">2015级3班</span>
+                    <span class="index option" value="1">2015级3班</span>
+                    <span class="option" value="2">2015级4班</span>
+                    <span class="option" value="3">2015级5班</span>
+                    <span class="option" value="4">2015级6班</span>
                 </div>
 
                 <div class="book-part part-basis">
@@ -70,14 +70,16 @@
 <script src="../../../libs/progressbar.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/load.js"></script>
-<script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<!--<script src="../../../assets/js/page.js"></script>-->
 <script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../assets/js/teacher/tasks/index.js"></script>
 
 <script>
     load('../../../include/html/', 'teacher');
-    init();
-
+//    init();
+//    load_tasks($('.index').attr('value'), 1);
+    init_class();
 </script>
 
 </body>

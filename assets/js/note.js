@@ -16,7 +16,7 @@ function load_notes(page) {
             page: page - 1,
             itemPerPage: 2,
             bookId: $.getUrlParam('book_id'),
-            studentId: 2
+            studentId: getCookie('USER')
         },
         success: function(data) {
             var html = '';

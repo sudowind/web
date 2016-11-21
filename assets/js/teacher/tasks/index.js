@@ -10,19 +10,64 @@ function left_bar_cb() {
 function init () {
     load_table_row('#row1');
     load_table_row('#row2');
-    load_table_row('#row3');
-    load_table_row('#row4');
+    // load_table_row('#row3');
+    // load_table_row('#row4');
 }
 
-$('.option').click(function () {
-    $(this).siblings().removeClass('index');
-    $(this).addClass('index');
-});
+var has_load_page = false;
 
-function load_table_row(row_selector) {
+function load_tasks(class_id, page) {
+    // class_id = 1;
+    // page = 1;
+    clear_rows();
+    $.ajax({
+        url: URL_BASE + '/tasks/web/task/teacher/current/list',
+        xhrFields: {
+            withCredentials: true
+        },
+        data: {
+            classId: class_id,
+            page: page - 1,
+            itemPerPage: 4
+        },
+        type: 'get',
+        success: function (data) {
+            // alert(data.data.length);
+            if (data.data.length > 0) {
+                $('table').show();
+                for (var i = 0; i < data.data.length; ++i) {
+                    load_table_row('#row' + (i + 1).toString(), data.data[i]);
+                }
+            }
+            if (!has_load_page) {
+                has_load_page = true;
+                var page_count = Math.ceil((data.totalItem * 1.0) / data.itemPerPage);
+                $('#teacher_task_pagination').createPage({
+                    pageCount: page_count,
+                    current: 1,
+                    backFn: function(p) {
+                        load_tasks(class_id, p);
+                    }
+                });
+            }
+        }
+    });
+}
+
+
+function clear_rows() {
+    for (var i = 1; i <= 4; ++i) {
+        $('#row' + i.toString()).html('');
+    }
+    $('table').hide();
+}
+
+
+
+function load_table_row(row_selector, data) {
     // 从服务器拿到数据之后，将数据填充成表格
     var img_src = '../../../assets/img/1.png';
-    var img_name = '诗词里的科学';
+    var book_name = data.book.name;
     // 应该是对每一行分别填充，每一行都有一个id，通过这个id进行操作
     $(row_selector).load('../../../include/html/teacher/task_table_line.html', function() {
         var bars = new Array(2);
@@ -54,21 +99,62 @@ function load_table_row(row_selector) {
 
                 }
             });
-            bars[i].set(Math.random());
+            // bars[i].set(Math.random());
         }
+        // 设定两个进度环
+        bars[0].set(Number(data.completedCount)/Number(data.totalCount));
+        bars[1].set(Number(data.totalExamScore)/Number(data.examCount));
+
+        var obj = $(row_selector);
+        obj.find('.table-img div').html(book_name);
+        obj.find('.book-score').html(data.book.levelScore);
+        var start_date = new Date(data.startTime);
+        var finish_date = new Date(data.endTime);
+        obj.find('.start_date').html(start_date.getFullDate());
+        obj.find('.finish_date').html(finish_date.getFullDate());
+        // 绑定删除一本书的事件
+        obj.find('.delete-book').click(function () {
+            var message = '将《' + book_name + '》从' + $('.index').html() + '的阅读任务中删除？';
+            my_tip.bind(message, function() {
+                alert('hahs');
+            });
+        });
+        // 绑定查看书本详情的事件
+        obj.find('.book-detail').click(function () {
+            window.open('book.html?book_id=' + data.bookId, '_self');
+        });
 
     });
 }
 
-// 删除一本书
-function delete_book() {
-    var message = '将《诗词里的科学》从2015级3班、2015级4班的阅读任务中删除？';
-    my_tip.bind(message, function() {
-        alert('hahs');
+function init_class() {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/class/teacher/current/list',
+        success: function(data) {
+            var html = '<p>所带班级：</p>';
+            var index = 'index';
+            var class_id;
+            for (var i = 0; i < data.length; ++i) {
+                if (i != 0)
+                    index = '';
+                else {
+                    class_id = data[i].schoolId;
+                }
+                html += '<span class="' + index + ' option" value="' + data[i].schoolId + '">' + data[i].name + '</span>';
+            }
+            $('.classes-part').html(html);
+            $('.option').click(function () {
+                $(this).siblings().removeClass('index');
+                $(this).addClass('index');
+                clear_rows();
+                has_load_page = false;
+                load_tasks($(this).attr('value'), 1);
+            });
+            load_tasks(class_id, 1);
+        }
     });
-}
-
-// 查看书本详情
-function go_to_detail() {
-    window.open('book.html', '_self');
 }

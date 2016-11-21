@@ -48,16 +48,6 @@ $('#user_note').bind('input propertychange', function () {
     }
 });
 
-// $('.progress-input').bind('input propertychange', function () {
-//     // alert(1);
-//     if ($('#start_read_time').val() && $('#finish_read_time').val() && $('#today_page').val()) {
-//         $('#record_button').removeClass('disabled button-disabled').addClass('button-able');
-//     }
-//     else {
-//         $('#record_button').addClass('disabled button-disabled').removeClass('button-able');
-//     }
-// });
-
 $('#record_button').click(function () {
 
     if ($('#start_read_time').val() && $('#finish_read_time').val() && $('#today_page').val()) {
