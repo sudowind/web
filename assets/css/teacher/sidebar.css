@@ -130,11 +130,16 @@
     display:inline-block;
     position:relative;
     width:80px;
-    height:80px;
+    height: 80px;
     overflow:hidden;
     border-radius:50%;
 
     margin: 5px auto 5px 0;
+}
+
+.right-photo img {
+    width: auto;
+    height:100%;
 }
 
 /*右部个人信息点缀*/

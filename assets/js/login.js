@@ -22,6 +22,8 @@ $('.sub-button').click(function () {
     else {
         $('#user_name').attr('placeholder', '输入账号');
     }
+    $('#user_name').val('');
+    $('#password').val('');
     $('.main-button .login-nav-img').attr('src', $(this).children('img').attr('src'));
     $('.main-button .login-nav-content').html($(this).children('.login-nav-content').html());
     on_drop_down_click();

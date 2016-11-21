@@ -56,16 +56,19 @@ function load_table_row(row_selector) {
             });
             bars[i].set(Math.random());
         }
+
     });
 }
 
 // 删除一本书
 function delete_book() {
     var message = '将《诗词里的科学》从2015级3班、2015级4班的阅读任务中删除？';
-    my_tip.alert(message);
+    my_tip.bind(message, function() {
+        alert('hahs');
+    });
 }
 
 // 查看书本详情
 function go_to_detail() {
-
+    window.open('book.html', '_self');
 }

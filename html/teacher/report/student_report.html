@@ -33,8 +33,8 @@
                 <div class="student-img">
                     <img src="../../../assets/img/teacher/report/student_img.png" alt="">
                 </div>
-                <div>姓名 <br />
-                    <small>芳草地小学 2013级3班</small></div>
+                <div>姓名<br />
+                    <small>芳草地小学<br />2013级3班</small></div>
             </div>
             <div class="part-basis" id="reading_book">
                 <div id="reading-tag">
@@ -68,13 +68,11 @@
             <!--阅读能力部分-->
             <div class="book-detail-box" >
                 <div class="nav-bar">
-                    <div class="nav-button" id="count_button" onclick="on_button_click(this);" value="1">
-                        <img src="../../../assets/img/teacher/report/count_selected.png" alt="">
-                        <div class="read-count" style="color: #ffffff;">阅读量</div>
+                    <div class="nav-button" id="count_button" onclick="on_button_click(this);" value="1" style="color: #ffffff" btn-type="read_count">
+                        <img src="../../../assets/img/teacher/report/count_selected.png" alt="">阅读量
                     </div>
-                    <div class="nav-button" id="ability_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0">
-                        <img src="../../../assets/img/teacher/report/ability_unselected.png" alt="">
-                        <div class="read-ability">阅读能力维度解析</div>
+                    <div class="nav-button" id="ability_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="read_ability">
+                        <img src="../../../assets/img/teacher/report/ability_unselected.png" alt="">阅读能力维度解析
                     </div>
                 </div>
 
@@ -129,15 +127,7 @@
                         <div class="read-interval">09.01-10.26</div>
                     </div>
                 </div>
-                <div class="tcdPageCode" id="book_pagination">
-                    <span class="disabled">上一页</span>
-                    <span class="current">1</span>
-                    <a href="javascript:;" class="tcdNumber">2</a>
-                    <!--<a href="javascript:;" class="tcdNumber">3</a>-->
-                    <span>...</span>
-                    <a href="javascript:;" class="tcdNumber">4</a>
-                    <a href="javascript:;" class="nextPage">下一页</a>
-                </div>
+                <div class="tcdPageCode" id="book_pagination"></div>
             </div>
 
         </div>

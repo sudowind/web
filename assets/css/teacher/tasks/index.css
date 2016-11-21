@@ -58,6 +58,26 @@ tbody tr td {
     padding: 15px;
     line-height: 25px;
     border-bottom: 1px dotted #d7d6d6;
+    text-align: center;
+}
+
+tbody tr td:nth-child(4) {
+    width: 206px;
+
+}
+
+tbody tr td:nth-child(4) div {
+    background: #ffffff;
+    border: 1px solid #d7d6d6;
+    width: 140px;
+    margin: auto;
+    position: relative;
+    padding: 2px 30px 0 10px;
+}
+tbody tr td:nth-child(4) img {
+    position: absolute;
+    left: 105px;
+    top: 5px;
 }
 
 .ops span {
@@ -80,7 +100,7 @@ tbody tr td {
 .table-img span {
     position: absolute;
     top: 137px;
-    left: 68px;
+    left: 69px;
     width: 48px;
     height: 28px;
     line-height: 28px;
@@ -102,4 +122,9 @@ tbody tr td {
     height: 100px;
     margin: 10px;
     position: relative;
+}
+
+
+#teacher_task_pagination {
+    padding-top: 40px;
 }

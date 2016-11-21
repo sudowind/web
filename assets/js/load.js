@@ -34,6 +34,18 @@ function load(src, type) {
         if (typeof right_bar_cb != 'undefined') {
             right_bar_cb();
         }
+        if (type != 'student') {
+            $.ajax({
+                url: URL_BASE + '/users/web/user/current',
+                type: 'get',
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function(data) {
+                    $('.right-photo img').attr('src', data.headimg);
+                }
+            })
+        }
     });
 }
 

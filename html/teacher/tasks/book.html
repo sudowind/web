@@ -33,20 +33,19 @@
                     <!--<p class="btn" data-toggle="modal" data-target="#myModal">添加到“阅读任务”</p>-->
                 </div>
                 <div class="book-info">
-                    <div id="book_name"><h3><b>鸭子骑车记&nbsp;</b><small>故事</small></h3></div>
+                    <div id="book_name"><h3><b>鸭子骑车记</b>&nbsp;<small id="display_type">故事</small></h3></div>
                     <table>
                         <tbody>
                         <tr>
-                            <td>作者&nbsp;&nbsp;<span>大卫夏农</span></td>
-                            <td>出版社&nbsp;&nbsp;<span>海南出版公司</span></td>
+                            <td>作者&nbsp;&nbsp;<span id="author">大卫夏农</span></td>
+                            <td>出版社&nbsp;&nbsp;<span id="publisher">海南出版公司</span></td>
                         </tr>
                         <tr>
-                            <td>字数&nbsp;&nbsp;<span>5000</span></td>
-                            <td>ISBN编号&nbsp;&nbsp;<span>843957640</span></td>
+                            <td>字数&nbsp;&nbsp;<span id="word_cont">5000</span></td>
+                            <td>ISBN编号&nbsp;&nbsp;<span id="isbn">843957640</span></td>
                         </tr>
                         <tr>
-                            <td>适读等级&nbsp;&nbsp;<span>700-800k</span></td>
-                            <td></td>
+                            <td>阅读等级&nbsp;&nbsp;<span id="level_score">700-800k</span></td>                            <td></td>
                         </tr>
                         </tbody>
                     </table>
@@ -178,7 +177,7 @@
 <script>
     load('../../../include/html/', 'teacher');
     init();
-
+    load_page();
 </script>
 
 </body>

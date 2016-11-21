@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/comment.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
     <link rel="stylesheet" href="../../../assets/css/pagination.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/library/book.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+
 </head>
 <body background="../../../assets/img/background.png">
 
@@ -34,20 +37,19 @@
 
                 </div>
                 <div class="book-info">
-                    <div id="book_name"><h3><b>鸭子骑车记&nbsp;</b><small>故事</small></h3></div>
+                    <div id="book_name"><h3><b>鸭子骑车记</b>&nbsp;<small id="display_type">故事</small></h3></div>
                     <table>
                         <tbody>
                         <tr>
-                            <td>作者&nbsp;&nbsp;<span>大卫夏农</span></td>
-                            <td>出版社&nbsp;&nbsp;<span>海南出版公司</span></td>
+                            <td>作者&nbsp;&nbsp;<span id="author">大卫夏农</span></td>
+                            <td>出版社&nbsp;&nbsp;<span id="publisher">海南出版公司</span></td>
                         </tr>
                         <tr>
-                            <td>字数&nbsp;&nbsp;<span>5000</span></td>
-                            <td>ISBN编号&nbsp;&nbsp;<span>843957640</span></td>
+                            <td>字数&nbsp;&nbsp;<span id="word_cont">5000</span></td>
+                            <td>ISBN编号&nbsp;&nbsp;<span id="isbn">843957640</span></td>
                         </tr>
                         <tr>
-                            <td>适合年级&nbsp;&nbsp;<span>二年级</span></td>
-                            <td></td>
+                            <td>阅读等级&nbsp;&nbsp;<span id="level_score">700-800k</span></td>                            <td></td>
                         </tr>
                         </tbody>
                     </table>
@@ -58,17 +60,14 @@
 
             <div class="book-detail-box" >
                 <div class="nav-bar">
-                    <div class="nav-button" id="intro_button" onclick="on_button_click(this);" value="1">
-                        <img src="../../../assets/img/student/book/intro_selected.png" alt="">
-                        <div class="introduce" style="color: #ffffff;">简介</div>
+                    <div class="nav-button" id="intro_button" onclick="on_button_click(this);" value="1" style="color: #FFFFFF" btn-type="introduce">
+                        <img src="../../../assets/img/student/book/intro_selected.png" alt="">简介
                     </div>
-                    <div class="nav-button" id="comment_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0">
-                        <img src="../../../assets/img/student/book/comment_unselected.png" alt="">
-                        <div class="comments">评论</div>
+                    <div class="nav-button" id="comment_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="comments">
+                        <img src="../../../assets/img/student/book/comment_unselected.png" alt="">评论(<span id="comment_count"></span>)
                     </div>
-                    <div class="nav-button" id="student_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0">
-                        <img src="../../../assets/img/student/book/student_unselected.png" alt="">
-                        <div class="comments">已读学生详情</div>
+                    <div class="nav-button" id="student_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="student">
+                        <img src="../../../assets/img/student/book/student_unselected.png" alt="">已读完学生详情
                     </div>
                 </div>
                 <div class="book-detail-content" id="intro_part">
@@ -76,57 +75,16 @@
                 </div>
 
                 <div class="book-comment" style="display: none;" id="comment_part">
-                    <div class="comment">
-                        <div class="comment-img">
-                            <img src="../../../assets/img/student/book/comment_photo.png">
-                        </div>
-                        <div class="comment-content">
-                            <h3>吴磊</h3>
-                            <div class="like">
-                                <img src="../../../assets/img/student/book/like.png" height="90%" width="90%">
-                            </div>
-                            <div class="like-count">74</div>
-                            <!--这里存在一个问题，如果点赞数过多，如何安排格式，有一种解决方法就是不显示点赞数目-->
-                            <p>我已经开始给孩子读了，每翻开一页都是一种。已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开</p>
-                            <div class="comment-date" align="right">
-                                2016-10-10
-                            </div>
-                        </div>
-                        <hr style="clear: both;"/>
-                    </div>
+                    <div id="comment_container"></div>
 
-                    <div class="comment">
-                        <div class="comment-img">
-                            <img src="../../../assets/img/student/book/comment_photo.png">
-                        </div>
-                        <div class="comment-content">
-                            <h3>吴磊</h3>
-                            <div class="like">
-                                <img src="../../../assets/img/student/book/like.png" height="90%" width="90%">
-                            </div>
-                            <div class="like-count">74</div>
-                            <p>我已经开始给孩子读了，每翻开一页都是一种。已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开</p>
-                            <div class="comment-date" align="right">
-                                2016-10-10
-                            </div>
-                        </div>
-                        <hr style="clear: both;"/>
-                    </div>
                     <textarea placeholder="发表一下你的评论吧……" id="user_comment"></textarea>
                     <p class="btn" id="submit_comment" onclick="">发表评论</p>
 
                     <!--分页-->
-                    <div class="tcdPageCode" id="comment_pagination">
-                        <span class="disabled">上一页</span>
-                        <span class="current">1</span>
-                        <a href="javascript:;" class="tcdNumber">2</a>
-                        <!--<a href="javascript:;" class="tcdNumber">3</a>-->
-                        <span>...</span>
-                        <a href="javascript:;" class="tcdNumber">4</a>
-                        <a href="javascript:;" class="nextPage">下一页</a>
+                    <div class="tcd-wrapper">
+                        <div class="tcdPageCode" id="comment_pagination"></div>
                     </div>
                 </div>
-
                 <div id="student_part">
                     <div id="overall_info">
                         <label for="grade_selector"></label><select id="grade_selector">
@@ -136,7 +94,7 @@
                             <option value="">全部年级</option>
                         </select>
                         <div id="read_count">
-                            11114个同学已读
+                            11114个同学已读完
                         </div>
                     </div>
                     <div class="student-info-part">
@@ -239,13 +197,17 @@
 <script src="../../../libs/progressbar.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../assets/js/page.js"></script>
 <script src="../../../assets/js/teacher/library/book.js"></script>
 
 <script>
     load('../../../include/html/', 'teacher');
-    on_button_click('#student_button');
+//    on_button_click('#student_button');
     init();
+    load_page();
+    load_comments(1);
 </script>
 
 </body>
