@@ -43,6 +43,14 @@
     border-right: 1px solid #e8e8e8;
     float: left;
 }
+.change-head .head{
+    overflow: hidden;
+}
+#head{
+    width: 110px;
+    height: 110px;
+    border-radius: 200px;
+}
 .change-head .change img{
     padding-bottom: 14px;
 }
@@ -60,10 +68,6 @@
     background: #f9f9f9;
     position: relative;
 }
-.info-list form{
-    margin-top: 25px;
-}
-
 .file {
     position: relative;
     display: inline-block;
@@ -71,7 +75,7 @@
     border: none;
     margin-top: 6px;
     padding: 6px 0  0  6px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     color: #000;
     text-decoration: none;
     text-indent: 0;
@@ -79,11 +83,11 @@
 }
 .file input {
     position: absolute;
-    font-size: 100px;
-    right: 0;
+    left: 0;
     top: 0;
     opacity: 0;
     cursor: pointer;
+    width: 60px;
 }
 .file:hover {
     background: #FFFFFF;
@@ -101,7 +105,7 @@
 }
 .info-list p input{
     margin-left: 15px;
-    text-align: center;
+    /*text-align: center;*/
 }
 .info-list p span{
     margin-left: 15px;
@@ -168,8 +172,23 @@
     top: 290px;
     left: 260px;
 }
-input::-ms-input-placeholder{text-align: center;}
+input:-ms-input-placeholder {text-align: center;}
 input::-webkit-input-placeholder{text-align: center;}
+
+#modify_avatar {
+    background: #fb9e1d;
+    color: #ffffff;
+    position: absolute;
+    left: 115px;
+    top: 330px;
+}
+#alert_msg {
+    position: absolute;
+    right: 100px;
+    top: 16px;
+    color: red;
+    display: none;
+}
 
 
 

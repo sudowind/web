@@ -47,6 +47,8 @@ function Back(){
     $(".email span").css("display","inline");
 
 }
+
+
 //载入读取个人信息
 function load_info() {
     $.ajax({
@@ -74,19 +76,17 @@ function load_info() {
     });
 }
 
-//修改个人信息
 
+//修改个人信息
 function change_info(){
     $(".sure").click(function(){
-        //var birthday = $(".laydate").val();
+        var birthday = $(".laydate").val();
         var email = $(".mail").val();
-        //var name  = $(".name span").;
         if($("#boy").is(":checked")) {
             var gender = 1;
         }else if($("#girl").is(":checked")) {
             var gender = 2;
         }
-        alert(name);
 
         $.ajax({
             xhrFields: {
@@ -95,47 +95,21 @@ function change_info(){
             contentType: 'application/json',
             data: JSON.stringify({
 
-                    "birthday": 19910101,
+                    "birthday": birthday,
                     "email": "email",
-                    "gender": gender,
-                    "name": "王澈111222333"
+                    "gender": gender
             }),
             type: 'PUT',
             url: URL_BASE + '/users/web/user/current',
             success: function(data) {
-                console.log(data);
+                //console.log(data);
                 load_info();
-
-
-
             }
         });
     })
 }
 
-// 修改头像
-// $(function(){
-//    var ChImg = $("#change-head").val();
-//    //$("#head").attr("src","ChImg");
-//    console.log(ChImg);
-//    //console.log(ChImg.substring(12));
-//    $.ajax({
-//        xhrFields: {
-//            withCredentials: true
-//        },
-//        type: 'PUT',
-//        url: 'http://debian8-01.internal.enjoyreading.com:8082/users/web/user/current/headimg',
-//        data: {
-//            img: ChImg
-//        },
-//        success: function(data) {
-//            alert(1);
-//        },
-//        error:function(data){
-//            alert(2)
-//        }
-//    });
-// });
+//修改头像
 
 $('#submit').click(function () {
     $.ajax({

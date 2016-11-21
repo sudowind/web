@@ -1,0 +1,63 @@
+#problem{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.head{
+    padding:21px 20px;
+    position: relative;
+    top: 0px;
+}
+.title h3{
+    width: 81px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+}
+.title .down{
+    width: 649px;;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #cccccc;
+    float: right;
+}
+
+#problem .nav{
+    width: 198px;
+    height: 998px;
+    border: 1px solid #e8e8e8;
+    background: #f9f9f9;
+    margin-left: 20px;
+    float: left;
+}
+.nav .direction{
+    height: 49px;
+    line-height: 49px;
+    border-bottom: 1px solid #e8e8e8;
+    font-weight: 600;
+    font-size: 17px;
+}
+.nav .list p{
+    height: 50px;
+    line-height: 50px;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+.nav img{
+    margin-left: 10px;
+}
+#problem .content {
+    float: left;
+    margin-left: 10px;
+
+}
+.index{
+    background: #f99d32;
+    color: #FFFFFF;
+}
