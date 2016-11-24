@@ -32,8 +32,8 @@
                 <div class="student-img">
                     <img src="../../../assets/img/teacher/report/student_img.png" alt="">
                 </div>
-                <div>姓名<br />
-                    <small>芳草地小学<br />2013级3班</small></div>
+                <div><span id="student_name">姓名</span><br />
+                    <small><span id="school_name">芳草地小学</span><br /><span id="class_name">2013级3班</span></small></div>
             </div>
             <div class="book-info-box">
                 <div class="book-image">
@@ -59,7 +59,7 @@
                     </table>
                 </div>
                 <p>
-                    开始时间 2016-10-10--结束时间 2016-11-10
+                    开始时间 <span id="start_date">2016-10-10</span> —— 结束时间 <span id="end_date">2016-11-10</span>
                 </p>
             </div>
             <!--图书标签介绍-->
@@ -72,14 +72,13 @@
                         <img src="../../../assets/img/student/book/comment_unselected.png" alt="">评论(<span id="comment_count"></span>)
                     </div>
                     <div class="nav-button" id="note_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="note">
-                        <img src="../../../assets/img/student/book/note_unselected.png" alt="">我的笔记
+                        <img src="../../../assets/img/student/book/note_unselected.png" alt=""><span id="gender">他</span>的笔记
                     </div>
                     <div class="nav-button" id="test_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="test">
                         <img src="../../../assets/img/student/book/test_unselected.png" alt="">测试题
                     </div>
                 </div>
                     <div class="book-detail-content" id="intro_part">
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗、老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们干了一件很不平凡的事情…作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</p>
                     </div>
 
                     <div class="book-comment" style="display: none;" id="comment_part">
@@ -181,14 +180,17 @@
 <script src="../../../assets/js/page.js"></script>
 <script src="../../../assets/js/comment.js"></script>
 <script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
 <script src="../../../assets/js/teacher/report/detail.js"></script>
 <script src="../../../assets/js/tip_modal.js"></script>
 
 <script>
     load('../../../include/html/', 'teacher');
     load_page();
+    load_info();
     load_comments(1);
-    load_notes(1);  // 这里load的是该学生的笔记
+    load_notes(1, $.getUrlParam('student_id'));  // 这里load的是该学生的笔记
     bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
     bar.text.style.fontSize = '2rem';
 

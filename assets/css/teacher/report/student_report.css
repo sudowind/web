@@ -33,9 +33,7 @@
 }
 
 .student-img img {
-    width:auto;
-    height: 235%;
-    margin-left:-30%;
+    width:100%;
 }
 
 .student-img-box div {
@@ -220,7 +218,7 @@
 
 #select_book_title div {
     background: #fb9e1d;
-    width: 130px;
+    width: 140px;
     padding: 12px;
     height: 50px;
     font-size: 18px;
@@ -258,7 +256,7 @@
 .read-book span {
     position: absolute;
     top: 132px;
-    left: 83px;
+    left: 82px;
     width: 48px;
     height: 28px;
     line-height: 28px;

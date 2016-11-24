@@ -42,9 +42,75 @@ function on_button_click(e) {
 
 $('.slide-button').click(function () {
     $('.book-info-box').fadeOut(function() {
+        change_slide(Number($(this).attr('value')));
         $('.book-info-box').fadeIn();
     });
 });
+
+var reading_book = [];
+var read_book = [];
+var currend_no = 0;
+
+// 以下两个函数用来实现左右切换的功能
+function load_slide(index) {
+    currend_no = index;
+    var data = reading_book[index];
+    var percent = Math.ceil(data.currentPage * 100.0 / data.totalPage);
+    $('#book_name').html(data.book.name);
+    $('#author').html(data.book.author);
+    $('#percent').html(percent);
+    $('.progress-bar').css('width', percent.toString() + '%');
+}
+
+function change_slide(dir) {
+    var next_no = 0;
+    if (dir > 0) {
+        // 表示向右
+        next_no = currend_no + 1;
+        if (next_no == reading_book.length)
+            next_no = 0;
+    }
+    else {
+        // 表示向左
+        next_no = currend_no - 1;
+        if (next_no == -1)
+            next_no = reading_book.length - 1;
+    }
+    load_slide(next_no);
+}
+
+// 前端实现下方翻页
+var has_load_page = false;
+function load_read_book(page) {
+    // 书已经事先存好，每页显示4个
+    var html = '';
+    var start_no = (page - 1) * 4;
+    var end_no = start_no + 4;
+    if (end_no > read_book.length)
+        end_no = read_book.length;
+    for (var i = 0; i < end_no - start_no; ++i) {
+        var data = read_book[start_no + i];
+        html += '<div class="read-book" data-toggle="tooltip" title="查看详情" onclick="window.open(\'detail.html?book_id=' + data.bookId + '&student_id=' + $.getUrlParam('student_id') + '&task_id=' + data.id + '\', \'_self\')">' +
+            '<img src="../../../assets/img/test_book.png" alt="">' +
+            '<span>' + data.book.levelScore + '</span>' +
+            '<div class="book-name">' + data.book.name + '</div>' +
+            '<div class="read-interval">09.01-10.26</div>' +
+            '</div>';
+
+    }
+    $('#select_book_content').html(html);
+    if (!has_load_page) {
+        has_load_page = true;
+        var page_count = Math.ceil(read_book.length / 4);
+        $('#book_pagination').createPage({
+            pageCount: page_count,
+            current: 1,
+            backFn: function(p) {
+                load_read_book(p);
+            }
+        })
+    }
+}
 
 function load_chart(element_id) {
     var myChart = echarts.init(document.getElementById(element_id));
@@ -202,4 +268,42 @@ function set_option(data) {
             ]
         };
     }
+}
+
+function init() {
+    // 加载用户个人信息
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/user/' + $.getUrlParam('student_id'),
+        success: function (data) {
+            $('#student_name').html(data.name);
+            $('#school_name').html(data.school.name);
+            $('#class_name').html(data.classes[0].name);
+            $('.student-img').find('img').attr('src', data.headimg);
+        }
+    });
+    // 加载正在阅读的书
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/tasks/web/task/student/' + $.getUrlParam('student_id') + '/list',
+        success: function (data) {
+            for (var i = 0; i < data.length; ++i) {
+                if (data[i].status == 4) {
+                    read_book.push(data[i]);
+                }
+                else {
+                    reading_book.push(data[i]);
+                }
+            }
+            load_slide(0);
+            load_read_book(1);
+        }
+    });
+    // 加载已经读完的书
 }

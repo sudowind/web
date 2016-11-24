@@ -15,10 +15,11 @@ function init () {
 }
 
 var has_load_page = false;
-
+var CLASS_ID;
 function load_tasks(class_id, page) {
     // class_id = 1;
     // page = 1;
+    CLASS_ID = class_id;
     clear_rows();
     $.ajax({
         url: URL_BASE + '/tasks/web/task/teacher/current/list',
@@ -68,6 +69,7 @@ function load_table_row(row_selector, data) {
     // 从服务器拿到数据之后，将数据填充成表格
     var img_src = '../../../assets/img/1.png';
     var book_name = data.book.name;
+    var book_id = data.bookId;
     // 应该是对每一行分别填充，每一行都有一个id，通过这个id进行操作
     $(row_selector).load('../../../include/html/teacher/task_table_line.html', function() {
         var bars = new Array(2);
@@ -116,7 +118,21 @@ function load_table_row(row_selector, data) {
         obj.find('.delete-book').click(function () {
             var message = '将《' + book_name + '》从' + $('.index').html() + '的阅读任务中删除？';
             my_tip.bind(message, function() {
-                alert('hahs');
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    type: 'post',
+                    url: URL_BASE + '/tasks/web/task/teacher/current/delete',
+                    data: {
+                        bookId: book_id,
+                        classId: CLASS_ID
+                    },
+                    success: function () {
+                        has_load_page = false;
+                        load_tasks(CLASS_ID, 1);
+                    }
+                })
             });
         });
         // 绑定查看书本详情的事件
@@ -137,14 +153,13 @@ function init_class() {
         success: function(data) {
             var html = '<p>所带班级：</p>';
             var index = 'index';
-            var class_id;
             for (var i = 0; i < data.length; ++i) {
                 if (i != 0)
                     index = '';
                 else {
-                    class_id = data[i].schoolId;
+                    CLASS_ID = data[i].id;
                 }
-                html += '<span class="' + index + ' option" value="' + data[i].schoolId + '">' + data[i].name + '</span>';
+                html += '<span class="' + index + ' option" value="' + data[i].id + '">' + data[i].name + '</span>';
             }
             $('.classes-part').html(html);
             $('.option').click(function () {
@@ -154,7 +169,7 @@ function init_class() {
                 has_load_page = false;
                 load_tasks($(this).attr('value'), 1);
             });
-            load_tasks(class_id, 1);
+            load_tasks(CLASS_ID, 1);
         }
     });
 }

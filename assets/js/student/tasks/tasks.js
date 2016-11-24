@@ -13,7 +13,7 @@ $(".book .sort .read").click(function(){
     if (reporter_id == '0') {
         reporter_id = getCookie('USER');
     }
-    load_book(3, reporter_id, 0, 8, function() {
+    load_book(4, reporter_id, 0, 8, function() {
         $(".book .sort .read").addClass("index");
         $(".book .sort .reading").removeClass("index");
         $(".list").hover(
@@ -33,7 +33,7 @@ $(".book .sort .reading").click(function(){
     if (reporter_id == '0') {
         reporter_id = getCookie('USER');
     }
-    load_book(1, reporter_id, 0, 8, function() {
+    load_book(2, reporter_id, 0, 8, function() {
         $(".book .sort .reading").addClass("index");
         $(".book .sort .read").removeClass("index");
         $(".list").off("mouseenter mouseleave");
@@ -177,7 +177,7 @@ function init_teachers() {
                 var book_status = $('.sort .index').attr('value');
                 load_book(book_status, reporter_id, 0, 8, function(){});
             });
-            load_book(1, getCookie('USER'), 0, 8, function(){});
+            load_book(2, getCookie('USER'), 0, 8, function(){});
         }
     });
 }

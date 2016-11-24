@@ -73,5 +73,43 @@ $('.select-option').bind('click', function() {
     $(this).siblings('.answer').show('500');
 });
 
+function load_info() {
+    // 加载task的信息
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/tasks/web/task/' + $.getUrlParam('task_id'),
+        success: function (data) {
+            var start_date = new Date(data.startTime);
+            var end_date = new Date(data.endTime);
+            $('#start_date').html(start_date.getFullDate());
+            $('#end_date').html(end_date.getFullDate());
+        }
+    });
+    // 加载学生信息
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/user/' + $.getUrlParam('student_id'),
+        success: function (data) {
+            var gender = '';
+            if (data.gender == 1) {
+                gender = '他';
+            }
+            else {
+                gender = '她';
+            }
+            $('#student_name').html(data.name);
+            $('#school_name').html(data.school.name);
+            $('#class_name').html(data.classes[0].name);
+            $('#gender').html(gender);
+            $('.student-img').find('img').attr('src', data.headimg);
+        }
+    });
+}
 
 
