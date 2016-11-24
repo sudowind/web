@@ -82,7 +82,6 @@
     float: left;
     margin-top: 30px;
     margin-left: 15px;
-    margin-bottom: 70px;
 }
 .book .grade span{
     line-height: 28px;
@@ -122,10 +121,10 @@
     border: 1px solid #f99d32;
     border-radius: 8px;
 }
-.book .read-lv .button{
+.book .read-lv .lv_button{
     padding-top: 15px;
 }
-.book .read-lv .button span{
+.book .read-lv .lv_button span{
     line-height: 28px;
     text-align: center;
     border: 1px solid #f99d32;
@@ -232,15 +231,59 @@
     cursor:pointer;
 }
 
-
 /*∑÷“≥≤ø∑÷*/
-a:hover{ text-decoration:none;}
-.tcdPageCode{padding: 15px 20px;text-align: left;color: #f99d32;position: absolute;top: 1140px;left:160px;}
-.tcdPageCode a{display: inline-block;color: #f99d32;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #f99d32;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
-.tcdPageCode a:hover{text-decoration: none;border: 1px solid #f99d32;}
-.tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #f9f9f9;background-color: #f99d32;	border: 1px solid #f99d32;border-radius: 4px;vertical-align: middle;}
-.tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #f99d32;background: #f9f9f9;border: 1px solid #f99d32;border-radius: 4px;vertical-align:middle;}
-
+a:hover{
+    text-decoration:none;
+}
+.tcdPageCode{
+    padding: 32px 20px;
+    color: #f99d32;
+    clear: both;
+    text-align: center;
+}
+.tcdPageCode a{
+    display: inline-block;
+    color: #f99d32;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    border: 1px solid #f99d32;
+    margin: 0 2px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.tcdPageCode a:hover{
+    text-decoration: none;
+    border: 1px solid #f99d32;
+}
+.tcdPageCode span.current{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #f9f9f9;
+    background-color: #f99d32;
+    border: 1px solid #f99d32;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.tcdPageCode span.disabled{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #f99d32;
+    background: #f9f9f9;
+    border: 1px solid #f99d32;
+    border-radius: 4px;
+    vertical-align:middle;
+}
+.tcdNumber, .tcdPageCode span.current {
+    width: 40px;
+    text-align: center;
+}
 
 
 

@@ -34,25 +34,19 @@
             <div class="book ">
                 <div class="sort">
                     <p>书籍内容：</p>
-                    <span class="index">全部</span>
-                    <span>儿童文学</span>
-                    <span>漫画</span>
-                    <span>绘本</span>
-                    <span>社科</span>
-                    <span>国学</span>
-                    <span>科幻</span>
-                    <span>卡通</span>
-                    <span class="w">主题学习丛书</span>
+                    <span class="index" value="0">全部</span>
+                    <span value="6">儿童文学</span>
+                    <span value="7">漫画</span>
+                    <span value="8">绘本</span>
+                    <span value="9">社科</span>
+                    <span value="10">国学</span>
+                    <span value="11">科幻</span>
+                    <span value="12">卡通</span>
+                    <span value="13">主题学习丛书</span>
                 </div>
                 <div class="grade">
                     <p>所带班级：</p>
-                    <span class="index">全部</span>
-                    <span>王丰班</span>
-                    <span>玉麟班</span>
-                    <span>云云班</span>
-                    <span>唐爽班</span>
-                    <span>2015级3班</span>
-                    <span>2015级6班</span>
+                    <span class="index" value="0">全部</span>
                 </div>
                 <div class="read-lv">
                     <p>阅读等级：</p>
@@ -61,7 +55,7 @@
                         <img src="../../../assets/img/teacher/heng.png" alt=""/>
                         <input type="text"/>
                     </div>
-                    <div class="button">
+                    <div class="lv_button">
                         <!--<input class="index submit" type="submit" value="确定"/>-->
                         <!--<input class="del" type="button" value="取消"/>-->
                         <span class="index">确定</span>
@@ -71,7 +65,7 @@
             </div>
             <div class="books">
                 <div class="statistics">共<span>20</span>本读物</div>
-
+                <div id="book_list"></div>
                 <div class="tcdPageCode" id="teacher_task_pagination"></div>
             </div>
         </div>
@@ -89,6 +83,7 @@
 <script>
     load('../../../include/html/','teacher');
     load_book(0,1);
+    load_classname();
 </script>
 </body>
 </html>

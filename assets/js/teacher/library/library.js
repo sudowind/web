@@ -1,27 +1,56 @@
 /**
  * Created by yilong on 2016/11/7.
  */
-$(".book .grade span").click(function(){
-    $(this).siblings().attr("class","");
-    $(this).attr("class","index");
-})
+function right_bar_cb() {
+    $('#library_button').attr('class', 'side-button-selected left-side-button');
+}
+//按书籍类型筛选
 $(".book .sort span").click(function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
-})
-$(".book .read-lv .button span").click(function(){
+
+    has_load_book = false;
+    load_book(Number($(this).attr('value')), 1);
+    //if($(".book .sort span").eq(0).hasClass("index")){
+    //
+    //}
+
+});
+//按阅读班级筛选
+$(".book .grade").on('click','span',function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
-})
+
+
+    has_load_book = false;
+    if($(this).attr('value') == 0){
+        load_book(Number($(this).attr('value')), 1);
+    }else{
+        load_class_books($(this).attr('value'),1);
+    }
+
+
+
+
+});
+//按阅读等级筛选
+$(".book .read-lv .lv_button span").click(function(){
+    $(this).siblings().attr("class","");
+    $(this).attr("class","index");
+});
+
+
 
 var curr_type = 0;
 var curr_start_score = 600;
 var curr_end_score = 1200;
+var has_load_book = false;
+var num = 0;
 
-
-
+//加载图书  可按照阅读等级
 function load_book(type, page) {
     var html = '';
+    curr_type = type;
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -40,11 +69,24 @@ function load_book(type, page) {
             for (var i = 0; i < data.data.length; ++i) {
                 html += fill_book(data.data[i]);
             }
-            $('.statistics').after(html);
+            $('#book_list').html(html);
+            $(".books .statistics span").html(data.totalItem);
+            //分页
+            if(!has_load_book){
+                has_load_book = true;
+                var page_count = Math.ceil((data.totalItem * 1.0/ data.itemPerPage));
+                $('#teacher_task_pagination').createPage({
+                    pageCount:page_count,
+                    current:1,
+                    backFn:function(p){
+                        load_book(curr_type,p);
+                    }
+                })
+            }
         }
     });
 }
-
+//生成图书馆图书列表
 function fill_book(data) {
     return  '<div class="list">' +
                 '<div class="list-book">'+
@@ -64,3 +106,88 @@ function fill_book(data) {
                 '</div>'+
             '</div>';
 }
+//生成对应班级得图书列表
+function fill_class_books(data){
+    return  '<div class="list">' +
+            '<div class="list-book">'+
+            '<a href="book.html?book_id=' + data.id + '">'+
+            '<div class="image">'+
+            '<img src=../../../assets/img/1.png alt=""/>'+
+            '<span>'+ data.levelScore +'</span>'+
+            '<div class="book-name">' + data.name + '</div>'+
+            '</div>'+
+
+            '</a>'+
+            '<div class="already-reading">' +
+            '<span>'+ data.studentReadCount +'</span>位同学已读' +
+            '</div>' +
+            '<span class="type">' + data.displayTypeName + '</span>'+
+            '<p>有题</p>'+
+            '</div>'+
+            '</div>';
+}
+//生成班级button
+function fill_classname(data){
+    ++num;
+    return    '<span value="'+ num +'">'+ data.name + '</span>';
+
+}
+
+
+//获取老师所带班级
+function load_classname(){
+    var html = '';
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/users/web/class/teacher/current/list',
+        success: function(data) {
+            for(var i = 0; i < data.length; ++i){
+                console.log(data);
+                html += fill_classname(data[i]);
+            }
+            $(".grade .index").after(html);
+            $(".books .statistics span").html(data.data.totalItem);
+        }
+    });
+}
+
+
+//获取老师所带班级各班对应的书籍
+function load_class_books(classId,page){
+    var html = '';
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        data:{
+            classId : classId,
+            page : page - 1,
+            itemPerPage: 8
+        },
+        type: 'GET',
+        url: URL_BASE + '/tasks/web/task/teacher/current/list',
+        success: function(data) {
+            console.log(data);
+            for (var i = 0; i < data.data.length; ++i) {
+                 html += fill_class_books(data.data[i].book);
+            }
+            $('#book_list').html(html);
+            //分页
+            if(!has_load_book){
+                has_load_book = true;
+                var page_count = Math.ceil((data.totalItem * 1.0/ data.itemPerPage));
+                $('#teacher_task_pagination').createPage({
+                    pageCount:page_count,
+                    current:1,
+                    backFn:function(p){
+                        load_class_books(curr_type,p);
+                    }
+                })
+            }
+        }
+    });
+}
+

@@ -38,7 +38,7 @@
             </div>
             <div class="class-name">
                 <p>所带班级：
-                    <span class="index">全部</span>
+                    <!--<span class="index">全部</span>-->
                     <span>2015级3班</span>
                     <span>2015级3班</span>
                     <span>2015级3班</span>
@@ -52,14 +52,14 @@
                     <li>性别</li>
                     <li>入学时间</li>
                     <li>状态</li>
-                    <li>操作</li>
+                    <li class="operation">操作</li>
                 </ol>
                 <ul class="student-information">
-                    <li>10001</li>
-                    <li>苏乞儿</li>
-                    <li>男</li>
-                    <li>2015-09-01</li>
-                    <li>正常</li>
+                    <li class="account"></li>
+                    <li class="name"></li>
+                    <li class="gender"></li>
+                    <li class="time"></li>
+                    <li class="state"></li>
                     <li id="check" data-toggle="modal" data-target="#myModal">查看</li>
                     <li id="del" data-toggle="modal" data-target="#myModal">删除</li>
                 </ul>
@@ -141,6 +141,7 @@
 <script src="../../../assets/js/teacher/management/management.js"></script>
 <script>
     load('../../../include/html/', 'teacher');
+    load_student_info();
 </script>
 </body>
 </html>

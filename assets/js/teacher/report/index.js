@@ -1,7 +1,9 @@
 /**
  * Created by yilong on 2016/11/1.
  */
-
+function right_bar_cb() {
+    $('#report_button').attr('class', 'side-button-selected left-side-button');
+}
 
 //自动生成列表
 function init() {

@@ -163,3 +163,12 @@
     margin: 70px auto 50px auto;
     padding: 0 50px;
 }
+
+/*以下两个CSS控制导航栏按钮变色*/
+.left-side-button:hover,.right-side-button:hover {
+    background: #5d544c;
+}
+
+.side-button-selected {
+    background: #5d544c;
+}

@@ -12,6 +12,8 @@ var curr_end_score = 1200;
 
 var has_load_book = false;
 
+
+
 function load_book(type, page) {
     var html = '';
     curr_type = type;
@@ -30,6 +32,7 @@ function load_book(type, page) {
         },
         success: function(data) {
             // alert(data.data[0]);
+            //console.log(data.totalItem);
             for (var i = 0; i < data.data.length; ++i) {
                 html += fill_book(data.data[i]);
             }
@@ -70,6 +73,7 @@ $(".book .grade span").click(function(){
     $(this).attr("class","index");
 
     var start_score = Number($(this).attr('value'));
+    console.log(start_score)
     if (start_score == 0) {
         curr_start_score = 600;
         curr_end_score = 1200;
@@ -81,6 +85,8 @@ $(".book .grade span").click(function(){
     has_load_book = false;
     load_book(curr_type, 1);
 });
+
+
 $(".book .sort span").click(function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
