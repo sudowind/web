@@ -136,18 +136,13 @@ hr {
     width: 100px;
 }
 
-.progress-message{
-    float: left;
-    text-align: left;
-    width: 56px;
-    font-size: 8px;
-    position: static;
-    color: #a8a8a8;
+.progress-wrapper {
+    text-align: center;
 }
 
-.progress-part .progress-message:last-child {
-    text-align: right;
-    width: 84px;
+.progress-message{
+    font-size: 8px;
+    color: #a8a8a8;
 }
 
 .progress-part {

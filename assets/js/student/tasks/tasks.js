@@ -9,7 +9,11 @@ function left_bar_cb() {
 }
 
 $(".book .sort .read").click(function(){
-    load_book(3, getCookie('USER'), 0, 8, function() {
+    var reporter_id = $(".grade .index").attr('value');
+    if (reporter_id == '0') {
+        reporter_id = getCookie('USER');
+    }
+    load_book(3, reporter_id, 0, 8, function() {
         $(".book .sort .read").addClass("index");
         $(".book .sort .reading").removeClass("index");
         $(".list").hover(
@@ -25,15 +29,17 @@ $(".book .sort .read").click(function(){
     });
 });
 $(".book .sort .reading").click(function(){
-    load_book(1, getCookie('USER'), 0, 8, function() {
+    var reporter_id = $(".grade .index").attr('value');
+    if (reporter_id == '0') {
+        reporter_id = getCookie('USER');
+    }
+    load_book(1, reporter_id, 0, 8, function() {
         $(".book .sort .reading").addClass("index");
         $(".book .sort .read").removeClass("index");
         $(".list").off("mouseenter mouseleave");
         $(".check").css("display","none");
         $(".list-book .reading").css("display","block");
     });
-
-
 });
 
 function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
@@ -147,7 +153,32 @@ $('.add-task').click(function () {
     window.open('../library/index.html', '_self');
 });
 
-$('.grade').find('span').click(function () {
-    $(this).siblings('span').removeClass('index');
-    $(this).addClass('index');
-});
+
+
+function init_teachers() {
+    var html = '<p>任务来源：</p><span class="index" value="0">自主发布</span>';
+    $.ajax({
+        xhrFields:{
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/class/current/teachers',
+        success: function(data) {
+            for (var i = 0; i < data.length; ++i) {
+                html += '<span value="' + data[i].id + '">' + data[i].name + '老师发布</span>';
+            }
+            $('.grade').html(html).find('span').click(function () {
+                $(this).siblings('span').removeClass('index');
+                $(this).addClass('index');
+                var reporter_id = $(this).attr('value');
+                if (reporter_id == '0') {
+                    reporter_id = getCookie('USER');
+                }
+                var book_status = $('.sort .index').attr('value');
+                load_book(book_status, reporter_id, 0, 8, function(){});
+            });
+            load_book(1, getCookie('USER'), 0, 8, function(){});
+        }
+    });
+}
+
