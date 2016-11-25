@@ -11,26 +11,17 @@ $(".book .sort span").click(function(){
 
     has_load_book = false;
     load_book(Number($(this).attr('value')), 1);
-    //if($(".book .sort span").eq(0).hasClass("index")){
-    //
-    //}
+
 
 });
 //按阅读班级筛选
-$(".book .grade").on('click','span',function(){
+$(".book .className").on('click','span',function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
 
-
     has_load_book = false;
-    if($(this).attr('value') == 0){
-        load_book(Number($(this).attr('value')), 1);
-    }else{
-        load_class_books($(this).attr('value'),1);
-    }
-
-
-
+    //load_class_books($(this).attr('value'),1);
+    load_book(0,1,$(this).attr('value'));
 
 });
 //按阅读等级筛选
@@ -39,6 +30,23 @@ $(".book .read-lv .lv_button span").click(function(){
     $(this).attr("class","index");
 });
 
+$(".book .grade span").click(function(){
+    $(this).siblings().attr("class","");
+    $(this).attr("class","index");
+
+    var start_score = Number($(this).attr('value'));
+    console.log(start_score)
+    if (start_score == 0) {
+        curr_start_score = 600;
+        curr_end_score = 1200;
+    }
+    else {
+        curr_start_score = start_score;
+        curr_end_score = start_score + 100;
+    }
+    has_load_book = false;
+    load_book(curr_type, 1);
+});
 
 
 var curr_type = 0;
@@ -48,7 +56,7 @@ var has_load_book = false;
 var num = 0;
 
 //加载图书  可按照阅读等级
-function load_book(type, page) {
+function load_book(type, page,classId) {
     var html = '';
     curr_type = type;
     $.ajax({
@@ -61,6 +69,7 @@ function load_book(type, page) {
             page: page - 1,
             typeId: type,
             itemPerPage: 8,
+            classId : classId,
             startLevelScore: curr_start_score,
             endLevelScore: curr_end_score
         },
@@ -86,6 +95,7 @@ function load_book(type, page) {
         }
     });
 }
+
 //生成图书馆图书列表
 function fill_book(data) {
     return  '<div class="list">' +
@@ -106,6 +116,7 @@ function fill_book(data) {
                 '</div>'+
             '</div>';
 }
+
 //生成对应班级得图书列表
 function fill_class_books(data){
     return  '<div class="list">' +
@@ -126,11 +137,11 @@ function fill_class_books(data){
             '</div>'+
             '</div>';
 }
+
 //生成班级button
 function fill_classname(data){
-    ++num;
+    num++;
     return    '<span value="'+ num +'">'+ data.name + '</span>';
-
 }
 
 
@@ -145,11 +156,12 @@ function load_classname(){
         url: URL_BASE + '/users/web/class/teacher/current/list',
         success: function(data) {
             for(var i = 0; i < data.length; ++i){
-                console.log(data);
+                //console.log(data);
                 html += fill_classname(data[i]);
             }
-            $(".grade .index").after(html);
-            $(".books .statistics span").html(data.data.totalItem);
+            $(".className p").after(html);
+            $(".className span").eq(0).addClass("index");
+            $(".books .statistics span").html(data.totalItem);
         }
     });
 }

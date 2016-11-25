@@ -44,12 +44,23 @@
                     <span value="12">卡通</span>
                     <span value="13">主题学习丛书</span>
                 </div>
-                <div class="grade">
+                <div class="className">
                     <p>所带班级：</p>
+                    <!--<span class="index" value="0">全部</span>-->
+                </div>
+                <div class="grade">
+                    <p>阅读等级：</p>
                     <span class="index" value="0">全部</span>
+                    <span value="600">600-700k</span>
+                    <span value="700">700-800k</span>
+                    <span value="800">800-900k</span>
+                    <span value="900">900-1000k</span>
+                    <span value="1000">1000-1100k</span>
+                    <span value="1100">1100-1200k</span>
+                    <img src="../../../assets/img/more_info.png" alt="" data-html="true" data-toggle="tooltip" title="" id="level_more_info">
                 </div>
                 <div class="read-lv">
-                    <p>阅读等级：</p>
+                    <!--<p>阅读等级：</p>-->
                     <div class="box">
                         <input type="text"/>
                         <img src="../../../assets/img/teacher/heng.png" alt=""/>
@@ -82,7 +93,7 @@
 <script src="../../../assets/js/teacher/library/library.js"></script>
 <script>
     load('../../../include/html/','teacher');
-    load_book(0,1);
+    load_book(0,1,0);
     load_classname();
 </script>
 </body>
