@@ -123,6 +123,25 @@ hr {
     height: 60px;
 }
 
+.student-info-part table thead tr td:first-child {
+    width: 118px;
+}
+.student-info-part table thead tr td:nth-child(2) {
+    width: 120px;
+}
+.student-info-part table thead tr td:nth-child(3) {
+    width: 170px;
+}
+.student-info-part table thead tr td:nth-child(4) {
+    width: 120px;
+}
+.student-info-part table thead tr td:nth-child(5) {
+    width: 110px;
+}
+.student-info-part table thead tr td:nth-child(6) {
+    width: 100px;
+}
+
 .student-info-part table tbody tr td:first-child {
     width: 118px;
 }

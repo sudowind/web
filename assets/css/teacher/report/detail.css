@@ -33,9 +33,7 @@
 }
 
 .student-img img {
-    width:auto;
-    height: 235%;
-    margin-left:-30%;
+    width:100%;
 }
 
 .student-img-box div {

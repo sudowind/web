@@ -4,8 +4,11 @@
 var has_load_note_page = false;
 var current_count = 1;
 
-function load_notes(page) {
+function load_notes(page, student_id) {
     current_count = 1;
+    if (student_id == null) {
+        student_id = getCookie('USER');
+    }
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -16,7 +19,7 @@ function load_notes(page) {
             page: page - 1,
             itemPerPage: 2,
             bookId: $.getUrlParam('book_id'),
-            studentId: getCookie('USER')
+            studentId: student_id
         },
         success: function(data) {
             var html = '';

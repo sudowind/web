@@ -129,7 +129,7 @@
 
 #grade_selector {
     float: left;
-    width: 100px;
+    width: 150px;
     padding: 5px 5px;
     border: solid 1px #e8e8e8;
     border-radius: 5px;
@@ -173,6 +173,26 @@
     text-align: center;
     height: 60px;
 }
+
+.student-info-part table thead tr td:first-child {
+    width: 118px;
+}
+.student-info-part table thead tr td:nth-child(2) {
+    width: 120px;
+}
+.student-info-part table thead tr td:nth-child(3) {
+    width: 170px;
+}
+.student-info-part table thead tr td:nth-child(4) {
+    width: 120px;
+}
+.student-info-part table thead tr td:nth-child(5) {
+    width: 110px;
+}
+.student-info-part table thead tr td:nth-child(6) {
+    width: 100px;
+}
+
 
 .student-info-part table tbody tr td:first-child {
     width: 118px;

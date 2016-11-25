@@ -93,7 +93,7 @@
 
 #class_selector {
     float: left;
-    width: 100px;
+    width: 150px;
     padding: 5px 5px;
     border: solid 1px #e8e8e8;
     border-radius: 5px;
@@ -158,7 +158,22 @@ td img {
 
 }
 
-/*!*分页部分*!*/
-/*.tcdPageCode {*/
-    /*padding-top: 30px;*/
-/*}*/
+.progress-wrapper {
+    text-align: center;
+}
+
+.progress-message{
+    font-size: 8px;
+    color: #a8a8a8;
+}
+
+.progress-part {
+    padding: 0;
+}
+
+.progress {
+    position: static;
+    border: 1px solid #febc3c;
+    margin-bottom:0;
+}
+

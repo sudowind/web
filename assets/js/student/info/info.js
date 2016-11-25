@@ -94,10 +94,9 @@ function change_info(){
             },
             contentType: 'application/json',
             data: JSON.stringify({
-
-                    "birthday": birthday,
-                    "email": "email",
-                    "gender": gender
+                "birthday": birthday,
+                "email": "email",
+                "gender": gender
             }),
             type: 'PUT',
             url: URL_BASE + '/users/web/user/current',
