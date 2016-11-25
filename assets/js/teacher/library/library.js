@@ -20,8 +20,7 @@ $(".book .className").on('click','span',function(){
     $(this).attr("class","index");
 
     has_load_book = false;
-    //load_class_books($(this).attr('value'),1);
-    load_book(0,1,$(this).attr('value'));
+    load_book($(".book .sort .index").attr('value'),1,$(this).attr('value'));
 
 });
 //按阅读等级筛选
