@@ -39,10 +39,12 @@ $("#del").click(function(){
     $(".form-change-pwd").css("display","none");
 });
 
-
+//选择班级的button事件
 $(".content .class-name p span").click(function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
+
+
 });
 
 //加载学生信息
@@ -75,7 +77,30 @@ function fill_student(){
                 '</ul>'
 }
 
-
+//获取老师所带班级
+function load_classname(){
+    var html = '';
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/users/web/class/teacher/current/list',
+        success: function(data) {
+            for(var i = 0; i < data.length; ++i){
+                //console.log(data);
+                html += fill_classname(data[i]);
+            }
+            $(".class-name p").append(html);
+            $(".class-name p span").eq(0).addClass("index");
+        }
+    });
+}
+var num = 0;
+function fill_classname(data){
+    num++;
+    return    '<span value="'+ num +'">'+ data.name + '</span>';
+}
 
 
 
