@@ -40,10 +40,9 @@ $("#del").click(function(){
 });
 
 //选择班级的button事件
-$(".content .class-name p span").click(function(){
+$(".content .class-name p").on('click','span',function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
-
 
 });
 
