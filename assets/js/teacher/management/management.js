@@ -4,19 +4,11 @@
 function right_bar_cb() {
     $('#management_button').attr('class', 'side-button-selected left-side-button');
 }
-
-$("#check").click(function(){
-    $(".del").css("display","none");
-    $(".form-add-student").css("display","none");
-    $(".form-change-pwd").css("display","block");
-    $(".modal-body").css({
-        width:"620",
-        height:"460",
-        top:"-110px",
-        left:"0px"
-    });
-});
-$(".add-task").click(function(){
+//学生列表的性别以及是否修改密码的参数
+var gender = '';
+var isInitPsw = '';
+//教师添加学生模态框
+$(".add-task").on('click',function(){
     $(".del").css("display","none");
     $(".form-add-student").css("display","block");
     $(".form-change-pwd").css("display","none");
@@ -26,59 +18,131 @@ $(".add-task").click(function(){
         top:"-110px",
         left:"0px"
     })
-});
-$("#del").click(function(){
-    $(".modal-body").css({
-        width:"490",
-        height:"190",
-        top:"-40px",
-        left:"90px"
-    });
-    $(".del").css("display","block");
-    $(".form-add-student").css("display","none");
-    $(".form-change-pwd").css("display","none");
+
 });
 
-//ѡ��༶��button�¼�
+//添加学生的事件
+$("#sure_add_student").on('click',function(){
+    var id = $(".form-add-student p .id").val();
+    var name = $(".form-add-student p .name").val();
+    if($("#boy").is(":checked")) {
+        var gender = 1;
+    }else if($("#girl").is(":checked")) {
+        var gender = 2;
+    }
+    var classId = $("#className").val();
+    var createTime = $("#time").val();
+    var birthday = '2010-10-10';
+
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        contentType: 'application/json',
+        data: JSON.stringify({
+            "id": id,
+            "gender": gender,
+            "name":name,
+            "createTime":createTime,
+            "birthday":birthday
+        }),
+        type: 'POST',
+        url: URL_BASE + '/users/web/class/'+ classId +'/student',
+        success: function(data) {
+            console.log(data);
+
+        }
+    });
+});
+
+//选择班级的button事件
 $(".content .class-name p").on('click','span',function(){
+    $(".student-information").remove();
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
 
+    load_student_info($(this).attr('value'));
 });
 
-//����ѧ����Ϣ
-function load_student_info(){
+//加载学生信息
+function load_student_info(classId){
+    var html = '';
     $.ajax({
         xhrFields: {
             withCredentials: true
         },
         type: 'GET',
-        url: URL_BASE + '/users/web/user/current',
+        url: URL_BASE + '/users/web/class/'+ classId +'/students',
+        data: {
+            classId : classId
+        },
         success: function(data) {
-            console.log(data);
-            $(".account").html(data.id);
-            $(".name").html(data.name);
+            //console.log(data[0]);
+            for( var i = 0; i < data.length; i++){
+                if(data[i].gender == '1'){
+                    gender = '男';
+                }else if(data[i].gender == '2'){
+                    gender = '女';
+                }
 
+                if(data[i].isInitPsw == '0'){
+                    isInitPsw = '正常';
+                }else{
+                    isInitPsw = '修改密码';
+                }
+                html += fill_student(data[i]);
+            };
 
+            $(".information .head").after(html);
+
+            //删除学生点击事件
+            $("#del").on('click',function(){
+                $(".del").css("display","block");
+                $(".form-add-student").css("display","none");
+                $(".form-change-pwd").css("display","none");
+                $(".modal-body").css({
+                    width:"490",
+                    height:"190",
+                    top:"-40px",
+                    left:"90px"
+                });
+            });
+
+            //老师给学生修改密码
+            $("#check").on('click',function(){
+                $(".del").css("display","none");
+                $(".form-add-student").css("display","none");
+                $(".form-change-pwd").css("display","block");
+                $(".modal-body").css({
+                    width:"620",
+                    height:"460",
+                    top:"-110px",
+                    left:"0px"
+                });
+            });
         }
     });
 };
 
-function fill_student(){
-    return    '<ul class="student-information">'
-                    +'<li class="account"></li>'
-                    +'<li class="name"></li>'
-                    +'<li class="gender"></li>'
-                    +'<li class="time"></li>'
-                    +'<li class="state"></li>'
-                    +'<li id="check" data-toggle="modal" data-target="#myModal">�鿴</li>'
-                    +'<li id="del" data-toggle="modal" data-target="#myModal">ɾ��</li>'
-                '</ul>'
+function fill_student(data){
+
+    return      '<ul class="student-information">'
+                    +'<li class="account">'+ data.id+'</li>'
+                    +'<li class="name">'+ data.name+'</li>'
+                    +'<li class="gender">'+ gender +'</li>'
+                    +'<li class="time">'+ data.createTime+'</li>'
+                    +'<li class="state">'+ isInitPsw +'</li>'
+                    +'<li id="check" class="check" data-toggle="modal" data-target="#myModal">查看</li>'
+                    +'<li id="del" class="delete" data-toggle="modal" data-target="#myModal">删除</li>'
+                +'</ul>'
 }
 
-//��ȡ��ʦ�����༶
+//获取老师所带班级
 function load_classname(){
     var html = '';
+    var add_className_html = '';
+    var add_className_num = 0;
+
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -86,12 +150,19 @@ function load_classname(){
         type: 'GET',
         url: URL_BASE + '/users/web/class/teacher/current/list',
         success: function(data) {
-            for(var i = 0; i < data.length; ++i){
+            //创建所带班级button
+            for(var i = 0; i < data.length; i++){
                 //console.log(data);
                 html += fill_classname(data[i]);
             }
             $(".class-name p").append(html);
             $(".class-name p span").eq(0).addClass("index");
+            //添加学生模态框的班级选项
+            for(var i = 0;i < data.length; i++){
+                add_className_num++;
+                add_className_html += '<option value="'+ add_className_num +'">'+ data[i].name +'</option>'
+            }
+            $("#className").append(add_className_html);
         }
     });
 }

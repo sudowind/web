@@ -131,14 +131,14 @@ html{
     width: 100px;
     text-align: center;
 }
-.information ul li:nth-of-type(4){
+.information ul .time{
     width: 140px;
 }
-.information ul li:nth-of-type(6){
+.information ul .check{
     width: 44px;
     cursor: pointer;
 }
-.information ul li:nth-of-type(7){
+.information ul .delete{
     width: 80px;
     cursor: pointer;
 }
@@ -217,7 +217,7 @@ html{
     margin: 50px 0px 0px 90px;
     font-size: 19px;font-weight: normal;
 }
-.modal-body .del .submit{
+.modal-body .del .sure{
     width: 150px;
     height: 45px;
     line-height: 45px;
