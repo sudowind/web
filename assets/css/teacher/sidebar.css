@@ -90,6 +90,8 @@
     font-family: "Microsoft YaHei UI", serif;
     text-align: center;
     padding: 15px;
+
+    cursor: pointer;
 }
 
 /*左导航栏主体*/
