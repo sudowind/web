@@ -50,15 +50,15 @@
                     <li>状态</li>
                     <li class="operation">操作</li>
                 </ol>
-                <ul class="student-information">
-                    <li class="account"></li>
-                    <li class="name"></li>
-                    <li class="gender"></li>
-                    <li class="time"></li>
-                    <li class="state"></li>
-                    <li id="check" data-toggle="modal" data-target="#myModal">查看</li>
-                    <li id="del" data-toggle="modal" data-target="#myModal">删除</li>
-                </ul>
+                <!--<ul class="student-information">-->
+                    <!--<li class="account">1</li>-->
+                    <!--<li class="name">1</li>-->
+                    <!--<li class="gender">1</li>-->
+                    <!--<li class="time">1</li>-->
+                    <!--<li class="state">1</li>-->
+                    <!--<li id="check" class="check" data-toggle="modal" data-target="#myModal">1</li>-->
+                    <!--<li id="del" class="delete" data-toggle="modal" data-target="#myModal">2</li>-->
+                <!--</ul>-->
             </div>
 
 
@@ -67,45 +67,44 @@
                 <div class="modal-dialog" style="width: 620px; margin-top: 400px;">
                     <!--<div class="modal-content">-->
                         <div class="modal-body">
-                            <div class="del">
+                            <div class="del" >
                                 <!--<img src="../../../assets/img/teacher/out.png" alt=""/>-->
                                 <p>确定删除学生<span>牙擦苏</span>的个人信息么？</p>
-                                <div class="submit">确定</div>
+                                <div class="sure">确定</div>
                             </div>
-                            <form action="" class="form-add-student" style="display: none">
+                            <form action="" class="form-add-student" >
                                 <p>
-                                    账&nbsp;号 <input type="text" value="10086"/>
+                                    账&nbsp;号 <input class="id" type="text" value=""/>
                                 </p>
                                 <p class="initial">
                                     初始密码<span>123456</span>
                                 </p>
                                 <p>
-                                 姓&nbsp;名 <input type="text" value="甘婷"/>
+                                 姓&nbsp;名 <input class="name" type="text" value=""/>
                                 </p>
                                 <p class="sex">性&nbsp;别
                                     <span>
-                                        <input id="boy" type="radio" name="x1" checked>&nbsp;&nbsp;&nbsp;&nbsp;男<input id="girl" type="radio" name="x1">&nbsp;&nbsp;&nbsp;&nbsp;女
+                                        <input id="boy" type="radio" name="auto" checked="checked">&nbsp;&nbsp;&nbsp;&nbsp;男
+                                        <input id="girl" type="radio" name="auto">&nbsp;&nbsp;&nbsp;&nbsp;女
                                     </span>
                                 </p>
                                 <p>班&nbsp;级
-                                    <select name="" id="">
-                                        <option value="2015级1班">2015级1班</option>
-                                        <option value="2015级2班">2015级2班</option>
-                                        <option value="2015级3班">2015级3班</option>
-                                        <option value="2015级4班">2015级4班</option>
+                                    <select name="" id="className">
+                                        <!--<option value="2015级1班">2015级1班</option>-->
+                                        <!--<option value="2015级2班">2015级2班</option>-->
                                     </select>
                                 </p>
                                 <p class="time">入学时间
-                                    <input class="laydate-icon" type="text" onclick="laydate()" name=""/>
+                                    <input class="laydate-icon" type="text" onclick="laydate()" id="time" name=""/>
                                 </p>
-                                <div class="submit">确定</div>
+                                <div class="submit" id="sure_add_student">确定</div>
                             </form>
-                            <form action="" class="form-change-pwd" style="display: none">
+                            <form action="" class="form-change-pwd" >
                                 <p>
-                                    姓&nbsp;名 <input type="text" value="甘婷"/>
+                                    姓&nbsp;名 <input class="name" type="text" value="甘婷"/>
                                 </p>
                                 <p>
-                                    账&nbsp;号 <input type="text" value="10086"/>
+                                    账&nbsp;号 <input class="class-id" type="text" value="10086"/>
                                 </p>
                                 <p>
                                     重置密码 <input type="text" class="change-pwd" value="10086"/>
@@ -137,7 +136,7 @@
 <script src="../../../assets/js/teacher/management/management.js"></script>
 <script>
     load('../../../include/html/', 'teacher');
-    load_student_info();
+    load_student_info(1);
     load_classname();
 </script>
 </body>
