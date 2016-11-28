@@ -13,6 +13,7 @@ $(".book .sort .read").click(function(){
     if (reporter_id == '0') {
         reporter_id = getCookie('USER');
     }
+    has_load_book = false;
     load_book(4, reporter_id, 0, 8, function() {
         $(".book .sort .read").addClass("index");
         $(".book .sort .reading").removeClass("index");
@@ -33,6 +34,7 @@ $(".book .sort .reading").click(function(){
     if (reporter_id == '0') {
         reporter_id = getCookie('USER');
     }
+    has_load_book = false;
     load_book(2, reporter_id, 0, 8, function() {
         $(".book .sort .reading").addClass("index");
         $(".book .sort .read").removeClass("index");
@@ -101,7 +103,7 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
                     pageCount: page_count,
                     current: 1,
                     backFn: function(p) {
-                        load_book(curr_type, p);
+                        load_book(task_status, reporter_id, p - 1, item_per_page, cb_func);
                     }
                 });
             }
@@ -175,6 +177,7 @@ function init_teachers() {
                     reporter_id = getCookie('USER');
                 }
                 var book_status = $('.sort .index').attr('value');
+                has_load_book = false;
                 load_book(book_status, reporter_id, 0, 8, function(){});
             });
             load_book(2, getCookie('USER'), 0, 8, function(){});

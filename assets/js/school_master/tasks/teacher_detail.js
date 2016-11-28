@@ -13,7 +13,7 @@ function init () {
     load_table_row('#row3');
 
     var h = Number($('.select-part').height());
-
+    // alert(h);
     $('.book-part').css('height', (1050 - h).toString());
 
 }

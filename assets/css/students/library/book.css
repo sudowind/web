@@ -5,7 +5,7 @@
     height: 250px;
     margin-bottom: 20px;
     position: relative;
-    top: 0px;
+    top: 0;
 }
 
 .book-info-box .book-image {
@@ -39,7 +39,8 @@
 
 .book-info-box .book-info table tbody tr td{
     height: 40px;
-    padding-right: 70px;
+    padding-right: 10px;
+    width: 220px;
 }
 
 .book-info-box .book-info table tbody tr td span{

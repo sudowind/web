@@ -86,6 +86,9 @@
 }
 
 /*表格样式*/
+.book-part table {
+    /*height: 944px;*/
+}
 
 .book-part thead {
     border-bottom: 1px dotted #fb9e1d;
@@ -94,12 +97,34 @@
 .book-part thead tr td {
     padding: 15px;
     line-height: 25px;
+    height: 60px;
 }
 
 .book-part tbody tr td {
     padding: 15px;
     line-height: 25px;
     border-bottom: 1px dotted #d7d6d6;
+    text-align: center;
+    height: 220px;
+}
+
+.book-part tbody tr td:nth-child(4) {
+    width: 206px;
+
+}
+
+.book-part tbody tr td:nth-child(4) div {
+    background: #ffffff;
+    border: 1px solid #d7d6d6;
+    width: 140px;
+    margin: auto;
+    position: relative;
+    padding: 2px 30px 0 10px;
+}
+.book-part tbody tr td:nth-child(4) img {
+    position: absolute;
+    left: 105px;
+    top: 5px;
 }
 
 .ops span {
@@ -116,13 +141,14 @@
 
 .table-img img {
     height: 150px;
+    width: 105px;
     margin: 15px 15px 0 15px;
 }
 
 .table-img span {
     position: absolute;
     top: 137px;
-    left: 68px;
+    right: 15px;
     width: 48px;
     height: 28px;
     line-height: 28px;
@@ -145,3 +171,9 @@
     margin: 10px;
     position: relative;
 }
+
+
+#teacher_task_pagination {
+    padding-top: 40px;
+}
+
