@@ -42,17 +42,6 @@ $('#offline_read').click(function () {
     window.open('read_offline.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
 });
 
-function fill_data(data) {
-    $('#book_name').find('h3 b').html(data.name);
-    $('#display_type').html(data.displayTypeName);
-    $('#author').html(data.author);
-    $('#publisher').html(data.publisher);
-    $('#word_count').html(data.wordCount);
-    $('#isbn').html(data.isbn);
-    $('#level_score').html(data.levelScore);
-    $('#intro_part').html(data['introduction']);
-}
-
 function load_page() {
     var id = $.getUrlParam('book_id');
     if (id == null) {
@@ -65,6 +54,19 @@ function load_page() {
         success: function(data) {
             // my_tip.alert(data.id);
             fill_data(data);
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/tasks/web/task/' + $.getUrlParam('task_id'),
+        success: function (data) {
+            if (data.status == 3) {
+                $('#offline_read').html('继续线下阅读');
+                $('#online_read').html('转线上阅读');
+            }
         }
     });
 }

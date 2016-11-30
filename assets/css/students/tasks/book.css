@@ -21,7 +21,8 @@
 
 .book-info-box .book-image {
     width: 150px;
-    margin: 20px 20px;
+    height: 190px;
+    margin: 20px 20px 0 20px;
     float: left;
     text-align: center;
 }

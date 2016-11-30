@@ -74,6 +74,7 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
                         // alert(obj.attr('value'));
                         obj.find('.book-name').html(book_data.name);
                         obj.find('.level-score').html(book_data.levelScore);
+                        obj.parent().find('img').attr('src', book_data.coverUri);
 
                     }
                 });
@@ -120,7 +121,7 @@ function fill_book(data) {
     return '<div class="list">' +
         '<div class="list-book">' +
         '<div class="image">' +
-        '<img src=../../../assets/img/1.png alt=""/>' +
+        '<img src="" alt=""/>' +
         '<div class="book-meta-info">' +
         '<span class="level-score"></span>' +
         '<div class="book-name" book-id="' + data.bookId + '" task-id="' + data.id + '"></div></div>' +

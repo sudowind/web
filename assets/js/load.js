@@ -72,6 +72,8 @@ function fill_data(data) {
     $('#isbn').html(data.isbn);
     $('#level_score').html(data.levelScore);
     $('#intro_part').html(data['introduction']);
+    $('.book-image').find('img').attr('src', data.coverUri);
+    $('.img img').attr('src', data.coverUri);
 }
 
 function load_page() {
@@ -102,6 +104,10 @@ function load_page() {
             success: function(data) {
                 // my_tip.alert(data.id);
                 // do some thing
+                var start_date = new Date(data.startTime);
+                var end_date = new Date(data.endTime);
+                $('#start_date').html(start_date.getFullDate());
+                $('#end_date').html(end_date.getFullDate());
             }
         });
     }

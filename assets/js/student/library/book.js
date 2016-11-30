@@ -93,30 +93,3 @@ $('#add_to_task').click(function () {
     });
 
 });
-
-function fill_data(data) {
-    $('#book_name').find('h3 b').html(data.name);
-    $('#display_type').html(data.displayTypeName);
-    $('#author').html(data.author);
-    $('#publisher').html(data.publisher);
-    $('#word_count').html(data.wordCount);
-    $('#isbn').html(data.isbn);
-    $('#level_score').html(data.levelScore);
-    $('#intro_part').html(data['introduction']);
-}
-
-function load_page() {
-    var id = $.getUrlParam('book_id');
-    if (id == null) {
-        // 如果url中没有给id，应该导向别的页面
-        // my_tip.alert('gaga');
-    }
-    $.ajax({
-        type: 'GET',
-        url: URL_BASE + '/books/web/book/' + id,
-        success: function(data) {
-            // my_tip.alert(data.id);
-            fill_data(data);
-        }
-    });
-}

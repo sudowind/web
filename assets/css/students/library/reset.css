@@ -1,6 +1,7 @@
 /*margin的样式初始化*/
 body,h1,h2,h3,h4,h5,h6,p,ol,ul,dl,dd,input {
 	margin:0;
+	/*line-height: 1;*/
 }
 /*padding的样式初始化*/
 ol,ul,th,td,input {
