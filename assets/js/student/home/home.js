@@ -105,5 +105,5 @@ var bar = new ProgressBar.Circle('#progress_bar', {
 
     }
 });
-
+//首页头像更新
 

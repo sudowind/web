@@ -96,7 +96,7 @@ function load_student_info(classId){
             $(".information .head").after(html);
 
             //删除学生点击事件
-            $("#del").on('click',function(){
+            $(".delete").on('click',function(){
                 //$(".del").css("display","block");
                 //$(".form-add-student").css("display","none");
                 //$(".form-change-pwd").css("display","none");
@@ -106,20 +106,21 @@ function load_student_info(classId){
                 //    top:"-40px",
                 //    left:"90px"
                 //});
-                $.ajax({
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    data: {
 
-                    },
-                    type: 'POST',
-                    url: URL_BASE + '/users/web/class/'+ classId +'/student',
-                    success: function(data) {
-                        console.log(data);
-
-                    }
-                });
+                //$.ajax({
+                //    xhrFields: {
+                //        withCredentials: true
+                //    },
+                //    data: {
+                //
+                //    },
+                //    type: 'POST',
+                //    url: URL_BASE + '/users/web/class/'+ classId +'/student',
+                //    success: function(data) {
+                //        console.log(data);
+                //
+                //    }
+                //});
                 var student = '';
                 var text = '<p>'+'确定删除学生'+'<span>'+ student +'</span>'+'的个人信息么？'+'</p>'
                 my_tip.bind(text, function() {
