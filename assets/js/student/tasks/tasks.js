@@ -126,7 +126,7 @@ function fill_book(data) {
         '<div class="book-name" book-id="' + data.bookId + '" task-id="' + data.id + '"></div></div>' +
         '</div>' +
         '<!--进度条部分-->' +
-        '<div class="progress">' +
+        '<div class="progress progress-index">' +
         '<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="' + percent.toString() + '" aria-valuemin="0" aria-valuemax="100" style="width: ' + percent.toString() + '%">' +
         '<span class="sr-only">' + percent.toString() +'% Complete</span>' +
         '</div>' +
