@@ -33,20 +33,19 @@
                     <!--<p class="btn" data-toggle="modal" data-target="#myModal">添加到“阅读任务”</p>-->
                 </div>
                 <div class="book-info">
-                    <div id="book_name"><h3><b>鸭子骑车记&nbsp;</b><small>故事</small></h3></div>
+                    <div id="book_name"><h3><b>鸭子骑车记</b>&nbsp;<small id="display_type">故事</small></h3></div>
                     <table>
                         <tbody>
                         <tr>
-                            <td>作者&nbsp;&nbsp;<span>大卫夏农</span></td>
-                            <td>出版社&nbsp;&nbsp;<span>海南出版公司</span></td>
+                            <td>作者&nbsp;&nbsp;<span id="author">大卫夏农</span></td>
+                            <td>出版社&nbsp;&nbsp;<span id="publisher">海南出版公司</span></td>
                         </tr>
                         <tr>
-                            <td>字数&nbsp;&nbsp;<span>5000</span></td>
-                            <td>ISBN编号&nbsp;&nbsp;<span>843957640</span></td>
+                            <td>字数&nbsp;&nbsp;<span id="word_cont">5000</span></td>
+                            <td>ISBN编号&nbsp;&nbsp;<span id="isbn">843957640</span></td>
                         </tr>
                         <tr>
-                            <td>适合年级&nbsp;&nbsp;<span>二年级</span></td>
-                            <td></td>
+                            <td>阅读等级&nbsp;&nbsp;<span id="level_score">700-800k</span></td>                            <td></td>
                         </tr>
                         </tbody>
                     </table>
@@ -60,188 +59,137 @@
                 <!--<span class="option">2015级3班</span>-->
             <!--</div>-->
 
-            <div class="part-basis student-info-part">
+            <div class="part-basis student-info-part book-detail-box">
                 <div class="nav-bar">
-                    <div class="nav-button" id="intro_button" onclick="on_button_click(this);" value="1">
-                        <img src="../../../assets/img/student/book/intro_selected.png" alt="">
-                        <div class="introduce" style="color: #ffffff;">简介</div>
+                    <div class="nav-button" id="intro_button" onclick="on_button_click(this);" value="1" style="color: #FFFFFF" btn-type="introduce">
+                        <img src="../../../assets/img/student/book/intro_selected.png" alt="">简介
                     </div>
-                    <div class="nav-button" id="comment_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0">
-                        <img src="../../../assets/img/student/book/comment_unselected.png" alt="">
-                        <div class="comments">评论</div>
+                    <div class="nav-button" id="comment_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="comments">
+                        <img src="../../../assets/img/student/book/comment_unselected.png" alt="">评论(<span id="comment_count"></span>)
                     </div>
-                    <div class="nav-button" id="student_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0">
-                        <img src="../../../assets/img/student/book/student_unselected.png" alt="">
-                        <div class="comments">已读学生详情</div>
+                    <div class="nav-button" id="student_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="student">
+                        <img src="../../../assets/img/student/book/student_unselected.png" alt="">已读完学生详情
                     </div>
                 </div>
 
 
                 <div class="book-detail-content" id="intro_part">
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗、老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们干了一件很不平凡的事情…作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</p>
+                    <!--<p>&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗、老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们干了一件很不平凡的事情…作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</p>-->
                 </div>
 
                 <div class="book-comment" style="display: none;" id="comment_part">
-                    <div class="comment">
-                        <div class="comment-img">
-                            <img src="../../../assets/img/student/book/comment_photo.png">
-                        </div>
-                        <div class="comment-content">
-                            <h3>吴磊</h3>
-                            <div class="like">
-                                <img src="../../../assets/img/student/book/like.png" height="90%" width="90%">
-                            </div>
-                            <div class="like-count">74</div>
-                            <!--这里存在一个问题，如果点赞数过多，如何安排格式，有一种解决方法就是不显示点赞数目-->
-                            <p>我已经开始给孩子读了，每翻开一页都是一种。已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开</p>
-                            <div class="comment-date" align="right">
-                                2016-10-10
-                            </div>
-                        </div>
-                        <hr style="clear: both;"/>
-                    </div>
+                    <div id="comment_container"></div>
 
-                    <div class="comment">
-                        <div class="comment-img">
-                            <img src="../../../assets/img/student/book/comment_photo.png">
-                        </div>
-                        <div class="comment-content">
-                            <h3>吴磊</h3>
-                            <div class="like">
-                                <img src="../../../assets/img/student/book/like.png" height="90%" width="90%">
-                            </div>
-                            <div class="like-count">74</div>
-                            <p>我已经开始给孩子读了，每翻开一页都是一种。已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开已经开始给孩子读了，每翻开</p>
-                            <div class="comment-date" align="right">
-                                2016-10-10
-                            </div>
-                        </div>
-                        <hr style="clear: both;"/>
-                    </div>
-                    <textarea placeholder="发表一下你的评论吧……" id="user_comment"></textarea>
-                    <p class="btn" id="submit_comment" onclick="">发表评论</p>
+                    <!--<textarea placeholder="发表一下你的评论吧……" id="user_comment"></textarea>-->
+                    <!--<p class="btn" id="submit_comment" onclick="">发表评论</p>-->
 
                     <!--分页-->
-                    <div class="tcdPageCode" id="comment_pagination">
-                        <span class="disabled">上一页</span>
-                        <span class="current">1</span>
-                        <a href="javascript:;" class="tcdNumber">2</a>
-                        <!--<a href="javascript:;" class="tcdNumber">3</a>-->
-                        <span>...</span>
-                        <a href="javascript:;" class="tcdNumber">4</a>
-                        <a href="javascript:;" class="nextPage">下一页</a>
+                    <div class="tcd-wrapper">
+                        <div class="tcdPageCode" id="comment_pagination"></div>
                     </div>
                 </div>
-                <div id="student_part" style="display: none;">
-                    <table>
-                        <thead>
-                        <tr>
-                            <td>账号</td>
-                            <td>姓名</td>
-                            <td>当前进度</td>
-                            <td>测试题分数</td>
-                            <td>读书笔记</td>
-                            <td>操作</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr id="row0">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr id="row1">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr id="row2">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr id="row3">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr id="row4">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr id="row5">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr id="row6">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr id="row7">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr id="row8">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr id="row9">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="tcdPageCode" id="teacher_task_pagination">
-                        <span class="disabled">上一页</span>
-                        <span class="current">1</span>
-                        <a href="javascript:;" class="tcdNumber">2</a>
-                        <!--<a href="javascript:;" class="tcdNumber">3</a>-->
-                        <span>...</span>
-                        <a href="javascript:;" class="tcdNumber">4</a>
-                        <a href="javascript:;" class="nextPage">下一页</a>
+                <div id="student_part">
+                    <!--<div id="overall_info">-->
+                        <!--<label for="grade_selector"></label><select id="grade_selector">-->
+                        <!--<option value="">全部年级</option>-->
+                        <!--<option value="">全部年级</option>-->
+                        <!--<option value="">全部年级</option>-->
+                        <!--<option value="">全部年级</option>-->
+                    <!--</select>-->
+                        <!--<div id="read_count">-->
+                            <!--<span>0</span>位同学已读完-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="student-info-part">
+                        <table>
+                            <thead>
+                            <tr>
+                                <td>账号</td>
+                                <td>姓名</td>
+                                <td>当前进度</td>
+                                <td>测试题分数</td>
+                                <td>读书笔记</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr id="row0">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row1">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row2">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row3">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row4">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row5">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row6">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row7">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
+                    <div class="tcdPageCode" id="student_pagination">
+                    </div>
+
                 </div>
 
             </div>
         </div>
     </div>
     <div id="right_bar"></div>
+    <div id="tmp_modal"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 <script src="../../../libs/jquery-3.1.1.min.js"></script>

@@ -5,7 +5,7 @@
     height: 250px;
     margin-bottom: 20px;
     position: relative;
-    top: 0px;
+    top: 0;
 }
 
 .book-info-box .book-image {
@@ -29,21 +29,6 @@
     width: 450px;
     margin: 25px 40px;
     float: left;
-}
-
-.book-info-box .book-info table {
-    float: left;
-    font-size: 16px;
-    margin: 20px 0;
-}
-
-.book-info-box .book-info table tbody tr td{
-    height: 40px;
-    padding-right: 70px;
-}
-
-.book-info-box .book-info table tbody tr td span{
-    color: #afafaf;
 }
 
 /*文章详细信息部分*/

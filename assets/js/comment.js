@@ -21,7 +21,7 @@ function load_comments(page) {
                 html += create_comment(data.data[i]);
             }
             if (html == '') {
-                html = '<div class="comment" style="text-align: center">暂无评论</div>';
+                html = '<div class="comment" style="text-align: center" style="margin-top: 10px;">暂无评论</div>';
             }
             if (data.totalItem > 0)
                 $('#comment_count').html(data.totalItem);

@@ -13,34 +13,45 @@
 .book-info-box {
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
-    height: 210px;
+    height: 250px;
     margin-top: -12px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     position: relative;
+    top: 0;
 }
 
 .book-info-box .book-image {
     width: 150px;
-    margin: 20px 20px;
+    margin: 20px 20px 0 20px;
     float: left;
     text-align: center;
 }
 
 .book-info-box p {
-    clear: both;
-    padding-left: 27px;
+    background: #fb9e1d;
+    border: solid 1px #fb9e1d;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: -10px 0 0 24px;
+    width: 140px;
+    text-align: center;
+    float: left;
+}
+.book-info-box p:hover {
+    color: #ffffff;
 }
 
 .book-info-box .book-info {
     width: 450px;
-    margin: 25px 40px 0 40px;
+    margin: 25px 40px 0 0;
     float: left;
 }
 
 .book-info-box .book-info table {
     float: left;
     font-size: 16px;
-    margin: 20px 0 0 0;
+    margin: 20px 0;
 }
 
 .book-info-box .book-info table tbody tr td{
@@ -52,86 +63,46 @@
     color: #afafaf;
 }
 
-hr {
-    clear: both;
-}
-
-/*选择班级部分*/
-.classes-part {
-    clear: both;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 20px;
-    height: 100%;
-
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.classes-part p {
-    float: left;
-}
-
-.option  {
-    background: #ffffff;
-    color: #6e6e6e;
-    border: solid 1px #fb9e1d;
-    padding: 2px 10px;
-    margin-left: 14px;
-
+/*文章详细信息部分*/
+.book-detail-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 800px;
     font-size: 16px;
-    font-weight: normal;
-    border-radius: 6px;
-
-    cursor: pointer;
 }
 
-.index {
-    background: #fb9e1d;
-    color: #ffffff;
-}
 
 /*nav_bar*/
-.student-info-part .nav-bar {
+.book-detail-box .nav-bar {
     height: 50px;
     border-bottom: 1px solid #e8e8e8;
-    font-size: 16px;
 }
 
-.student-info-part .nav-bar .nav-button{
+.book-detail-box .nav-bar .nav-button{
     cursor: pointer;
-    width: 33.3%;
+    width: 33.33%;
     height: 50px;
     background: #fb9e1d;
     float: left;
     border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    position: relative;
+    padding-top: 12px;
 }
 
-.student-info-part .nav-bar .nav-button:not(:first-child) {
+.book-detail-box .nav-bar .nav-button:not(:first-child) {
     border-left: 1px solid #e8e8e8;
 }
 
-.student-info-part .nav-bar .nav-button:not(:last-child) img {
-    margin: 12px 0 0 85px;
-    float: left;
+.book-detail-box .nav-bar .nav-button img {
+    margin-right: 10px;
 }
 
-.student-info-part .nav-bar .nav-button:last-child img {
-    margin: 12px 0 0 55px;
-    float: left;
+.btn-content-wrapper {
+    text-align: center;
 }
 
-#note_button img {
-    margin: 12px 0 0 45px;
-    float: left;
-}
-
-#test_button img {
-    margin: 12px 0 0 50px;
-    float: left;
-}
-
-.student-info-part .nav-bar .nav-button div {
+.book-detail-box .nav-bar .nav-button div {
     padding-top: 12px;
     padding-left: 10px;
     float: left;
@@ -139,96 +110,42 @@ hr {
 }
 
 /*文章内容简介*/
-.student-info-part .book-detail-content {
+.book-detail-box .book-detail-content {
     padding: 20px;
 }
 
-.student-info-part .book-detail-content p {
+.book-detail-box .book-detail-content p {
     line-height: 150%;
 }
 
-/*评论模块*/
-.comment {
-    /*height: 100px;*/
-    margin: 10px;
-    /*border-bottom: 1px solid #e8e8e8;*/
+/*学生阅读情况部分*/
+#student_part {
+    display: none;
 }
 
-.comment div {
+#overall_info {
+    padding: 15px;
+}
+
+#grade_selector {
     float: left;
+    width: 150px;
+    padding: 5px 5px;
+    border: solid 1px #e8e8e8;
+    border-radius: 5px;
 }
 
-.comment .comment-img{
-    display:inline-block;
-    position:relative;
-    width:80px;
-    height:80px;
-    overflow:hidden;
-    border-radius:50%;
-
-    margin: 5px 5px 13px 5px;
-}
-
-.comment .comment-img img{
-    width:auto;
-    height:100%;
-    margin-left:-30%;
-}
-
-.comment-content {
-    padding: 5px;
-    margin-left: 10px;
-    width: 600px;
-    font-size: 14px;
-
-}
-
-.comment-content h3 {
-    float: left;
-    color: #fb9e1d;
-    margin-bottom: 5px;
-}
-
-.like {
-    float: left;
-    margin-left: 480px;
-}
-
-.like-count {
-    margin-top: 5px;
-    width: 25px;
-    text-align: right;
-}
-
-.comment-content p {
-    clear: both;
-}
-
-.comment-content .comment-date {
+#read_count {
     float: right;
-    color: #999999;
-    font-size: 12px;
-}
-
-.book-comment textarea {
-    border: none;
-    width: 660px;
-    height: 100px;
-    margin-left: 35px;
-    padding: 10px;
-}
-
-.book-comment #submit_comment {
-    margin: 10px 0 0 613px;
-    background: #fb9e1d;
+    height: 30px;
+    background: #d32e2e;
+    text-align: center;
     color: #ffffff;
+    margin-top: 2px;
+    padding: 3px 10px;
 }
 
-/*学生信息表格部分*/
-.student-info-part {
-    height: 890px;
-}
-
+/*学生信息表格*/
 .student-info-part table thead {
     font-size: 16px;
     border-bottom: 1px dotted #fb9e1d;
@@ -239,6 +156,7 @@ hr {
     border-bottom: 1px dotted #fb9e1d;
     text-align: center;
 }
+
 .student-info-part table thead tr td {
     padding: 15px;
     line-height: 25px;
@@ -255,6 +173,26 @@ hr {
     text-align: center;
     height: 60px;
 }
+
+.student-info-part table thead tr td:first-child {
+    width: 118px;
+}
+.student-info-part table thead tr td:nth-child(2) {
+    width: 120px;
+}
+.student-info-part table thead tr td:nth-child(3) {
+    width: 170px;
+}
+.student-info-part table thead tr td:nth-child(4) {
+    width: 120px;
+}
+.student-info-part table thead tr td:nth-child(5) {
+    width: 110px;
+}
+.student-info-part table thead tr td:nth-child(6) {
+    width: 100px;
+}
+
 
 .student-info-part table tbody tr td:first-child {
     width: 118px;
@@ -291,4 +229,13 @@ hr {
     position: static;
     border: 1px solid #febc3c;
     margin-bottom:0;
+}
+
+/*分页部分*/
+#comment_pagination {
+    padding-top: 131px;
+}
+
+#student_pagination {
+    padding-top: 60px;
 }

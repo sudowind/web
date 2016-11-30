@@ -1,7 +1,4 @@
 /**
- * Created by wind on 2016/10/12.
- */
-/**
  * Created by wind on 2016/10/10.
  */
 
@@ -108,6 +105,9 @@ function load_info() {
             $('#class_name').html(data.classes[0].name);
             $('#gender').html(gender);
             $('.student-img').find('img').attr('src', data.headimg);
+            $('.student-img-box').click(function () {
+                window.open('student_report.html?student_id=' + data.id, '_self');
+            })
         }
     });
 }

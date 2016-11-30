@@ -1,7 +1,4 @@
 /**
- * Created by wind on 2016/10/12.
- */
-/**
  * Created by wind on 2016/10/10.
  */
 
@@ -19,14 +16,12 @@ function on_button_click(e) {
         for (var i = 0; i < button_ids.length; ++i) {
             var curr_id = button_ids[i] + '_button';
             if (curr_id != $(e).attr('id')) {
-                $('#'+ curr_id + ' div').css('color', '#000000');
-                $('#'+ curr_id).attr('value', '0').css('background', '#f9f9f9');
+                $('#'+ curr_id).css('color', '#000000').attr('value', '0').css('background', '#f9f9f9');
                 $('#'+ curr_id + ' img').attr('src', '../../../assets/img/student/book/' + button_ids[i] + '_unselected.png');
                 $('#' + button_ids[i] + '_part').css('display', 'none');
             }
             else {
-                $('#'+ curr_id + ' div').css('color', '#ffffff');
-                $('#'+ curr_id).attr('value', '1').css('background', '#fb9e1d');
+                $('#'+ curr_id).css('color', '#ffffff').attr('value', '1').css('background', '#fb9e1d');
                 $('#'+ curr_id + ' img').attr('src', '../../../assets/img/student/book/' + button_ids[i] + '_selected.png');
                 $('#' + button_ids[i] + '_part').css('display', 'block');
             }
@@ -75,5 +70,46 @@ $('.select-option').bind('click', function() {
     $(this).siblings('.answer').show('500');
 });
 
+function load_info() {
+    // 加载task的信息
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/tasks/web/task/' + $.getUrlParam('task_id'),
+        success: function (data) {
+            var start_date = new Date(data.startTime);
+            var end_date = new Date(data.endTime);
+            $('#start_date').html(start_date.getFullDate());
+            $('#end_date').html(end_date.getFullDate());
+        }
+    });
+    // 加载学生信息
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/user/' + $.getUrlParam('student_id'),
+        success: function (data) {
+            var gender = '';
+            if (data.gender == 1) {
+                gender = '他';
+            }
+            else {
+                gender = '她';
+            }
+            $('#student_name').html(data.name);
+            $('#school_name').html(data.school.name);
+            $('#class_name').html(data.classes[0].name);
+            $('#gender').html(gender);
+            $('.student-img').find('img').attr('src', data.headimg);
+            $('.student-img-box').click(function () {
+                window.open('student_report.html?student_id=' + data.id, '_self');
+            })
+        }
+    });
+}
 
 

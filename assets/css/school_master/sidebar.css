@@ -90,6 +90,8 @@
     font-family: "Microsoft YaHei UI", serif;
     text-align: center;
     padding: 15px;
+
+    cursor: pointer;
 }
 
 /*左导航栏主体*/
@@ -130,11 +132,16 @@
     display:inline-block;
     position:relative;
     width:80px;
-    height:80px;
+    height: 80px;
     overflow:hidden;
     border-radius:50%;
 
     margin: 5px auto 5px 0;
+}
+
+.right-photo img {
+    width: auto;
+    height:100%;
 }
 
 /*右部个人信息点缀*/
@@ -157,4 +164,13 @@
     height: 1250px;
     margin: 70px auto 50px auto;
     padding: 0 50px;
+}
+
+/*以下两个CSS控制导航栏按钮变色*/
+.left-side-button:hover,.right-side-button:hover {
+    background: #5d544c;
+}
+
+.side-button-selected {
+    background: #5d544c;
 }

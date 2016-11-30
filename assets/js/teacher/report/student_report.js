@@ -1,7 +1,4 @@
 /**
- * Created by wind on 2016/10/12.
- */
-/**
  * Created by wind on 2016/10/10.
  */
 
@@ -91,7 +88,7 @@ function load_read_book(page) {
     for (var i = 0; i < end_no - start_no; ++i) {
         var data = read_book[start_no + i];
         html += '<div class="read-book" data-toggle="tooltip" title="查看详情" onclick="window.open(\'detail.html?book_id=' + data.bookId + '&student_id=' + $.getUrlParam('student_id') + '&task_id=' + data.id + '\', \'_self\')">' +
-            '<img src="../../../assets/img/test_book.png" alt="">' +
+            '<img src="../../../assets/img/1.png" alt="">' +
             '<span>' + data.book.levelScore + '</span>' +
             '<div class="book-name">' + data.book.name + '</div>' +
             '<div class="read-interval">09.01-10.26</div>' +
@@ -271,7 +268,7 @@ function set_option(data) {
 }
 
 function init() {
-    // 加载用户个人信息
+    // 加载学生个人信息
     $.ajax({
         xhrFields: {
             withCredentials: true

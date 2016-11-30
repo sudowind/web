@@ -43,6 +43,7 @@ function load(src, type) {
                 },
                 success: function(data) {
                     $('.right-photo img').attr('src', data.headimg);
+                    $('#teacher_name').html(data.name);
                 }
             })
         }
