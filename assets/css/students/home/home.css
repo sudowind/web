@@ -238,6 +238,28 @@
 .term-plan h3 span{
     font-size: 13px;
 }
+.term-plan .school-year-plan{
+    float: left;
+    width: 140px;
+    height: 60px;
+    margin-top: 50px;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 10px;
+}
+.term-plan p strong{
+    color: #f89d32;
+}
+
+.term-plan .already-read{
+    float: left;
+    width: 140px;
+    height: 60px;
+    margin-top: 50px;
+    text-align: center;
+    line-height: 30px;
+}
+
 
 .dimensionality{
     float: right;
@@ -267,9 +289,10 @@
 #progress_bar{
     width: 160px;
     height: 160px;
-    margin-left: 158px;
+    margin-left: 10px;
     margin-top: 6px;
     position: relative;
+    float: left;
 }
 
 

@@ -7,6 +7,7 @@
     <title>Title</title>
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
@@ -67,11 +68,11 @@
                 <div class="modal-dialog" style="width: 620px; margin-top: 400px;">
                     <!--<div class="modal-content">-->
                         <div class="modal-body">
-                            <div class="del" >
-                                <!--<img src="../../../assets/img/teacher/out.png" alt=""/>-->
-                                <p>确定删除学生<span>牙擦苏</span>的个人信息么？</p>
-                                <div class="sure">确定</div>
-                            </div>
+                            <!--<div class="del" >-->
+                                <!--&lt;!&ndash;<img src="../../../assets/img/teacher/out.png" alt=""/>&ndash;&gt;-->
+                                <!--<p>确定删除学生<span>牙擦苏</span>的个人信息么？</p>-->
+                                <!--<div class="sure">确定</div>-->
+                            <!--</div>-->
                             <form action="" class="form-add-student" >
                                 <p>
                                     账&nbsp;号 <input class="id" type="text" value=""/>
@@ -101,13 +102,13 @@
                             </form>
                             <form action="" class="form-change-pwd" >
                                 <p>
-                                    姓&nbsp;名 <input class="name" type="text" value="甘婷"/>
+                                    姓&nbsp;名 <input class="name" type="text" value=""/>
                                 </p>
                                 <p>
-                                    账&nbsp;号 <input class="class-id" type="text" value="10086"/>
+                                    账&nbsp;号 <input class="class-id" type="text" value=""/>
                                 </p>
                                 <p>
-                                    重置密码 <input type="text" class="change-pwd" value="10086"/>
+                                    重置密码 <input type="text" class="change-pwd" value=""/>
                                 </p>
                                 <div class="submit">确定</div>
                             </form>
@@ -124,6 +125,7 @@
     </div>
 
     <div id="right_bar"></div>
+    <div id="tmp_modal"></div>
 
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
@@ -132,6 +134,7 @@
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
 <script src="../../../assets/js/teacher/management/management.js"></script>
 <script>

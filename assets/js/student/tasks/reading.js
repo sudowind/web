@@ -12,3 +12,6 @@ $(".section-retract").click(function(){
 $(".title img").click(function(){
     $(this).attr("src","../../../assets/img/student/tasks/label.png");
 })
+$(".out").on('click',function(){
+    window.open('read.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
+})

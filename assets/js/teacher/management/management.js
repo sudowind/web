@@ -9,7 +9,7 @@ var gender = '';
 var isInitPsw = '';
 //教师添加学生模态框
 $(".add-task").on('click',function(){
-    $(".del").css("display","none");
+    //$(".del").css("display","none");
     $(".form-add-student").css("display","block");
     $(".form-change-pwd").css("display","none");
     $(".modal-body").css({
@@ -97,20 +97,39 @@ function load_student_info(classId){
 
             //删除学生点击事件
             $("#del").on('click',function(){
-                $(".del").css("display","block");
-                $(".form-add-student").css("display","none");
-                $(".form-change-pwd").css("display","none");
-                $(".modal-body").css({
-                    width:"490",
-                    height:"190",
-                    top:"-40px",
-                    left:"90px"
+                //$(".del").css("display","block");
+                //$(".form-add-student").css("display","none");
+                //$(".form-change-pwd").css("display","none");
+                //$(".modal-body").css({
+                //    width:"490",
+                //    height:"190",
+                //    top:"-40px",
+                //    left:"90px"
+                //});
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: {
+
+                    },
+                    type: 'POST',
+                    url: URL_BASE + '/users/web/class/'+ classId +'/student',
+                    success: function(data) {
+                        console.log(data);
+
+                    }
+                });
+                var student = '';
+                var text = '<p>'+'确定删除学生'+'<span>'+ student +'</span>'+'的个人信息么？'+'</p>'
+                my_tip.bind(text, function() {
+                    alert('haha');
                 });
             });
 
             //老师给学生修改密码
             $("#check").on('click',function(){
-                $(".del").css("display","none");
+                //$(".del").css("display","none");
                 $(".form-add-student").css("display","none");
                 $(".form-change-pwd").css("display","block");
                 $(".modal-body").css({
@@ -119,13 +138,13 @@ function load_student_info(classId){
                     top:"-110px",
                     left:"0px"
                 });
+
             });
         }
     });
 };
 
 function fill_student(data){
-
     return      '<ul class="student-information">'
                     +'<li class="account">'+ data.id+'</li>'
                     +'<li class="name">'+ data.name+'</li>'
@@ -133,7 +152,7 @@ function fill_student(data){
                     +'<li class="time">'+ data.createTime+'</li>'
                     +'<li class="state">'+ isInitPsw +'</li>'
                     +'<li id="check" class="check" data-toggle="modal" data-target="#myModal">查看</li>'
-                    +'<li id="del" class="delete" data-toggle="modal" data-target="#myModal">删除</li>'
+                    +'<li id="del" class="delete">删除</li>'
                 +'</ul>'
 }
 
@@ -171,28 +190,3 @@ function fill_classname(data){
     num++;
     return    '<span value="'+ num +'">'+ data.name + '</span>';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
