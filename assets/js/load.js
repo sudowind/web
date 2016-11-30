@@ -112,3 +112,9 @@ function load_page() {
         });
     }
 }
+
+var ajax_error_handler = function(xhr, textStatus, errorThrown) {
+    if (xhr.status == 401) {
+        window.open('../../../login.html', '_self');
+    }
+};
