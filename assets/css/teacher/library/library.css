@@ -95,6 +95,9 @@
     font-family: "Microsoft YaHei", serif;
     cursor:pointer;
 }
+.book .grade img{
+    margin-left: 20px;
+}
 .book .grade {
     background: #f9f9f9;
 }

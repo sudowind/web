@@ -51,12 +51,12 @@
                 <div class="grade">
                     <p>阅读等级：</p>
                     <span class="index" value="0">全部</span>
-                    <span value="600">600-700k</span>
-                    <span value="700">700-800k</span>
-                    <span value="800">800-900k</span>
-                    <span value="900">900-1000k</span>
-                    <span value="1000">1000-1100k</span>
-                    <span value="1100">1100-1200k</span>
+                    <span value="600">600-700ER</span>
+                    <span value="700">700-800ER</span>
+                    <span value="800">800-900ER</span>
+                    <span value="900">900-1000ER</span>
+                    <span value="1000">1000-1100ER</span>
+                    <span value="1100">1100-1200ER</span>
                     <img src="../../../assets/img/more_info.png" alt="" data-html="true" data-toggle="tooltip" title="" id="level_more_info">
                 </div>
                 <div class="read-lv">
@@ -95,6 +95,9 @@
     load('../../../include/html/','teacher');
     load_book(0,1,0);
     load_classname();
+    var text = '<div align="left">推荐阅读等级：<br />一年级→600-700k<br />二年级→700-800k<br />三年级→800-900k<br />四年级→900-1000k<br />五年级→1000-1100k<br />六年级→1100-1200k</div>';
+    $('#level_more_info').attr('title', text);
+    $('[data-toggle=tooltip]').tooltip();
 </script>
 </body>
 </html>

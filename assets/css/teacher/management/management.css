@@ -217,7 +217,7 @@ html{
     margin: 50px 0px 0px 90px;
     font-size: 19px;font-weight: normal;
 }
-.modal-body .del .sure{
+.modal-body .del .sure {
     width: 150px;
     height: 45px;
     line-height: 45px;
@@ -231,6 +231,13 @@ html{
     float: left;
 }
 
+
+/*模态框的样式*/
+.modal-body{
+    top: 150px;
+    width: 350px;
+    height: 200px;
+}
 
 
 

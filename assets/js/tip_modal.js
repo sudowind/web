@@ -12,7 +12,7 @@ TipModal.prototype.alert = function (a) {
     // alert(a);
     $('#tmp_modal').load('../../../include/html/modal_base.html', function () {
         $('#modal_info').html(a);
-        $('#myModal').modal('show');
+        $('#my_tip_modal').modal('show');
     });
 };
 
@@ -21,7 +21,7 @@ TipModal.prototype.bind = function(a, b) {
     $('#tmp_modal').load('../../../include/html/modal_two_choice.html', function () {
         $('#modal_info').html(a);
         $('#modal_confirm_button').click(b);
-        $('#myModal').modal('show');
+        $('#my_tip_modal').modal('show');
     });
 };
 

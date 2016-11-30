@@ -1,14 +1,14 @@
-.modal-body {
+#my_tip_modal .modal-body {
     text-align: center;
     font-size: 16px;
 }
 
-#modal_info {
+#my_tip_modal #modal_info {
     padding: 20px 50px;
     height: 80px;
 }
 
-#modal_confirm_button, #modal_quit {
+#my_tip_modal #modal_confirm_button, #modal_quit {
     background: #fb9e1d;
     color: #ffffff;
     margin: auto 10px;
