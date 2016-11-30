@@ -31,22 +31,6 @@
     float: left;
 }
 
-.book-info-box .book-info table {
-    float: left;
-    font-size: 16px;
-    margin: 20px 0;
-}
-
-.book-info-box .book-info table tbody tr td{
-    height: 40px;
-    padding-right: 10px;
-    width: 220px;
-}
-
-.book-info-box .book-info table tbody tr td span{
-    color: #afafaf;
-}
-
 /*文章详细信息部分*/
 .book-detail-box {
     background: #f9f9f9;
