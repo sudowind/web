@@ -61,11 +61,12 @@ $(".content .class-name p").on('click','span',function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
 
-    load_student_info($(this).attr('value'));
+    load_student_info($(this).attr('value'), 1);
 });
 
+var has_load_page = false;
 //加载学生信息
-function load_student_info(classId){
+function load_student_info(classId, page){
     var html = '';
     $.ajax({
         xhrFields: {
@@ -78,7 +79,13 @@ function load_student_info(classId){
         },
         success: function(data) {
             //console.log(data[0]);
-            for( var i = 0; i < data.length; i++){
+            var element_count = 18;
+            var start_id = (page - 1) * element_count;
+            var end_id = start_id + element_count;
+            if (end_id > data.length) {
+                end_id = data.length;
+            }
+            for (var i = start_id; i < end_id - start_id; ++i) {
                 if(data[i].gender == '1'){
                     gender = '男';
                 }else if(data[i].gender == '2'){
@@ -91,9 +98,38 @@ function load_student_info(classId){
                     isInitPsw = '修改密码';
                 }
                 html += fill_student(data[i]);
-            };
+            }
+            if (!has_load_page) {
+                has_load_page = true;
+                var page_count = Math.ceil((data.length * 1.0) / element_count);
+                $('#tasks-index').createPage({
+                    pageCount: page_count,
+                    current: 1,
+                    backFn: function(p) {
+                        load_student_info(classId, p);
+                    }
+                });
+            }
+
+            // for( var i = 0; i < data.length; i++){
+            //     if(data[i].gender == '1'){
+            //         gender = '男';
+            //     }else if(data[i].gender == '2'){
+            //         gender = '女';
+            //     }
+            //
+            //     if(data[i].isInitPsw == '0'){
+            //         isInitPsw = '正常';
+            //     }else{
+            //         isInitPsw = '修改密码';
+            //     }
+            //     html += fill_student(data[i]);
+            // }
 
             $(".information .head").after(html);
+
+
+
 
             //删除学生点击事件
             $(".delete").on('click',function(){
@@ -141,7 +177,8 @@ function load_student_info(classId){
                 });
 
             });
-        }
+        },
+        error: ajax_error_handler
     });
 };
 
@@ -171,6 +208,7 @@ function load_classname(){
         url: URL_BASE + '/users/web/class/teacher/current/list',
         success: function(data) {
             //创建所带班级button
+            var class_id = data[0].id;
             for(var i = 0; i < data.length; i++){
                 //console.log(data);
                 html += fill_classname(data[i]);
@@ -179,15 +217,15 @@ function load_classname(){
             $(".class-name p span").eq(0).addClass("index");
             //添加学生模态框的班级选项
             for(var i = 0;i < data.length; i++){
-                add_className_num++;
-                add_className_html += '<option value="'+ add_className_num +'">'+ data[i].name +'</option>'
+                add_className_html += '<option value="'+ data[i].id +'">'+ data[i].name +'</option>'
             }
             $("#className").append(add_className_html);
+            load_student_info(class_id, 1);
         }
     });
 }
 var num = 0;
 function fill_classname(data){
     num++;
-    return    '<span value="'+ num +'">'+ data.name + '</span>';
+    return    '<span value="'+ data.id +'">'+ data.name + '</span>';
 }

@@ -34,7 +34,7 @@ $(".book .grade span").click(function(){
     $(this).attr("class","index");
 
     var start_score = Number($(this).attr('value'));
-    console.log(start_score)
+    console.log(start_score);
     if (start_score == 0) {
         curr_start_score = 600;
         curr_end_score = 1200;
@@ -101,14 +101,14 @@ function fill_book(data) {
                 '<div class="list-book">'+
                     '<a href="book.html?book_id=' + data.id + '">'+
                         '<div class="image">'+
-                            '<img src=../../../assets/img/1.png alt=""/>'+
+                            '<img src=' + data.coverUri + ' alt=""/>'+
                             '<span>'+ data.levelScore +'</span>'+
                             '<div class="book-name">' + data.name + '</div>'+
                         '</div>'+
 
                     '</a>'+
                     '<div class="already-reading">' +
-                        '<span>'+ data.studentReadCount +'</span>位同学已读' +
+                        '<span>'+ data.studentReadCount +'</span>位同学已读完' +
                     '</div>' +
                     '<span class="type">' + data.displayTypeName + '</span>'+
                     '<p>有题</p>'+
@@ -122,14 +122,14 @@ function fill_class_books(data){
             '<div class="list-book">'+
             '<a href="book.html?book_id=' + data.id + '">'+
             '<div class="image">'+
-            '<img src=../../../assets/img/1.png alt=""/>'+
+            '<img src="" alt=""/>'+
             '<span>'+ data.levelScore +'</span>'+
             '<div class="book-name">' + data.name + '</div>'+
             '</div>'+
 
             '</a>'+
             '<div class="already-reading">' +
-            '<span>'+ data.studentReadCount +'</span>位同学已读' +
+            '<span>'+ data.studentReadCount +'</span>位同学已读完' +
             '</div>' +
             '<span class="type">' + data.displayTypeName + '</span>'+
             '<p>有题</p>'+

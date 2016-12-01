@@ -10,6 +10,9 @@ function on_drop_down_click() {
     else {
         tmp.attr('src', '../assets/img/login/dropdown_close.png').addClass('drop-down-icon-close').removeClass('drop-down-icon-open');
     }
+
+    $('#login_model').show();
+    $('#find_password').hide();
 }
 
 $('.sub-button').click(function () {
@@ -27,6 +30,9 @@ $('.sub-button').click(function () {
     $('.main-button .login-nav-img').attr('src', $(this).children('img').attr('src'));
     $('.main-button .login-nav-content').html($(this).children('.login-nav-content').html());
     on_drop_down_click();
+
+    $('#login_model').show();
+    $('#find_password').hide();
 });
 
 function forget_password() {
@@ -126,7 +132,7 @@ $('#submit_button').click(function () {
                 setCookie('USER', data.userId);
             }
             else {
-                my_tip.alert('登陆失败！');
+                my_tip.alert(data.message);
             }
         }
     });

@@ -130,6 +130,7 @@ function load_info(){
             //    $("#girl").attr("checked","");
             //}
 
-        }
+        },
+        error: ajax_error_handler
     });
 }

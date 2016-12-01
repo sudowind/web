@@ -88,7 +88,8 @@ function load_page() {
         success: function(data) {
             // my_tip.alert(data.id);
             fill_data(data);
-        }
+        },
+        error: ajax_error_handler
     });
 }
 

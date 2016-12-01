@@ -87,7 +87,8 @@ $('#record_button').click(function () {
                 // my_tip.alert('haha');
                 load_progress();
                 my_tip.alert('记录成功！');
-            }
+            },
+            error: ajax_error_handler
         });
     }
     else {
@@ -110,7 +111,8 @@ function load_progress() {
             var percent = Math.round(curr_page * 100.0 / total_page);
             $('.plan').find('span').html(percent);
             $('.progress-bar').css('width', percent.toString() + '%');
-        }
+        },
+        error: ajax_error_handler
     });
 }
 

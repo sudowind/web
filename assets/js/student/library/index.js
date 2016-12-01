@@ -48,7 +48,8 @@ function load_book(type, page) {
                     }
                 });
             }
-        }
+        },
+        error: ajax_error_handler
     });
 }
 

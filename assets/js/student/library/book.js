@@ -89,7 +89,8 @@ $('#add_to_task').click(function () {
         data: {bookId: $.getUrlParam('book_id')},
         success: function (data) {
             $('#add_to_task').html('已添加到“阅读任务”');
-        }
+        },
+        error: ajax_error_handler
     });
 
 });
