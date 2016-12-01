@@ -155,16 +155,19 @@ body {
     width: 156px;
     height: 280px;
     border: 1px solid #e8e8e8;
-    padding: 15px 13px 30px 16px ;
+    padding: 18px 13px 30px 16px ;
     background: #ffffff;
 }
 .list .list-book .image img{
     width: 122px;
-    height: 172px;
+    height: 168px;
 }
-.list .list-book .image span {
+.list .list-book .image .end_time{
+    font-size: 10px;text-align: center;position: absolute;top:3px;left: 20px;
+}
+.list .list-book .image .book-meta-info span {
     position: absolute;
-    top: 160px;
+    top: 159px;
     left: 91px;
     width: 48px;
     height: 28px;

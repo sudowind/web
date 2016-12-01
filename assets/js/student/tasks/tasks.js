@@ -44,8 +44,10 @@ $(".book .sort .reading").click(function(){
     });
 });
 
+var is_load_time = false;
 function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
     var html = '';
+    is_load_time = !!(task_status != 4 && reporter_id != getCookie('USER'));
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -59,8 +61,15 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
             itemPerPage: item_per_page
         },
         success: function(data) {
+            //console.log(data.data[0].endTime)
             for (var i = 0; i < data.data.length; ++i) {
-                html += fill_book(data.data[i]);
+
+                if($(".grade span").attr('value') == 0){
+                    html += fill_book(data.data[i]);
+                }else{
+                    html += fill_book_time(data.data[i]);
+                }
+
             }
             $('#book_list').html(html);
             $('.book-meta-info').each(function() {
@@ -117,10 +126,19 @@ function fill_book(data) {
     var curr_page = data.currentPage;
     var total_page = data.totalPage;
     var percent = Math.round(curr_page * 100.0 / total_page);
+    //时间戳转换时间xxxx-xx-xx
+    if(data.endTime){
+        var date = new Date(data.endTime);
+    }
+    var time_html = '';
+    if (is_load_time) {
+        time_html = '<p class="end_time">结束时间:<span>'+ date.getFullDate() +'</span></p>';
+    }
 
     return '<div class="list">' +
         '<div class="list-book">' +
         '<div class="image">' +
+        time_html +
         '<img src="" alt=""/>' +
         '<div class="book-meta-info">' +
         '<span class="level-score"></span>' +
@@ -152,11 +170,10 @@ function fill_book(data) {
         '</div>';
 }
 
+
 $('.add-task').click(function () {
     window.open('../library/index.html', '_self');
 });
-
-
 
 function init_teachers() {
     var html = '<p>任务来源：</p><span class="index" value="0">自主发布</span>';

@@ -49,6 +49,16 @@
     left: 67px;
     text-align: center;
 }
+.sign-in .cont .head-img{
+    width: 80px;
+    height: 80px;
+    margin-left: 10px;
+}
+.sign-in .cont .head-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
 .sign-in .cont .name{
     margin-top: 16px;
     font-size: 19px;

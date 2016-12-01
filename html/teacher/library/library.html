@@ -63,9 +63,10 @@
                     <!--<p>阅读等级：</p>-->
                     <div class="box">
                         <!--<input type="text"/>-->
-                        <input onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
+                        <!--<input onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">-->
+                        <input type="number" min="600" max="1200" step="10"/>
                         <img src="../../../assets/img/teacher/heng.png" alt=""/>
-                        <input type="text"/>
+                        <input type="number" min="600" max="1200" step="10"/>
                     </div>
                     <div class="lv_button">
                         <!--<input class="index submit" type="submit" value="确定"/>-->

@@ -106,4 +106,30 @@ var bar = new ProgressBar.Circle('#progress_bar', {
     }
 });
 //首页头像更新
+function load_info(){
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/users/web/user/current',
+        success: function(data) {
+            console.log(data.headimg);
+            $(".head-img img").attr('src',data.headimg);
 
+            //$(".name span").html(data.name);
+            //$(".birth span").html(data.birthday);
+            //$(".email span").html(data.email);
+            //$(".school span").html(data.school.name);
+            //$(".class-name span").html(data.classes[0].name);
+            //$(".city span").html(data.school.address);
+            //$("#headimg").attr('src', data.headimg);
+            //if(data.gender == 1 ){
+            //    $("#boy").attr("checked","checked");
+            //}else if(data.gender == 2 ){
+            //    $("#girl").attr("checked","");
+            //}
+
+        }
+    });
+}
