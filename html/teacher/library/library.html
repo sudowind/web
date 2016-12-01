@@ -65,17 +65,16 @@
                 <div class="read-lv">
                     <!--<p>阅读等级：</p>-->
                     <div class="box">
-                        <!--<input type="text"/>-->
                         <!--<input onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">-->
-                        <input type="number" min="600" max="1200" step="10"/>
+                        <input class="num-min" type="number" min="600" max="1199" step="50" value="" placeholder="600" oninput="if(value.length>4)value=value.slice(0,4)"/>
                         <img src="../../../assets/img/teacher/heng.png" alt=""/>
-                        <input type="number" min="600" max="1200" step="10"/>
+                        <input class="num-max" type="number" min="700" max="1200" step="50" value="" placeholder="1200" oninput="if(value.length>4)value=value.slice(0,4)" />
                     </div>
                     <div class="lv_button">
                         <!--<input class="index submit" type="submit" value="确定"/>-->
                         <!--<input class="del" type="button" value="取消"/>-->
-                        <span class="index">确定</span>
-                        <span>取消</span>
+                        <span class="index btn-sure" >确定</span>
+                        <span class="btn-">取消</span>
                     </div>
                 </div>
             </div>
