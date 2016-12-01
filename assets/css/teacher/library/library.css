@@ -241,10 +241,15 @@
 }
 .list .list-book .book-name{
     text-align: center;
-    margin-top: 13px;
+    /*margin-top: 13px;*/
     font-size: 13px;
     font-weight: bold;
     cursor:pointer;
+    width: 120px;
+    height: 40px;
+
+    display: table-cell;
+    vertical-align: middle;
 }
 .list .list-book .type{
     position: absolute;
