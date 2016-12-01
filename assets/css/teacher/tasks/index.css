@@ -66,6 +66,10 @@ tbody tr td {
     height: 220px;
 }
 
+tbody tr td:first-child {
+    line-height: 17px;
+}
+
 tbody tr td:nth-child(4) {
     width: 206px;
 

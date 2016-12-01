@@ -21,6 +21,7 @@
 
 .book-info-box .book-image {
     width: 150px;
+    height: 190px;
     margin: 20px 20px;
     float: left;
     text-align: center;
@@ -35,21 +36,6 @@
     width: 450px;
     margin: 25px 40px 0 40px;
     float: left;
-}
-
-.book-info-box .book-info table {
-    float: left;
-    font-size: 16px;
-    margin: 20px 0 0 0;
-}
-
-.book-info-box .book-info table tbody tr td{
-    height: 40px;
-    padding-right: 70px;
-}
-
-.book-info-box .book-info table tbody tr td span{
-    color: #afafaf;
 }
 
 hr {
@@ -160,7 +146,7 @@ hr {
 }
 
 .progress-message{
-    font-size: 8px;
+    font-size: 12px;
     color: #a8a8a8;
 }
 

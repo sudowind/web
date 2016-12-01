@@ -72,7 +72,8 @@ function load_info() {
                 $("#girl").attr("checked","");
             }
 
-        }
+        },
+        error: ajax_error_handler
     });
 }
 
@@ -103,7 +104,8 @@ function change_info(){
             success: function(data) {
                 //console.log(data);
                 load_info();
-            }
+            },
+            error: ajax_error_handler
         });
     })
 }

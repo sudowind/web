@@ -54,7 +54,8 @@ function load_page() {
         success: function(data) {
             // my_tip.alert(data.id);
             fill_data(data);
-        }
+        },
+        error: ajax_error_handler
     });
     $.ajax({
         type: 'GET',
@@ -67,6 +68,7 @@ function load_page() {
                 $('#offline_read').html('继续线下阅读');
                 $('#online_read').html('转线上阅读');
             }
-        }
+        },
+        error: ajax_error_handler
     });
 }

@@ -53,10 +53,11 @@ function load_slide(index) {
     currend_no = index;
     var data = reading_book[index];
     var percent = Math.ceil(data.currentPage * 100.0 / data.totalPage);
-    $('#book_name').html(data.book.name);
-    $('#author').html(data.book.author);
+    $('#book_name').html('<h3>' + data.book.name + '</h3>');
+    $('#author').html('作者：' + data.book.author);
     $('#percent').html(percent);
     $('.progress-bar').css('width', percent.toString() + '%');
+    $('.book-image img').attr('src', data.book.coverUri);
 }
 
 function change_slide(dir) {
@@ -88,7 +89,7 @@ function load_read_book(page) {
     for (var i = 0; i < end_no - start_no; ++i) {
         var data = read_book[start_no + i];
         html += '<div class="read-book" data-toggle="tooltip" title="查看详情" onclick="window.open(\'detail.html?book_id=' + data.bookId + '&student_id=' + $.getUrlParam('student_id') + '&task_id=' + data.id + '\', \'_self\')">' +
-            '<img src="../../../assets/img/1.png" alt="">' +
+            '<img src="' + data.book.coverUri +'" alt="">' +
             '<span>' + data.book.levelScore + '</span>' +
             '<div class="book-name">' + data.book.name + '</div>' +
             '<div class="read-interval">09.01-10.26</div>' +

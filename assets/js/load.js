@@ -14,20 +14,21 @@ function load(src, type) {
     $('#left_bar').load(src + type + '/left_bar.html', function() {
         if (typeof left_bar_cb != 'undefined') {
             left_bar_cb();
-            $('.exit-button').click(function () {
-
-                $.ajax({
-                    url: URL_BASE + '/users/open/logout',
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    type: 'POST',
-                    success: function () {
-                        window.open('../../../html/login.html', '_self');
-                    }
-                });
-            });
         }
+        $('.exit-button').click(function () {
+
+            $.ajax({
+                url: URL_BASE + '/users/open/logout',
+                xhrFields: {
+                    withCredentials: true
+                },
+                type: 'POST',
+                success: function () {
+                    window.open('../../../html/login.html', '_self');
+                },
+                error: ajax_error_handler
+            });
+        });
     });
 
     $('#right_bar').load(src + type + '/right_bar.html', function() {
@@ -44,7 +45,8 @@ function load(src, type) {
                 success: function(data) {
                     $('.right-photo img').attr('src', data.headimg);
                     $('#teacher_name').html(data.name);
-                }
+                },
+                error: ajax_error_handler
             })
         }
     });
@@ -89,7 +91,8 @@ function load_page() {
             success: function (data) {
                 // my_tip.alert(data.id);
                 fill_data(data);
-            }
+            },
+            error: ajax_error_handler
         });
     }
 
@@ -108,13 +111,14 @@ function load_page() {
                 var end_date = new Date(data.endTime);
                 $('#start_date').html(start_date.getFullDate());
                 $('#end_date').html(end_date.getFullDate());
-            }
+            },
+            error: ajax_error_handler
         });
     }
 }
 
 var ajax_error_handler = function(xhr, textStatus, errorThrown) {
     if (xhr.status == 401) {
-        window.open('../../../login.html', '_self');
+        window.open('../../login.html', '_self');
     }
 };

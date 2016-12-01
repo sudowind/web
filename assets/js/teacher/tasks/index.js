@@ -51,7 +51,8 @@ function load_tasks(class_id, page) {
                     }
                 });
             }
-        }
+        },
+        error: ajax_error_handler
     });
 }
 
@@ -109,6 +110,7 @@ function load_table_row(row_selector, data) {
 
         var obj = $(row_selector);
         obj.find('.table-img div').html(book_name);
+        obj.find('.table-img img').attr('src', data.book.coverUri);
         obj.find('.book-score').html(data.book.levelScore);
         var start_date = new Date(data.startTime);
         var finish_date = new Date(data.endTime);
@@ -170,6 +172,7 @@ function init_class() {
                 load_tasks($(this).attr('value'), 1);
             });
             load_tasks(CLASS_ID, 1);
-        }
+        },
+        error: ajax_error_handler
     });
 }

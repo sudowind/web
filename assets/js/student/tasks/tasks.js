@@ -3,18 +3,15 @@
  */
 
 var has_load_book = false;
+var BOOK_STATUS = 2;    // 2表示阅读中，4表示已读完
+var REPORTER = getCookie('USER');
 
 function left_bar_cb() {
     $('#tasks_button').attr('class', 'side-button-selected left-side-button');
 }
 
-$(".book .sort .read").click(function(){
-    var reporter_id = $(".grade .index").attr('value');
-    if (reporter_id == '0') {
-        reporter_id = getCookie('USER');
-    }
-    has_load_book = false;
-    load_book(4, reporter_id, 0, 8, function() {
+var book_handler = function () {
+    if (BOOK_STATUS == 4 && REPORTER == getCookie('USER')) {
         $(".book .sort .read").addClass("index");
         $(".book .sort .reading").removeClass("index");
         $(".list").hover(
@@ -27,7 +24,30 @@ $(".book .sort .read").click(function(){
         );
         $(".check").css("display","block");
         $(".list-book .reading").css("display","none");
-    });
+    }
+    else if (BOOK_STATUS == 4) {
+        $(".book .sort .read").addClass("index");
+        $(".book .sort .reading").removeClass("index");
+        $(".check").css("display","block");
+        $(".list-book .reading").css("display","none");
+    }
+    else {
+        $(".book .sort .reading").addClass("index");
+        $(".book .sort .read").removeClass("index");
+        $(".list").off("mouseenter mouseleave");
+        $(".check").css("display","none");
+        $(".list-book .reading").css("display","block");
+    }
+};
+
+$(".book .sort .read").click(function(){
+    var reporter_id = $(".grade .index").attr('value');
+    if (reporter_id == '0') {
+        reporter_id = getCookie('USER');
+    }
+    has_load_book = false;
+    BOOK_STATUS = 4;
+    load_book(4, reporter_id, 0, 8, book_handler);
 });
 $(".book .sort .reading").click(function(){
     var reporter_id = $(".grade .index").attr('value');
@@ -35,19 +55,15 @@ $(".book .sort .reading").click(function(){
         reporter_id = getCookie('USER');
     }
     has_load_book = false;
-    load_book(2, reporter_id, 0, 8, function() {
-        $(".book .sort .reading").addClass("index");
-        $(".book .sort .read").removeClass("index");
-        $(".list").off("mouseenter mouseleave");
-        $(".check").css("display","none");
-        $(".list-book .reading").css("display","block");
-    });
+    BOOK_STATUS = 2;
+    load_book(2, reporter_id, 0, 8, book_handler);
 });
 
 var is_load_time = false;
 function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
+    REPORTER = reporter_id;
     var html = '';
-    is_load_time = !!(task_status != 4 && reporter_id != getCookie('USER'));
+    is_load_time = (task_status != 4 && reporter_id != getCookie('USER'));
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -82,7 +98,8 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
                         obj.find('.level-score').html(book_data.levelScore);
                         obj.parent().find('img').attr('src', book_data.coverUri);
 
-                    }
+                    },
+                    error: ajax_error_handler
                 });
             });
             $('.remove').click(function () {
@@ -99,7 +116,8 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
                         url: URL_BASE + '/tasks/web/task/student/current/' + task_id + '/delete',
                         success: function () {
                             obj.parent().parent().hide();
-                        }
+                        },
+                        error: ajax_error_handler
                     });
                 });
             });
@@ -115,7 +133,8 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
                 });
             }
             cb_func();
-        }
+        },
+        error: ajax_error_handler
     });
 }
 
@@ -192,11 +211,13 @@ function init_teachers() {
                     reporter_id = getCookie('USER');
                 }
                 var book_status = $('.sort .index').attr('value');
+                BOOK_STATUS = book_status;
                 has_load_book = false;
-                load_book(book_status, reporter_id, 0, 8, function(){});
+                load_book(book_status, reporter_id, 0, 8, book_handler);
             });
             load_book(2, getCookie('USER'), 0, 8, function(){});
-        }
+        },
+        error: ajax_error_handler
     });
 }
 
