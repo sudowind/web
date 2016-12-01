@@ -54,20 +54,22 @@ $(".book .grade span").click(function(){
 });
 
 //自主选择阅读等级事件
-//$(".btn-sure").on('click',function(){
-//    if($(".num-min").val() == ''){
-//        var curr_start_score = 600;
-//        load_book()
-//    }else{
-//        var curr_start_score = $(".num-min").val();
-//    };
-//    if($(".num-max").val() == ''){
-//        var curr_end_score = 1200;
-//    }else{
-//        var curr_end_score = $(".num-max").val();
-//    }
-//});
-$(".btn")
+$(".btn-sure").on('click',function(){
+    if($(".num-min").val() !== ''){
+        curr_start_score = $(".num-min").val();
+        has_load_book = false;
+        load_book(0,1);
+    }
+    if($(".num-max").val() !== ''){
+        curr_end_score = $(".num-max").val();
+        has_load_book = false;
+        load_book(0,1)
+    }
+});
+$(".btn-clear").on('click',function(){
+    $(".num-min").val('');
+    $(".num-max").val('');
+});
 
 
 //加载图书  可按照阅读等级
