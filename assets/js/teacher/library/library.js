@@ -1,6 +1,13 @@
 /**
  * Created by yilong on 2016/11/7.
  */
+
+var curr_type = 0;
+var curr_start_score = 600;
+var curr_end_score = 1200;
+var has_load_book = false;
+var num = 0;
+
 function right_bar_cb() {
     $('#library_button').attr('class', 'side-button-selected left-side-button');
 }
@@ -11,7 +18,6 @@ $(".book .sort span").click(function(){
 
     has_load_book = false;
     load_book(Number($(this).attr('value')), 1);
-
 
 });
 //按阅读班级筛选
@@ -47,12 +53,22 @@ $(".book .grade span").click(function(){
     load_book(curr_type, 1);
 });
 
+//自主选择阅读等级事件
+//$(".btn-sure").on('click',function(){
+//    if($(".num-min").val() == ''){
+//        var curr_start_score = 600;
+//        load_book()
+//    }else{
+//        var curr_start_score = $(".num-min").val();
+//    };
+//    if($(".num-max").val() == ''){
+//        var curr_end_score = 1200;
+//    }else{
+//        var curr_end_score = $(".num-max").val();
+//    }
+//});
+$(".btn")
 
-var curr_type = 0;
-var curr_start_score = 600;
-var curr_end_score = 1200;
-var has_load_book = false;
-var num = 0;
 
 //加载图书  可按照阅读等级
 function load_book(type, page,classId) {
@@ -105,11 +121,10 @@ function fill_book(data) {
                             '<span>'+ data.levelScore +'</span>'+
                             '<div class="book-name">' + data.name + '</div>'+
                         '</div>'+
-
                     '</a>'+
                     '<div class="already-reading">' +
-                        '<span>'+ data.studentReadCount +'</span>位同学已读' +
-                    '</div>' +
+                        '<span>'+ data.studentReadCount +'</span>位同学已读'+
+                    '</div>'+
                     '<span class="type">' + data.displayTypeName + '</span>'+
                     '<p>有题</p>'+
                 '</div>'+

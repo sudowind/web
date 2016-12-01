@@ -147,6 +147,7 @@
     height: 30px;
     border: 1px solid #f99d32;
     border-radius: 8px;
+    text-align: center;
 }
 .book .read-lv .lv_button{
     padding-top: 15px;

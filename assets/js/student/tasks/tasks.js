@@ -66,10 +66,7 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
 
                 if($(".grade span").attr('value') == 0){
                     html += fill_book(data.data[i]);
-                }else{
-                    html += fill_book_time(data.data[i]);
                 }
-
             }
             $('#book_list').html(html);
             $('.book-meta-info').each(function() {
