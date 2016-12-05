@@ -173,7 +173,7 @@ function fill_book(data) {
         '<span onclick="window.open(\'read.html?book_id=' + data.bookId + '&task_id=' + data.id + '\', \'_self\')">继续阅读</span>' +
         '</p>' +
         '<p class="appraisal">' +
-        '<span onclick="window.open(\'test.html\', \'_self\');">做测评</span>' +
+        '<span onclick="window.open(\'test.html?book_id=' + data.bookId + '&task_id=' + data.id + '\', \'_self\');">做测评</span>' +
         '</p>' +
         '</div>' +
         '<div class="check" style="display: none">' +

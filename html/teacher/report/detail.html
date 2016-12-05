@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/intro.css">
+    <link rel="stylesheet" href="../../../assets/css/question.css">
     <link rel="stylesheet" href="../../../assets/css/comment.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
@@ -41,7 +43,7 @@
                     <!--<p class="btn" data-toggle="modal" data-target="#myModal">添加到“阅读任务”</p>-->
                 </div>
                 <div class="book-info">
-                    <div id="book_name"><h3><b></b>&nbsp;<small id="display_type"></small></h3></div>
+                    <div><h4><b id="book_name"></b>&nbsp;<small id="display_type"></small></h4></div>
                     <table>
                         <tbody>
                         <tr>
@@ -100,65 +102,16 @@
 
                     <div id="test_part" style="display: none">
                         <div class="progress-part">
-                            <select>
-                                <option>第一章</option>
-                                <option>第二章</option>
-                                <option>第三章</option>
-                                <option>第四章</option>
+                            <label for="chapter_selector"></label>
+                            <select id="chapter_selector">
                             </select>
                             <div id="progress_bar"></div>
                             <hr />
                         </div>
                         <div class="question-part">
-                            <p><b style="color: #9f502a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择题：请选择唯一正确答案的编号填入答卷中</b></p>
-                            <div class="question">
-                                <div class="question-res">
-                                    <img src="../../../assets/img/student/tasks/wrong.png" alt="">
-                                </div>
-                                <div class="question-content">
-                                    <div class="question-q">1. 林肯岛在几月份就进入了冬天？</div>
-                                    <div class="select-option">A. 3月</div>
-                                    <div class="select-option">B. 8月</div>
-                                    <div class="select-option">C. 12月</div>
-                                    <div class="select-option">D. 9月</div>
-                                    <div class="answer">
-                                        <div class="answer-analysis">解析：<br />test test</div><div class="true-answer">正确答案<br />A</div><div></div>
-                                    </div>
-                                </div>
+                            <div id="question_type_1" class="hide">
+                                <div class="question-class"><b style="color: #9f502a;">&nbsp;&nbsp;&nbsp;&nbsp;选择题：请选择唯一正确答案的编号填入答卷中</b></div>
                             </div>
-
-                            <div class="question">
-                                <div class="question-res">
-                                    <img src="../../../assets/img/student/tasks/right.png" alt="">
-                                </div>
-                                <div class="question-content">
-                                    <div class="question-q">2. 林肯岛在几月份就进入了冬天？</div>
-                                    <div class="select-option">A. 3月</div>
-                                    <div class="select-option">B. 8月</div>
-                                    <div class="select-option">C. 12月</div>
-                                    <div class="select-option">D. 9月</div>
-                                    <div class="answer">
-                                        <div class="answer-analysis">解析：<br />test test</div><div class="true-answer">正确答案<br />A</div><div></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="question">
-                                <div class="question-res">
-                                    <img src="../../../assets/img/student/tasks/wrong.png" alt="">
-                                </div>
-                                <div class="question-content">
-                                    <div class="question-q">3. 林肯岛在几月份就进入了冬天？</div>
-                                    <div class="select-option">A. 3月</div>
-                                    <div class="select-option">B. 8月</div>
-                                    <div class="select-option">C. 12月</div>
-                                    <div class="select-option">D. 9月</div>
-                                    <div class="answer">
-                                        <div class="answer-analysis">解析：<br />test test</div><div class="true-answer">正确答案<br />A</div><div></div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -178,6 +131,7 @@
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/test.js"></script>
 <script src="../../../assets/js/comment.js"></script>
 <script src="../../../assets/js/note.js"></script>
 <script src="../../../assets/js/base.js"></script>
@@ -190,14 +144,15 @@
     load_page();
     load_info();
     load_comments(1);
+    load_exam();
     load_notes(1, $.getUrlParam('student_id'));  // 这里load的是该学生的笔记
     bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-    bar.text.style.fontSize = '2rem';
+    bar.text.style.fontSize = '3rem';
 
 //    on_button_click($('#test_button'));
 
-    bar.set(0.10);  // Number from 0.0 to 1.0
-    bar.animate(0.90);  // Number from 0.0 to 1.0
+//    bar.set(0.10);  // Number from 0.0 to 1.0
+//    bar.animate(0.90);  // Number from 0.0 to 1.0
 </script>
 
 </body>
