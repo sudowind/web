@@ -103,6 +103,9 @@
     left: 114px;
     font-size: 15px;
 }
+.list .right-content .cont span{
+    color: red;
+}
 .message-content .img{
     height: 250px;
     line-height: 250px;
