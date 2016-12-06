@@ -58,9 +58,9 @@ function load_info() {
         type: 'GET',
         url: URL_BASE + '/users/web/user/current',
         success: function(data) {
-            //console.log(data);
+            //console.log(data.info);
             $(".name span").html(data.name);
-            $(".birth span").html(data.birthday);
+            $(".birth span").html(data.info.birthday);
             $(".email span").html(data.email);
             $(".school span").html(data.school.name);
             $(".class-name span").html(data.classes[0].name);
@@ -102,7 +102,7 @@ function change_info(){
             type: 'PUT',
             url: URL_BASE + '/users/web/user/current',
             success: function(data) {
-                //console.log(data);
+                console.log(data);
                 load_info();
             },
             error: ajax_error_handler

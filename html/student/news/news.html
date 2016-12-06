@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
+  <meta name="viewport" content="width=device-width">
+  <title>Title</title>
+  <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+  <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+  <link href="../../../libs/cropper/cropper.min.css" rel="stylesheet">
+  <link href="../../../libs/sitelogo/sitelogo.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/footer.css">
+  <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
+  <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
+  <link rel="stylesheet" href="../../../assets/css/students/news/news.css">
+</head>
+<body background="../../../assets/img/background.png">
+
+<div class="main-body">
+  <div id="left_bar"></div>
+  <!--<div style="background: #ffffff;height: 900px; width: 65.0%; float: left;"></div>-->
+  <div id="news">
+    <div class="content">
+      <div class="title">
+        <h3>News</h3>
+        <span class="down"></span>
+      </div>
+      <div class="menu">
+        <div class="nav">
+          <p class="teacher_task" value="1" onclick="on_button_click(this)">
+            <img src="../../../assets/img/student/news/teacher_task_select.png" alt=""/>
+            <span>老师阅读详情</span>
+          </p>
+          <p class="message" value="0" onclick="on_button_click(this)">
+            <img src="../../../assets/img/student/news/message_unselect.png" alt=""/>
+            <span>系统消息</span>
+          </p>
+        </div>
+        <!--评论列表-->
+        <div class="list">
+          <p class="head-img">
+            <img src="../../../assets/img/student/info/2.jpg" alt=""/>
+          </p>
+          <div class="right-content">
+            <p class="name">这个老师</p>
+            <p class="time">2016-12-05</p>
+            <p class="cont">《<span class="book-name">鸭子骑车记</span>》已添加到你的阅读任务，结束时间是<span class="end-time">2017-01-21</span>，请及时完成。</p>
+          </div>
+        </div>
+        <div class="message-content" style="display: none">
+          <div class="img">
+            <img src="../../../assets/img/student/news/book.png" alt=""/>
+          </div>
+          <p>考拉阅读的小小图书馆新增了<span>100</span>本书，<span class="button">请快去戳戳看吧~~~</span></p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div id="right_bar"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/student/news/news.js"></script>
+<script>
+  load('../../../include/html/');
+</script>
+</body>
+</html>

@@ -3,10 +3,9 @@
  */
 
 var curr_type = 0;
-var curr_start_score = 600;
-var curr_end_score = 1200;
+var curr_start_score = 0;
+var curr_end_score = 0;
 var has_load_book = false;
-var num = 0;
 
 function right_bar_cb() {
     $('#library_button').attr('class', 'side-button-selected left-side-button');
@@ -58,14 +57,16 @@ $(".btn-sure").on('click',function(){
     if($(".num-min").val() !== ''){
         curr_start_score = $(".num-min").val();
         has_load_book = false;
-        load_book(0,1);
+        console.log($(".book .sort .index").attr('value'))
+        load_book(Number($(".book .sort .index").attr('value')),1,$(".book .className .index").attr('value'));
     }
     if($(".num-max").val() !== ''){
         curr_end_score = $(".num-max").val();
         has_load_book = false;
-        load_book(0,1)
+        load_book(Number($(".book .sort .index").attr('value')),1,$(".book .className .index").attr('value'));
     }
 });
+//清除输入框
 $(".btn-clear").on('click',function(){
     $(".num-min").val('');
     $(".num-max").val('');
@@ -73,7 +74,7 @@ $(".btn-clear").on('click',function(){
 
 
 //加载图书  可按照阅读等级
-function load_book(type, page,classId) {
+function load_book(type,page,classId) {
     var html = '';
     curr_type = type;
     $.ajax({
@@ -91,7 +92,7 @@ function load_book(type, page,classId) {
             endLevelScore: curr_end_score
         },
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             for (var i = 0; i < data.data.length; ++i) {
                 html += fill_book(data.data[i]);
             }
@@ -142,8 +143,6 @@ function fill_class_books(data){
             '<img src="" alt=""/>'+
             '<span>'+ data.levelScore +'</span>'+
             '<div class="book-name">' + data.name + '</div>'+
-            '</div>'+
-
             '</a>'+
             '<div class="already-reading">' +
             '<span>'+ data.studentReadCount +'</span>位同学已读完' +
@@ -156,8 +155,8 @@ function fill_class_books(data){
 
 //生成班级button
 function fill_classname(data){
-    num++;
-    return    '<span value="'+ num +'">'+ data.name + '</span>';
+
+    return    '<span value="'+ data.id +'">'+ data.name + '</span>';
 }
 
 
@@ -171,13 +170,14 @@ function load_classname(){
         type: 'GET',
         url: URL_BASE + '/users/web/class/teacher/current/list',
         success: function(data) {
+            //console.log(data);
             for(var i = 0; i < data.length; ++i){
-                //console.log(data);
                 html += fill_classname(data[i]);
             }
             $(".className p").after(html);
             $(".className span").eq(0).addClass("index");
             $(".books .statistics span").html(data.totalItem);
+            load_book(Number($(".book .sort .index").attr('value')),1,data[0].id);
         }
     });
 }

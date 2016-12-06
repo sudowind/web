@@ -9,7 +9,6 @@ var gender = '';
 var isInitPsw = '';
 //教师添加学生模态框
 $(".add-task").on('click',function(){
-    //$(".del").css("display","none");
     $(".form-add-student").css("display","block");
     $(".form-change-pwd").css("display","none");
     $(".modal-body").css({
@@ -23,37 +22,41 @@ $(".add-task").on('click',function(){
 
 //添加学生的事件
 $("#sure_add_student").on('click',function(){
-    var id = $(".form-add-student p .id").val();
+    $(".modal").modal('hide');
+    add_student($("#className").val());
+});
+
+function add_student(classId){
     var name = $(".form-add-student p .name").val();
     if($("#boy").is(":checked")) {
-        var gender = 1;
+        var gender = "1";
     }else if($("#girl").is(":checked")) {
-        var gender = 2;
+        var gender = "2";
     }
-    var classId = $("#className").val();
-    var createTime = $("#time").val();
-    var birthday = '2010-10-10';
+    var schoolEntranceDate = $("#time").val();
+    var password = "123456";
 
     $.ajax({
         xhrFields: {
             withCredentials: true
         },
         contentType: 'application/json',
-        data: JSON.stringify({
-            "id": id,
-            "gender": gender,
-            "name":name,
-            "createTime":createTime,
-            "birthday":birthday
-        }),
         type: 'POST',
         url: URL_BASE + '/users/web/class/'+ classId +'/student',
-        success: function(data) {
-            console.log(data);
-
+        data: JSON.stringify([{
+            "gender": gender,
+            "name":name,
+            "info":{
+                "schoolEntranceDate":schoolEntranceDate
+            },
+            "password":password,
+            "userType": "2"
+        }]),
+        success: function() {
+            load_student_info($(this).attr('value'), 1);
         }
     });
-});
+}
 
 //选择班级的button事件
 $(".content .class-name p").on('click','span',function(){
@@ -61,7 +64,7 @@ $(".content .class-name p").on('click','span',function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
 
-    load_student_info($(this).attr('value'), 1);
+    load_student_info($(".class-name .index").attr('value'), 1);
 });
 
 var has_load_page = false;
@@ -133,34 +136,23 @@ function load_student_info(classId, page){
 
             //删除学生点击事件
             $(".delete").on('click',function(){
-                //$(".del").css("display","block");
-                //$(".form-add-student").css("display","none");
-                //$(".form-change-pwd").css("display","none");
-                //$(".modal-body").css({
-                //    width:"490",
-                //    height:"190",
-                //    top:"-40px",
-                //    left:"90px"
-                //});
-
-                //$.ajax({
-                //    xhrFields: {
-                //        withCredentials: true
-                //    },
-                //    data: {
-                //
-                //    },
-                //    type: 'POST',
-                //    url: URL_BASE + '/users/web/class/'+ classId +'/student',
-                //    success: function(data) {
-                //        console.log(data);
-                //
-                //    }
-                //});
                 var student = '';
                 var text = '<p>'+'确定删除学生'+'<span>'+ student +'</span>'+'的个人信息么？'+'</p>'
                 my_tip.bind(text, function() {
-                    alert('haha');
+                    $.ajax({
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        data: {
+
+                        },
+                        type: 'POST',
+                        url: URL_BASE + '/users/web/class/'+ classId +'/student',
+                        success: function(data) {
+                            console.log(data);
+
+                        }
+                    });
                 });
             });
 
@@ -181,16 +173,15 @@ function load_student_info(classId, page){
         error: ajax_error_handler
     });
 };
-
 function fill_student(data){
     return      '<ul class="student-information">'
                     +'<li class="account">'+ data.id+'</li>'
                     +'<li class="name">'+ data.name+'</li>'
                     +'<li class="gender">'+ gender +'</li>'
-                    +'<li class="time">'+ data.createTime+'</li>'
+                    +'<li class="time">'+ data.info.schoolEntranceDate+'</li>'
                     +'<li class="state">'+ isInitPsw +'</li>'
                     +'<li id="check" class="check" data-toggle="modal" data-target="#myModal">查看</li>'
-                    +'<li id="del" class="delete">删除</li>'
+                    +'<li id="del" class="delete" value="' + data.id + '">删除</li>'
                 +'</ul>'
 }
 

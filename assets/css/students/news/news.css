@@ -1,0 +1,133 @@
+/*头部信息*/
+#news{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.content{
+    padding:21px 20px;
+    position: relative;
+    top: 0px;
+}
+.title h3{
+    width: 81px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+    padding-bottom: 30px;
+}
+.title .down{
+    width: 649px;;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #e8e8e8;
+    float: right;
+}
+.menu{
+    width: 727px;
+    height: 1090px;
+    border: 1px solid #e8e8e8;
+    background: #f9f9f9;
+}
+.menu .teacher_task{
+    width: 363px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 16px;
+    float: left;
+    border-bottom: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #fb9e1d;
+}
+.menu .teacher_task img{
+    margin-top: -5px;
+}
+.menu .message{
+    width: 362px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 16px;
+    float: right;
+    border-bottom: 1px solid #e8e8e8;
+    cursor: pointer;
+}
+.menu .message img{
+    margin-top: -5px;
+}
+.list{
+    width: 684px;
+    height: 119px;
+    border-bottom: 1px solid #e8e8e8;
+    margin: 20px;
+    position: relative;
+}
+.list .head-img{
+    float: left;
+    margin-top: 12px;
+
+}
+.list .head-img img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+}
+.list .right-content{
+
+}
+.list .right-content .name{
+    font-size: 21px;
+    color: #fb9e1d;
+    float: left;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+.list .right-content .time{
+    float: right;
+    margin-top: 24px;
+    margin-right: 20px;
+    font-size: 13px;
+    color: #a8a8a8;
+}
+.list .right-content .cont {
+    position: absolute;
+    top: 70px;
+    left: 114px;
+    font-size: 15px;
+}
+.message-content .img{
+    height: 250px;
+    line-height: 250px;
+    text-align: center;
+}
+.message-content p{
+    font-size: 20px;
+    text-align: center;
+
+}
+.message-content p .button{
+    color: #fb9e1d;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
