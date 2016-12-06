@@ -63,7 +63,7 @@ function load(src, type) {
 })(jQuery);
 
 function fill_data(data) {
-    $('#book_name').find('h3 b').html(data.name);
+    $('#book_name').html(data.name);
     $('#display_type').html(data.displayTypeName);
     $('#author').html(data.author);
     $('#publisher').html(data.publisher);

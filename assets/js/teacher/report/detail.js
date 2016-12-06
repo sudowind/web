@@ -63,13 +63,6 @@ $('.modal-footer .btn').one("click",function(){
     $(".book-image .btn").html("已添加“阅读任务”");
 });
 
-// 给题目答案的每个选项绑定点击事件
-$('.select-option').bind('click', function() {
-    $(this).siblings('.select-option').attr('class', 'select-option');
-    $(this).attr('class', 'select-option option-selected');
-    $(this).siblings('.answer').show('500');
-});
-
 function load_info() {
     // 加载task的信息
     $.ajax({
@@ -110,6 +103,10 @@ function load_info() {
             })
         }
     });
+}
+
+function load_answer_cb(value) {
+    bar.animate(value);
 }
 
 

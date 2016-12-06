@@ -182,7 +182,7 @@
 #test_part div select {
     color: grey;
     float: left;
-    width: 100px;
+    width: 170px;
     padding: 3px 10px;
     margin: 190px 10px 10px;
     border-radius: 3px;
@@ -197,7 +197,7 @@
     width: 172px;
     height: 172px;
     margin: 10px;
-    left: 138px;
+    left: 78px;
     position: relative;
 }
 
@@ -240,55 +240,13 @@
     background: #08dec5;
 }
 
-.question-part {
-    margin: 10px;
-    padding: 10px;
-    background: #ffffff;
-    height: 455px;
-    overflow: auto;
-}
-
-.question {
-    float: left;
-    margin-top: 10px;
-}
-
-.question-q {
-    color: #9f502a;
-}
-
-.question-res {
-    width: 30px;
-    height: 30px;
-    float: left;
-}
-
-.question-content {
-    float: left;
-    width: 620px;
-}
-
-.select-option {
-    padding: 3px 0 3px 10px;
-    margin: 5px 10px 5px 15px;
-    background: #f5ebcb;
-}
-
-.select-option:hover {
-    background: #08dec5;
-}
-
-.option-selected {
-    background: #fb9e1d;
-}
-
 /*解析答案*/
 .answer {
     padding: 7px 0 7px 10px;
     margin: 10px 10px 10px 15px;
     border: solid 1px #e8e8e8;
     color: #fb9e1d;
-    display: none;
+    /*display: none;*/
     position: relative;
 }
 

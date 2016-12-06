@@ -1,33 +1,3 @@
-#test_part {
-    background: #f9f9f9;
-    height: 1100px;
-    border: 1px solid #e8e8e8;
-}
-
-/*header部分*/
-.test-header {
-    border-bottom: solid 1px #fb9e1d;
-}
-
-.test-header div {
-    text-align: center;
-    width: 140px;
-    padding: 5px 10px;
-    background: #fb9e1d;
-    color: #FFFFFF;
-    font-size: 22px;
-}
-
-#test_info {
-    padding: 20px;
-    font-size: 20px;
-    text-align: center;
-}
-
-#choose_chapter {
-    padding: 20px;
-}
-
 #choose_chapter div {
     float: left;
     width: 70px;
@@ -41,12 +11,11 @@
     border-radius: 5px;
 }
 
-/*测试题部分*/
 .question-part {
     margin: 10px;
     padding: 10px;
     background: #ffffff;
-    height: 880px;
+    height: 455px;
     overflow: auto;
 }
 
@@ -87,17 +56,11 @@
     background: #08dec5;
 }
 
-/*.select-option:hover {*/
-    /*color: #FFFFFF;*/
-    /*background: #08dec5;*/
-/*}*/
-
 .option-selected {
     color: #FFFFFF;
     background: #fb9e1d;
 }
 
-/*答案解析部分*/
 .answer {
     padding: 7px 0 7px 10px;
     margin: 10px 10px 10px 15px;
@@ -128,26 +91,4 @@
 
 .answer div:last-child {
     clear: both;
-}
-
-.question-class {
-    margin-top: 10px;
-    clear: both;
-}
-
-textarea {
-    border: solid 1px #e8e8e8;
-    width: 595px;
-    height: 100px;
-    margin-left: 14px;
-    margin-top: 5px;
-    padding: 10px;
-}
-
-#test_submit {
-    background: #fb9e1d;
-    color: #FFFFFF;
-    border-radius: 5px;
-    text-align: center;
-    margin: 10px 0 100px 310px;
 }

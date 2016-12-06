@@ -127,11 +127,16 @@ $('#submit_comment').click(function () {
         type: 'POST',
         url: URL_BASE + '/books/web/bookComment/' + $.getUrlParam('book_id'),
         data: { content: content},
-        success: function() {
-            my_tip.alert('评论发表成功');
-            $('#user_comment').val('');
-            has_load_comment_page = false;
-            load_comments(1);
+        success: function(data, status) {
+            if (status == 'success') {
+                my_tip.alert('评论发表成功');
+                $('#user_comment').val('');
+                has_load_comment_page = false;
+                load_comments(1);
+            }
+        },
+        error: function() {
+
         }
     });
 });
