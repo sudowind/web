@@ -35,7 +35,7 @@
     background: #f9f9f9;
 }
 .menu .teacher_task{
-    width: 363px;
+    width: 362px;
     height: 48px;
     line-height: 48px;
     text-align: center;
@@ -79,9 +79,6 @@
     width: 80px;
     height: 80px;
     border-radius: 50px;
-}
-.list .right-content{
-
 }
 .list .right-content .name{
     font-size: 21px;

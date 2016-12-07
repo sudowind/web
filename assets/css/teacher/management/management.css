@@ -143,7 +143,7 @@ html{
     cursor: pointer;
 }
 /*点击查看学生信息的弹窗*/
-.modal-body{
+.index-body{
     width: 620px;
     height: 460px;
     background: #f9f9f9;
@@ -158,37 +158,37 @@ html{
     cursor: pointer;
     float: right;
 }
-.modal-body form{
+.index-body form{
     margin-left: 164px;
     margin-top: 38px;
 }
-.modal-body form p{
+.index-body form p{
     margin-top: 34px;
 }
-.modal-body form p input{
+.index-body form p input{
     width: 200px;
     height: 40px;
     text-align: center;
     margin-left: 70px;
 }
-.modal-body form .time input{
+.index-body form .time input{
     margin-left: 46px;
 }
-.modal-body form p select{
+.index-body form p select{
     margin-left: 72px;
     width: 200px;
 }
-.modal-body form .initial{
+.index-body form .initial{
     color: #b6b6b6;
 }
-.modal-body form .initial span{
+.index-body form .initial span{
     margin-left: 117px;
 }
-.modal-body form .sex input{
+.index-body form .sex input{
     width: 16px;
     height: 16px;
 }
-.modal-body form .submit{
+.index-body form .submit{
     width: 150px;
     height: 45px;
     line-height: 45px;
@@ -200,24 +200,24 @@ html{
     margin-left: 58px;
     cursor: pointer;
 }
-.modal-body .form-change-pwd{
+.index-body .form-change-pwd{
     margin-top: 100px;
 }
-.modal-body .form-change-pwd .change-pwd{
+.index-body .form-change-pwd .change-pwd{
     margin-left: 43px;
 }
-.modal-body .form-change-pwd .submit{
+.index-body .form-change-pwd .submit{
     margin-top: 70px;
 }
-.modal-body .del img{
+.index-body .del img{
     float: right;
 }
-.modal-body .del p{
+.index-body .del p{
     float: left;
     margin: 50px 0px 0px 90px;
     font-size: 19px;font-weight: normal;
 }
-.modal-body .del .sure {
+.index-body .del .sure {
     width: 150px;
     height: 45px;
     line-height: 45px;
@@ -232,14 +232,15 @@ html{
 }
 
 
-/*模态框的样式*/
-.modal-body{
+/*删除按钮模态框的样式*/
+.modal-content{
+    border: none;
+    width: 600px;
     top: 150px;
-    width: 350px;
-    height: 200px;
 }
-
-
+#modal_info p{
+    font-size: 18px;
+}
 /*分页部分*/
 #tasks-index {
     padding-top: 0;

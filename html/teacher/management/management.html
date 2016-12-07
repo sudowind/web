@@ -68,13 +68,8 @@
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="width: 620px; margin-top: 400px;">
                     <!--<div class="modal-content">-->
-                        <div class="modal-body">
-                            <!--<div class="del" >-->
-                                <!--&lt;!&ndash;<img src="../../../assets/img/teacher/out.png" alt=""/>&ndash;&gt;-->
-                                <!--<p>确定删除学生<span>牙擦苏</span>的个人信息么？</p>-->
-                                <!--<div class="sure">确定</div>-->
-                            <!--</div>-->
-                            <form action="" class="form-add-student" >
+                        <div class="index-body">
+                            <form action="" class="form-add-student" style="display: none;">
                                 <p>
                                  姓&nbsp;名 <input class="name" type="text" value=""/>
                                 </p>
@@ -98,7 +93,7 @@
                                 </p>
                                 <div class="submit" id="sure_add_student">确定</div>
                             </form>
-                            <form action="" class="form-change-pwd" >
+                            <form action="" class="form-change-pwd" style="display: none;">
                                 <p>
                                     姓&nbsp;名 <input class="name" type="text" value=""/>
                                 </p>
@@ -137,8 +132,8 @@
 <script src="../../../assets/js/teacher/management/management.js"></script>
 <script>
     load('../../../include/html/', 'teacher');
-    load_student_info(1);
-    load_classname();
+//    load_student_info(1);
+//    load_classname();
 </script>
 </body>
 </html>

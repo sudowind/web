@@ -11,12 +11,12 @@ var isInitPsw = '';
 $(".add-task").on('click',function(){
     $(".form-add-student").css("display","block");
     $(".form-change-pwd").css("display","none");
-    $(".modal-body").css({
-        width:"620",
-        height:"460",
-        top:"-110px",
-        left:"0px"
-    })
+    //$(".modal-body").css({
+    //    width:"620",
+    //    height:"460",
+    //    top:"-110px",
+    //    left:"0px"
+    //})
 
 });
 
@@ -53,7 +53,8 @@ function add_student(classId){
             "userType": "2"
         }]),
         success: function() {
-            load_student_info($(this).attr('value'), 1);
+            $(".student-information").remove();
+            load_student_info($(".class-name .index").attr('value'), 1);
         }
     });
 }
@@ -101,6 +102,7 @@ function load_student_info(classId, page){
                     isInitPsw = '修改密码';
                 }
                 html += fill_student(data[i]);
+
             }
             if (!has_load_page) {
                 has_load_page = true;
@@ -113,73 +115,54 @@ function load_student_info(classId, page){
                     }
                 });
             }
-
-            // for( var i = 0; i < data.length; i++){
-            //     if(data[i].gender == '1'){
-            //         gender = '男';
-            //     }else if(data[i].gender == '2'){
-            //         gender = '女';
-            //     }
-            //
-            //     if(data[i].isInitPsw == '0'){
-            //         isInitPsw = '正常';
-            //     }else{
-            //         isInitPsw = '修改密码';
-            //     }
-            //     html += fill_student(data[i]);
-            // }
-
             $(".information .head").after(html);
-
-
-
 
             //删除学生点击事件
             $(".delete").on('click',function(){
-                var student = '';
-                var text = '<p>'+'确定删除学生'+'<span>'+ student +'</span>'+'的个人信息么？'+'</p>'
+                var studentId = this.value;
+                var student_name = $(this).parent().children().eq(1).text();
+                var text = '<p>'+'确定删除学生  '+'<span>'+ student_name +'</span>'+'  的个人信息么？'+'</p>';
+
                 my_tip.bind(text, function() {
+                    $(".modal-body").css('top','200px');
                     $.ajax({
                         xhrFields: {
                             withCredentials: true
                         },
-                        data: {
-
-                        },
                         type: 'POST',
-                        url: URL_BASE + '/users/web/class/'+ classId +'/student',
-                        success: function(data) {
-                            console.log(data);
-
+                        url: URL_BASE + '/users/web/student/'+ studentId + '/delete',
+                        success: function() {
+                            $(".student-information").remove();
+                            load_student_info($(".class-name .index").attr('value'), 1)
                         }
                     });
                 });
             });
 
             //老师给学生修改密码
-            $("#check").on('click',function(){
-                //$(".del").css("display","none");
+            $(".student-information").on('click','#check',function(){
                 $(".form-add-student").css("display","none");
                 $(".form-change-pwd").css("display","block");
-                $(".modal-body").css({
-                    width:"620",
-                    height:"460",
-                    top:"-110px",
-                    left:"0px"
-                });
+
 
             });
         },
         error: ajax_error_handler
     });
 };
+var Color = '';
 function fill_student(data){
+    if(isInitPsw =='修改密码'){
+         Color = "color: red";
+    }else{
+        Color = "";
+    };
     return      '<ul class="student-information">'
                     +'<li class="account">'+ data.id+'</li>'
                     +'<li class="name">'+ data.name+'</li>'
                     +'<li class="gender">'+ gender +'</li>'
                     +'<li class="time">'+ data.info.schoolEntranceDate+'</li>'
-                    +'<li class="state">'+ isInitPsw +'</li>'
+                    +'<li class="state" style="' + Color +  '">'+ isInitPsw +'</li>'
                     +'<li id="check" class="check" data-toggle="modal" data-target="#myModal">查看</li>'
                     +'<li id="del" class="delete" value="' + data.id + '">删除</li>'
                 +'</ul>'
