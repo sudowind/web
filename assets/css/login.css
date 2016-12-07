@@ -144,6 +144,36 @@
     cursor: pointer;
 }
 
+/*找回密码的中间部分*/
+#step_1 {
+    display: block;
+    margin-top: 60px;
+}
+
+#step_2 {
+    display: none;
+}
+
+#fp_return {
+    color: #ffffff;
+    background: #fb9e1d;
+    border-radius: 20px;
+    width: 100px;
+
+    margin-left: 120px;
+    margin-top: 20px;
+}
+
+#fp_next_step {
+    color: #ffffff;
+    background: #fb9e1d;
+    border-radius: 20px;
+    width: 100px;
+
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
 /*找回密码部分*/
 #find_password {
     display: none;

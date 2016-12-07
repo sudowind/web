@@ -14,7 +14,7 @@ function init () {
 
     var h = Number($('.select-part').height());
     // alert(h);
-    $('.book-part').css('height', (1050 - h).toString());
+    $('.book-part').css('height', (1100 - h).toString());
 
 }
 

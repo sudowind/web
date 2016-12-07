@@ -61,6 +61,19 @@
                     <a onclick="forget_password()">忘记密码</a>
                 </div>
             </form>
+            <!--<div id="middle_part" class="input-div">-->
+                <!--<div class="login-input">-->
+                    <!--<label for="forget_user"></label>-->
+                    <!--<input id="forget_user" placeholder="输入老师给的账号">-->
+                <!--</div>-->
+                <!--<div class="login-input">-->
+                    <!--<label for="forget_email"></label>-->
+                    <!--<input id="forget_email" type="password" placeholder="输入邮箱">-->
+                <!--</div>-->
+                <!--<div class="btn" onclick="find_password()">-->
+                    <!--登&nbsp;&nbsp;&nbsp;&nbsp;录-->
+                <!--</div>-->
+            <!--</div>-->
             <div id="find_password">
                 <div id="fp_header"><b>找回密码</b></div>
                 <div class="fp-function grey-border" onclick="on_fp_drop_down_click()">
@@ -80,34 +93,50 @@
                     </div>
                 </div>
                 <div id="find_by_mail">
-                    <div id="fp_message">设置新密码的验证码已发送到你绑定的邮箱8723*****@qq.com</div>
-                    <div id="go_to_mail" class="btn">去邮箱</div>
-                    <div class="fp-input-container">
-                        <div class="fp-input-group">
-                            <div class="input-label">收到的验证码：</div>
-                            <label for="code_input"></label><input id="code_input" class="fp-input">
-                            <div id="send_vc" class="btn" onclick="send_vc()">发送验证码</div>
+                    <div id="step_1">
+                        <div class="fp-input-container">
+                            <div class="fp-input-group">
+                                <div class="input-label">账号：</div>
+                                <label for="step_1_user"></label><input id="step_1_user" class="fp-input" placeholder="输入老师给的账号">
+                            </div>
+                            <div class="fp-input-group">
+                                <div class="input-label">邮箱：</div>
+                                <label for="step_1_mail"></label><input id="step_1_mail" class="fp-input" placeholder="输入验证邮箱" type="email">
+                            </div>
                         </div>
-                        <!--<div class="alert-message"><p>验证码输入错误，请重新输入</p></div>-->
-                        <div class="fp-input-group">
-                            <div class="input-label">新密码：</div>
-                            <label for="new_password"></label><input id="new_password" class="fp-input" type="password">
-                        </div>
-                        <!--<div class="alert-message"><p>请输入正确格式的新密码</p></div>-->
-                        <div class="fp-input-group">
-                            <div class="input-label">确认新密码：</div>
-                            <label for="new_password_confirm"></label><input id="new_password_confirm" class="fp-input" type="password">
-                        </div>
-                        <!--<div id="diff_message" class="alert-message"><p>新密码输入不一样，请重新输入</p></div>-->
+                        <div id="fp_return" class="btn" onclick="return_to_login()">返&nbsp;&nbsp;回</div>
+                        <div id="fp_next_step" class="btn" onclick="find_password()">发送验证码</div>
                     </div>
-                    <div id="info_message">6-16位字符，建议由字母、数字和符号两种以上组合</div>
-                    <div id="fp_mail_confirm_button" class="btn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                    <div id="step_2">
+                        <div id="fp_message">设置新密码的验证码已发送到你绑定的邮箱8723*****@qq.com</div>
+                        <div id="go_to_mail" class="btn">去邮箱</div>
+                        <div class="fp-input-container">
+                            <div class="fp-input-group">
+                                <div class="input-label">收到的验证码：</div>
+                                <label for="code_input"></label><input id="code_input" class="fp-input">
+                                <div id="send_vc" class="btn" onclick="send_vc()">发送验证码</div>
+                            </div>
+                            <!--<div class="alert-message"><p>验证码输入错误，请重新输入</p></div>-->
+                            <div class="fp-input-group">
+                                <div class="input-label">新密码：</div>
+                                <label for="new_password"></label><input id="new_password" class="fp-input" type="password">
+                            </div>
+                            <!--<div class="alert-message"><p>请输入正确格式的新密码</p></div>-->
+                            <div class="fp-input-group">
+                                <div class="input-label">确认新密码：</div>
+                                <label for="new_password_confirm"></label><input id="new_password_confirm" class="fp-input" type="password">
+                            </div>
+                            <!--<div id="diff_message" class="alert-message"><p>新密码输入不一样，请重新输入</p></div>-->
+                        </div>
+                        <div id="info_message">6-16位字符，建议由字母、数字和符号两种以上组合</div>
+                        <div id="fp_mail_confirm_button" class="btn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                    </div>
                 </div>
                 <div id="find_by_teacher">
                     <div id="before_input">
                         <div class="fp-input-group">
                             <div class="input-label">账号：</div>
-                            <label for="fp_account"></label><input id="fp_account" class="fp-input">
+                            <label for="fp_account"></label><input id="fp_account" class="fp-input" placeholder="输入老师给的账号">
                         </div>
                         <div id="fp_teacher_confirm_button" class="btn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
                         <div>提交后你的老师给你重新设置密码</div>

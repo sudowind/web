@@ -13,7 +13,7 @@
 .book-info-box {
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
-    height: 250px;
+    height: 230px;
     margin-top: -12px;
     margin-bottom: 20px;
     position: relative;
@@ -22,6 +22,7 @@
 
 .book-info-box .book-image {
     width: 150px;
+    height: 190px;
     margin: 20px 20px 0 20px;
     float: left;
     text-align: center;
@@ -48,26 +49,12 @@
     float: left;
 }
 
-.book-info-box .book-info table {
-    float: left;
-    font-size: 16px;
-    margin: 20px 0;
-}
-
-.book-info-box .book-info table tbody tr td{
-    height: 40px;
-    padding-right: 70px;
-}
-
-.book-info-box .book-info table tbody tr td span{
-    color: #afafaf;
-}
 
 /*文章详细信息部分*/
 .book-detail-box {
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
-    height: 800px;
+    height: 850px;
     font-size: 16px;
 }
 
@@ -236,6 +223,6 @@
     padding-top: 131px;
 }
 
-#student_pagination {
+#teacher_task_pagination {
     padding-top: 60px;
 }

@@ -61,6 +61,11 @@
     background: #fb9e1d;
 }
 
+.wrong-answer {
+    color: #FFFFFF;
+    background: #08dec5;
+}
+
 .answer {
     padding: 7px 0 7px 10px;
     margin: 10px 10px 10px 15px;

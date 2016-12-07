@@ -76,8 +76,6 @@ tbody tr td:nth-child(4) {
 }
 
 tbody tr td:nth-child(4) div {
-    background: #ffffff;
-    border: 1px solid #d7d6d6;
     width: 140px;
     margin: auto;
     position: relative;

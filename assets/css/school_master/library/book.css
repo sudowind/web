@@ -22,6 +22,7 @@
 
 .book-info-box .book-image {
     width: 150px;
+    height: 190px;
     margin: 20px 20px 0 20px;
     float: left;
     text-align: center;
@@ -48,21 +49,6 @@
     float: left;
 }
 
-.book-info-box .book-info table {
-    float: left;
-    font-size: 16px;
-    margin: 20px 0;
-}
-
-.book-info-box .book-info table tbody tr td{
-    height: 40px;
-    padding-right: 70px;
-}
-
-.book-info-box .book-info table tbody tr td span{
-    color: #afafaf;
-}
-
 /*文章详细信息部分*/
 .book-detail-box {
     background: #f9f9f9;
@@ -71,6 +57,8 @@
     font-size: 16px;
 }
 
+
+/*nav_bar*/
 .book-detail-box .nav-bar {
     height: 50px;
     border-bottom: 1px solid #e8e8e8;
@@ -78,35 +66,26 @@
 
 .book-detail-box .nav-bar .nav-button{
     cursor: pointer;
-    width: 33.3%;
+    width: 33.33%;
     height: 50px;
     background: #fb9e1d;
     float: left;
     border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    position: relative;
+    padding-top: 12px;
 }
 
 .book-detail-box .nav-bar .nav-button:not(:first-child) {
     border-left: 1px solid #e8e8e8;
 }
 
-.book-detail-box .nav-bar .nav-button:not(:last-child) img {
-    margin: 12px 0 0 85px;
-    float: left;
+.book-detail-box .nav-bar .nav-button img {
+    margin-right: 10px;
 }
 
-.book-detail-box .nav-bar .nav-button:last-child img {
-    margin: 12px 0 0 55px;
-    float: left;
-}
-
-#note_button img {
-    margin: 12px 0 0 45px;
-    float: left;
-}
-
-#test_button img {
-    margin: 12px 0 0 50px;
-    float: left;
+.btn-content-wrapper {
+    text-align: center;
 }
 
 .book-detail-box .nav-bar .nav-button div {
@@ -125,91 +104,18 @@
     line-height: 150%;
 }
 
-/*评论模块*/
-.comment {
-    /*height: 100px;*/
-    margin: 10px;
-    /*border-bottom: 1px solid #e8e8e8;*/
-}
-
-.comment div {
-    float: left;
-}
-
-.comment .comment-img{
-    display:inline-block;
-    position:relative;
-    width:80px;
-    height:80px;
-    overflow:hidden;
-    border-radius:50%;
-
-    margin: 5px 5px 13px 5px;
-}
-
-.comment .comment-img img{
-    width:auto;
-    height:100%;
-    margin-left:-30%;
-}
-
-.comment-content {
-    padding: 5px;
-    margin-left: 10px;
-    width: 600px;
-    font-size: 14px;
-
-}
-
-.comment-content h3 {
-    float: left;
-    color: #fb9e1d;
-    margin-bottom: 5px;
-}
-
-.like {
-    float: left;
-    margin-left: 480px;
-}
-
-.like-count {
-    margin-top: 5px;
-    width: 25px;
-    text-align: right;
-}
-
-.comment-content p {
-    clear: both;
-}
-
-.comment-content .comment-date {
-    float: right;
-    color: #999999;
-    font-size: 12px;
-}
-
-.book-comment textarea {
-    border: none;
-    width: 660px;
-    height: 100px;
-    margin-left: 35px;
-    padding: 10px;
-}
-
-.book-comment #submit_comment {
-    margin: 10px 0 0 613px;
-    background: #fb9e1d;
-    color: #ffffff;
-}
-
 /*学生阅读情况部分*/
+#student_part {
+    display: none;
+}
+
 #overall_info {
     padding: 15px;
 }
 
 #grade_selector {
     float: left;
-    width: 100px;
+    width: 150px;
     padding: 5px 5px;
     border: solid 1px #e8e8e8;
     border-radius: 5px;
@@ -254,6 +160,26 @@
     height: 60px;
 }
 
+.student-info-part table thead tr td:first-child {
+    width: 118px;
+}
+.student-info-part table thead tr td:nth-child(2) {
+    width: 120px;
+}
+.student-info-part table thead tr td:nth-child(3) {
+    width: 170px;
+}
+.student-info-part table thead tr td:nth-child(4) {
+    width: 120px;
+}
+.student-info-part table thead tr td:nth-child(5) {
+    width: 110px;
+}
+.student-info-part table thead tr td:nth-child(6) {
+    width: 100px;
+}
+
+
 .student-info-part table tbody tr td:first-child {
     width: 118px;
 }
@@ -270,15 +196,15 @@
 .progress-message{
     float: left;
     text-align: left;
-    width: 56px;
-    font-size: 8px;
+    width: 140px;
+    font-size: 12px;
     position: static;
     color: #a8a8a8;
 }
 
 .progress-part .progress-message:last-child {
-    text-align: right;
-    width: 84px;
+    text-align: center;
+    width: 140px;
 }
 
 .progress-part {
@@ -291,36 +217,11 @@
     margin-bottom:0;
 }
 
-/*模态框*/
-.modal-footer div {
-    float: left;
-    font-size: 16px;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-top: -7px;
-}
-
-.modal-footer div:nth-child(1) {
-    background: #fb9e1d;
-    margin-left: 115px;
-}
-
-.modal-footer div:nth-child(3) {
-    background: #776c60;
-    margin-left: 10px;
-}
-
-.modal-body div {
-    padding: 50px;
-}
-
-
 /*分页部分*/
-a:hover{ text-decoration:none;}
-.tcdPageCode{padding: 15px 20px;text-align: left;color: #f99d32;position: absolute;top: 1060px;left:175px;}
-.tcdPageCode a{display: inline-block;color: #f99d32;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #f99d32;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
-.tcdPageCode a:hover{text-decoration: none;border: 1px solid #f99d32;}
-.tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #f9f9f9;background-color: #f99d32;	border: 1px solid #f99d32;border-radius: 4px;vertical-align: middle;}
-.tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #f99d32;background: #f9f9f9;border: 1px solid #f99d32;border-radius: 4px;vertical-align:middle;}
+#comment_pagination {
+    padding-top: 131px;
+}
 
+#student_pagination {
+    padding-top: 60px;
+}

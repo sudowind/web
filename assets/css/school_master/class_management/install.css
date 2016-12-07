@@ -108,8 +108,9 @@ td input {
     border: none;
 }
 
-#class_submit_button {
-    margin-top: 20px;
+#class_submit_button, #class_cancel_button {
+    /*margin-top: 20px;*/
+    margin: 20px;
     background: #fb9e1d;
     padding: 5px 10px;
     color: #ffffff;
