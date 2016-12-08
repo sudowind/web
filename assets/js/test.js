@@ -23,6 +23,17 @@ var question_id = 0;
 
 var id2answer = {};
 
+function init_value() {
+    $('.question').remove();
+    questions = {
+        1: [],
+        2: [],
+        3: []
+    };
+    question_answer = {};
+    question_id = 0;
+}
+
 function generate_question(data) {
     var html = '';
     question_id += 1;
@@ -72,6 +83,7 @@ function generate_question(data) {
 function generate_answer(data) {
     var html = '';
     question_id += 1;
+    console.log(data);
     switch (data.type) {
         case 1:
             question_type[1] = true;
@@ -134,6 +146,7 @@ function generate_answer(data) {
 
 function load_questions(exam_id) {
     // 加载一次考试的题目，首先看学生是否做过
+    init_value();
     var user_id;
     if ($.getUrlParam('student_id') == null) {
         user_id = getCookie('USER');
@@ -151,7 +164,6 @@ function load_questions(exam_id) {
             userId: user_id
         },
         success: function (data) {
-            console.log(data);
             if (data.hasResult) {
                 // 已经做过这次测试，则加载结果
                 // my_tip.alert('已经做过了！');
