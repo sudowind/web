@@ -11,8 +11,7 @@ function on_drop_down_click() {
         tmp.attr('src', '../assets/img/login/dropdown_close.png').addClass('drop-down-icon-close').removeClass('drop-down-icon-open');
     }
 
-    $('#login_model').show();
-    $('#find_password').hide();
+    return_to_login();
 }
 
 $('.sub-button').click(function () {
@@ -21,9 +20,13 @@ $('.sub-button').click(function () {
     $('.main-button').attr('value', value);
     if (value == '2') {
         $('#user_name').attr('placeholder', '输入老师给的账号');
+        $('#step_1_user').attr('placeholder', '输入老师给的账号');
+        $('#fp_drop_down_icon').show();
     }
     else {
         $('#user_name').attr('placeholder', '输入账号');
+        $('#step_1_user').attr('placeholder', '输入账号');
+        $('#fp_drop_down_icon').hide();
     }
     $('#user_name').val('');
     $('#password').val('');
@@ -31,13 +34,25 @@ $('.sub-button').click(function () {
     $('.main-button .login-nav-content').html($(this).children('.login-nav-content').html());
     on_drop_down_click();
 
-    $('#login_model').show();
-    $('#find_password').hide();
+    return_to_login();
 });
 
 function forget_password() {
     $('#login_model').hide();
+    // $('#middle_part').show();
     $('#find_password').show();
+}
+
+function find_password() {
+    $('#step_1').hide();
+    $('#step_2').show();
+}
+
+function return_to_login() {
+    $('#step_1').show();
+    $('#step_2').hide();
+    $('#login_model').show();
+    $('#find_password').hide();
 }
 
 function on_fp_drop_down_click() {
@@ -126,7 +141,7 @@ $('#submit_button').click(function () {
                         window.open('../../../html/teacher/tasks/index.html', '_self');
                         break;
                     case '4':
-                        window.open('../../../html/school_master/tasks/teacher_list.html', '_self');
+                        window.open('../../../html/school_master/tasks/teacher_detail.html', '_self');
                         break;
                 }
                 setCookie('USER', data.userId);

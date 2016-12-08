@@ -21,6 +21,8 @@ var question_answer = {};
 
 var question_id = 0;
 
+var id2answer = {};
+
 function generate_question(data) {
     var html = '';
     question_id += 1;
@@ -81,13 +83,29 @@ function generate_answer(data) {
 
                 }
                 else {
-                    options += '<div class="select-option" value="' + data.content.options[i].id + '">' + String.fromCharCode(0x41 + i) + '. ' + data.content.options[i].content + '</div>'
+                    if (id2answer[data.questionId].correctId == data.content.options[i].id) {
+                        options += '<div class="select-option wrong-answer" value="' + data.content.options[i].id + '">' + String.fromCharCode(0x41 + i) + '. ' + data.content.options[i].content + '</div>'
+                    }
+                    else {
+                        options += '<div class="select-option" value="' + data.content.options[i].id + '">' + String.fromCharCode(0x41 + i) + '. ' + data.content.options[i].content + '</div>'
+                    }
 
                 }
             }
+            var res = '';
+            if (id2answer[data.questionId].correctId == data.answer.correctId) {
+                // 表示回答正确
+                res = '<img src="../../../assets/img/student/tasks/right.png" alt="">';
+            }
+            else {
+                // 回答错误
+                res = '<img src="../../../assets/img/student/tasks/wrong.png" alt="">';
+
+            }
+            // TODO 给出批注
             html = '<div class="question" value="' + data.questionId + '">' +
                 '<div class="question-res">' +
-                '<!--<img src="../../../assets/img/student/tasks/wrong.png" alt="">-->' +
+                res +
                 '</div>' +
                 '<div class="question-content">' +
                 '<div class="question-q">' + question_id.toString() + '. ' + data.content.title + '</div>' +
@@ -97,7 +115,6 @@ function generate_answer(data) {
                 '</div>' +
                 '</div>' +
                 '</div>';
-            // TODO 完成答案的填充，然后完成其他界面的test内容
             break;
         case 2:
             question_type[2] = true;
@@ -139,6 +156,9 @@ function load_questions(exam_id) {
                 // 已经做过这次测试，则加载结果
                 // my_tip.alert('已经做过了！');
                 var i = 0;
+                for (i = 0; i < data.examRecord.answer.length; ++i) {
+                    id2answer[data.examRecord.answer[i].questionId] = data.examRecord.answer[i].answer;
+                }
                 for (i = 0; i < data.questions.length; ++i) {
                     questions[data.questions[i].type].push(data.questions[i]);
                 }

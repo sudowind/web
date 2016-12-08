@@ -78,7 +78,8 @@
 
 .book-info-box .book-image {
     width: 150px;
-    margin: 20px 20px;
+    height: 190px;
+    margin: 20px 10px 0 20px;
     float: left;
     text-align: center;
 }
@@ -90,8 +91,22 @@
 
 .book-info-box .book-info {
     width: 168px;
-    margin: 25px 10px 0 10px;
+    margin: 25px 10px 0 5px;
     float: left;
+    position: relative;
+}
+
+#book_name {
+    position: absolute;
+
+}
+#author {
+    position: absolute;
+    top: 90px;
+}
+#progress_part {
+    position: absolute;
+    top: 130px;
 }
 
 .book-info-box .book-info table {
@@ -244,9 +259,17 @@
     margin: 10px 11px;
     background: #ffffff;
     width: 150px;
+    height: 230px;
     float: left;
 
     cursor: pointer;
+}
+
+.book-name {
+    height: 40px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .read-book img {
@@ -280,5 +303,5 @@ hr {
 
 /*分页部分*/
 #book_pagination {
-    padding-top: 15px;
+    padding-top: 3px;
 }

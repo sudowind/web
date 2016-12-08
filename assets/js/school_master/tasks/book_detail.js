@@ -31,17 +31,63 @@ function init() {
     }
 }
 
-function load_table_line (row_selector) {
-    var name = '苏琪苏琪';
-    var number = '10010';
-    var percentage = Math.random() * 100;
+function load_table_line (row_selector, data) {
+    var name = data.user.name;
+    var number = data.user.id;
+    var percentage = Math.ceil(data.currentPage * 100.0 / data.totalPage);
     var grade = 90;
-    var note_count = 3;
+    var note_count = data.noteCount;
+    var task_id = data.id;
     $(row_selector).load('../../../include/html/teacher/task_student_table_line.html', function () {
         $(row_selector + ' .student-number').html(number);
         $(row_selector + ' .student-name').html(name);
         $(row_selector + ' .grade').html(grade.toString() + '分');
         $(row_selector + ' .note-count').html(note_count.toString() + '条');
         $(row_selector + ' .progress div').css('width', percentage.toString() + '%');
+        $(row_selector + ' .progress-message').html('进度' + percentage + '%');
+        $(row_selector + ' .go-detail').click(function() {
+            window.open('../report/detail.html?book_id=' + $.getUrlParam('book_id') + '&student_id=' + number + '&task_id=' + task_id, '_self');
+        });
     });
+}
+
+function clear_rows() {
+    for (var i = 0; i < 10; ++i) {
+        $('#row' + i.toString()).html('');
+    }
+}
+
+var has_load_page = false;
+function load_student_info(class_id, page) {
+    clear_rows();
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/tasks/web/task/teacher/current/' + $.getUrlParam('book_id') + '/list',
+        data: {
+            classId: $.getUrlParam('class_id')
+        },
+        success: function (data) {
+            var start_id = (page - 1) * 10;
+            var end_id = start_id + 10;
+            if (end_id > data.length)
+                end_id = data.length;
+            for (var i = 0; i < end_id - start_id; ++i) {
+                load_table_line('#row' + i.toString(), data[start_id + i]);
+            }
+            if (!has_load_page) {
+                has_load_page = true;
+                var page_count = Math.ceil((data.length * 1.0) / 10);
+                $('#teacher_task_pagination').createPage({
+                    pageCount: page_count,
+                    current: 1,
+                    backFn: function(p) {
+                        load_student_info(class_id, p);
+                    }
+                });
+            }
+        }
+    })
 }

@@ -30,20 +30,14 @@
                     <tr>
                         <td class="select-title">年级信息：</td>
                         <td class="select-grade">
-                            <span class="index option">2011级</span>
-                            <span class="option">2012级</span>
-                            <span class="option">2013级</span>
-                            <span class="option">2014级</span>
-                            <span class="option">2015级</span>
-                            <span class="option">2016级</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="select-title">班级信息：</td>
                         <td class="select-class">
-                            <span class="option">1班<img src="../../../assets/img/school_master/delete.png" alt=""></span>
-                            <span class="option">2班<img src="../../../assets/img/school_master/delete.png" alt=""></span>
-                            <span class="option">3班<img src="../../../assets/img/school_master/delete.png" alt=""></span>
+                            <span class="option" value="">1班<img src="../../../assets/img/school_master/delete.png" alt=""></span>
+                            <span class="option" value="">2班<img src="../../../assets/img/school_master/delete.png" alt=""></span>
+                            <span class="option" value="">3班<img src="../../../assets/img/school_master/delete.png" alt=""></span>
                         </td>
                     </tr>
                 </table>
@@ -58,7 +52,7 @@
                 <div id="create_class_box" style="display: none;">
                     <div>
                         <div class="table-head">选择年级：</div>
-                        <table>
+                        <table id="table_grade_select">
                             <tr>
                                 <td class="grade-option">2011级</td>
                                 <td class="grade-option">2012级</td>
@@ -75,21 +69,22 @@
                         <table>
                             <tr>
                                 <td class="class-option">1班</td>
-                                <td class="class-option">1班</td>
-                                <td class="class-option">1班</td>
-                                <td class="class-option">1班</td>
-                                <td class="class-option">1班</td>
-                                <td class="class-option">1班</td>
+                                <td class="class-option">2班</td>
+                                <td class="class-option">3班</td>
+                                <td class="class-option">4班</td>
+                                <td class="class-option">5班</td>
+                                <td class="class-option">6班</td>
                             <tr>
-                                <td class="class-option">1班</td>
-                                <td class="class-option">1班</td>
-                                <td class="class-option">1班</td>
-                                <td class="class-option">1班</td>
+                                <td class="class-option">7班</td>
+                                <td class="class-option">8班</td>
+                                <td class="class-option">9班</td>
+                                <td class="class-option">10班</td>
                                 <td colspan="2" id="class_input"><input placeholder="请输入自定义班级名称"></td>
                             </tr>
                         </table>
                     </div>
-                    <div id="class_submit_button" class="btn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                    <div id="class_cancel_button" class="btn">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+                    <div id="class_submit_button" class="btn disabled">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
                 </div>
 
             </div>
@@ -112,8 +107,7 @@
 
 <script>
     load('../../../include/html/', 'school_master');
-
-//    init();
+    init();
 </script>
 
 </body>

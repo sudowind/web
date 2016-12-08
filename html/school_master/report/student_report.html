@@ -33,33 +33,39 @@
                 <div class="student-img">
                     <img src="" alt="">
                 </div>
-                <div><span id="student_name">姓名</span><br />
-                    <small><span id="school_name">芳草地小学</span><br /><span id="class_name">2013级3班</span></small></div>
+                <div><span id="student_name"></span><br />
+                    <small><span id="school_name"></span><br /><span id="class_name"></span></small></div>
             </div>
             <div class="part-basis" id="reading_book">
                 <div id="reading-tag">
                     <div>正在阅读的书籍</div>
                 </div>
-                <div id="left_slide" class="slide-button">
+                <div id="left_slide" class="slide-button" value="-1">
                     <img src="../../../assets/img/left_slide.png" alt="">
                 </div>
                 <div class="book-info-box">
                     <div class="book-image">
-                        <img src="../../../assets/img/student/book/duck_ridding.png" alt="" width="90%" height="90%">
+                        <img src="" alt="" width="90%" height="90%">
                     </div>
                     <div class="book-info">
-                        <div><h3><b><span id="book_name">鸭子骑车记</span></b></h3><br />作者：<span id="author">大卫·夏农</span><br /><br /><br /><br />
-                            <span id="progress-info">阅读进度：已读完<span id="percent">72</span>%</span>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0">
-                                    <!--<span class="sr-only">45% Complete</span>-->
+                        <div>
+                            <div id="book_name"></div>
+                            <div id="author"></div>
+                            <div id="progress_part">
+                                <span id="progress-info">阅读进度：已读完<span id="percent">72</span>%</span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                         aria-valuenow="45"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 0">
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
                 </div>
-                <div id="right_slide" class="slide-button">
+                <div id="right_slide" class="slide-button" value="1">
                     <img src="../../../assets/img/right_slide.png" alt="">
                 </div>
                 <div class="clear-both"></div>
@@ -68,10 +74,14 @@
             <!--阅读能力部分-->
             <div class="book-detail-box" >
                 <div class="nav-bar">
-                    <div class="nav-button" id="count_button" onclick="on_button_click(this);" value="1" style="color: #ffffff" btn-type="read_count">
+                    <div class="nav-button" id="count_button" onclick="on_button_click(this);" value="1"
+                         style="color: #ffffff"
+                         btn-type="read_count">
                         <img src="../../../assets/img/teacher/report/count_selected.png" alt="">阅读量
                     </div>
-                    <div class="nav-button" id="ability_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="read_ability">
+                    <div class="nav-button" id="ability_button" style="background: #f9f9f9"
+                         onclick="on_button_click(this);"
+                         value="0" btn-type="read_ability">
                         <img src="../../../assets/img/teacher/report/ability_unselected.png" alt="">阅读能力维度解析
                     </div>
                 </div>
@@ -102,30 +112,6 @@
                     </div>
                 </div>
                 <div id="select_book_content">
-                    <div class="read-book" data-toggle="tooltip" title="查看详情">
-                        <img src="../../../assets/img/test_book.png" alt="">
-                        <span>2.1</span>
-                        <div class="book-name">荒漠奇踪</div>
-                        <div class="read-interval">09.01-10.26</div>
-                    </div>
-                    <div class="read-book" data-toggle="tooltip" title="查看详情">
-                        <img src="../../../assets/img/test_book.png" alt="">
-                        <span>2.1</span>
-                        <div class="book-name">荒漠奇踪</div>
-                        <div class="read-interval">09.01-10.26</div>
-                    </div>
-                    <div class="read-book" data-toggle="tooltip" title="查看详情">
-                        <img src="../../../assets/img/test_book.png" alt="">
-                        <span>2.1</span>
-                        <div class="book-name">荒漠奇踪</div>
-                        <div class="read-interval">09.01-10.26</div>
-                    </div>
-                    <div class="read-book" data-toggle="tooltip" title="查看详情">
-                        <img src="../../../assets/img/test_book.png" alt="">
-                        <span>2.1</span>
-                        <div class="book-name">荒漠奇踪</div>
-                        <div class="read-interval">09.01-10.26</div>
-                    </div>
                 </div>
                 <div class="tcdPageCode" id="book_pagination"></div>
             </div>

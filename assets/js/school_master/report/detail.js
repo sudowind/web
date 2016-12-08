@@ -112,4 +112,7 @@ function load_info() {
     });
 }
 
+function load_answer_cb(value) {
+    bar.animate(value);
+}
 

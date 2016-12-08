@@ -30,7 +30,7 @@
 /*选择班级部分*/
 .select-part {
     clear: both;
-    margin-top: 15px;
+    margin-top: 55px;
     margin-bottom: 15px;
     height: 100%;
 
@@ -59,6 +59,7 @@
 .select-title {
     padding: 10px;
     width: 120px;
+    vertical-align: text-top;
 }
 
 .option  {
@@ -100,6 +101,23 @@
     height: 60px;
 }
 
+.book-part thead tr td:nth-child(1) {
+    width: 165px;
+}
+.book-part thead tr td:nth-child(2) {
+    width: 150px;
+}
+.book-part thead tr td:nth-child(3) {
+    width: 150px;
+}
+.book-part thead tr td:nth-child(4) {
+    width: 203px;
+}
+.book-part thead tr td:nth-child(5) {
+    width: 60px;
+}
+
+
 .book-part tbody tr td {
     padding: 15px;
     line-height: 25px;
@@ -114,8 +132,8 @@
 }
 
 .book-part tbody tr td:nth-child(4) div {
-    background: #ffffff;
-    border: 1px solid #d7d6d6;
+    /*background: #ffffff;*/
+    /*border: 1px solid #d7d6d6;*/
     width: 140px;
     margin: auto;
     position: relative;
@@ -174,6 +192,6 @@
 
 
 #teacher_task_pagination {
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
