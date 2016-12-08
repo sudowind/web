@@ -86,6 +86,9 @@ function load_page() {
     }
     else {
         $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
             type: 'GET',
             url: URL_BASE + '/books/web/book/' + id,
             success: function (data) {

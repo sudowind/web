@@ -49,6 +49,9 @@ function load_page() {
         // my_tip.alert('gaga');
     }
     $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
         type: 'GET',
         url: URL_BASE + '/books/web/book/' + id,
         success: function(data) {

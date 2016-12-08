@@ -89,6 +89,9 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
                 var obj = $(this);
                 var id = obj.find('.book-name').attr('book-id');
                 $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
                     type: 'GET',
                     url: URL_BASE + '/books/web/book/' + id,
                     success: function(book_data) {
