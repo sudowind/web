@@ -26,12 +26,14 @@ function on_button_click(e) {
 }
 
 function init() {
-    for (var i = 0; i <= 10; ++i) {
-        load_table_line('#row' + i.toString());
-    }
+    // for (var i = 0; i <= 10; ++i) {
+    //     load_table_line('#row' + i.toString());
+    // }\
+    load_student_info($.getUrlParam('class_id'), 1);
 }
 
 function load_table_line (row_selector, data) {
+    console.log(data);
     var name = data.user.name;
     var number = data.user.id;
     var percentage = Math.ceil(data.currentPage * 100.0 / data.totalPage);
@@ -65,7 +67,7 @@ function load_student_info(class_id, page) {
             withCredentials: true
         },
         type: 'get',
-        url: URL_BASE + '/tasks/web/task/teacher/current/' + $.getUrlParam('book_id') + '/list',
+        url: URL_BASE + '/tasks/web/task/teacher/' + $.getUrlParam('teacher_id') + '/' + $.getUrlParam('book_id') + '/list',
         data: {
             classId: $.getUrlParam('class_id')
         },

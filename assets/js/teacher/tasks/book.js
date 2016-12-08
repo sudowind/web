@@ -84,9 +84,10 @@ function init_class() {
             var index = 'index';
             var class_id;
             for (var i = 0; i < data.length; ++i) {
-                if (i != 0)
+                if (data[i].id != $.getUrlParam('class_id'))
                     index = '';
                 else {
+                    index = 'index';
                     class_id = data[i].id;
                 }
                 html += '<span class="' + index + ' option" value="' + data[i].id + '">' + data[i].name + '</span>';

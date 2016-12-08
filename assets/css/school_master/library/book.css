@@ -113,12 +113,13 @@
     padding: 15px;
 }
 
-#grade_selector {
+#grade_selector, #class_selector, #teacher_selector {
     float: left;
-    width: 150px;
+    width: 120px;
     padding: 5px 5px;
     border: solid 1px #e8e8e8;
     border-radius: 5px;
+    margin-right: 20px;
 }
 
 #read_count {

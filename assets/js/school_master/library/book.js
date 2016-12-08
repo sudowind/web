@@ -63,17 +63,18 @@ function clear_rows() {
     for (var i = 0; i < 10; ++i) {
         $('#row' + i.toString()).html('');
     }
+    $('#read_count').find('span').html('0');
 }
 
 var has_load_page = false;
-function load_student_info(class_id, page) {
+function load_student_info(class_id, teacher_id, page) {
     clear_rows();
     $.ajax({
         xhrFields: {
             withCredentials: true
         },
         type: 'get',
-        url: URL_BASE + '/tasks/web/task/teacher/current/' + $.getUrlParam('book_id') + '/list',
+        url: URL_BASE + '/tasks/web/task/teacher/' + teacher_id + '/' + $.getUrlParam('book_id') + '/list',
         data: {
             classId: class_id
         },
@@ -107,35 +108,69 @@ function load_student_info(class_id, page) {
     })
 }
 
-function init_class() {
-    // 初始化班级option
+function load_teacher(class_id) {
+    clear_rows();
     $.ajax({
         xhrFields: {
             withCredentials: true
         },
         type: 'get',
-        url: URL_BASE + '/users/web/class/teacher/current/list',
-        success: function(data) {
-            var html = '';
-            var index = 'index';
-            var class_id;
+        url: URL_BASE + '/users/web/class/{0}/teachers'.format(class_id),
+        success: function (data) {
+            var teacher_html = '';
             for (var i = 0; i < data.length; ++i) {
-                if (i != 0)
-                    index = '';
-                else {
-                    class_id = data[i].id;
-                }
-                html += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                teacher_html += '<option value="{0}">{1}</option>'.format(data[i].id, data[i].name);
             }
-            $('#grade_selector').html(html).change(function() {
-                // alert($(this).val());
-                clear_rows();
-                has_load_page = false;
-                load_student_info($(this).val(), 1);
+            $('#teacher_selector').html(teacher_html).unbind().change(function () {
+                load_student_info(class_id, $(this).val(), 1);
             });
-
-
-            load_student_info(class_id, 1);
-        }
+            if (data.length > 0)
+                load_student_info(class_id, data[0].id, 1);
+        },
+        error: ajax_error_handler
     });
+}
+
+function load_class(grade) {
+    clear_rows();
+    $('#teacher_selector').html('<option></option>');
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/class/grade/{0}/list'.format(grade),
+        success: function (data) {
+            var class_html = '';
+            for (var i = 0; i < data.length; ++i) {
+                class_html += '<option value="{0}">{1}</option>'.format(data[i].id, data[i].name);
+            }
+            $('#class_selector').html(class_html).unbind().change(function () {
+                $('#teacher_selector').html('');
+                load_teacher($(this).val());
+            });
+            if (data.length > 0)
+                load_teacher(data[0].id);
+        },
+        error: ajax_error_handler
+    });
+}
+
+function init_class() {
+    clear_rows();
+    var date = new Date();
+    var base_year = 1900 - 6 + date.getYear();
+    if (date.getMonth() >= 7) {
+        base_year += 1;
+    }
+    var html = '';
+    for (var i = 0; i < 6; ++i) {
+        html += '<option value="{0}">{0}级</option>'.format((base_year + i).toString());
+    }
+    $('#grade_selector').html(html).unbind().change(function () {
+        $('#class_selector').html('<option></option>');
+        load_class($(this).val());
+    });
+    // load_class(base_year);
+
 }

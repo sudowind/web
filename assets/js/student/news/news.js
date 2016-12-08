@@ -1,4 +1,4 @@
-function right_bar_cb() {
+function left_bar_cb() {
     $('#messages_button').attr('class', 'side-button-selected left-side-button');
 }
 

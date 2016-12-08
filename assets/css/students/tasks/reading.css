@@ -7,7 +7,7 @@
 .content{
     padding:21px 20px;
     position: relative;
-    top: 0px;
+    top: 0;
 }
 .title h3{
     width: 81px;
@@ -85,7 +85,7 @@
 }
 .right .section{
     position: absolute;
-    top: 0px;
+    top: 0;
     width: 430px;
     height: 1124px;
     background: #FFFFFF;
@@ -108,8 +108,8 @@
     width: 158px;
 }
 .ratio{
+    text-align: center;
     margin-top: 20px;
-    margin-left: 18px;
     font-size: 13px;
     color: #a8a8a8;
 }

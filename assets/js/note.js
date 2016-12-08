@@ -38,7 +38,7 @@ function load_notes(page, student_id) {
                     pageCount: page_count,
                     current: 1,
                     backFn: function(p) {
-                        load_notes(p);
+                        load_notes(p, student_id);
                     }
                 });
             }

@@ -86,6 +86,10 @@
     color: #FFFFFF;
     background: #08dec5;
 }
+.wrong-answer {
+    color: #FFFFFF;
+    background: #08dec5;
+}
 
 /*.select-option:hover {*/
     /*color: #FFFFFF;*/
