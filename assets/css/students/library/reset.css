@@ -30,7 +30,7 @@ table {
 }
 
 /*表单*/
-input,textarea{
+input,textarea,select{
 	outline: none;
 }
 textarea {

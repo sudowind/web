@@ -11,6 +11,7 @@ var isInitPsw = '';
 $(".add-task").on('click',function(){
     $(".form-add-student").css("display","block");
     $(".form-change-pwd").css("display","none");
+
     //$(".modal-body").css({
     //    width:"620",
     //    height:"460",
@@ -82,7 +83,7 @@ function load_student_info(classId, page){
             classId : classId
         },
         success: function(data) {
-            //console.log(data[0]);
+            //console.log(data[0])
             var element_count = 18;
             var start_id = (page - 1) * element_count;
             var end_id = start_id + element_count;
@@ -124,7 +125,6 @@ function load_student_info(classId, page){
                 var text = '<p>'+'确定删除学生  '+'<span>'+ student_name +'</span>'+'  的个人信息么？'+'</p>';
 
                 my_tip.bind(text, function() {
-                    $(".modal-body").css('top','200px');
                     $.ajax({
                         xhrFields: {
                             withCredentials: true
@@ -140,10 +140,36 @@ function load_student_info(classId, page){
             });
 
             //老师给学生修改密码
-            $(".student-information").on('click','#check',function(){
+            $(".student-information").on('click','.red',function(){
                 $(".form-add-student").css("display","none");
                 $(".form-change-pwd").css("display","block");
 
+                var studentName = $(this).parent().children().eq(1).text();
+                var studentId = $(this).parent().children().eq(0).text();
+                $(".studentId").html(studentId);
+                $(".studentName").html(studentName);
+
+                $("#newPassword").on('click',function(){
+                    var studentId = $(".studentId").val();
+                    var newPassword = $(".change-pwd").val();
+                    var text = '<p>修改密码成功</p>';
+                    $.ajax({
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        type: 'PUT',
+                        url: URL_BASE + '/users/web/student/' + studentId + '/password?newPassword=' + newPassword +  '',
+                        success: function() {
+                            $(".form-change-pwd").css("display","none");
+                            //$('.modal').modal('hide');
+                            my_tip.bind(text, function() {
+
+                            });
+
+
+                        }
+                    });
+                })
 
             });
         },
@@ -151,18 +177,20 @@ function load_student_info(classId, page){
     });
 };
 var Color = '';
+var red = '';
+var modal_string = '';
 function fill_student(data){
     if(isInitPsw =='修改密码'){
-         Color = "color: red";
-    }else{
-        Color = "";
-    };
+        Color = "color: red;cursor: pointer;";
+        red = "red";
+        modal_string =' " data-toggle="modal" data-target="#myModal";';
+    }
     return      '<ul class="student-information">'
                     +'<li class="account">'+ data.id+'</li>'
                     +'<li class="name">'+ data.name+'</li>'
                     +'<li class="gender">'+ gender +'</li>'
                     +'<li class="time">'+ data.info.schoolEntranceDate+'</li>'
-                    +'<li class="state" style="' + Color +  '">'+ isInitPsw +'</li>'
+                    +'<li class="state ' + red + '" style="' + Color +  '" ' + modal_string + ' >'+ isInitPsw +'</li>'
                     +'<li id="check" class="check" data-toggle="modal" data-target="#myModal">查看</li>'
                     +'<li id="del" class="delete" value="' + data.id + '">删除</li>'
                 +'</ul>'

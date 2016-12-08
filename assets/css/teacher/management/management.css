@@ -144,8 +144,8 @@ html{
 }
 /*点击查看学生信息的弹窗*/
 .index-body{
-    width: 620px;
-    height: 460px;
+    width: 590px;
+    height: 370px;
     background: #f9f9f9;
     position: absolute;
     top: -110px;
@@ -159,15 +159,15 @@ html{
     float: right;
 }
 .index-body form{
-    margin-left: 164px;
-    margin-top: 38px;
+    margin-left: 152px;
+    margin-top: 32px;
 }
 .index-body form p{
-    margin-top: 34px;
+    margin-top: 24px;
 }
 .index-body form p input{
     width: 200px;
-    height: 40px;
+    height: 35px;
     text-align: center;
     margin-left: 70px;
 }
@@ -197,11 +197,19 @@ html{
     background: #f99d32;
     border-radius: 8px;
     margin-top: 25px;
-    margin-left: 58px;
+    margin-left: 74px;
     cursor: pointer;
 }
 .index-body .form-change-pwd{
     margin-top: 100px;
+    font-size: 16px;
+}
+.index-body .form-change-pwd .studentName{
+    margin-left: 144px;
+}
+.index-body .form-change-pwd .studentId{
+    margin-left: 160px;
+
 }
 .index-body .form-change-pwd .change-pwd{
     margin-left: 43px;
@@ -235,8 +243,9 @@ html{
 /*删除按钮模态框的样式*/
 .modal-content{
     border: none;
-    width: 600px;
+    width: 560px;
     top: 150px;
+    left: -50px;
 }
 #modal_info p{
     font-size: 18px;
@@ -246,16 +255,6 @@ html{
     padding-top: 0;
     margin-top: -70px;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

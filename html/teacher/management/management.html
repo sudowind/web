@@ -93,21 +93,23 @@
                                 </p>
                                 <div class="submit" id="sure_add_student">确定</div>
                             </form>
+
                             <form action="" class="form-change-pwd" style="display: none;">
                                 <p>
-                                    姓&nbsp;名 <input class="name" type="text" value=""/>
+                                    姓&nbsp;&nbsp;名 <span class="studentName"></span>
                                 </p>
                                 <p>
-                                    账&nbsp;号 <input class="class-id" type="text" value=""/>
+                                    账&nbsp;&nbsp;号 <span class="studentId"></span>
                                 </p>
                                 <p>
-                                    重置密码 <input type="text" class="change-pwd" value=""/>
+                                    重置密码 <input type="text" class="change-pwd" value="" placeholder="123456"  onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                                                onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}"/>
                                 </p>
-                                <div class="submit">确定</div>
+                                <div class="submit" id="newPassword">确定</div>
                             </form>
+
                             <!--</div>-->
                         </div>
-                    <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
                 </div><!-- /.modal -->
             </div>
 
@@ -132,8 +134,7 @@
 <script src="../../../assets/js/teacher/management/management.js"></script>
 <script>
     load('../../../include/html/', 'teacher');
-//    load_student_info(1);
-//    load_classname();
+    load_classname();
 </script>
 </body>
 </html>
