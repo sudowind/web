@@ -65,7 +65,6 @@ function clear_rows() {
 }
 
 
-
 function load_table_row(row_selector, data) {
     // 从服务器拿到数据之后，将数据填充成表格
     var img_src = '../../../assets/img/1.png';
@@ -139,7 +138,7 @@ function load_table_row(row_selector, data) {
         });
         // 绑定查看书本详情的事件
         obj.find('.book-detail').click(function () {
-            window.open('book.html?book_id=' + data.bookId, '_self');
+            window.open('book.html?book_id=' + data.bookId + '&class_id=' + CLASS_ID, '_self');
         });
 
     });

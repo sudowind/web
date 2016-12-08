@@ -8,9 +8,6 @@ function left_bar_cb() {
 }
 
 function init () {
-    load_table_row('#row1');
-    load_table_row('#row2');
-    load_table_row('#row3');
 
     var h = Number($('.select-part').height());
     // alert(h);
@@ -23,12 +20,13 @@ $('.option').click(function () {
     $(this).addClass('index');
 });
 
-function load_table_row(row_selector) {
+function load_table_row(row_selector, data, class_id, teacher_id) {
     // 从服务器拿到数据之后，将数据填充成表格
     var img_src = '../../../assets/img/1.png';
-    var img_name = '诗词里的科学';
+    var book_name = data.book.name;
+    var book_id = data.bookId;
     // 应该是对每一行分别填充，每一行都有一个id，通过这个id进行操作
-    $(row_selector).load('../../../include/html/teacher/task_table_line.html', function() {
+    $(row_selector).load('../../../include/html/school_master/task_table_line.html', function() {
         var bars = new Array(2);
         for (var i = 0; i < bars.length; ++i) {
             bars[i] = new ProgressBar.Circle(row_selector + ' td:nth-child(' + (i + 2).toString() + ') div', {
@@ -55,20 +53,145 @@ function load_table_row(row_selector) {
                     } else {
                         circle.setText(value + '%');
                     }
+
                 }
             });
-            bars[i].set(Math.random());
+            // bars[i].set(Math.random());
         }
+        // 设定两个进度环
+        bars[0].set(Number(data.completedCount)/Number(data.totalCount));
+        bars[1].set(Number(data.totalExamScore)/Number(data.examCount));
+
+        var obj = $(row_selector);
+        obj.find('.table-img div').html(book_name);
+        obj.find('.table-img img').attr('src', data.book.coverUri);
+        obj.find('.book-score').html(data.book.levelScore);
+        var start_date = new Date(data.startTime);
+        var finish_date = new Date(data.endTime);
+        obj.find('.start_date').html(start_date.getFullDate());
+        obj.find('.finish_date').html(finish_date.getFullDate());
+        // 绑定查看书本详情的事件
+        obj.find('.book-detail').click(function () {
+            window.open('book_detail.html?book_id=' + data.bookId + '&class_id=' + class_id + '&teacher_id=' + teacher_id, '_self');
+        });
+
     });
 }
 
-// 删除一本书
-function delete_book() {
-    var message = '将《诗词里的科学》从2015级3班、2015级4班的阅读任务中删除？';
-    my_tip.alert(message);
+function clear_rows() {
+    for (var i = 1; i < 4; ++i) {
+        $('#row{0}'.format(i)).html('');
+    }
 }
 
-// 查看书本详情
-function go_to_detail() {
+var has_load_page = false;
 
+function load_tasks(teacher_id, class_id, page) {
+    clear_rows();
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/tasks/web/task/teacher/{0}/list'.format(teacher_id),
+        data: {
+            classId: class_id,
+            page: page - 1,
+            itemPerPage: 3
+        },
+        success: function (data) {
+            for (var i = 0; i < data.data.length; ++i) {
+                load_table_row('#row' + (i + 1).toString(), data.data[i], class_id, teacher_id);
+            }
+            if (!has_load_page) {
+                has_load_page = true;
+                var page_count = Math.ceil((data.totalItem * 1.0) / data.itemPerPage);
+                $('#teacher_task_pagination').createPage({
+                    pageCount: page_count,
+                    current: 1,
+                    backFn: function(p) {
+                        load_tasks(teacher_id, class_id, p);
+                    }
+                });
+            }
+        },
+        error: ajax_error_handler
+    });
+}
+
+function load_teacher_class(teacher_id) {
+    if (teacher_id < 0) {
+        $('.select-class').html('');
+        clear_rows();
+    }
+    else {
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'get',
+            url: URL_BASE + '/users/web/class/teacher/{0}/list'.format(teacher_id),
+            success: function (data) {
+                var html = '<span class="index option" value="{0}">{1}</span>'.format(data[0].id, data[0].name);
+                for (var i = 1; i < data.length; ++i) {
+                    html += '<span class="option" value="{0}">{1}</span>'.format(data[1].id, data[i].name);
+                }
+                $('.select-class').html(html).find('.option').click(function () {
+                    $(this).siblings().removeClass('index');
+                    $(this).addClass('index');
+                    load_tasks(teacher_id, $(this).attr('value'), 1);
+                });
+                load_tasks(teacher_id, data[0].id, 1);
+            },
+            error: ajax_error_handler
+        });
+    }
+}
+
+function load_grade_teacher(grade) {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/school/current/grade/{0}/teacher/list'.format(grade),
+        success: function (data) {
+            var teacher_id = -1;
+            if (data.length == 0) {
+                $('.select-teacher').html('');
+            }
+            else {
+                teacher_id = data[0].id;
+                var html = '<span class="index option" value="{0}">{1}</span>'.format(data[0].id, data[0].name);
+                for (var i = 1; i < data.length; ++i) {
+                    html += '<span class="option" value="{0}">{1}</span>'.format(data[1].id, data[i].name);
+                }
+                $('.select-teacher').html(html).find('.option').click(function () {
+                    $(this).siblings().removeClass('index');
+                    $(this).addClass('index');
+                    load_teacher_class($(this).attr('value'));
+                });
+            }
+            load_teacher_class(teacher_id);
+        },
+        error: ajax_error_handler
+    });
+}
+
+function init_grade() {
+    var date = new Date();
+    var base_year = 1900 - 6 + date.getYear();
+    if (date.getMonth() >= 7) {
+        base_year += 1;
+    }
+    var html = '<span class="index option" value="{0}">{0}级</span>'.format(base_year.toString());
+    for (var i = 1; i < 6; ++i) {
+        html += '<span class="option" value="{0}">{0}级</span>'.format((base_year + i).toString());
+    }
+    $('.select-grade').html(html).find('.option').click(function () {
+        $(this).siblings().removeClass('index');
+        $(this).addClass('index');
+        load_grade_teacher($(this).attr('value'));
+    });
+    load_grade_teacher(base_year);
 }

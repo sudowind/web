@@ -114,6 +114,9 @@ function load_page() {
                 var end_date = new Date(data.endTime);
                 $('#start_date').html(start_date.getFullDate());
                 $('#end_date').html(end_date.getFullDate());
+                var process = Math.ceil(data.currentPage * 100.0/ data.totalPage);
+                $('.progress-bar').css('width', process.toString() + '%');
+
             },
             error: ajax_error_handler
         });
