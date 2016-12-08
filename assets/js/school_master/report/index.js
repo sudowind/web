@@ -1,13 +1,15 @@
 /**
  * Created by yilong on 2016/11/1.
  */
-
+function left_bar_cb() {
+    $('#report_button').attr('class', 'side-button-selected left-side-button');
+}
 
 //自动生成列表
 function init() {
     for (var i = 0; i <= 6; ++i) {
         load_table_classes('#cla-row' + i);
-    };
+    }
     for (var i = 0;i <= 10 ;i ++){
         load_table_student('#stu-row' + i);
     }

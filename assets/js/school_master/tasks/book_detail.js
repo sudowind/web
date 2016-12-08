@@ -26,14 +26,10 @@ function on_button_click(e) {
 }
 
 function init() {
-    // for (var i = 0; i <= 10; ++i) {
-    //     load_table_line('#row' + i.toString());
-    // }\
     load_student_info($.getUrlParam('class_id'), 1);
 }
 
 function load_table_line (row_selector, data) {
-    console.log(data);
     var name = data.user.name;
     var number = data.user.id;
     var percentage = Math.ceil(data.currentPage * 100.0 / data.totalPage);
