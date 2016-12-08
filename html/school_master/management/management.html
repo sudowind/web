@@ -36,13 +36,8 @@
                 </span>
             </div>
             <div class="class-name">
-                <p>所带班级：
-                    <span class="index">全部</span>
-                    <span>2015级3班</span>
-                    <span>2015级3班</span>
-                    <span>2015级3班</span>
-                    <span>2015级3班</span>
-                </p>
+                <p>所带年级：</p>
+                <p class="grade"></p>
             </div>
             <div  class="information">
                 <ol class="head">
@@ -52,12 +47,11 @@
                     <li>所带班级</li>
                     <li>操作</li>
                 </ol>
-                <ul class="student-information">
+                <ul class="teacher-information">
                     <li>10001</li>
                     <li>王澈</li>
                     <li>女</li>
                     <li>2015级2班</li>
-                    <li>查看</li>
                     <li>删除</li>
                 </ul>
             </div>
@@ -67,33 +61,54 @@
                 <div class="modal-dialog" style="width: 620px; margin-top: 400px;">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <div class="out">
-                                <img src="../../../assets/img/teacher/out.png" alt=""/>
-                            </div>
-                            <form action="">
+                            <!--<form action="" class="add-teacher">-->
+                                <!--<p>-->
+                                    <!--账&nbsp;号 <input type="text" value="10086"/>-->
+                                <!--</p>-->
+                                <!--<p class="initial">-->
+                                    <!--初始密码<span>123456</span>-->
+                                <!--</p>-->
+                                <!--<p>-->
+                                    <!--姓&nbsp;名 <input type="text" class="name" value="甘婷"/>-->
+                                <!--</p>-->
+                                <!--<p class="sex">性&nbsp;别-->
+                                <!--<span>-->
+                                    <!--<input id="boy" type="radio" name="x1" checked>&nbsp;&nbsp;&nbsp;&nbsp;男<input id="girl" type="radio" name="x1">&nbsp;&nbsp;&nbsp;&nbsp;女-->
+                                <!--</span>-->
+                                <!--</p>-->
+                                <!--<p>所带班级-->
+                                    <!--<select name="" id="">-->
+                                        <!--<option value="2015级1班">2015级1班</option>-->
+                                        <!--<option value="2015级2班">2015级2班</option>-->
+                                        <!--<option value="2015级3班">2015级3班</option>-->
+                                        <!--<option value="2015级4班">2015级4班</option>-->
+                                    <!--</select>-->
+                                <!--</p>-->
+                                <!--<div class="submit">确定</div>-->
+                            <!--</form>-->
+                            <form class="add-teacher">
                                 <p>
-                                    账&nbsp;号 <input type="text" value="10086"/>
+                                    姓&nbsp;名 <input class="name" type="text" value=""/>
+                                </p>
+                                <p class="sex">性&nbsp;别
+                                    <span>
+                                        <input id="boy" type="radio" name="auto" checked="checked">&nbsp;&nbsp;&nbsp;&nbsp;男
+                                        <input id="girl" type="radio" name="auto">&nbsp;&nbsp;&nbsp;&nbsp;女
+                                    </span>
+                                </p>
+                                <p>班&nbsp;级
+                                    <select name="" id="className">
+                                        <!--<option value="2015级1班">2015级1班</option>-->
+                                        <!--<option value="2015级2班">2015级2班</option>-->
+                                    </select>
+                                </p>
+                                <p class="time">入学时间
+                                    <input id="time" class="laydate-icon" type="text" onclick="laydate()" name=""/>
                                 </p>
                                 <p class="initial">
                                     初始密码<span>123456</span>
                                 </p>
-                                <p>
-                                    姓&nbsp;名 <input type="text" value="甘婷"/>
-                                </p>
-                                <p class="sex">性&nbsp;别
-                                <span>
-                                    <input id="boy" type="radio" name="x1" checked>&nbsp;&nbsp;&nbsp;&nbsp;男<input id="girl" type="radio" name="x1">&nbsp;&nbsp;&nbsp;&nbsp;女
-                                </span>
-                                </p>
-                                <p>所带班级
-                                    <select name="" id="">
-                                        <option value="2015级1班">2015级1班</option>
-                                        <option value="2015级2班">2015级2班</option>
-                                        <option value="2015级3班">2015级3班</option>
-                                        <option value="2015级4班">2015级4班</option>
-                                    </select>
-                                </p>
-                                <div class="submit">确定</div>
+                                <div class="submit" id="sure_add_student">确定</div>
                             </form>
                             <!--</div>-->
                         </div>
@@ -113,9 +128,13 @@
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
 <!--<script src="../../../assets/js/student/tasks/tasks.js"></script>-->
+<script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/school_master/management/management.js"></script>
+
 <script>
     load('../../../include/html/', 'school_master');
+    //切分年级的函数
+    init_grade();
 </script>
 </body>
 </html>

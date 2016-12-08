@@ -139,7 +139,7 @@ html{
     cursor: pointer;
 }
 .information ul .delete{
-    width: 80px;
+    width: 106px;
     cursor: pointer;
 }
 /*点击查看学生信息的弹窗*/
@@ -151,7 +151,6 @@ html{
     top: -110px;
     left: 0px;
     font-size: 16px;
-    font-weight: bolder;
     border-radius: 8px;
 }
 .out{

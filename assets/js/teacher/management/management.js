@@ -6,19 +6,11 @@ function right_bar_cb() {
 }
 //学生列表的性别以及是否修改密码的参数
 var gender = '';
-var isInitPsw = '';
+var passwordStatus = '';
 //教师添加学生模态框
 $(".add-task").on('click',function(){
     $(".form-add-student").css("display","block");
     $(".form-change-pwd").css("display","none");
-
-    //$(".modal-body").css({
-    //    width:"620",
-    //    height:"460",
-    //    top:"-110px",
-    //    left:"0px"
-    //})
-
 });
 
 //添加学生的事件
@@ -83,7 +75,7 @@ function load_student_info(classId, page){
             classId : classId
         },
         success: function(data) {
-            //console.log(data[0])
+            console.log(data)
             var element_count = 18;
             var start_id = (page - 1) * element_count;
             var end_id = start_id + element_count;
@@ -97,10 +89,10 @@ function load_student_info(classId, page){
                     gender = '女';
                 }
 
-                if(data[i].isInitPsw == '0'){
-                    isInitPsw = '正常';
-                }else{
-                    isInitPsw = '修改密码';
+                if(data[i].passwordStatus == '1' || data[i].passwordStatus == '2'){
+                    passwordStatus = '正常';
+                }else if(data[i].passwordStatus == '3'){
+                    passwordStatus = '修改密码';
                 }
                 html += fill_student(data[i]);
 
@@ -180,7 +172,7 @@ var Color = '';
 var red = '';
 var modal_string = '';
 function fill_student(data){
-    if(isInitPsw =='修改密码'){
+    if(passwordStatus =='修改密码'){
         Color = "color: red;cursor: pointer;";
         red = "red";
         modal_string =' " data-toggle="modal" data-target="#myModal";';
@@ -190,8 +182,7 @@ function fill_student(data){
                     +'<li class="name">'+ data.name+'</li>'
                     +'<li class="gender">'+ gender +'</li>'
                     +'<li class="time">'+ data.info.schoolEntranceDate+'</li>'
-                    +'<li class="state ' + red + '" style="' + Color +  '" ' + modal_string + ' >'+ isInitPsw +'</li>'
-                    +'<li id="check" class="check" data-toggle="modal" data-target="#myModal">查看</li>'
+                    +'<li class="state ' + red + '" style="' + Color +  '" ' + modal_string + ' >'+ passwordStatus +'</li>'
                     +'<li id="del" class="delete" value="' + data.id + '">删除</li>'
                 +'</ul>'
 }

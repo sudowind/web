@@ -9,7 +9,7 @@ var TASK_STATUS = {
 };
 
 Date.prototype.getFullDate = function() {
-    // 给定Date，获取日期字符串
+    // 缁欏畾Date锛岃幏鍙栨棩鏈熷瓧绗︿覆
     var year = this.getFullYear().toString();
     var month = this.getMonth().toString();
     if (month.length < 2)
@@ -21,7 +21,7 @@ Date.prototype.getFullDate = function() {
 };
 
 function open_mail_url(mail_address) {
-    // 传入邮箱，打开邮箱登录页面
+    // 浼犲叆閭锛屾墦寮�閭鐧诲綍椤甸潰
     var url = '';
     if (mail_address.indexOf('gmail') >= 0) {
         url = 'http://gmail.google.com';
@@ -33,7 +33,7 @@ function open_mail_url(mail_address) {
 }
 
 String.prototype.format = function(args) {
-    // string的format函数
+    // string鐨刦ormat鍑芥暟
     if (arguments.length>0) {
         var result = this;
         if (arguments.length == 1 && typeof (args) == "object") {

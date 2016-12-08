@@ -77,6 +77,7 @@ html{
 .content .class-name p{
     font-size: 18px;
     margin-left: 15px;
+    float: left;
 }
 .content .class-name p span{
     border: 1px solid #f99d32;
@@ -107,10 +108,7 @@ html{
 }
 .information .head li{
     float: left;
-    margin-left: 68px;
-}
-.information .head li:nth-of-type(5){
-    margin-left: 114px;
+    margin-left: 84px;
 }
 .information ul{
     font-size: 16px;
@@ -124,8 +122,20 @@ html{
     width: 100px;
     text-align: center;
 }
+.information ul li:nth-of-type(1){
+    width: 128px;
+}
+.information ul li:nth-of-type(2){
+    width: 110px;
+}
+.information ul li:nth-of-type(3){
+    width: 128px;
+}
 .information ul li:nth-of-type(4){
-    width: 140px;
+    width: 138px;
+}
+.information ul li:nth-of-type(5){
+    width: 134px;
 }
 
 /*点击查看学生信息的弹窗*/
@@ -137,7 +147,6 @@ html{
     top: -110px;
     left: 0px;
     font-size: 16px;
-    font-weight: bolder;
     border-radius: 8px;
 }
 .out{
@@ -158,10 +167,10 @@ html{
     margin-left: 70px;
 }
 .modal-body form .time input{
-    margin-left: 46px;
+    margin-left: 42px;
 }
 .modal-body form p select{
-    margin-left: 46px;
+    margin-left: 70px;
     width: 200px;
 }
 .modal-body form .initial{
