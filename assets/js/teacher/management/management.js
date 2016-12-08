@@ -58,6 +58,7 @@ $(".content .class-name p").on('click','span',function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
 
+    has_load_page = false;
     load_student_info($(".class-name .index").attr('value'), 1);
 });
 
@@ -75,14 +76,15 @@ function load_student_info(classId, page){
             classId : classId
         },
         success: function(data) {
-            console.log(data)
+            console.log(data);
             var element_count = 18;
             var start_id = (page - 1) * element_count;
             var end_id = start_id + element_count;
             if (end_id > data.length) {
                 end_id = data.length;
             }
-            for (var i = start_id; i < end_id - start_id; ++i) {
+            console.log(start_id);
+            for (var i = start_id; i < end_id; ++i) {
                 if(data[i].gender == '1'){
                     gender = '男';
                 }else if(data[i].gender == '2'){
@@ -108,6 +110,7 @@ function load_student_info(classId, page){
                     }
                 });
             }
+            $('.information ul').remove();
             $(".information .head").after(html);
 
             //删除学生点击事件
@@ -167,7 +170,7 @@ function load_student_info(classId, page){
         },
         error: ajax_error_handler
     });
-};
+}
 var Color = '';
 var red = '';
 var modal_string = '';
