@@ -38,12 +38,19 @@
     font-weight: bold;
 }
 
+.select-title {
+    width: 120px;
+    vertical-align: text-top;
+    min-height: 60px;
+}
+
 .select-part table {
     width: 100%;
 }
 
 .select-part td {
     padding: 10px;
+    min-height: 58px;
 }
 
 .select-part tr:not(:last-child) {
@@ -54,12 +61,6 @@
     display: inline-block;
     margin: 5px;
     /*height: 28px;*/
-}
-
-.select-title {
-    padding: 10px;
-    width: 120px;
-    vertical-align: text-top;
 }
 
 .option  {
@@ -117,6 +118,9 @@
     width: 60px;
 }
 
+.book-part tbody tr {
+    height: 220px;
+}
 
 .book-part tbody tr td {
     padding: 15px;

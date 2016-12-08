@@ -57,7 +57,6 @@
                     </table>
                 </div>
                 <p class="btn" id="online_read">在线阅读</p>
-                <p class="btn" id="add_to_task">添加到“阅读任务”</p>
             </div>
 
             <div class="book-detail-box" >
@@ -89,15 +88,22 @@
                 </div>
                 <div id="student_part">
                     <div id="overall_info">
-                        <label for="grade_selector"></label><select id="grade_selector">
-                        <optgroup label="2011级">
-                            <option value="">1班</option>
-                            <option value="">2班</option>
-                        </optgroup>
+                        <label for="grade_selector"></label>
+                        <select id="grade_selector">
+                            <!--<optgroup label="2011级">-->
+                                <!--<option value="">1班</option>-->
+                                <!--<option value="">2班</option>-->
+                            <!--</optgroup>-->
 
-                        <option value="">全部年级</option>
-                        <option value="">全部年级</option>
-                    </select>
+                            <!--<option value="">全部年级</option>-->
+                            <!--<option value="">全部年级</option>-->
+                        </select>
+                        <label for="class_selector"></label>
+                        <select id="class_selector">
+                        </select>
+                        <label for="teacher_selector"></label>
+                        <select id="teacher_selector">
+                        </select>
                         <div id="read_count">
                             <span>0</span>位同学已读完
                         </div>
@@ -202,9 +208,10 @@
 <script src="../../../libs/progressbar.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/comment.js"></script>
 <script src="../../../assets/js/tip_modal.js"></script>
-<script src="../../../assets/js/page.js"></script>
+<!--<script src="../../../assets/js/page.js"></script>-->
 <script src="../../../assets/js/cookie.js"></script>
 <script src="../../../assets/js/school_master/library/book.js"></script>
 
