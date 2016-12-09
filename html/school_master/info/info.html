@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
     <meta name="viewport" content="width=device-width">
-    <title>Title</title>
+    <title>个人中心</title>
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link href="../../../libs/cropper/cropper.min.css" rel="stylesheet">
+    <link href="../../../libs/sitelogo/sitelogo.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/info/info.css">
@@ -24,47 +27,39 @@
                 <span class="down"></span>
             </div>
             <div class="information">
-                <div class="change-head">
-                    <p>
-                        <img src="../../../assets/img/student/info/1.png" alt=""/>
-                    </p>
-                    <p class="change">
-                        <img src="../../../assets/img/student/info/camera.png" alt=""/>
-                        <a href="#" class="file">
-                            <input type="file">修改头像
-                        </a>
-                    </p>
+                <div id="crop-avatar">
+                    <div class="avatar-view">
+                        <img data-toggle="tooltip" title="修改头像" id="headimg" src="" alt="Logo">
+                        <div class="btn" id="modify_avatar">修改头像</div>
+                    </div>
                 </div>
+
                 <div class="info-list">
-                    <form action="">
-                        <p class="name">
-                            姓名：<span>王澈</span>
-                        </p>
-                        <p class="sex">性别 :
+                    <p class="name">
+                        姓名：<span>萌萌哒</span>
+                    </p>
+                    <p class="sex">性别:
                             <span>
-                                男<input id="boy" type="radio" name="x1" disabled="disabled" checked>&nbsp;&nbsp;
-                                女<input id="girl" type="radio" disabled="disabled" name="x1">
+                                男<input id="boy" type="radio" disabled="disabled" value="男" name="auto" checked="checked">&nbsp;&nbsp;
+                                女<input id="girl" type="radio" disabled="disabled" value="女" name="auto">
                             </span>
-                        </p>
-                        <!--<p class="birth">-->
-                        <!--出生年月：<input class="laydate laydate-icon" onclick="laydate()"style="display: none" >-->
-                        <!--</p>-->
-                        <p class="city">
-                            城市：<span>北京市海淀区</span>
-                        </p>
-                        <p class="school">
-                            学校：<span>彩和坊小学</span>
-                        </p>
-                        <p>
-                            邮箱：<input  class="mail" type="email" style="display: none"/> <input class="btn" type="button" value="免费获取验证码" style="display: none" />
-                        </p>
-                        <p class="code" style="display: none">
-                            验证码：<input type="text" placeholder="6位数字"/>
-                        </p>
-                        <input class="change-info" type="button"  onclick="Change()" value="修改" />
-                        <input class="off"  type="button"  onclick="Back()" value="取消" style="display: none"/>
-                        <input class="sure"  type="button"  onclick="Sure()" value="保存" style="display: none"/>
-                    </form>
+                    </p>
+                    <p class="city">
+                        城市：<span>北京市海淀区</span>
+                    </p>
+                    <p class="school">
+                        学校：<span>彩和坊小学</span>
+                    </p>
+                    <p class="email">
+                        邮箱：<input  class="mail" type="email" style="display: none"/><span>123123123123</span><input class="btn" type="button" value="免费获取验证码" style="display: none" />
+                    </p>
+                    <p class="code" style="display: none">
+                        验证码：<input type="text" placeholder="6位数字"/>
+                    </p>
+
+                    <input class="change-info" type="button"  onclick="Change()" value="修改" />
+                    <input class="off"  type="button"  onclick="Back()" value="取消" style="display: none"/>
+                    <input class="sure"  type="button"  onclick="Sure()" value="保存" style="display: none"/>
                 </div>
             </div>
         </div>
@@ -72,19 +67,73 @@
 
     <div id="right_bar"></div>
 
+    <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form class="avatar-form" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" type="button">&times;</button>
+                        <h4 class="modal-title" id="avatar-modal-label">修改头像</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="avatar-body">
+                            <div class="avatar-upload">
+                                <input class="avatar-src" name="avatar_src" type="hidden">
+                                <input class="avatar-data" name="avatar_data" type="hidden">
+                                <label for="avatarInput">图片上传(文件大小不能超过200kB)</label>
+                                <input class="avatar-input" id="avatarInput" name="img" type="file">
+                                <div id="alert_msg">文件过大，请重新选取</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="avatar-wrapper"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="preview-wrap-lg avatar-preview"><div class=" preview-lg"></div></div>
+                                    <div class="preview-wrap-md avatar-preview"><div class=" preview-md"></div></div>
+                                    <div class="preview-wrap-sm avatar-preview"><div class=" preview-sm"></div></div>
+                                </div>
+                            </div>
+                            <div class="row avatar-btns">
+                                <div class="col-md-9">
+                                    <div class="btn-group">
+                                        <button class="btn" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees"><i class="fa fa-undo"></i> 向左旋转</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees"><i class="fa fa-repeat"></i> 向右旋转</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn btn-block avatar-save" type="submit" id="headimg_submit"><i class="fa fa-save"></i> 保存修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
-<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/jquery-2.2.4.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
 <script src="../../../assets/js/cookie.js"></script>
-<script src="../../../assets/js/student/tasks/tasks.js"></script>
+<!--<script src="../../../assets/js/student/tasks/tasks.js"></script>-->
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/school_master/info/info.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
-<script src="../../../assets/js/teacher/info/info.js"></script>
+<script src="../../../libs/cropper/cropper.min.js"></script>
+<script src="../../../libs/sitelogo/sitelogo.js"></script>
 <script>
+    $('[data-toggle=tooltip]').tooltip();
     load('../../../include/html/', 'school_master');
+    load_info();
+    change_info();
 </script>
 </body>
 </html>

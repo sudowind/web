@@ -4,46 +4,42 @@
     <meta charset="UTF-8">
     <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
     <meta name="viewport" content="width=device-width">
-    <title>常见问题</title>
+    <title>问题反馈</title>
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
-    <link rel="stylesheet" href="../../../assets/css/students/problem/problem.css">
+    <link rel="stylesheet" href="../../../assets/css/students/retroaction/retroaction.css">
 </head>
 <body background="../../../assets/img/background.png">
 <div class="main-body">
     <div id="left_bar"></div>
-    <div id="problem">
+    <div id="retroaction">
         <div class="head">
             <div class="title">
-                <h3>Problem</h3>
+                <h3>Retroaction</h3>
                 <span class="down"></span>
             </div>
         </div>
-        <div class="nav">
-            <div class="student">
-                <div class="problem">
-                    <img src="../../../assets/img/student/problem/down.png" alt=""/>
-                    <span>学生常见问题</span>
-                </div>
-                <div class="way">
-                    >常见问题处理方法
-                </div>
-            </div>
-            <div class="teacher">
-                <div class="problem">
-                    <img src="../../../assets/img/student/problem/down.png" alt=""/>
-                    <span>老师常见问题</span>
-                </div>
-                <div class="way">
-                    >常见问题处理方法
-                </div>
-            </div>
-        </div>
         <div class="content">
-            <img src="../../../assets/img/student/problem/content.png" alt=""/>
+            <div class="left">
+                <p>姓名:</p>
+                <p>联系方式:</p>
+                <p>E-mail:</p>
+                <p>您的意见:</p>
+                <p>验证码:</p>
+            </div>
+            <div class="right">
+                <input type="text"/><span>必填</span><br/>
+                <input type="text"/><span>必填</span><br/>
+                <input type="text"/><span>必填</span><br/>
+                <textarea></textarea><span>必填，注200字以内</span><br/>
+                <input type="text"/><span>必填</span>
+                <img src="" alt=""/>
+                <a href="#">看不清,换一张</a><br/>
+                <input type="button" class="button" value="确认"/>
+            </div>
         </div>
     </div>
     <div id="right_bar"></div>
@@ -52,9 +48,10 @@
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../assets/js/load.js"></script>
-<script src="../../../assets/js/student/problem/problem.js"></script>
+<script src="../../../assets/js/student/retroaction/retroaction.js"></script>
+
 <script>
-    load('../../../include/html/','teacher');
+    load('../../../include/html/','school_master');
 </script>
 
 </body>

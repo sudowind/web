@@ -68,6 +68,9 @@
     background: #f9f9f9;
     position: relative;
 }
+.info-list .list{
+    margin: 36px 0 0 34px;
+}
 .file {
     position: relative;
     display: inline-block;
@@ -97,7 +100,7 @@
 }
 
 .info-list p{
-    margin: 10px 0 0 34px;
+    margin: 14px 0 0 34px;
     font-size: 16px;
     font-weight: bold;
     height: 25px;
@@ -108,7 +111,7 @@
     /*text-align: center;*/
 }
 .info-list p span{
-    margin-left: 15px;
+    margin-left: 28px;
     font-weight: normal;
 }
 .info-list .code input{

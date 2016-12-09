@@ -159,7 +159,7 @@ html{
 }
 .index-body form{
     margin-left: 152px;
-    margin-top: 32px;
+    margin-top: 50px;
 }
 .index-body form p{
     margin-top: 24px;
@@ -168,7 +168,7 @@ html{
     width: 200px;
     height: 35px;
     text-align: center;
-    margin-left: 70px;
+    margin-left: 74px;
 }
 .index-body form .time input{
     margin-left: 46px;
@@ -195,8 +195,8 @@ html{
     color: #FFFFFF;
     background: #f99d32;
     border-radius: 8px;
-    margin-top: 25px;
-    margin-left: 74px;
+    margin-top: 40px;
+    margin-left: 76px;
     cursor: pointer;
 }
 .index-body .form-change-pwd{

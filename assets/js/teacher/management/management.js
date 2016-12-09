@@ -16,7 +16,7 @@ $(".add-task").on('click',function(){
 //添加学生的事件
 $("#sure_add_student").on('click',function(){
     $(".modal").modal('hide');
-    add_student($("#className").val());
+    add_student($(".class-name .index").attr('value'));
 });
 
 function add_student(classId){
@@ -76,14 +76,14 @@ function load_student_info(classId, page){
             classId : classId
         },
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             var element_count = 18;
             var start_id = (page - 1) * element_count;
             var end_id = start_id + element_count;
             if (end_id > data.length) {
                 end_id = data.length;
             }
-            console.log(start_id);
+            //console.log(start_id);
             for (var i = start_id; i < end_id; ++i) {
                 if(data[i].gender == '1'){
                     gender = '男';
@@ -212,10 +212,11 @@ function load_classname(){
             $(".class-name p").append(html);
             $(".class-name p span").eq(0).addClass("index");
             //添加学生模态框的班级选项
-            for(var i = 0;i < data.length; i++){
-                add_className_html += '<option value="'+ data[i].id +'">'+ data[i].name +'</option>'
-            }
-            $("#className").append(add_className_html);
+
+            //for(var i = 0;i < data.length; i++){
+            //    add_className_html += '<option value="'+ data[i].id +'">'+ data[i].name +'</option>'
+            //}
+            //$("#className").append(add_className_html);
             load_student_info(class_id, 1);
         }
     });
