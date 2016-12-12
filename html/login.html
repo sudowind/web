@@ -42,14 +42,14 @@
             <form id="login_model">
                 <div class="login-input">
                     <label for="user_name" id="user_name_label"></label>
-                    <input id="user_name" placeholder="输入老师给的账号">
+                    <input id="user_name" placeholder="输入老师给的账号" onkeydown="if (event.keyCode == 13) {login()}">
                 </div>
                 <div class="login-input">
                     <label for="password" id="password_label"></label>
-                    <input id="password" type="password" placeholder="输入密码">
+                    <input id="password" type="password" placeholder="输入密码" onkeydown="if (event.keyCode == 13) {login()}">
                 </div>
                 <p>账号或密码输入错误，请重新输入</p>
-                <div id="submit_button" class="btn">
+                <div id="submit_button" class="btn" onclick="login();">
                     登&nbsp;&nbsp;&nbsp;&nbsp;录
                 </div>
                 <div id="rem_psd">
@@ -160,10 +160,10 @@
 
 <script src="../libs/jquery-2.2.4.js"></script>
 <script src="../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
-<script src="../assets/js/login.js"></script>
 <script src="../assets/js/load.js"></script>
 <script src="../assets/js/tip_modal.js"></script>
 <script src="../assets/js/cookie.js"></script>
+<script src="../assets/js/login.js"></script>
 <script>
     // 为了保证页脚始终在低端，并且保证横向缩放页脚始终居中，分别改变了marginTop和width
     $('#page_footer').load('../include/html/footer.html', function() {

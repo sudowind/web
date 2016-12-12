@@ -139,6 +139,7 @@ function load_teacher_class(teacher_id) {
                 $('.select-class').html(html).find('.option').click(function () {
                     $(this).siblings().removeClass('index');
                     $(this).addClass('index');
+                    has_load_page = false;
                     load_tasks(teacher_id, $(this).attr('value'), 1);
                 });
                 load_tasks(teacher_id, data[0].id, 1);

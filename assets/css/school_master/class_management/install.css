@@ -80,7 +80,7 @@
 .select-class img {
     display: none;
     position: absolute;
-    left: 67px;
+    right: -8px;
     top: -8px;
 }
 

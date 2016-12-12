@@ -35,6 +35,14 @@ function init_value() {
 }
 
 function generate_question(data) {
+
+    // 以下两个变量控制
+    var selectable = '';
+    var click = '';
+    if (window.location.href.indexOf('test.html') > 0) {
+        selectable = 'selectable';
+        click = 'onclick="select_option(this);'
+    }
     var html = '';
     question_id += 1;
     question_answer[data.questionId] = {
@@ -48,7 +56,7 @@ function generate_question(data) {
             // 单选题
             var options = '';
             for (var i = 0; i < data.content.options.length; ++i) {
-                options += '<div class="select-option selectable" value="' + data.content.options[i].id + '" onclick="select_option(this);">' + String.fromCharCode(0x41 + i) + '. ' + data.content.options[i].content + '</div>'
+                options += '<div class="select-option ' + selectable + '" value="' + data.content.options[i].id + '" ' + click + '>' + String.fromCharCode(0x41 + i) + '. ' + data.content.options[i].content + '</div>'
             }
             html = '<div class="question" value="' + data.questionId + '">' +
                 '<div class="question-res">' +
@@ -112,9 +120,7 @@ function generate_answer(data) {
             else {
                 // 回答错误
                 res = '<img src="../../../assets/img/student/tasks/wrong.png" alt="">';
-
             }
-            // TODO 给出批注
             html = '<div class="question" value="' + data.questionId + '">' +
                 '<div class="question-res">' +
                 res +

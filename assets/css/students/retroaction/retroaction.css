@@ -86,7 +86,11 @@
     font-size: 16px;
 }
 
-
+.captcha img {
+    cursor: pointer;
+    width: 90px;
+    height: 30px;
+}
 
 
 

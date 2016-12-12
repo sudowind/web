@@ -61,3 +61,18 @@ String.prototype.format = function(args) {
         return this;
     }
 };
+
+// 用于图书管理
+function set_online_status(is_online) {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'put',
+        url: URL_BASE + '/tasks/web/task/student/current/{0}/onlineStatus'.format($.getUrlParam('task_id')),
+        data: {
+            isOnline: is_online
+        },
+        error: ajax_error_handler
+    })
+}

@@ -36,8 +36,8 @@
                 <input type="text"/><span>必填</span><br/>
                 <textarea></textarea><span>必填，注200字以内</span><br/>
                 <input type="text"/><span>必填</span>
-                <img src="" alt=""/>
-                <a href="#">看不清,换一张</a><br/>
+                <span class="captcha" onclick="load_captcha()"><img src="" alt=""></span>
+                <a href="#" onclick="load_captcha()">看不清,换一张</a><br/>
                 <input type="button" class="button" value="确认"/>
             </div>
         </div>
@@ -48,10 +48,12 @@
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/student/retroaction/retroaction.js"></script>
 
 <script>
     load('../../../include/html/');
+    load_captcha();
 </script>
 
 </body>

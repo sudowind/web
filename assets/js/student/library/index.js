@@ -74,7 +74,7 @@ $(".book .grade span").click(function(){
     $(this).attr("class","index");
 
     var start_score = Number($(this).attr('value'));
-    console.log(start_score);
+    // console.log(start_score);
     if (start_score == 0) {
         curr_start_score = 600;
         curr_end_score = 1200;

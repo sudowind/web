@@ -110,7 +110,7 @@ $('#fp_teacher_confirm_button').click(function () {
     $('#after_input').show();
 });
 
-$('#submit_button').click(function () {
+function login() {
     var account = $('#user_name').val();
     var password = $('#password').val();
     var user_type = $('.main-button').attr('value');
@@ -151,4 +151,6 @@ $('#submit_button').click(function () {
             }
         }
     });
-});
+}
+
+// $('#submit_button').click(login());

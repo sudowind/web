@@ -67,10 +67,28 @@ function load_page() {
         },
         url: URL_BASE + '/tasks/web/task/' + $.getUrlParam('task_id'),
         success: function (data) {
-            if (data.status == 3) {
-                $('#offline_read').html('继续线下阅读');
-                $('#online_read').html('转线上阅读');
+            // if (data.status == 3) {
+            //     $('#offline_read').html('继续线下阅读');
+            //     $('#online_read').html('转线上阅读');
+            // }
+            var online_text = '';
+            var offline_text = '';
+            switch (data.onlineStatus) {
+                case -1:
+                    offline_text = '开始线下阅读';
+                    online_text = '开始线上阅读';
+                    break;
+                case 1:
+                    offline_text = '转线下阅读';
+                    online_text = '继续线上阅读';
+                    break;
+                case 2:
+                    offline_text = '继续线下阅读';
+                    online_text = '转线上阅读';
+                    break;
             }
+            $('#offline_read').html(offline_text);
+            $('#online_read').html(online_text);
         },
         error: ajax_error_handler
     });
