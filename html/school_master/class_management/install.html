@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
+    <link rel="stylesheet" href="../../../libs/select2-4.0.3/dist/css/select2.css">
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../assets/css/school_master/sidebar.css">
@@ -74,8 +75,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div id="class_cancel_button" class="btn">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
                     <div id="class_submit_button" class="btn disabled">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                    <div id="class_cancel_button" class="btn">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
                 </div>
 
             </div>
@@ -83,6 +84,25 @@
     </div>
     <div id="right_bar"></div>
     <div id="tmp_modal"></div>
+    <div class="modal fade" id="select_teacher_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 400px; margin-top: 200px;">
+            <div class="modal-content">
+                <div class="modal-body" style="height: 200px;">
+                    <div id="modal_info">
+                        请给 <b></b> 添加老师
+                        <div id="select_teacher">
+                            <label for="teacher_selector"></label>
+                            <select id="teacher_selector" multiple="multiple">
+                            </select>
+                        </div>
+                    </div>
+                    <div id="add_teacher_confirm_button" data-dismiss="modal" class="btn disabled">确&nbsp;&nbsp;认</div>
+                    <div id="add_teacher_quit" data-dismiss="modal" class="btn">取&nbsp;&nbsp;消</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
@@ -91,6 +111,8 @@
 <script src="../../../libs/laydate/laydate.js"></script>
 <script src="../../../libs/progressbar.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/select2.full.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/tip_modal.js"></script>
@@ -100,6 +122,7 @@
 <script>
     load('../../../include/html/', 'school_master');
     init();
+
 </script>
 
 </body>

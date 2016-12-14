@@ -126,3 +126,28 @@ td input {
     /* IE10+ */
     color: #fb9e1d;
 }
+
+/*模态框*/
+#add_teacher_confirm_button, #add_teacher_quit {
+    background: #fb9e1d;
+    color: #ffffff;
+    margin: auto 10px;
+}
+
+#select_teacher_modal .modal-body {
+    text-align: center;
+    font-size: 16px;
+}
+
+#select_teacher_modal #modal_info {
+    padding: 20px 50px;
+    height: 130px;
+}
+
+#select_teacher {
+    margin: 20px;
+}
+
+#teacher_selector {
+    width: 200px;
+}
