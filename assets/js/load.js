@@ -128,3 +128,17 @@ var ajax_error_handler = function(xhr, textStatus, errorThrown) {
         window.open('../../login.html', '_self');
     }
 };
+
+var error_handler = function () {
+    var obj = arguments;
+    return function(xhr, textStatus, errorThrown) {
+        if (xhr.status == 401) {
+            window.open('../../login.html', '_self');
+        }
+        else {
+            if (typeof obj[0][xhr.status] != 'undefined') {
+                obj[0][xhr.status]()
+            }
+        }
+    }
+};
