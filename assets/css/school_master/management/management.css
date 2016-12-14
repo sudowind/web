@@ -155,7 +155,7 @@ html{
 }
 .modal-body form{
     margin-left: 156px;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 .modal-body form p{
     margin-top: 20px;
@@ -192,7 +192,7 @@ html{
     background: #f99d32;
     border-radius: 8px;
     margin-top: 46px;
-    margin-left: 50px;
+    margin-left: 70px;
     cursor: pointer;
 }
 

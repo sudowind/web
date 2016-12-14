@@ -17,7 +17,6 @@ function add_teacher(){
     }else if($("#girl").is(":checked")) {
         var gender = "2";
     }
-    var schoolEntranceDate = $("#time").val();
     var password = "123456";
 
     $.ajax({
@@ -26,15 +25,15 @@ function add_teacher(){
         },
         contentType: 'application/json',
         type: 'POST',
-        url: URL_BASE + '/users/{client}/school/current/teacher',
+        url: URL_BASE + '/users/web/school/current/teacher',
         data: JSON.stringify([{
             "gender": gender,
             "name":name,
-            "info":{
-                "schoolEntranceDate":schoolEntranceDate
-            },
+            //"info":{
+            //    "schoolEntranceDate":schoolEntranceDate
+            //},
             "password":password,
-            "userType": "2"
+            "userType": "3"
         }]),
         success: function() {
             $(".student-information").remove();
@@ -42,7 +41,9 @@ function add_teacher(){
         }
     });
 }
-//获取年级列表
+
+
+
 
 
 //切分年级的函数

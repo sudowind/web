@@ -60,7 +60,7 @@
     font-weight: bold;
     font-size: 18px;
     float: left;
-    margin-top: 30px;
+    margin-top: 46px;
     margin-left: 15px;
 }
 .book .sort span{
@@ -75,20 +75,43 @@
     font-family: "Microsoft YaHei", serif;
     cursor:pointer;
 }
+.book .className p{
+    font-weight: bold;
+    font-size: 18px;
+    float: left;
+    margin-top: 22px;
+    margin-left: 15px;
+}
+.book .className span{
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #f99d32;
+    border-radius: 10px;
+    padding: 0px 18px;
+    margin-top: 20px;
+    margin-left: 14px;
+    display: inline-block;
+    font-family: "Microsoft YaHei", serif;
+    cursor:pointer;
+}
 .book .grade p{
     font-weight: bold;
     font-size: 18px;
     float: left;
     margin-top: 26px;
     margin-left: 15px;
-    margin-bottom: 20px;
+}
+.book .className{
+    background: #f9f9f9;
+    border-bottom: 1px dashed #d8d8d8;
+    padding-bottom: 18px;
 }
 .book .grade span{
     line-height: 28px;
     text-align: center;
     border: 1px solid #f99d32;
     border-radius: 10px;
-    padding: 0px 20px;
+    padding: 0px 18px;
     margin-top: 20px;
     margin-left: 14px;
     display: inline-block;
@@ -101,32 +124,6 @@
 .book .grade {
     background: #f9f9f9;
 }
-.book .className p{
-    font-weight: bold;
-    font-size: 18px;
-    float: left;
-    margin-top: 26px;
-    margin-left: 15px;
-    margin-bottom: 20px;
-}
-.book .className span{
-    line-height: 28px;
-    text-align: center;
-    border: 1px solid #f99d32;
-    border-radius: 10px;
-    padding: 0px 20px;
-    margin-top: 24px;
-    margin-left: 14px;
-    display: inline-block;
-    font-family: "Microsoft YaHei", serif;
-    cursor:pointer;
-}
-.book .className {
-    padding-bottom: 20px;
-    border-bottom: 1px dashed #e8e8e8;
-    background: #f9f9f9;
-}
-
 .book .read-lv{
     height: 66px;
     background: #f9f9f9;

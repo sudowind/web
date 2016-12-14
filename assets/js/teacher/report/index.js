@@ -46,7 +46,7 @@ function load_table_student (stu_selector){
         $(stu_selector + ' .read-num').html(read_num);
         $(stu_selector + ' .book-num').html(book_num);
         $(stu_selector + ' .accuracy').html(accuracy + '%');
-        $(stu_selector + ' .operation').html('<a href="#">'+ operation +'</a>');
+        $(stu_selector + ' .operation').html('<a href="detail.html">'+ operation +'</a>');
     });
 }
 
