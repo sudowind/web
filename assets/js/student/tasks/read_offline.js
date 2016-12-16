@@ -67,6 +67,11 @@ $('#record_button').click(function () {
             return;
         }
 
+        if (start_time_stamp > end_time_stamp) {
+            my_tip.alert('开始阅读时间必须小于结束阅读时间！');
+            return;
+        }
+
         $.ajax({
             xhrFields: {
                 withCredentials: true

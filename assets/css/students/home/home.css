@@ -84,10 +84,19 @@
     width: 98px;
     height: 30px;
     margin-top: 8px;
-    background: #776c60;
     border-radius: 4px;
     color: #FFFFFF;
     line-height: 30px;
+}
+.has-checked {
+    background: #776c60;
+}
+.has-not-checked {
+    background: #fb9e1d;
+    cursor: pointer;
+}
+#checked_info {
+    display: none;
 }
 .statistics {
     width: 483px;

@@ -152,3 +152,15 @@ $('.sortable-column').click(function () {
     obj.siblings('.sortable-column').removeClass('column-index').find('img').attr('src', '../../../assets/img/teacher/sort.png');
     obj.addClass('column-index');
 });
+
+function load_leaderboard() {
+    // 加载学霸榜
+    var html = '';
+    $.ajax({
+        success: function (data) {
+            for (var i in data) {
+                html += '';
+            }
+        }
+    });
+}

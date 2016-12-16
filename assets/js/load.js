@@ -130,6 +130,7 @@ var ajax_error_handler = function(xhr, textStatus, errorThrown) {
 };
 
 var error_handler = function () {
+    // 错误的处理方法写在函数参数里
     var obj = arguments;
     return function(xhr, textStatus, errorThrown) {
         if (xhr.status == 401) {
