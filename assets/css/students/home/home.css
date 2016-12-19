@@ -187,7 +187,9 @@
     margin-top: 12px;
     margin-left: 34px;
     font-size: 25px;
+    width: 30px;
     color: #FFFFFF;
+    text-align: center;
 }
 .top-list .me img{
     float: left;

@@ -4,6 +4,7 @@
 
 var has_load_book = false;
 var BOOK_STATUS = 2;    // 2表示阅读中，4表示已读完
+var TASK_FINISH = 5;
 var REPORTER = getCookie('USER');
 
 function left_bar_cb() {
@@ -11,7 +12,7 @@ function left_bar_cb() {
 }
 
 var book_handler = function () {
-    if (BOOK_STATUS == 4 && REPORTER == getCookie('USER')) {
+    if (BOOK_STATUS == TASK_FINISH && REPORTER == getCookie('USER')) {
         $(".book .sort .read").addClass("index");
         $(".book .sort .reading").removeClass("index");
         $(".list").hover(
@@ -25,7 +26,7 @@ var book_handler = function () {
         $(".check").css("display","block");
         $(".list-book .reading").css("display","none");
     }
-    else if (BOOK_STATUS == 4) {
+    else if (BOOK_STATUS == TASK_FINISH) {
         $(".book .sort .read").addClass("index");
         $(".book .sort .reading").removeClass("index");
         $(".check").css("display","block");
@@ -46,8 +47,8 @@ $(".book .sort .read").click(function(){
         reporter_id = getCookie('USER');
     }
     has_load_book = false;
-    BOOK_STATUS = 4;
-    load_book(4, reporter_id, 0, 8, book_handler);
+    BOOK_STATUS = TASK_FINISH;
+    load_book(TASK_FINISH, reporter_id, 0, 8, book_handler);
 });
 $(".book .sort .reading").click(function(){
     var reporter_id = $(".grade .index").attr('value');
@@ -63,7 +64,7 @@ var is_load_time = false;
 function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
     REPORTER = reporter_id;
     var html = '';
-    is_load_time = (task_status != 4 && reporter_id != getCookie('USER'));
+    is_load_time = (task_status != TASK_FINISH && reporter_id != getCookie('USER'));
     $.ajax({
         xhrFields: {
             withCredentials: true

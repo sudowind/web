@@ -9,10 +9,34 @@ function right_bar_cb() {
 function init() {
     for (var i = 0; i <= 6; ++i) {
         load_table_classes('#cla-row' + i);
-    };
+    }
     for (var i = 0;i <= 10 ;i ++){
         load_table_student('#stu-row' + i);
     }
+
+    // 加载老师班级信息，加载学霸榜
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/users/web/class/teacher/current/list',
+        type: 'get',
+        success: function (data) {
+            console.log(data);
+            var html = '<span class="index" value="{0}" grade="{2}">{1}</span>'.format(data[0].id, data[0].name, data[0].grade);
+            for (var i = 1; i < data.length; ++i) {
+                html += '<span value="{0}" grade="{2}">{1}</span>'.format(data[i].id, data[i].name, data[i].grade);
+            }
+            $('#teacher_classes').append(html);
+            $('#teacher_classes span').click(function() {
+                $(this).siblings().removeClass("index");
+                $(this).addClass("index");
+                load_rank_list('teacher', $(this).attr('grade'));
+            });
+            load_rank_list('teacher', data[0].grade);
+        },
+        error: error_handler()
+    });
 }
 
 //班级表现的函数

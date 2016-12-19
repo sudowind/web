@@ -13,6 +13,8 @@ function init() {
     for (var i = 0;i <= 10 ;i ++){
         load_table_student('#stu-row' + i);
     }
+    // load_rank_list('teacher');
+    load_grade();
 }
 
 //班级表现的函数
@@ -82,7 +84,7 @@ $(".right .option span").click(function(){
 var class_performance;
 var student_performance;
 
-function load_class_performance() {
+function load_class_performance(class_id) {
     $.ajax({
         success: function(data) {
             // 将数据加载到变量中
@@ -91,7 +93,7 @@ function load_class_performance() {
     });
 }
 
-function load_student_performance() {
+function load_student_performance(class_id) {
     $.ajax({
         success: function (data) {
             student_performance = data;
@@ -153,14 +155,47 @@ $('.sortable-column').click(function () {
     obj.addClass('column-index');
 });
 
-function load_leaderboard() {
-    // 加载学霸榜
-    var html = '';
+function load_class(grade) {
     $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/class/grade/{0}/list'.format(grade),
         success: function (data) {
-            for (var i in data) {
-                html += '';
+            // console.log(data);
+            var html = '';
+            for (var i = 0; i < data.length; ++i) {
+                html += '<option value="{0}">{1}</option>'.format(data[i].id, data[i].name);
             }
-        }
+            $('#class_selector').html(html).select2({
+                language: 'zh-CN'
+            }).on('select2:select', function(evt){
+                load_class_performance($(this).val());
+                load_student_performance($(this).val());
+            });
+        },
+        error: error_handler()
+    })
+}
+
+function load_grade() {
+    var date = new Date();
+    var base_year = 1900 - 6 + date.getYear();
+    if (date.getMonth() >= 7) {
+        base_year += 1;
+    }
+    var html = '<option value="{0}">{0}级</option>'.format(base_year.toString());
+    for (var i = 1; i < 6; ++i) {
+        html += '<option value="{0}">{0}级</option>'.format((base_year + i).toString());
+    }
+    $('#grade_selector').html(html).select2({
+        language: 'zh-CN'
+    }).on('select2:select', function (evt) {
+        load_class($(this).val());
+        load_rank_list('school_master', $(this).val());
     });
+
+    load_class(base_year);
+    load_rank_list('school_master', base_year);
 }

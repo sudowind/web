@@ -7,6 +7,7 @@
     <title>Title</title>
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../libs/select2-4.0.3/dist/css/select2.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../assets/css/nav_bar.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
@@ -24,11 +25,11 @@
                 <span class="down"></span>
             </div>
             <div class="left">
-                <select name="" id="className">
-                    <option value="2015级1班">2015级1班</option>
-                    <option value="2015级2班">2015级2班</option>
-                    <option value="2015级3班">2015级3班</option>
-                </select>
+                <!--<select name="" id="className">-->
+                    <!--<option value="2015级1班">2015级1班</option>-->
+                    <!--<option value="2015级2班">2015级2班</option>-->
+                    <!--<option value="2015级3班">2015级3班</option>-->
+                <!--</select>-->
                 <div class="top">
                     <h3 class="title">
                         <img src="../../../assets/img/student/home/cup.png" alt=""/><span>学霸榜</span>
@@ -96,16 +97,29 @@
             </div>
             <div class="right">
                 <div class="option">
-                    <div>班级
-                        <span class="index">2015级1班</span>
-                        <span>2015级2班</span>
-                        <span>2015级3班</span>
+                    <div class="selector">
+                        <label for="grade_selector">年级：&nbsp;&nbsp;</label><select id="grade_selector">
+                            <option value="1">2013</option>
+                            <option value="1">2013</option>
+                            <option value="1">2013</option>
+                            <option value="1">2013</option>
+                        </select>
                     </div>
-                    <div>时间
-                        <input class="laydate laydate-icon" onclick="laydate()" placeholder="" >
-                        <img src="../../../assets/img/teacher/unheng.png" alt=""/>
-                        <input class="laydate laydate-icon" onclick="laydate()" placeholder="" >
+                    <div class="selector">
+                        <label for="class_selector">班级：&nbsp;&nbsp;</label><select id="class_selector">
+                            <option value="1">2013</option>
+                            <option value="1">2013</option>
+                            <option value="1">2013</option>
+                            <option value="1">2013</option>
+                        </select>
                     </div>
+
+
+                    <!--<div>班级-->
+                        <!--<input class="laydate laydate-icon" onclick="laydate()" placeholder="" >-->
+                        <!--<img src="../../../assets/img/teacher/unheng.png" alt=""/>-->
+                        <!--<input class="laydate laydate-icon" onclick="laydate()" placeholder="" >-->
+                    <!--</div>-->
                 </div>
                 <div class="tab book-detail-box">
                     <div class="nav-bar">
@@ -288,13 +302,17 @@
 <script src="../../../libs/laydate/laydate.js"></script>
 <script src="../../../libs/progressbar.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/select2.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
 <script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/plot.js"></script>
 <script src="../../../assets/js/school_master/report/index.js"></script>
 
 
 <script>
     load('../../../include/html/','school_master');
     init();
+    $('select').select2();
 </script>
 </body>
 </html>

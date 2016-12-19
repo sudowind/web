@@ -35,13 +35,12 @@ function init_value() {
 }
 
 function generate_question(data) {
-
     // 以下两个变量控制
     var selectable = '';
     var click = '';
     if (window.location.href.indexOf('test.html') > 0) {
         selectable = 'selectable';
-        click = 'onclick="select_option(this);'
+        click = 'onclick="select_option(this);"'
     }
     var html = '';
     question_id += 1;
@@ -60,17 +59,12 @@ function generate_question(data) {
             }
             html = '<div class="question" value="' + data.questionId + '">' +
                 '<div class="question-res">' +
-                '<!--<img src="../../../assets/img/student/tasks/wrong.png" alt="">-->' +
                 '</div>' +
                 '<div class="question-content">' +
                 '<div class="question-q">' + question_id.toString() + '. ' + data.content.title + '</div>' +
                 options +
-                // '<div class="answer">' +
-                // '<div class="answer-analysis">解析：<br />test test</div><div class="true-answer">正确答案<br />A</div><div></div>' +
-                // '</div>' +
                 '</div>' +
                 '</div>';
-
             break;
         case 2:
             question_type[2] = true;
@@ -219,11 +213,11 @@ function load_questions(exam_id) {
                         }
                         $('#test_submit').removeClass('hide');
                     },
-                    error: ajax_error_handler
+                    error: error_handler()
                 });
             }
         },
-        error: ajax_error_handler
+        error: error_handler()
     });
 }
 
@@ -239,7 +233,7 @@ function load_exam() {
         success: function (data) {
             $('#book_name').html(data.name);
         },
-        error: ajax_error_handler
+        error: error_handler()
     });
 
 //    先加载这本书有哪些题目

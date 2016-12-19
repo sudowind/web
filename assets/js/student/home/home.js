@@ -116,7 +116,7 @@ function load_info(){
         success: function(data) {
             // console.log(data.headimg);
             $(".head-img img").attr('src',data.headimg);
-
+            $('.name').html(data.name);
             //$(".name span").html(data.name);
             //$(".birth span").html(data.birthday);
             //$(".email span").html(data.email);
@@ -131,7 +131,7 @@ function load_info(){
             //}
 
         },
-        error: ajax_error_handler
+        error: error_handler()
     });
 }
 
@@ -147,7 +147,7 @@ function check_in() {
             $('#checked_info').slideDown();
             $('#continue_count').html(data.continueCount);
         },
-        error: error_handler
+        error: error_handler()
     });
 }
 
@@ -171,12 +171,23 @@ function init() {
                 obj.click(check_in);
             }
         },
-        error: error_handler
+        error: error_handler()
     });
     // 获取排行榜信息
-    $.ajax({
-
-    });
+    load_rank_list('student');
 
     // 获取其他数据
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/statistic/web/timeline/student/current/studentCurrentInfo',
+        type: 'get',
+        success: function (data) {
+            $('#book_count').html(data.studentReadingInfo.bookCount);
+            $('#word_count').html(data.studentReadingInfo.wordCount);
+            $('#time_count').html(Math.ceil(Number(data.studentReadingInfo.timeCount) / 6000));
+        },
+        error: error_handler()
+    });
 }
