@@ -79,10 +79,88 @@ $(".right .option span").click(function(){
     $(this).addClass("index");
 });
 
-function load_class_performance() {
+var class_performance;
+var student_performance;
 
+function load_class_performance() {
+    $.ajax({
+        success: function(data) {
+            // 将数据加载到变量中
+            class_performance = data;
+        }
+    });
 }
 
 function load_student_performance() {
+    $.ajax({
+        success: function (data) {
+            student_performance = data;
+        }
+    });
+}
 
+function load_table(page, elem_per_page, sort_by,  order, type) {
+    // type 表示要加载班级表格还是学生表格
+    // 加载出表格
+    var data;
+    var dom_elem;
+    if (type == 'class') {
+        data = class_performance.slice();
+        dom_elem = '.classes-info-part table';
+    }
+    else {
+        data = student_performance.slice();
+        dom_elem = '.student-show-list table';
+    }
+
+    data = data.sort(function(a, b){
+        if (order == 'reverse') {
+            return b[sort_by] - a[sort_by];
+        }
+        return a[sort_by] - b[sort_by];
+    });
+
+    var start_index = (page - 1) * elem_per_page;
+    var end_index = start_index + elem_per_page;
+    if (end_index > data.length) {
+        end_index = data.length;
+    }
+
+    var html = '<tbody>';
+    for (var i = start_index; i < end_index; ++i) {
+        html += '';
+    }
+    html += '</tbody>';
+    $(dom_elem).append(html);
+
+}
+
+$('.sortable-column').click(function () {
+    // alert($(this).find('img').attr('src'));
+    var obj = $(this);
+    var img_src = obj.find('img').attr('src');
+    if (img_src.indexOf('up') > 0) {
+        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png')
+    }
+    else if (img_src.indexOf('down') > 0) {
+        obj.find('img').attr('src', '../../../assets/img/teacher/up_triangle.png')
+    }
+    else {
+        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png')
+    }
+
+    obj.siblings('.sortable-column').removeClass('column-index').find('img').attr('src', '../../../assets/img/teacher/sort.png');
+    obj.addClass('column-index');
+});
+
+function load_leaderboard() {
+    // 加载学霸榜
+    var html = '';
+    $.ajax({
+        success: function (data) {
+            for (var i in data) {
+                html += '';
+            }
+        }
+    });
 }

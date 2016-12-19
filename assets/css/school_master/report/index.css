@@ -114,6 +114,18 @@
     margin-right: 5px;
 }
 
+/*可排序表头*/
+.sortable-column {
+    cursor: pointer;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.column-index {
+    font-weight: bold;
+}
+
 /*班级表现*/
 .tab .classes-info-part {
     height: 415px;
@@ -330,7 +342,6 @@
     margin-left: 12px;
     line-height: 16px;
 }
-
 
 /*分页部分*/
 a:hover{ text-decoration:none;}

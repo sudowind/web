@@ -134,3 +134,49 @@ function load_info(){
         error: ajax_error_handler
     });
 }
+
+function check_in() {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'post',
+        url: URL_BASE + '/statistic/web/signIn',
+        success: function (data) {
+            $('#check_in').unbind('click', check_in).removeClass('has-not-checked').addClass('has-checked').html('已签到');
+            $('#checked_info').slideDown();
+            $('#continue_count').html(data.continueCount);
+        },
+        error: error_handler
+    });
+}
+
+function init() {
+    // 获取签到信息
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/statistic/web/signIn',
+        success: function (data) {
+            var obj = $('#check_in');
+            if (data.hasSignIn) {
+                obj.html('已签到').addClass('has-checked disabled');
+                $('#checked_info').show();
+                $('#continue_count').html(data.continueCount);
+            }
+            else {
+                obj.html('签到').addClass('has-not-checked');
+                obj.click(check_in);
+            }
+        },
+        error: error_handler
+    });
+    // 获取排行榜信息
+    $.ajax({
+
+    });
+
+    // 获取其他数据
+}

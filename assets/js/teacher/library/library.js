@@ -129,7 +129,7 @@ function fill_book(data) {
                         '<span>'+ data.studentReadCount +'</span>位同学已读完' +
                     '</div>' +
                     '<span class="type">' + data.displayTypeName + '</span>'+
-                    '<p>有题</p>'+
+                    '<p>' + data.examStatus + '</p>'+
                 '</div>'+
             '</div>';
 }

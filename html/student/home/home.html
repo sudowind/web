@@ -18,7 +18,7 @@
     <div id="home">
         <div class="content">
             <div class="title">
-                <h3>State</h3>
+                <h3>我的主页</h3>
                 <span class="down"></span>
             </div>
             <div class="sign-in">
@@ -32,12 +32,14 @@
                     <div class="name">
                         苏苏
                     </div>
-                    <p>连续签到<span>6</span>天</p>
-                    <div class="right">
-                        <img src="../../../assets/img/student/home/right.png" alt=""/>
+                    <div id="checked_info">
+                        <p>连续签到<span id="continue_count">6</span>天</p>
+                        <div class="right">
+                            <img src="../../../assets/img/student/home/right.png" alt=""/>
+                        </div>
                     </div>
                     <!--<div class="btn">签到</div>-->
-                    <div class="btn-already">已签到</div>
+                    <div class="btn-already" id="check_in">已签到</div>
                 </div>
             </div>
             <div class="statistics">
@@ -230,6 +232,7 @@
     bar.animate(0.70);  // Number from 0.0 to 1.0
 //加载个人信息
     load_info();
+    init();
 </script>
 
 </body>

@@ -76,3 +76,23 @@ function set_online_status(is_online) {
         error: ajax_error_handler
     })
 }
+
+// window.onload = function () {
+//     // 测试鼠标绑定事件
+//     $(document).mouseup(function(e){
+//         var text = document.getSelection().toString();
+//         $('#teacher_name').html('{0}'.format(text));
+//         if (text.length > 0) {
+//             $('.context-menu').remove();
+//             $('body .main-body').append('<div class="context-menu" style="background: #ffffff; position: fixed; top: {0}px; left: {1}px">{2}</div>'.format(e.clientY, e.clientX, text));
+//         }
+//     }).contextmenu(function (e) {
+//         $('.context-menu').remove();
+//         $('body .main-body').append('<div class="context-menu" style="background: #ffffff; position: fixed; top: {0}px; left: {1}px">haha</div>'.format(e.clientY, e.clientX));
+//         return false
+//     }).click(function (e) {
+//         var text = document.getSelection().toString();
+//         if (text.length <= 0)
+//             $('.context-menu').remove();
+//     });
+// };

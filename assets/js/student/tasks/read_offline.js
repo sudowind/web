@@ -67,6 +67,11 @@ $('#record_button').click(function () {
             return;
         }
 
+        if (start_time_stamp > end_time_stamp) {
+            my_tip.alert('开始阅读时间必须小于结束阅读时间！');
+            return;
+        }
+
         $.ajax({
             xhrFields: {
                 withCredentials: true
@@ -88,7 +93,9 @@ $('#record_button').click(function () {
                 load_progress();
                 my_tip.alert('记录成功！');
             },
-            error: ajax_error_handler
+            error: error_handler({400: function(){
+                my_tip.alert('阅读结束时间不能超过当前时间！');
+            }})
         });
     }
     else {

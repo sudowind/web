@@ -8,7 +8,7 @@
     height: 80px;
 }
 
-#my_tip_modal #modal_confirm_button, #modal_quit {
+#my_tip_modal #modal_confirm_button, #my_tip_modal #modal_quit {
     background: #fb9e1d;
     color: #ffffff;
     margin: auto 10px;

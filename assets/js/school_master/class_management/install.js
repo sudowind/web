@@ -109,6 +109,36 @@ function load_grade_class(grade) {
 }
 
 function init() {
+    // 先加载学校的所有老师
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/school/current/teacher/list',
+        success: function (data) {
+            var teacher_list = [];
+            for (var i = 0; i < data.length; ++i) {
+                teacher_list.push({
+                    id: data[i].id,
+                    text: data[i].name
+                });
+            }
+            $('#teacher_selector').select2({
+                data: teacher_list,
+                language: 'zh-CN'
+            }).on('select2:select select2:unselect', function(evt) {
+                var teacher_list = $('#teacher_selector').val();
+                if (teacher_list.length > 0) {
+                    $('#add_teacher_confirm_button').removeClass('disabled');
+                }
+                else {
+                    $('#add_teacher_confirm_button').addClass('disabled');
+                }
+            });
+        }
+    });
+
     var date = new Date();
     var base_year = 1900 - 6 + date.getYear();
     if (date.getMonth() >= 7) {
@@ -154,37 +184,77 @@ function init() {
 }
 
 $('#class_submit_button').click(function () {
-    // if (class_name == '') {
-    //     class_name = $('#class_input').find('input').val();
-    // }
-    // if (class_name == '') {
-    //     my_tip.alert('请选择班级！');
-    // }
-    // my_tip.alert(class_name + grade_name);
+
     var name = grade_name + class_name;
     var grade = Number(grade_name.substr(0, 4));
-    my_tip.bind('确定要创建 <b>{0}</b>？'.format(name), function () {
-        $.ajax({
-            xhrFields: {
-                withCredentials: true
-            },
-            type: 'post',
-            url: URL_BASE + '/users/web/class',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                createTime: 0,
-                grade: grade,
-                id: 0,
-                name: name,
-                schoolId: 0
-            }),
-            success: function (data) {
-                var obj = $('.select-grade .option[value={0}]'.format(grade));
-                obj.siblings().removeClass('index');
-                obj.addClass('index');
-                load_grade_class(obj.attr('value'));
-            },
-            error: ajax_error_handler
-        })
-    });
+
+    var modal_obj = $('#select_teacher_modal');
+    modal_obj.find('#modal_info b').html(name);
+    modal_obj.modal('show');
+
+    // my_tip.bind('确定要创建 <b>{0}</b>？'.format(name), function () {
+    //     $.ajax({
+    //         xhrFields: {
+    //             withCredentials: true
+    //         },
+    //         type: 'post',
+    //         url: URL_BASE + '/users/web/class',
+    //         contentType: 'application/json',
+    //         data: JSON.stringify({
+    //             createTime: 0,
+    //             grade: grade,
+    //             id: 0,
+    //             name: name,
+    //             schoolId: 0
+    //         }),
+    //         success: function (data) {
+    //             var obj = $('.select-grade .option[value={0}]'.format(grade));
+    //             obj.siblings().removeClass('index');
+    //             obj.addClass('index');
+    //             load_grade_class(obj.attr('value'));
+    //         },
+    //         error: ajax_error_handler
+    //     })
+    // });
+});
+
+$('#add_teacher_confirm_button').click(function () {
+    var name = grade_name + class_name;
+    var grade = Number(grade_name.substr(0, 4));
+    var teacher_list = $('#teacher_selector').val();
+
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'post',
+        url: URL_BASE + '/users/web/class',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            createTime: 0,
+            grade: grade,
+            id: 0,
+            name: name,
+            schoolId: 0
+        }),
+        success: function (data) {
+            $.ajax({
+                xhrFields: {
+                    withCredentials: true
+                },
+                type: 'put',
+                url: URL_BASE + '/users/web/class/{0}/teachers'.format(data.id),
+                contentType: 'application/json',
+                data: JSON.stringify(teacher_list.map(function(e){return Number(e);})),
+                success: function (data) {
+                    var obj = $('.select-grade .option[value={0}]'.format(grade));
+                    obj.siblings().removeClass('index');
+                    obj.addClass('index');
+                    load_grade_class(obj.attr('value'));
+                },
+                error: ajax_error_handler
+            });
+        },
+        error: ajax_error_handler
+    })
 });
