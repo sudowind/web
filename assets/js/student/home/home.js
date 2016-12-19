@@ -152,6 +152,7 @@ function check_in() {
 }
 
 function init() {
+    // 获取签到信息
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -171,5 +172,11 @@ function init() {
             }
         },
         error: error_handler
-    })
+    });
+    // 获取排行榜信息
+    $.ajax({
+
+    });
+
+    // 获取其他数据
 }

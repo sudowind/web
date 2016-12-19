@@ -134,7 +134,7 @@ function load_teacher_class(teacher_id) {
             success: function (data) {
                 var html = '<span class="index option" value="{0}">{1}</span>'.format(data[0].id, data[0].name);
                 for (var i = 1; i < data.length; ++i) {
-                    html += '<span class="option" value="{0}">{1}</span>'.format(data[1].id, data[i].name);
+                    html += '<span class="option" value="{0}">{1}</span>'.format(data[i].id, data[i].name);
                 }
                 $('.select-class').html(html).find('.option').click(function () {
                     $(this).siblings().removeClass('index');
