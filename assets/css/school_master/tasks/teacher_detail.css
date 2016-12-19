@@ -38,28 +38,28 @@
     font-weight: bold;
 }
 
-.select-title {
-    width: 120px;
-    vertical-align: text-top;
-    min-height: 60px;
-}
-
 .select-part table {
     width: 100%;
 }
 
 .select-part td {
-    padding: 10px;
+    /*padding: 10px;*/
     min-height: 58px;
 }
 
+.select-title {
+    /*width: 120px;*/
+    vertical-align: top;
+    min-height: 60px;
+    padding: 10px;
+}
 .select-part tr:not(:last-child) {
     border-bottom: dotted 1px #d8d8d8;
 }
 
 .select-part span {
     display: inline-block;
-    margin: 5px;
+    margin: 10px;
     /*height: 28px;*/
 }
 

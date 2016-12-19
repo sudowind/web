@@ -265,15 +265,14 @@
     width: 60px;
 }
 
-
-
 /*Ñ§°Ô°ñ²¿·Ö*/
 .top{
     width: 230px;
-    height: 840px;
-    float: left;margin-top: 10px;
+    height: 800px;
+    float: left;
     box-shadow: 1px 1px 3px #ccc;
     border-radius: 6px;
+    margin-top: 10px;
 }
 .top .title {
     height: 90px;

@@ -120,7 +120,7 @@ function fill_book(data) {
                 '<div class="list-book">'+
                     '<a href="book.html?book_id=' + data.id + '">'+
                         '<div class="image">'+
-                            '<img src=' + data.coverUri + ' alt=""/>'+
+                            '<img src="' + data.coverUri + '" alt=""/>'+
                             '<span>'+ data.levelScore +'</span>'+
                             '<div class="book-name">' + data.name + '</div>'+
                         '</div>'+

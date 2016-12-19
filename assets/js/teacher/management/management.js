@@ -160,8 +160,6 @@ function load_student_info(classId, page){
                             my_tip.bind(text, function() {
 
                             });
-
-
                         }
                     });
                 })
