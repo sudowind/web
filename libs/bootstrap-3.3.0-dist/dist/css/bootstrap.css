@@ -3229,8 +3229,8 @@ tbody.collapse.in {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
-  padding: 5px 0;
+  /*min-width: 160px;*/
+  /*padding: 5px 0;*/
   margin: 2px 0 0;
   font-size: 14px;
   text-align: left;
@@ -3259,7 +3259,7 @@ tbody.collapse.in {
   padding: 3px 20px;
   clear: both;
   font-weight: normal;
-  line-height: 1.42857143;
+  line-height: 2;
   color: #333;
   white-space: nowrap;
 }

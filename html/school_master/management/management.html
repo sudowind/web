@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
     <meta name="viewport" content="width=device-width">
-    <title>Title</title>
+    <title>老师管理</title>
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
     <link rel="stylesheet" href="../../../assets/css/school_master/management/management.css">
@@ -19,7 +20,7 @@
     <div id="task">
         <div class="content">
             <div class="title">
-                <h3>Management</h3>
+                <h3>老师管理</h3>
                 <span class="down"></span>
             </div>
             <div class="seek">
@@ -47,45 +48,32 @@
                     <li>所带班级</li>
                     <li>操作</li>
                 </ol>
-                <ul class="teacher-information">
+                <!--<ul class="teacher-information">
                     <li>10001</li>
                     <li>王澈</li>
                     <li>女</li>
-                    <li>2015级2班</li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                2016级1班
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2016级1班</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2016级2班</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2016级3班</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2016级4班</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     <li>删除</li>
-                </ul>
+                </ul>-->
             </div>
 
             <!-- 模态框（Modal） -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="width: 620px; margin-top: 400px;">
-                    <div class="modal-content">
                         <div class="modal-body">
-                            <!--<form action="" class="add-teacher">-->
-                                <!--<p>-->
-                                    <!--账&nbsp;号 <input type="text" value="10086"/>-->
-                                <!--</p>-->
-                                <!--<p class="initial">-->
-                                    <!--初始密码<span>123456</span>-->
-                                <!--</p>-->
-                                <!--<p>-->
-                                    <!--姓&nbsp;名 <input type="text" class="name" value="甘婷"/>-->
-                                <!--</p>-->
-                                <!--<p class="sex">性&nbsp;别-->
-                                <!--<span>-->
-                                    <!--<input id="boy" type="radio" name="x1" checked>&nbsp;&nbsp;&nbsp;&nbsp;男<input id="girl" type="radio" name="x1">&nbsp;&nbsp;&nbsp;&nbsp;女-->
-                                <!--</span>-->
-                                <!--</p>-->
-                                <!--<p>所带班级-->
-                                    <!--<select name="" id="">-->
-                                        <!--<option value="2015级1班">2015级1班</option>-->
-                                        <!--<option value="2015级2班">2015级2班</option>-->
-                                        <!--<option value="2015级3班">2015级3班</option>-->
-                                        <!--<option value="2015级4班">2015级4班</option>-->
-                                    <!--</select>-->
-                                <!--</p>-->
-                                <!--<div class="submit">确定</div>-->
-                            <!--</form>-->
                             <form class="add-teacher">
                                 <p>
                                     姓&nbsp;名 <input class="name" type="text" value=""/>
@@ -96,20 +84,13 @@
                                         <input id="girl" type="radio" name="auto">&nbsp;&nbsp;&nbsp;&nbsp;女
                                     </span>
                                 </p>
-                                <p>班&nbsp;级
-                                    <select name="" id="className">
-                                        <!--<option value="2015级1班">2015级1班</option>-->
-                                        <!--<option value="2015级2班">2015级2班</option>-->
-                                    </select>
-                                </p>
                                 <p class="initial">
                                     初始密码<span>123456</span>
                                 </p>
-                                <div class="submit" id="sure_add_student">确定</div>
+                                <div class="submit" id="sure_add_teacher">确定</div>
                             </form>
                             <!--</div>-->
                         </div>
-                    </div><!-- /.modal-content -->
                 </div><!-- /.modal -->
             </div>
             <!--分页-->
@@ -117,21 +98,24 @@
         </div>
     </div>
     <div id="right_bar"></div>
+    <div id="tmp_modal"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
-<!--<script src="../../../assets/js/student/tasks/tasks.js"></script>-->
 <script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/school_master/management/management.js"></script>
+
 
 <script>
     load('../../../include/html/', 'school_master');
     //切分年级的函数
     init_grade();
+    load_teacher();
 </script>
 </body>
 </html>

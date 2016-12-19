@@ -255,7 +255,7 @@
 .top{
     width: 230px;
     height: 800px;
-    float: left;margin-top: 10px;
+    float: left;
     box-shadow: 1px 1px 3px #ccc;
     border-radius: 6px;
 }

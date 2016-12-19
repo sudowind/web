@@ -54,6 +54,7 @@ html{
     height: 40px;
     border: 1px solid #f99d32;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .seek .add-task p{
@@ -79,12 +80,16 @@ html{
     margin-left: 15px;
     float: left;
 }
+.content .class-name p:nth-child(2){
+    margin-left: 0px;
+}
 .content .class-name p span{
     border: 1px solid #f99d32;
     border-radius: 8px;
     font-size: 16px;
     padding: 7px 10px;
-    margin-left: 18px;
+    margin-left: 14px;
+    cursor: pointer;
 }
 .content .class-name p .index{
     color: #FFFFFF;
@@ -110,42 +115,47 @@ html{
     float: left;
     margin-left: 84px;
 }
-.information ul{
+.information .teacher-information{
     font-size: 16px;
     height: 44px;
     padding: 0 36px;
 }
-.information ul li{
+.information .teacher-information li{
     float: left;
     color: #000000;
     line-height: 44px;
-    width: 100px;
+    width: 135px;
     text-align: center;
 }
-.information ul li:nth-of-type(1){
+.information .teacher-information > li:nth-of-type(1){
     width: 128px;
 }
-.information ul li:nth-of-type(2){
+.information .teacher-information > li:nth-of-type(2){
     width: 110px;
 }
-.information ul li:nth-of-type(3){
+.information .teacher-information > li:nth-of-type(3){
     width: 128px;
 }
-.information ul li:nth-of-type(4){
+.information .teacher-information > li:nth-of-type(4){
     width: 138px;
+    margin-right: 30px;
 }
-.information ul li:nth-of-type(5){
-    width: 134px;
+.information .teacher-information > li:nth-of-type(5){
+    width: 76px;
+    cursor: pointer;
 }
 
 /*点击查看学生信息的弹窗*/
+.modal-content{
+    height: 0;
+}
 .modal-body{
-    width: 620px;
-    height: 460px;
+    width: 550px;
+    height: 400px;
     background: #f9f9f9;
     position: absolute;
-    top: -110px;
-    left: 0px;
+    top: -70px;
+    left: 72px;
     font-size: 16px;
     border-radius: 8px;
 }
@@ -154,7 +164,7 @@ html{
     float: right;
 }
 .modal-body form{
-    margin-left: 156px;
+    margin-left: 114px;
     margin-top: 80px;
 }
 .modal-body form p{
@@ -192,11 +202,21 @@ html{
     background: #f99d32;
     border-radius: 8px;
     margin-top: 46px;
-    margin-left: 70px;
+    margin-left: 84px;
     cursor: pointer;
 }
 
 
+/*删除按钮模态框的样式*/
+.modal-content{
+    border: none;
+    width: 560px;
+    top: 150px;
+    left: -50px;
+}
+#modal_info p{
+    font-size: 18px;
+}
 
 
 
