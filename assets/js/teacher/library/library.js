@@ -7,7 +7,7 @@ var curr_start_score = 0;
 var curr_end_score = 0;
 var has_load_book = false;
 
-function right_bar_cb() {
+function left_bar_cb() {
     $('#library_button').attr('class', 'side-button-selected left-side-button');
 }
 //按书籍类型筛选

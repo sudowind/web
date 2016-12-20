@@ -90,16 +90,22 @@
             </div>
             <div class="right">
                 <div class="option">
-                    <div>班级
-                        <span class="index">2015级1班</span>
-                        <span>2015级2班</span>
-                        <span>2015级3班</span>
-                    </div>
-                    <div>时间
-                        <input class="laydate laydate-icon" onclick="laydate()" placeholder="" >
-                        <img src="../../../assets/img/teacher/unheng.png" alt=""/>
-                        <input class="laydate laydate-icon" onclick="laydate()" placeholder="" >
-                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <div>
+                                    <b>班级：</b>
+                                </div>
+                            </td>
+                            <td id="teacher_classes"></td>
+                        </tr>
+                    </table>
+
+                    <!--<div>时间-->
+                        <!--<input class="laydate laydate-icon" onclick="laydate()" placeholder="" >-->
+                        <!--<img src="../../../assets/img/teacher/unheng.png" alt=""/>-->
+                        <!--<input class="laydate laydate-icon" onclick="laydate()" placeholder="" >-->
+                    <!--</div>-->
                 </div>
                 <div class="tab">
                     <div class="nav-bar">
@@ -279,11 +285,13 @@
 <div id="page_footer" style="background: #edeef0"></div>
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
 <script src="../../../libs/progressbar.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/plot.js"></script>
 <script src="../../../assets/js/teacher/report/index.js"></script>
 
 

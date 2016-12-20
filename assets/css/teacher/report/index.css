@@ -40,18 +40,26 @@
     width: 485px;
     border: 1px solid #e8e8e8;
     background: #f9f9f9;
-    padding-bottom: 12px;
+    padding: 10px 5px;
 }
 .right .option div{
-    margin: 20px 0 0 10px;
+    margin: 10px 0 0 10px;
 }
 .right .option span{
     border: 1px solid #f99d32;
     border-radius: 8px;
     padding:4px 12px;
-    margin-left: 14px;
+    margin: 5px 7px;
     cursor: pointer;
+    display: inline-block;
 }
+#teacher_classes {
+    width: 410px;
+}
+.option table td:first-child {
+    vertical-align: top;
+}
+
 .index{
     background: #f99d32;
     color: #FFFFFF;

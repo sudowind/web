@@ -55,11 +55,17 @@ $('#record_button').click(function () {
         var start_time = new Date();
         var start_time_array = $('#start_read_time').val().split(':');
         start_time.setHours(start_time_array[0]);
-        var start_time_stamp = start_time.setMinutes(start_time_array[1]);
+        start_time.setMinutes(start_time_array[1]);
+        start_time.setSeconds(0);
+        var start_time_stamp = start_time.setMilliseconds(0);
+        // var start_time_stamp = start_time.setMinutes(start_time_array[1]);
         var end_time = new Date();
         var end_time_array = $('#finish_read_time').val().split(':');
         end_time.setHours(end_time_array[0]);
-        var end_time_stamp = end_time.setMinutes(end_time_array[1]);
+        end_time.setMinutes(end_time_array[1]);
+        end_time.setSeconds(0);
+        var end_time_stamp = end_time.setMilliseconds(0);
+        // var end_time_stamp = end_time.setMinutes(end_time_array[1]);
         var curr_page = $('#today_page').val();
 
         if (Number(curr_page) > Number($('#page_count').html().split('&nbsp;')[2])) {
