@@ -3,18 +3,6 @@ function right_bar_cb() {
     $('#teacher_management_button').attr('class', 'side-button-selected left-side-button');
 }
 
-//按照年级选择老师
-//$('.content .class-name p span').click(function () {
-//    $(this).siblings().removeClass('index');
-//    $(this).addClass('index');
-//
-//});
-
-
-//$(".grade .option").on('click',function(){
-//    grade_teacher();
-//    alert(2);
-//});
 //添加老师函数
 $("#sure_add_teacher").click(function(){
     $(".modal").modal('hide');
@@ -50,7 +38,6 @@ function add_teacher(){
 }
 
 //切分年级的函数
-
 function init_grade() {
     var date = new Date();
     var base_year = 1900 - 6 + date.getYear();
@@ -65,23 +52,20 @@ function init_grade() {
     $('.class-name .grade').html(html).on('click','span',function (){
         $(this).siblings().removeClass('index');
         $(this).addClass('index');
-        //grade_teacher();
-        var Index = $(".grade .index").attr('value');
-        //console.log(teacher_list);
-        for(var i = 0; i < teacher_list.length; i++){
-            console.log(teacher_list[i].classes);
-            for(var j = 0; j < teacher_list[i].classes.length; j++){
-                //console.log(teacher_list[i].classes[j].grade);
-            }
+        $(".information ul").remove();
+        if($(this).attr('value') == 1){
+            load_teacher();
+        }else{
+            grade_teacher();
         }
-
     });
 }
 
+
+//加载教师信息
 var html = '';
 var classes = '';
 var classes_list = '';
-var teacher_list = '';
 function load_teacher(){
     $.ajax({
         xhrFields: {
@@ -91,8 +75,7 @@ function load_teacher(){
         type: 'GET',
         url: URL_BASE + '/users/web/school/current/teacher/list',
         success: function(data) {
-            teacher_list = data;
-            //console.log(data[0].classes);
+            //console.log(data);
             for(var i = 0; i < data.length; i++){
                 if(data[i].gender == '1'){
                     gender = '男';
@@ -103,16 +86,9 @@ function load_teacher(){
                     html = fill_teacher_null(data[i]);
                     $(".information").append(html);
                 }else{
+                    classes_list = '';
                     html = fill_teacher(data[i]);
-                    for(var j = 0;j < data[i].classes.length;j++){
-                        //console.log(data[i].classes[j].name);
-                        classes = fill_class(data[i].classes[j]);
-                        //console.log(classes);
-                        classes_list += classes;
-                    }
                     $(".information").append(html);
-                    //console.log(classes_list);
-                    $(".dropdown-menu").append(classes_list);
                 }
 
 
@@ -141,47 +117,59 @@ function load_teacher(){
     });
 }
 
-
+//根据年级获取老师
+var userId = '';
 function grade_teacher(){
     var grade = $(".grade .index").attr('value');
-    console.log(grade);
-    //$.ajax({
-    //    xhrFields: {
-    //        withCredentials: true
-    //    },
-    //    type: 'GET',
-    //    url: URL_BASE + '/users/web/school/current/grade/'+ grade + '/teacher/list',
-    //    success: function(data) {
-    //        console.log(data[0]);
-    //        for(var i = 0; i < data.length; i++){
-    //            if(data[i].gender == '1'){
-    //                gender = '男';
-    //            }else if(data[i].gender == '2'){
-    //                gender = '女';
-    //            }
-    //            if( data[i].classes == '' ){
-    //                html = fill_teacher_null(data[i]);
-    //                $(".information").append(html);
-    //            }else{
-    //                html = fill_teacher(data[i]);
-    //                for(var j = 0;j < data[i].classes.length;j++){
-    //                    //console.log(data[i].classes[j].name);
-    //                    classes = fill_class(data[i].classes[j]);
-    //                    //console.log(classes);
-    //                    classes_list += classes;
-    //                }
-    //                $(".information").append(html);
-    //                //console.log(classes_list);
-    //                $(".dropdown-menu").append(classes_list);
-    //            }
-    //        }
-    //    }
-    //});
+    //console.log(grade);
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/users/web/school/current/grade/'+ grade + '/teacher/list',
+        success: function(data) {
+            for(var i = 0; i < data.length; i++){
+                //console.log(data[i].id);
+                userId = data[i].id;
+                //按照对应年级获取到所有老师、再根据id获取教师信息
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    contentType: 'application/json',
+                    type: 'GET',
+                    url: URL_BASE + '/users/web/user/'+ userId + '',
+                    success: function(data) {
+                        //console.log(data.classes);
+                        if(data.gender == '1'){
+                            gender = '男';
+                        }else if(data.gender == '2'){
+                            gender = '女';
+                        }
+                        classes_list = '';
+                        html = fill_teacher(data);
+                        $(".information").append(html);
+                    }
+                });
+            }
+
+        }
+    });
 }
 
+function fill_grade_teacher(){
 
+}
+//生成教师list
 function fill_teacher(data){
     //console.log(data.classes);
+    classes_list = '';
+    for(var j = 0;j < data.classes.length;j++){
+        classes = fill_class(data.classes[j]);
+        classes_list += classes;
+    }
+    //console.log(classes_list);
     return      '<ul class="teacher-information" value="' + data.id + '">'
                     +'<li class="account">'+ data.id+'</li>'
                     +'<li class="name">'+ data.name+'</li>'
@@ -189,13 +177,13 @@ function fill_teacher(data){
                     +'<li class="className">'
                     +'<div class="dropdown">'
                     +'<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">' + data.classes[0].name + '<span class="caret"></span></button>'
-                    +'<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"></ul>'
+                    +'<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" teacher_id="'+ data.id + '">' + classes_list + '</ul>'
                     +'</div>'
                     +'</li>'
                     +'<li id="del" class="delete" value="' + data.id + '">删除</li>'
                     +'</ul>'
 }
-
+//生成不带班级的教师list
 function fill_teacher_null(data){
     //console.log(data.classes);
     return      '<ul class="teacher-information" value="' + data.id + '">'
@@ -210,8 +198,9 @@ function fill_teacher_null(data){
         +'<li id="del" class="delete" value="' + data.id + '">删除</li>'
         +'</ul>'
 }
-
+//生成教师所带班级下拉菜单的li
 function fill_class(list){
+    //console.log(list)
     return  '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'+ list.name +'</a></li>'
 }
 
