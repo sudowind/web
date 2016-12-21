@@ -60,8 +60,9 @@
     font-weight: bold;
     font-size: 18px;
     float: left;
-    margin-top: 46px;
+    margin-top: 22px;
     margin-left: 15px;
+    margin-bottom: 20px;
 }
 .book .sort span{
     line-height: 28px;
@@ -80,7 +81,7 @@
     font-size: 18px;
     float: left;
     margin-top: 22px;
-    margin-left: 15px;
+    margin-left: 15px;margin-bottom: 20px;
 }
 .book .className span{
     line-height: 28px;
@@ -172,7 +173,7 @@
 
 .books{
     width: 728px;
-    height: 690px;
+    height: 666px;
     border: 1px solid #e8e8e8;
     background: #f9f9f9;
     margin-top: 20px;
@@ -267,7 +268,7 @@
 
 /*∑÷“≥≤ø∑÷*/
 .tcdPageCode{
-    padding: 35px 20px;
+    padding: 26px 20px;
     color: #f99d32;
     clear: both;
     text-align: center;

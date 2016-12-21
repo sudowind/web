@@ -32,11 +32,11 @@ function add_teacher(){
         }]),
         success: function() {
             $(".teacher-information").remove();
-            load_teacher();
+            load_teacher(1);
         }
     });
 }
-
+var has_load_page = false;
 //切分年级的函数
 function init_grade() {
     var date = new Date();
@@ -53,20 +53,26 @@ function init_grade() {
         $(this).siblings().removeClass('index');
         $(this).addClass('index');
         $(".information ul").remove();
+        has_load_page = false;
         if($(this).attr('value') == 1){
-            load_teacher();
+            $("#teacher_list_all").css("display","block");
+            $("#teacher_list_class").css("display","none");
+            load_teacher(1);
         }else{
-            grade_teacher();
+            $("#teacher_list_all").css("display","none");
+            $("#teacher_list_class").css("display","block");
+            grade_teacher(1);
         }
     });
 }
+
 
 
 //加载教师信息
 var html = '';
 var classes = '';
 var classes_list = '';
-function load_teacher(){
+function load_teacher(page){
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -76,7 +82,14 @@ function load_teacher(){
         url: URL_BASE + '/users/web/school/current/teacher/list',
         success: function(data) {
             //console.log(data);
-            for(var i = 0; i < data.length; i++){
+            var element_count = 18;
+            var start_id = (page - 1) * element_count;
+            var end_id = start_id + element_count;
+            if (end_id > data.length) {
+                end_id = data.length;
+            }
+            //console.log(start_id);
+            for(var i = start_id; i < end_id; ++i){
                 if(data[i].gender == '1'){
                     gender = '男';
                 }else if(data[i].gender == '2'){
@@ -90,9 +103,21 @@ function load_teacher(){
                     html = fill_teacher(data[i]);
                     $(".information").append(html);
                 }
-
-
             }
+
+            if (!has_load_page) {
+                has_load_page = true;
+                var page_count = Math.ceil((data.length * 1.0) / element_count);
+                $('#teacher_list_all').createPage({
+                    pageCount: page_count,
+                    current: 1,
+                    backFn: function(p) {
+                        $('.information ul').remove();
+                        load_teacher(p);
+                    }
+                });
+            }
+
             //删除老师的函数
             $(".delete").on('click',function(){
                 var teacherId = this.value;
@@ -108,7 +133,7 @@ function load_teacher(){
                         url: URL_BASE + '/users/web/teacher/'+ teacherId + '/delete',
                         success: function() {
                             $(".teacher-information").remove();
-                            load_teacher()
+                            load_teacher(1)
                         }
                     });
                 });
@@ -119,7 +144,7 @@ function load_teacher(){
 
 //根据年级获取老师
 var userId = '';
-function grade_teacher(){
+function grade_teacher(page){
     var grade = $(".grade .index").attr('value');
     //console.log(grade);
     $.ajax({
@@ -129,7 +154,13 @@ function grade_teacher(){
         type: 'GET',
         url: URL_BASE + '/users/web/school/current/grade/'+ grade + '/teacher/list',
         success: function(data) {
-            for(var i = 0; i < data.length; i++){
+            var element_count = 18;
+            var start_id = (page - 1) * element_count;
+            var end_id = start_id + element_count;
+            if (end_id > data.length) {
+                end_id = data.length;
+            }
+            for(var i = start_id; i < end_id; i++){
                 //console.log(data[i].id);
                 userId = data[i].id;
                 //按照对应年级获取到所有老师、再根据id获取教师信息
@@ -142,6 +173,7 @@ function grade_teacher(){
                     url: URL_BASE + '/users/web/user/'+ userId + '',
                     success: function(data) {
                         //console.log(data.classes);
+
                         if(data.gender == '1'){
                             gender = '男';
                         }else if(data.gender == '2'){
@@ -154,13 +186,23 @@ function grade_teacher(){
                 });
             }
 
+            if (!has_load_page) {
+                has_load_page = true;
+                var page_count = Math.ceil((data.length * 1.0) / element_count);
+                $('#teacher_list_class').createPage({
+                    pageCount: page_count,
+                    current: 1,
+                    backFn: function(p) {
+                        $('.information ul').remove();
+                        load_teacher(p);
+                    }
+                });
+            }
+
         }
     });
 }
 
-function fill_grade_teacher(){
-
-}
 //生成教师list
 function fill_teacher(data){
     //console.log(data.classes);
