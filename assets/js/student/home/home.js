@@ -75,9 +75,6 @@ option = {
         }
     ]
 };
-// 为echarts对象加载数据
-myChart.setOption(option);
-
 
 //饼状图
 var bar = new ProgressBar.Circle('#progress_bar', {
@@ -187,6 +184,7 @@ function init() {
             $('#book_count').html(data.studentReadingInfo.bookCount);
             $('#word_count').html(data.studentReadingInfo.wordCount);
             $('#time_count').html(Math.ceil(Number(data.studentReadingInfo.timeCount) / 6000));
+            myChart.setOption(set_ability_analysis_option(data));
         },
         error: error_handler()
     });

@@ -26,13 +26,12 @@ function on_button_click(e) {
                 $('#'+ curr_id + ' img').attr('src', '../../../assets/img/teacher/report/' + button_ids[i] + '_selected.png');
                 $('#' + button_ids[i] + '_part').css('display', 'block');
             }
-
-            if ($(e).attr('id') == 'count_button') {
-                load_chart('count_figure');
-            }
-            else {
-                load_chart('ability_figure');
-            }
+        }
+        if ($(e).attr('id') == 'count_button') {
+            load_chart('count_figure');
+        }
+        else {
+            load_chart('ability_figure');
         }
     }
 }
@@ -113,15 +112,82 @@ function load_read_book(page) {
 function load_chart(element_id) {
     var myChart = echarts.init(document.getElementById(element_id));
     if (element_id.indexOf('count') >= 0) {
-        myChart.setOption(set_option('line'));
+        var start_time = 1481877328616;
+        var end_time = 1481878441981;
+        var step = 100000;
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'get',
+            url: URL_BASE + '/statistic/web/timeline/student/{0}/studentTimeline'.format($.getUrlParam('student_id')),
+            data: {
+                startTime: start_time,
+                endTime: end_time,
+                step: step
+            },
+            success: function (data) {
+                var index = [];
+                for (var i = start_time; i < end_time; i += step) {
+                    index.push(i);
+                }
+                myChart.setOption(set_option('line', data, index));
+            },
+            error: error_handler()
+        });
     }
     else {
-        myChart.setOption(set_option('bar'));
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            url: URL_BASE + '/statistic/web/timeline/student/{0}/studentCurrentInfo'.format($.getUrlParam('student_id')),
+            type: 'get',
+            success: function (data) {
+                myChart.setOption(set_option('bar', data));
+            },
+            error: error_handler()
+        });
     }
 }
 
-function set_option(data) {
-    if (data == 'line')
+var sort_func = function(a, b) {
+    return a.timestamp - b.timestamp;
+};
+
+function set_option(chart_type, data, index) {
+    if (chart_type == 'line') {
+        var student_list = [];
+        var class_list = [];
+        var school_list = [];
+
+        var u_data = data.studentReadingTimeline.sort(sort_func);
+        var c_data = data.classReadingTimeline.sort(sort_func);
+        var s_data = data.gradeReadingTimeline.sort(sort_func);
+
+        for (var i in index) {
+            if (u_data[0] && u_data[0].timestamp == index[i]) {
+                student_list.push(u_data.shift().wordCount);
+            }
+            else {
+                student_list.push(0);
+            }
+
+            if (c_data[0] && c_data[0].timestamp == index[i]) {
+                class_list.push(c_data.shift().wordCount);
+            }
+            else {
+                class_list.push(0);
+            }
+
+            if (s_data[0] && s_data[0].timestamp == index[i]) {
+                school_list.push(s_data.shift().wordCount);
+            }
+            else {
+                school_list.push(0);
+            }
+        }
+
         return {
             tooltip: {
                 trigger: 'axis'
@@ -156,7 +222,7 @@ function set_option(data) {
                 {
                     name: '个人',
                     type: 'line',
-                    data: [67, 78, 96, 57, 63, 82, 67, 81, 76, 79, 91, 80],
+                    data: student_list,
                     areaStyle: {
                         normal: {}
                     },
@@ -170,7 +236,7 @@ function set_option(data) {
                 {
                     name: '班级平均',
                     type: 'line',
-                    data: [78, 90, 65, 70, 60, 70, 84, 79, 70, 82, 95, 68],
+                    data: class_list,
                     areaStyle: {
                         normal: {}
                     },
@@ -184,7 +250,7 @@ function set_option(data) {
                 {
                     name: '年级平均',
                     type: 'line',
-                    data: [30, 80, 50, 80, 30, 78, 80, 90, 80, 67, 58, 80],
+                    data: school_list,
                     areaStyle: {
                         normal: {}
                     },
@@ -197,74 +263,13 @@ function set_option(data) {
                 }
             ]
         };
+    }
     else {
-        return {
-            tooltip: {
-                trigger: 'axis'
-            },
-            legend: {
-                data: ['我的平均分', '班级平均分', '年级平均分']
-            },
-            toolbox: {
-                show: false,
-                feature: {
-                    magicType: {show: true, type: ['line', 'bar']},
-                    restore: {show: true},
-                    saveAsImage: {show: true}
-                }
-            },
-            //calculable: true,
-            xAxis: [
-                {
-                    type: 'value',
-                    max: '100'
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'category',
-                    data: ['信息提取', '意义构建', '语义推论', '组织概况', '评价赏析'],
-                    axisTick: {
-
-                    }
-                }
-            ],
-            grid: {
-                left: '17%'
-            },
-            series: [
-                {
-                    name: '我的平均分',
-                    type: 'bar',
-                    data: [80, 80, 80, 80, 50],
-                    itemStyle:{
-                        normal:{
-                            color:['#febc3c']
-                        }
-                    }
-                },
-                {
-                    name: '班级平均分',
-                    type: 'bar',
-                    data: [100, 90, 80, 70, 60],
-                    itemStyle:{
-                        normal:{
-                            color: ['#d8d8d8']
-                        }
-                    }
-                },
-                {
-                    name: '年级平均分',
-                    type: 'bar',
-                    data: [80, 80, 80, 80, 80],
-                    itemStyle: {
-                        normal:{
-                            color:['#eb8155']
-                        }
-                    }
-                }
-            ]
+        var option = set_ability_analysis_option(data);
+        option.grid = {
+            left: '17%'
         };
+        return option;
     }
 }
 
