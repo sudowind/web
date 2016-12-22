@@ -174,6 +174,7 @@ function init() {
     load_rank_list('student');
 
     // 获取其他数据
+    // 学生当前阅读情况
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -188,4 +189,6 @@ function init() {
         },
         error: error_handler()
     });
+    // 学生班级排名
+    load_student_class_rank('student');
 }

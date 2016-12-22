@@ -146,3 +146,38 @@ function set_ability_analysis_option(data) {
         ]
     };
 }
+
+function load_student_class_rank(current, class_id) {
+    var url;
+    var data = {};
+    if (current == 'student') {
+        url = '/statistic/web/timeline/student/current/studentClassRank';
+    }
+    else {
+        url = '/statistic/web/timeline/class/{0}/classInfoInGrade'.format(class_id);
+        data = {
+            startTime: 0,
+            endTime: 0
+        }
+    }
+    // console.log(url);
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + url,
+        type: 'get',
+        data: data,
+        success: function (data) {
+            var read_obj = $('#reading_rank');
+            var exam_obj = $('#exam_rank');
+            read_obj.css('width', (safe_divide(data.reading.rank * 100, data.reading.total)).toString() + '%');
+            exam_obj.css('width', (safe_divide(data.exam.rank * 100, data.exam.total)).toString() + '%');
+            read_obj.find('.current-page').html(data.reading.rank);
+            exam_obj.find('.current-page').html(data.exam.rank);
+            read_obj.find('.page').html(data.reading.total);
+            exam_obj.find('.page').html(data.exam.total);
+        },
+        error: error_handler()
+    });
+}
