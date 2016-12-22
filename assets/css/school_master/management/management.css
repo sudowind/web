@@ -218,20 +218,16 @@ html{
     font-size: 18px;
 }
 
-
-
-
-
 /*∑÷“≥≤ø∑÷*/
-a:hover{ text-decoration:none;}
-.tcdPageCode{padding: 30px 20px;text-align: left;color: #f99d32;position: absolute;top: 1080px;left: 160px}
-.tcdPageCode a{display: inline-block;color: #f99d32;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #f99d32;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
-.tcdPageCode a:hover{text-decoration: none;border: 1px solid #f99d32;}
-.tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #f9f9f9;background-color: #f99d32;	border: 1px solid #f99d32;border-radius: 4px;vertical-align: middle;}
-.tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #f99d32;background: #f9f9f9;border: 1px solid #f99d32;border-radius: 4px;vertical-align:middle;}
-
-
-
+#teacher_list_all{
+    padding-top: 0;
+    margin-top: -52px;
+}
+#teacher_list_class{
+    padding-top: 0;
+    margin-top: -52px;
+    display: none;
+}
 
 
 

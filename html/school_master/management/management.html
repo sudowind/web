@@ -8,6 +8,7 @@
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/pagination.css">
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
@@ -74,7 +75,8 @@
                 </div><!-- /.modal -->
             </div>
             <!--分页-->
-            <div class="tcdPageCode" id="tasks-index"></div>
+            <div class="tcdPageCode" id="teacher_list_all"></div>
+            <div class="tcdPageCode" id="teacher_list_class"></div>
         </div>
     </div>
     <div id="right_bar"></div>
@@ -86,7 +88,7 @@
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
-<script src="../../../assets/js/page.js"></script>
+<!--<script src="../../../assets/js/page.js"></script>-->
 <script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/school_master/management/management.js"></script>
 
@@ -95,7 +97,7 @@
     load('../../../include/html/', 'school_master');
     //切分年级的函数
     init_grade();
-    load_teacher();
+    load_teacher(1);
 </script>
 </body>
 </html>

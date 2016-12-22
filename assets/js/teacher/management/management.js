@@ -58,7 +58,7 @@ $(".content .class-name p").on('click','span',function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
 
-    has_load_page = false;
+    //has_load_page = false;
     load_student_info($(".class-name .index").attr('value'), 1);
 });
 
