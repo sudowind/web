@@ -106,6 +106,10 @@
     line-height: 150%;
 }
 
+#comment_container {
+    height: 550px;
+}
+
 /*note部分*/
 #node_part {
     margin: 10px;

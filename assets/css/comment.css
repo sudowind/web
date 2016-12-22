@@ -34,21 +34,23 @@
 .comment-content {
     padding: 5px;
     margin-left: 10px;
-    width: 600px;
+    width: 590px;
     font-size: 14px;
     height: 160px;
     position: relative;
 }
 
 #comment_container {
-    height: 360px;
+    margin: 10px 0;
+    /*height: 360px;*/
+    overflow: auto;
 }
 
 .comment-content .comment-date {
     float: right;
     color: #999999;
     font-size: 12px;
-    left: 520px;
+    left: 515px;
     top: 130px;
     position: absolute;
 }

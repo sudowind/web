@@ -226,3 +226,7 @@
 #teacher_task_pagination {
     padding-top: 60px;
 }
+
+#comment_container {
+    height: 600px;
+}

@@ -1,8 +1,10 @@
 /**
  * Created by wind on 2016/11/10.
+ * 评论相关函数，
  */
-var has_load_comment_page = false;
 
+var has_load_comment_page = false;
+var item_per_page = 100;
 function load_comments(page) {
     // page参数是页码
     $.ajax({
@@ -13,9 +15,12 @@ function load_comments(page) {
         url: URL_BASE + '/books/web/bookComment/' + $.getUrlParam('book_id') + '/list',
         data: {
             page: page - 1,
-            itemPerPage: 2
+            itemPerPage: item_per_page
         },
         success: function(data) {
+            data.data = data.data.sort(function(a, b) {
+                return b.createTime - a.createTime;
+            });
             var html = '';
             for (var i = 0; i < data.data.length; ++i) {
                 html += create_comment(data.data[i]);
@@ -70,17 +75,17 @@ function load_comments(page) {
 
             });
 
-            if (!has_load_comment_page) {
-                has_load_comment_page = true;
-                var page_count = Math.ceil((data.totalItem * 1.0) / 2);
-                $('#comment_pagination').createPage({
-                    pageCount: page_count,
-                    current: 1,
-                    backFn: function(p) {
-                        load_comments(p);
-                    }
-                });
-            }
+            // if (!has_load_comment_page) {
+            //     has_load_comment_page = true;
+            //     var page_count = Math.ceil((data.totalItem * 1.0) / 2);
+            //     $('#comment_pagination').createPage({
+            //         pageCount: page_count,
+            //         current: 1,
+            //         backFn: function(p) {
+            //             load_comments(p);
+            //         }
+            //     });
+            // }
         }
     });
 }

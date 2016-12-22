@@ -187,6 +187,10 @@
     line-height: 150%;
 }
 
+#comment_container {
+    height: 450px;
+}
+
 /*笔记部分*/
 #note_part {
     display: none;
