@@ -2,6 +2,7 @@
  * Created by wind on 2016/10/26.
  */
 var circles = [];
+var has_load_page = false;
 
 function left_bar_cb() {
     $('#tasks_button').attr('class', 'side-button-selected left-side-button');
@@ -11,6 +12,7 @@ function init () {
 
     var h = Number($('.select-part').height());
     // alert(h);
+    // console.log(h);
     $('.book-part').css('height', (1100 - h).toString());
 
 }
@@ -18,6 +20,7 @@ function init () {
 $('.option').click(function () {
     $(this).siblings().removeClass('index');
     $(this).addClass('index');
+    // has_load_page = false;
 });
 
 function load_table_row(row_selector, data, class_id, teacher_id) {
@@ -84,8 +87,6 @@ function clear_rows() {
     }
 }
 
-var has_load_page = false;
-
 function load_tasks(teacher_id, class_id, page) {
     clear_rows();
     $.ajax({
@@ -114,6 +115,9 @@ function load_tasks(teacher_id, class_id, page) {
                     }
                 });
             }
+            var h = Number($('.select-part').height());
+            // console.log(h);
+            $('.book-part').css('height', (1100 - h).toString());
         },
         error: ajax_error_handler
     });
@@ -142,6 +146,7 @@ function load_teacher_class(teacher_id) {
                     has_load_page = false;
                     load_tasks(teacher_id, $(this).attr('value'), 1);
                 });
+                has_load_page = false;
                 load_tasks(teacher_id, data[0].id, 1);
             },
             error: ajax_error_handler
@@ -193,6 +198,7 @@ function init_grade() {
         $(this).siblings().removeClass('index');
         $(this).addClass('index');
         load_grade_teacher($(this).attr('value'));
+        $('#teacher_task_pagination').html('');
     });
     load_grade_teacher(base_year);
 }

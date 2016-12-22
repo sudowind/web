@@ -72,7 +72,6 @@
     margin-top: 20px;
     margin-left: 14px;
     display: inline-block;
-    font-family: "Microsoft YaHei", serif;
     cursor:pointer;
 }
 .book .className p{
@@ -91,7 +90,6 @@
     margin-top: 20px;
     margin-left: 14px;
     display: inline-block;
-    font-family: "Microsoft YaHei", serif;
     cursor:pointer;
 }
 .book .grade p{
@@ -115,7 +113,6 @@
     margin-top: 20px;
     margin-left: 14px;
     display: inline-block;
-    font-family: "Microsoft YaHei", serif;
     cursor:pointer;
 }
 .book .grade img{
@@ -157,7 +154,6 @@
     padding: 0px 16px;
     margin-left: 30px;
     display: inline-block;
-    font-family: "Microsoft YaHei", serif;
     cursor:pointer;
 }
 .index{
@@ -197,7 +193,6 @@
     margin-right: 8px;
     position: relative;
     top: 0;
-    font-family: "Microsoft YaHei", serif;
     box-shadow:2px 2px 2px #ccc;
 }
 .list .list-book .already-reading{

@@ -80,7 +80,7 @@ function init_class() {
         type: 'get',
         url: URL_BASE + '/users/web/class/teacher/current/list',
         success: function(data) {
-            var html = '<p>所带班级：</p>';
+            var html = '<td>所带班级：</td><td>';
             var index = 'index';
             var class_id;
             for (var i = 0; i < data.length; ++i) {
@@ -92,7 +92,8 @@ function init_class() {
                 }
                 html += '<span class="' + index + ' option" value="' + data[i].id + '">' + data[i].name + '</span>';
             }
-            $('.classes-part').html(html);
+            html += '</td>';
+            $('.classes-part table tr').html(html);
             $('.option').click(function () {
                 $(this).siblings().removeClass('index');
                 $(this).addClass('index');

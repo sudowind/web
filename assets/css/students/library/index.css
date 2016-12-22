@@ -81,7 +81,6 @@
     margin-top: 24px;
     margin-left: 14px;
     display: inline-block;
-    font-family: "Microsoft YaHei", serif;
     cursor:pointer;
 }
 .index{
@@ -107,7 +106,6 @@
     margin-top: 24px;
     margin-left: 14px;
     display: inline-block;
-    font-family: "Microsoft YaHei", Georgia, serif;
     cursor:pointer;
 }
 .book .grade {
@@ -131,7 +129,6 @@
     margin-right: 8px;
     position: relative;
     top: 0;
-    font-family: "Microsoft YaHei", serif;
     box-shadow:2px 2px 2px #ccc;
 }
 .list .list-book .image {

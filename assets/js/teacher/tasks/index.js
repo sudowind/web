@@ -73,36 +73,53 @@ function load_table_row(row_selector, data) {
     // 应该是对每一行分别填充，每一行都有一个id，通过这个id进行操作
     $(row_selector).load('../../../include/html/teacher/task_table_line.html', function() {
         var bars = new Array(2);
-        for (var i = 0; i < bars.length; ++i) {
-            bars[i] = new ProgressBar.Circle(row_selector + ' td:nth-child(' + (i + 2).toString() + ') div', {
-                color: '#fb9e1d',
-                // This has to be the same size as the maximum width to
-                // prevent clipping
-                strokeWidth: 12,
-                trailWidth: 8,
-                easing: 'easeInOut',
-                duration: 1400,
-                text: {
-                    autoStyleContainer: false
-                },
-                from: { color: '#fb9e1d', width: 8 },
-                to: { color: '#fb9e1d', width: 12 },
-                // Set default step function for all animate calls
-                step: function(state, circle) {
-                    circle.path.setAttribute('stroke', state.color);
-                    circle.path.setAttribute('stroke-width', state.width);
+        // for (var i = 0; i < bars.length; ++i) {
+        bars[0] = new ProgressBar.Circle(row_selector + ' td:nth-child(' + (2).toString() + ') div', {
+            color: '#fb9e1d',
+            // This has to be the same size as the maximum width to
+            // prevent clipping
+            strokeWidth: 12,
+            trailWidth: 8,
+            easing: 'easeInOut',
+            duration: 1400,
+            text: {
+                autoStyleContainer: false
+            },
+            from: { color: '#fb9e1d', width: 8 },
+            to: { color: '#fb9e1d', width: 12 },
+            // Set default step function for all animate calls
+            step: function(state, circle) {
+                circle.path.setAttribute('stroke', state.color);
+                circle.path.setAttribute('stroke-width', state.width);
+                var text;
+                text = '{0}/{1}'.format(data.completedCount, data.totalCount);
+                circle.setText(text);
+            }
+        });
+        bars[1] = new ProgressBar.Circle(row_selector + ' td:nth-child(' + (3).toString() + ') div', {
+            color: '#fb9e1d',
+            // This has to be the same size as the maximum width to
+            // prevent clipping
+            strokeWidth: 12,
+            trailWidth: 8,
+            easing: 'easeInOut',
+            duration: 1400,
+            text: {
+                autoStyleContainer: false
+            },
+            from: { color: '#fb9e1d', width: 8 },
+            to: { color: '#fb9e1d', width: 12 },
+            // Set default step function for all animate calls
+            step: function(state, circle) {
+                circle.path.setAttribute('stroke', state.color);
+                circle.path.setAttribute('stroke-width', state.width);
 
-                    var value = Math.round(circle.value() * 100);
-                    if (value == 0) {
-                        circle.setText('0%');
-                    } else {
-                        circle.setText(value + '%');
-                    }
-
-                }
-            });
+                var value = Math.round(circle.value() * 100);
+                circle.setText(value);
+            }
+        });
             // bars[i].set(Math.random());
-        }
+        // }
         // 设定两个进度环
         bars[0].set(Number(data.completedCount)/Number(data.totalCount));
         bars[1].set(Number(data.totalExamScore)/Number(data.examCount));

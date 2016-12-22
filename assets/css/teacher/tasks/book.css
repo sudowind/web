@@ -47,7 +47,7 @@ hr {
     clear: both;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 20px;
+    padding: 10px 20px;
     height: 100%;
 
     font-size: 18px;
@@ -63,13 +63,19 @@ hr {
     color: #6e6e6e;
     border: solid 1px #fb9e1d;
     padding: 2px 10px;
-    margin-left: 14px;
+    margin: 5px 7px;
+    display: inline-block;
 
     font-size: 16px;
     font-weight: normal;
     border-radius: 6px;
 
     cursor: pointer;
+}
+.classes-part table tr td:first-child {
+    width: 100px;
+    vertical-align: top;
+    padding-top: 5px;
 }
 
 .index {

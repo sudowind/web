@@ -1,5 +1,6 @@
 /*margin的样式初始化*/
 body,h1,h2,h3,h4,h5,h6,p,ol,ul,dl,dd,input {
+	font-family: "Microsoft YaHei UI", Helvetica, Arial, sans-serif;
 	margin:0;
 	/*line-height: 1;*/
 }
@@ -26,7 +27,7 @@ img {
 
 /*表格的间隙样式初始化*/
 table {
-	border-collapse: collapse;
+	 border-collapse: collapse;
 }
 
 /*表单*/
