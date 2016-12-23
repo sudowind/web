@@ -25,24 +25,11 @@
                 <span class="down"></span>
             </div>
             <div class="left">
-                <!--<select name="" id="className">-->
-                    <!--<option value="2015级1班">2015级1班</option>-->
-                    <!--<option value="2015级2班">2015级2班</option>-->
-                    <!--<option value="2015级3班">2015级3班</option>-->
-                <!--</select>-->
                 <div class="top">
                     <h3 class="title">
                         <img src="../../../assets/img/student/home/cup.png" alt=""/><span>学霸榜</span>
                     </h3>
                     <div class="top-list">
-                        <!--<div class="me">-->
-                            <!--<div class="me-rank">10</div>-->
-                            <!--<img src="../../../assets/img/student/home/head.png" alt=""/>-->
-                            <!--<div class="me-right">-->
-                                <!--<p class="me-name">名字</p>-->
-                                <!--<strong><span>456</span>万字</strong>-->
-                            <!--</div>-->
-                        <!--</div>-->
                         <ul>
                             <li>
                                 <div class="rank">
@@ -114,12 +101,6 @@
                         </select>
                     </div>
 
-
-                    <!--<div>班级-->
-                        <!--<input class="laydate laydate-icon" onclick="laydate()" placeholder="" >-->
-                        <!--<img src="../../../assets/img/teacher/unheng.png" alt=""/>-->
-                        <!--<input class="laydate laydate-icon" onclick="laydate()" placeholder="" >-->
-                    <!--</div>-->
                 </div>
                 <div class="tab book-detail-box">
                     <div class="nav-bar">
@@ -129,10 +110,7 @@
                         <div class="nav-button" id="student_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="student">
                             <img src="../../../assets/img/teacher/student_selected.png" alt="">学生表现
                         </div>
-                        <!--<div class="nav-button" id="people_button"  onclick="on_button_click(this);" value="0">-->
-                            <!--<img src="../../../assets/img/teacher/people_selected.png" alt="">-->
-                            <!--<span class="people">个人阅读详情</span>-->
-                        <!--</div>-->
+
                     </div>
 
                     <!--班级表现-->
@@ -140,12 +118,12 @@
                         <div class="cla-rank">
                             <h3>同年级排名情况</h3>
                             <div class="progress" >
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                                <div class="progress-bar" id="reading_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;">
                                     <img src="../../../assets/img/student/home/read.png" alt=""/>阅读量&nbsp&nbsp&nbsp<span class="current-page">12</span>&nbsp/&nbsp<span class="page">60</span>
                                 </div>
                             </div>
                             <div class="progress" >
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <div class="progress-bar" id="exam_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;">
                                     <img src="../../../assets/img/student/home/pass.png" alt=""/>测试通过率&nbsp&nbsp&nbsp<span class="current-page">12</span>&nbsp/&nbsp<span class="page">60</span>
                                 </div>
                             </div>
@@ -156,20 +134,13 @@
                                 <tr>
                                     <td>排名</td>
                                     <td>班级</td>
-                                    <td class="sortable-column column-index" value="">阅读量（万字）<img src="../../../assets/img/teacher/down_triangle.png" alt=""/></td>
-                                    <td class="sortable-column" value="">书本量（本）<img src="../../../assets/img/teacher/sort.png" alt=""/></td>
-                                    <td class="sortable-column" value="">测试正确率 <img src="../../../assets/img/teacher/sort.png" alt=""/></td>
+                                    <td class="sortable-column column-index" value="wordCount">阅读量（万字）<img src="../../../assets/img/teacher/down_triangle.png" alt=""/></td>
+                                    <td class="sortable-column" value="bookCount">书本量（本）<img src="../../../assets/img/teacher/sort.png" alt=""/></td>
+                                    <td class="sortable-column" value="examScore">测试正确率 <img src="../../../assets/img/teacher/sort.png" alt=""/></td>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr id="cla-row0">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -183,21 +154,14 @@
                                 <tr>
                                     <td>账号</td>
                                     <td>姓名</td>
-                                    <td class="sortable-column column-index" value="">阅读量<img src="../../../assets/img/teacher/down_triangle.png" alt=""/><p>（万字）</p></td>
-                                    <td class="sortable-column" value="">书本量<img src="../../../assets/img/teacher/sort.png" alt=""/><p>（本）</p></td>
-                                    <td class="sortable-column" value="">测试正确率<img src="../../../assets/img/teacher/sort.png" alt=""/></td>
+                                    <td class="sortable-column column-index" value="wordCount">阅读量<img src="../../../assets/img/teacher/down_triangle.png" alt=""/><p>（万字）</p></td>
+                                    <td class="sortable-column" value="bookCount">书本量<img src="../../../assets/img/teacher/sort.png" alt=""/><p>（本）</p></td>
+                                    <td class="sortable-column" value="examScore">测试正确率<img src="../../../assets/img/teacher/sort.png" alt=""/></td>
                                     <td>操作</td>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr id="stu-row0">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>

@@ -7,12 +7,6 @@ function right_bar_cb() {
 
 //自动生成列表
 function init() {
-    for (var i = 0; i <= 6; ++i) {
-        load_table_classes('#cla-row' + i);
-    }
-    for (var i = 0;i <= 10 ;i ++){
-        load_table_student('#stu-row' + i);
-    }
 
     // 加载老师班级信息，加载学霸榜
     $.ajax({
@@ -22,58 +16,32 @@ function init() {
         url: URL_BASE + '/users/web/class/teacher/current/list',
         type: 'get',
         success: function (data) {
-            console.log(data);
             var html = '<span class="index" value="{0}" grade="{2}">{1}</span>'.format(data[0].id, data[0].name, data[0].grade);
             for (var i = 1; i < data.length; ++i) {
                 html += '<span value="{0}" grade="{2}">{1}</span>'.format(data[i].id, data[i].name, data[i].grade);
             }
-            $('#teacher_classes').append(html);
-            $('#teacher_classes span').click(function() {
+            $('#teacher_classes').append(html).find('span').click(function() {
                 $(this).siblings().removeClass("index");
                 $(this).addClass("index");
                 load_rank_list('teacher', $(this).attr('grade'));
+                load_class_performance($(this).attr('value'));
+                load_student_performance($(this).attr('value'));
+                load_student_class_rank('school_master', $(this).attr('value'));
             });
-            load_rank_list('teacher', data[0].grade);
+            if (data.length > 0) {
+                load_rank_list('teacher', data[0].grade);
+                load_student_class_rank('school_master', data[0].id);
+                load_class_performance(data[0].id);
+                load_student_performance(data[0].id);
+            }
+
         },
         error: error_handler()
     });
 }
-
-//班级表现的函数
-function load_table_classes (row_selector) {
-    var sort = '1';
-    var classes = '10010';
-    var read_num = '50';
-    var book_num = '90';
-    var accuracy = '60';
-    $(row_selector).load('../../../include/html/teacher/report_classes_show.html', function () {
-        $(row_selector + ' .sort').html(sort);
-        $(row_selector + ' .classes').html(classes);
-        $(row_selector + ' .read-num').html(read_num);
-        $(row_selector + ' .book-num').html(book_num);
-        $(row_selector + ' .accuracy').html(accuracy + '%');
-    });
-}
-
-
-//学生表现的函数
-function load_table_student (stu_selector){
-    var sort = '1';
-    var name = '易峰';
-    var read_num = '50';
-    var book_num = '90';
-    var accuracy = '60';
-    var operation = '查看';
-    $(stu_selector).load('../../../include/html/teacher/report_student_show.html', function () {
-        $(stu_selector + ' .sort').html(sort);
-        $(stu_selector + ' .name').html(name);
-        $(stu_selector + ' .read-num').html(read_num);
-        $(stu_selector + ' .book-num').html(book_num);
-        $(stu_selector + ' .accuracy').html(accuracy + '%');
-        $(stu_selector + ' .operation').html('<a href="detail.html">'+ operation +'</a>');
-    });
-}
-
+var class_performance;
+var student_performance;
+var curr_tab = 'class';
 
 //简介与评论之间的tab切换函数
 var button_ids = ['classes', 'student', 'people'];
@@ -84,22 +52,139 @@ function on_button_click(e) {
         for (var i = 0; i < button_ids.length; ++i) {
             var curr_id = button_ids[i] + '_button';
             if (curr_id != $(e).attr('id')) {
-                $('#'+ curr_id + ' span').css('color', '#000000');
-                $('#'+ curr_id ).attr('value', '0').css('background', '#f9f9f9');
+                $('#'+ curr_id).css('color', '#000000').attr('value', '0').css('background', '#f9f9f9');
                 $('#'+ curr_id + ' img').attr('src', '../../../assets/img/teacher/' + button_ids[i] + '_selected.png');
                 $('.' + button_ids[i] + '-part').css('display', 'none');
             }
             else {
-                $('#'+ curr_id + ' span').css('color', '#ffffff');
-                $('#'+ curr_id ).attr('value', '1').css('background', '#fb9e1d');
+                $('#'+ curr_id).css('color', '#ffffff').attr('value', '1').css('background', '#fb9e1d');
                 $('#'+ curr_id + ' img').attr('src', '../../../assets/img/teacher/' + button_ids[i] + '_unselected.png');
                 $('.' + button_ids[i] + '-part').css('display', 'block');
             }
         }
+        if ($(e).attr('btn-type') == 'classes') {
+            curr_tab = 'class';
+        }
+        else {
+            curr_tab = 'student';
+        }
     }
 }
+
 //选择班级的 tab 切换
 $(".right .option span").click(function(){
     $(this).siblings().removeClass("index");
     $(this).addClass("index");
+    load_student_class_rank('teacher', $(this).attr('value'));
+});
+
+function load_class_performance(class_id) {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/statistic/web/timeline/class/{0}/classInfoInGrade'.format(class_id),
+        type: 'get',
+        data: {
+            startTime: 0,
+            endTime: 0
+        },
+        success: function(data) {
+            // 将数据加载到变量中
+            class_performance = data.gradeList;
+            load_table(1, 6, 'wordCount', 'reverse', 'class');
+        },
+        error: error_handler()
+    });
+}
+
+function load_student_performance(class_id) {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/statistic/web/timeline/class/{0}/studentInfoList'.format(class_id),
+        type: 'get',
+        data: {
+            startTime: 0,
+            endTime: 0
+        },
+        success: function (data) {
+            student_performance = data;
+            load_table(1, 6, 'wordCount', 'reverse', 'student');
+        },
+        error: error_handler()
+    });
+}
+
+function load_table(page, elem_per_page, sort_by,  order, type) {
+    // type 表示要加载班级表格还是学生表格
+    // 加载出表格
+    var data;
+    var dom_elem;
+    if (type == 'class') {
+        data = class_performance.slice();
+        dom_elem = '.classes-info-part table tbody';
+    }
+    else {
+        data = student_performance.slice();
+        dom_elem = '.student-show-list table tbody';
+    }
+
+    data = data.sort(function(a, b){
+        if (order == 'reverse') {
+            return b[sort_by] - a[sort_by];
+        }
+        return a[sort_by] - b[sort_by];
+    });
+
+    var start_index = (page - 1) * elem_per_page;
+    var end_index = start_index + elem_per_page;
+    if (end_index > data.length) {
+        end_index = data.length;
+    }
+    var html = '';
+    for (var i = start_index; i < end_index; ++i) {
+        if (type == 'class') {
+            html += '<tr><td class="sort">{0}</td>'.format(i + 1) +
+                '<td class="classes">{0}</td>'.format(data[i].className) +
+                '<td class="read-num">{0}</td>'.format(data[i].wordCount / 10000) +
+                '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
+                '<td class="accuracy">{0}</td></tr>'.format(data[i].examScore);
+        }
+        else {
+            html += '<tr><td class="sort">{0}</td>'.format(data[i].studentId) +
+                '<td class="name">{0}</td>'.format(data[i].studentName) +
+                '<td class="read-num">{0}</td>'.format(data[i].wordCount) +
+                '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
+                '<td class="accuracy">{0}</td>'.format(data[i].examScore) +
+                '<td class="operation" style="cursor: pointer;" onclick="window.open(\'../report/student_report.html?student_id={0}\')">{1}</td></tr>'.format(data[i].studentId, '查看');
+        }
+    }
+    $(dom_elem).html(html);
+
+}
+
+$('.sortable-column').click(function () {
+    // alert($(this).find('img').attr('src'));
+    var order;
+    var obj = $(this);
+    var img_src = obj.find('img').attr('src');
+    if (img_src.indexOf('up') > 0) {
+        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png')
+        order = 'reverse';
+    }
+    else if (img_src.indexOf('down') > 0) {
+        obj.find('img').attr('src', '../../../assets/img/teacher/up_triangle.png')
+        order = 'no-reverse';
+    }
+    else {
+        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png')
+        order = 'reverse';
+    }
+
+    obj.siblings('.sortable-column').removeClass('column-index').find('img').attr('src', '../../../assets/img/teacher/sort.png');
+    obj.addClass('column-index');
+
+    load_table(1, 6, $(this).attr('value'), order, curr_tab);
 });

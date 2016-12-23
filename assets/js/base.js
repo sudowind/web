@@ -96,3 +96,10 @@ function set_online_status(is_online) {
 //             $('.context-menu').remove();
 //     });
 // };
+
+function safe_divide(a, b) {
+    if (b == 0)
+        return 0;
+    else
+        return a / b;
+}

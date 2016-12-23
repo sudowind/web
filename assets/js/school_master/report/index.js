@@ -7,51 +7,12 @@ function left_bar_cb() {
 
 //自动生成列表
 function init() {
-    for (var i = 0; i <= 6; ++i) {
-        load_table_classes('#cla-row' + i);
-    }
-    for (var i = 0;i <= 10 ;i ++){
-        load_table_student('#stu-row' + i);
-    }
-    // load_rank_list('teacher');
     load_grade();
 }
 
-//班级表现的函数
-function load_table_classes (row_selector) {
-    var sort = '1';
-    var classes = '10010';
-    var read_num = '50';
-    var book_num = '90';
-    var accuracy = '60';
-    $(row_selector).load('../../../include/html/teacher/report_classes_show.html', function () {
-        $(row_selector + ' .sort').html(sort);
-        $(row_selector + ' .classes').html(classes);
-        $(row_selector + ' .read-num').html(read_num);
-        $(row_selector + ' .book-num').html(book_num);
-        $(row_selector + ' .accuracy').html(accuracy + '%');
-    });
-}
-
-
-//学生表现的函数
-function load_table_student (stu_selector){
-    var sort = '1';
-    var name = '易峰';
-    var read_num = '50';
-    var book_num = '90';
-    var accuracy = '60';
-    var operation = '查看';
-    $(stu_selector).load('../../../include/html/teacher/report_student_show.html', function () {
-        $(stu_selector + ' .sort').html(sort);
-        $(stu_selector + ' .name').html(name);
-        $(stu_selector + ' .read-num').html(read_num);
-        $(stu_selector + ' .book-num').html(book_num);
-        $(stu_selector + ' .accuracy').html(accuracy + '%');
-        $(stu_selector + ' .operation').html('<a href="#">'+ operation +'</a>');
-    });
-}
-
+var class_performance;
+var student_performance;
+var curr_tab = 'class';
 
 //简介与评论之间的tab切换函数
 var button_ids = ['classes', 'student'];
@@ -72,6 +33,12 @@ function on_button_click(e) {
                 $('.' + button_ids[i] + '-part').css('display', 'block');
             }
         }
+        if ($(e).attr('btn-type') == 'classes') {
+            curr_tab = 'class';
+        }
+        else {
+            curr_tab = 'student';
+        }
     }
 }
 
@@ -79,25 +46,45 @@ function on_button_click(e) {
 $(".right .option span").click(function(){
     $(this).siblings().removeClass("index");
     $(this).addClass("index");
+    load_student_class_rank('teacher', $(this).attr('value'));
 });
-
-var class_performance;
-var student_performance;
 
 function load_class_performance(class_id) {
     $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/statistic/web/timeline/class/{0}/classInfoInGrade'.format(class_id),
+        type: 'get',
+        data: {
+            startTime: 0,
+            endTime: 0
+        },
         success: function(data) {
             // 将数据加载到变量中
-            class_performance = data;
-        }
+            class_performance = data.gradeList;
+            load_table(1, 6, 'wordCount', 'reverse', 'class');
+        },
+        error: error_handler()
     });
 }
 
 function load_student_performance(class_id) {
     $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/statistic/web/timeline/class/{0}/studentInfoList'.format(class_id),
+        type: 'get',
+        data: {
+            startTime: 0,
+            endTime: 0
+        },
         success: function (data) {
             student_performance = data;
-        }
+            load_table(1, 6, 'wordCount', 'reverse', 'student');
+        },
+        error: error_handler()
     });
 }
 
@@ -108,11 +95,11 @@ function load_table(page, elem_per_page, sort_by,  order, type) {
     var dom_elem;
     if (type == 'class') {
         data = class_performance.slice();
-        dom_elem = '.classes-info-part table';
+        dom_elem = '.classes-info-part table tbody';
     }
     else {
         data = student_performance.slice();
-        dom_elem = '.student-show-list table';
+        dom_elem = '.student-show-list table tbody';
     }
 
     data = data.sort(function(a, b){
@@ -127,32 +114,50 @@ function load_table(page, elem_per_page, sort_by,  order, type) {
     if (end_index > data.length) {
         end_index = data.length;
     }
-
-    var html = '<tbody>';
+    var html = '';
     for (var i = start_index; i < end_index; ++i) {
-        html += '';
+        if (type == 'class') {
+            html += '<tr><td class="sort">{0}</td>'.format(i + 1) +
+                '<td class="classes">{0}</td>'.format(data[i].className) +
+                '<td class="read-num">{0}</td>'.format(data[i].wordCount / 10000) +
+                '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
+                '<td class="accuracy">{0}</td></tr>'.format(data[i].examScore);
+        }
+        else {
+            html += '<tr><td class="sort">{0}</td>'.format(data[i].studentId) +
+                '<td class="name">{0}</td>'.format(data[i].studentName) +
+                '<td class="read-num">{0}</td>'.format(data[i].wordCount) +
+                '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
+                '<td class="accuracy">{0}</td>'.format(data[i].examScore) +
+                '<td class="operation" style="cursor: pointer;" onclick="window.open(\'../report/student_report.html?student_id={0}\')">{1}</td></tr>'.format(data[i].studentId, '查看');
+        }
     }
-    html += '</tbody>';
-    $(dom_elem).append(html);
+    $(dom_elem).html(html);
 
 }
 
 $('.sortable-column').click(function () {
     // alert($(this).find('img').attr('src'));
+    var order;
     var obj = $(this);
     var img_src = obj.find('img').attr('src');
     if (img_src.indexOf('up') > 0) {
         obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png')
+        order = 'reverse';
     }
     else if (img_src.indexOf('down') > 0) {
         obj.find('img').attr('src', '../../../assets/img/teacher/up_triangle.png')
+        order = 'no-reverse';
     }
     else {
         obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png')
+        order = 'reverse';
     }
 
     obj.siblings('.sortable-column').removeClass('column-index').find('img').attr('src', '../../../assets/img/teacher/sort.png');
     obj.addClass('column-index');
+
+    load_table(1, 6, $(this).attr('value'), order, curr_tab);
 });
 
 function load_class(grade) {
@@ -163,7 +168,6 @@ function load_class(grade) {
         type: 'get',
         url: URL_BASE + '/users/web/class/grade/{0}/list'.format(grade),
         success: function (data) {
-            // console.log(data);
             var html = '';
             for (var i = 0; i < data.length; ++i) {
                 html += '<option value="{0}">{1}</option>'.format(data[i].id, data[i].name);
@@ -173,7 +177,13 @@ function load_class(grade) {
             }).on('select2:select', function(evt){
                 load_class_performance($(this).val());
                 load_student_performance($(this).val());
+                load_student_class_rank('school_master', $(this).val());
             });
+            if (data.length > 0) {
+                load_student_class_rank('school_master', data[0].id);
+                load_class_performance(data[0].id);
+                load_student_performance(data[0].id);
+            }
         },
         error: error_handler()
     })
