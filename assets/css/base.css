@@ -13,7 +13,8 @@
 
 .book-info-box .book-info table tbody tr td{
     height: 40px;
-    width: 220px;
+    width: 300px;
+    /*width: 220px;*/
     /*padding-right: 70px;*/
 }
 

@@ -97,7 +97,7 @@
                         <div id="note_container">
                         </div>
 
-                        <div class="tcdPageCode" id="note_pagination"></div>
+                        <!--<div class="tcdPageCode" id="note_pagination"></div>-->
                     </div>
 
                     <div id="test_part" style="display: none">
@@ -145,7 +145,7 @@
     load_info();
     load_comments(1);
     load_exam();
-    load_notes(1, $.getUrlParam('student_id'));  // 这里load的是该学生的笔记
+    teacher_load_notes(1, $.getUrlParam('student_id'));  // 这里load的是该学生的笔记
     bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
     bar.text.style.fontSize = '3rem';
 

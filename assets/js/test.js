@@ -85,7 +85,7 @@ function generate_question(data) {
 function generate_answer(data) {
     var html = '';
     question_id += 1;
-    console.log(data);
+    //console.log(data);
     switch (data.type) {
         case 1:
             question_type[1] = true;

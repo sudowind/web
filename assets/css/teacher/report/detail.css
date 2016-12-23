@@ -179,7 +179,8 @@
 }
 
 #note_container {
-    height: 336px;
+    height: 748px;
+    overflow-y: scroll;
 }
 
 /*测试题部分*/
