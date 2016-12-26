@@ -32,6 +32,7 @@ function add_teacher(){
         }]),
         success: function() {
             $(".teacher-information").remove();
+            has_load_page = false;
             load_teacher(1);
         }
     });
@@ -133,6 +134,8 @@ function load_teacher(page){
                         url: URL_BASE + '/users/web/teacher/'+ teacherId + '/delete',
                         success: function() {
                             $(".teacher-information").remove();
+                            console.log(has_load_page);
+                            has_load_page = false;
                             load_teacher(1)
                         }
                     });

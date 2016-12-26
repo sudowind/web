@@ -69,11 +69,11 @@ html{
 /*选择班级的css*/
 .content .class-name{
     width: 728px;
-    height: 78px;
+    /*height: 78px;*/
     line-height: 78px;
     border: 1px solid #e8e8e8;
     background: #f9f9f9;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .content .class-name p{
     font-size: 18px;
@@ -84,7 +84,7 @@ html{
     border-radius: 8px;
     font-size: 16px;
     padding: 7px 10px;
-    margin-left: 18px;
+    margin-left: 12px;
     cursor: pointer;
 }
 .content .class-name p .index{
@@ -96,7 +96,7 @@ html{
     width: 728px;
     height: 920px;
     border: 1px solid #e8e8e8;
-    margin-top: 20px;
+    margin-top: 10px;
     background: #f9f9f9;
 }
 /*学生个人具体信息*/
@@ -104,7 +104,7 @@ html{
     width: 728px;
     height: 920px;
     border: 1px solid #e8e8e8;
-    margin-top: 20px;
+    margin-top: 10px;
     background: #f9f9f9;
 }
 .information .head{
