@@ -45,6 +45,8 @@ var curr_tab = 'class';
 var class_has_load_page = false;
 var student_has_load_page = false;
 
+var ELEM_PER_PAGE = 6;
+
 var student_sort_by = 'wordCount';
 var student_order = 'reverse';
 var class_sort_by = 'wordCount';
@@ -100,7 +102,7 @@ function load_class_performance(class_id) {
         success: function(data) {
             // 将数据加载到变量中
             class_performance = data.gradeList;
-            load_table(1, 6, class_sort_by, class_order, 'class');
+            load_table(1, ELEM_PER_PAGE, class_sort_by, class_order, 'class');
         },
         error: error_handler()
     });
@@ -120,7 +122,7 @@ function load_student_performance(class_id) {
         },
         success: function (data) {
             student_performance = data;
-            load_table(1, 6, student_sort_by, student_order, 'student');
+            load_table(1, ELEM_PER_PAGE, student_sort_by, student_order, 'student');
         },
         error: error_handler()
     });
@@ -229,6 +231,6 @@ $('.sortable-column').click(function () {
         class_order = order;
         class_has_load_page = false;
     }
-    load_table(1, 6, $(this).attr('value'), order, curr_tab);
+    load_table(1, ELEM_PER_PAGE, $(this).attr('value'), order, curr_tab);
 
 });
