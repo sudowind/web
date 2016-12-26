@@ -14,6 +14,16 @@ var class_performance;
 var student_performance;
 var curr_tab = 'class';
 
+var class_has_load_page = false;
+var student_has_load_page = false;
+
+var ELEM_PER_PAGE = 6;
+
+var student_sort_by = 'wordCount';
+var student_order = 'reverse';
+var class_sort_by = 'wordCount';
+var class_order = 'reverse';
+
 //简介与评论之间的tab切换函数
 var button_ids = ['classes', 'student'];
 
@@ -50,6 +60,7 @@ $(".right .option span").click(function(){
 });
 
 function load_class_performance(class_id) {
+    class_has_load_page = false;
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -63,13 +74,14 @@ function load_class_performance(class_id) {
         success: function(data) {
             // 将数据加载到变量中
             class_performance = data.gradeList;
-            load_table(1, 6, 'wordCount', 'reverse', 'class');
+            load_table(1, ELEM_PER_PAGE, class_sort_by, class_order, 'class');
         },
         error: error_handler()
     });
 }
 
 function load_student_performance(class_id) {
+    student_has_load_page = false;
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -82,7 +94,7 @@ function load_student_performance(class_id) {
         },
         success: function (data) {
             student_performance = data;
-            load_table(1, 6, 'wordCount', 'reverse', 'student');
+            load_table(1, ELEM_PER_PAGE, student_sort_by, student_order, 'student');
         },
         error: error_handler()
     });
@@ -133,7 +145,32 @@ function load_table(page, elem_per_page, sort_by,  order, type) {
         }
     }
     $(dom_elem).html(html);
-
+    if (type == 'class') {
+        if (!class_has_load_page) {
+            class_has_load_page = true;
+            var page_count = Math.ceil(class_performance.length / elem_per_page);
+            $('#class_pagination').createPage({
+                pageCount: page_count,
+                current: 1,
+                backFn: function(p) {
+                    load_table(p, elem_per_page, sort_by, order, type);
+                }
+            })
+        }
+    }
+    else {
+        if (!student_has_load_page) {
+            student_has_load_page = true;
+            var page_count = Math.ceil(student_performance.length / elem_per_page);
+            $('#student_pagination').createPage({
+                pageCount: page_count,
+                current: 1,
+                backFn: function (p) {
+                    load_table(p, elem_per_page, sort_by, order, type);
+                }
+            })
+        }
+    }
 }
 
 $('.sortable-column').click(function () {
@@ -156,8 +193,17 @@ $('.sortable-column').click(function () {
 
     obj.siblings('.sortable-column').removeClass('column-index').find('img').attr('src', '../../../assets/img/teacher/sort.png');
     obj.addClass('column-index');
-
-    load_table(1, 6, $(this).attr('value'), order, curr_tab);
+    if (curr_tab == 'student') {
+        student_sort_by = $(this).attr('value');
+        student_order = order;
+        student_has_load_page = false;
+    }
+    else {
+        class_sort_by = $(this).attr('value');
+        class_order = order;
+        class_has_load_page = false;
+    }
+    load_table(1, ELEM_PER_PAGE, $(this).attr('value'), order, curr_tab);
 });
 
 function load_class(grade) {
