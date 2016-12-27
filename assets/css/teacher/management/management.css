@@ -70,7 +70,7 @@ html{
 .content .class-name{
     width: 728px;
     /*height: 78px;*/
-    line-height: 78px;
+    /*line-height: 78px;*/
     border: 1px solid #e8e8e8;
     background: #f9f9f9;
     margin-top: 10px;
@@ -78,14 +78,24 @@ html{
 .content .class-name p{
     font-size: 18px;
     margin-left: 15px;
+    margin-top: 20px;
 }
 .content .class-name p span{
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 108px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
     border: 1px solid #f99d32;
     border-radius: 8px;
     font-size: 16px;
-    padding: 7px 10px;
+    /*padding: 7px 10px;*/
     margin-left: 12px;
     cursor: pointer;
+}
+.content .class-name p span:nth-of-type(6){
+    margin-left: 106px;
 }
 .content .class-name p .index{
     color: #FFFFFF;
