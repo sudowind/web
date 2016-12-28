@@ -101,9 +101,11 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
                         obj.find('.book-name').html(book_data.name);
                         obj.find('.level-score').html(book_data.levelScore);
                         obj.parent().find('img').attr('src', book_data.coverUri);
-
+                        if (book_data.examStatus.indexOf('无题') >= 0) {
+                            obj.parent().siblings().find('.appraisal btn').html('无题').addClass('disabled');
+                        }
                     },
-                    error: ajax_error_handler
+                    error: error_handler()
                 });
             });
             $('.remove').click(function () {
@@ -121,7 +123,7 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
                         success: function () {
                             obj.parent().parent().hide();
                         },
-                        error: ajax_error_handler
+                        error: error_handler()
                     });
                 });
             });
@@ -177,7 +179,7 @@ function fill_book(data) {
         '<span onclick="window.open(\'read.html?book_id=' + data.bookId + '&task_id=' + data.id + '\', \'_self\')">继续阅读</span>' +
         '</p>' +
         '<p class="appraisal">' +
-        '<span onclick="window.open(\'test.html?book_id=' + data.bookId + '&task_id=' + data.id + '\', \'_self\');">做测评</span>' +
+        '<btn class="btn" onclick="window.open(\'test.html?book_id=' + data.bookId + '&task_id=' + data.id + '\', \'_self\');">做测评</btn>' +
         '</p>' +
         '</div>' +
         '<div class="check" style="display: none">' +

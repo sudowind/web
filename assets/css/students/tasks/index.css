@@ -239,6 +239,13 @@ body {
     left:96px;
     cursor:pointer;
 }
+.appraisal .btn:hover {
+    color: #ffffff;
+}
+.appraisal .btn,.appraisal .disabled {
+    font-size: 12px;
+    padding: 0;
+}
 
 .list .list-book .check p{
     width: 100px;
