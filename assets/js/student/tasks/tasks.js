@@ -221,7 +221,7 @@ function init_teachers() {
             });
             load_book(2, getCookie('USER'), 0, 8, function(){});
         },
-        error: ajax_error_handler
+        error: error_handler()
     });
 }
 
