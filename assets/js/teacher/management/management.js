@@ -1,7 +1,7 @@
 /**
  * Created by yilong on 2016/10/26.
  */
-function right_bar_cb() {
+function left_bar_cb() {
     $('#management_button').attr('class', 'side-button-selected left-side-button');
 }
 //学生列表的性别以及是否修改密码的参数
@@ -58,7 +58,7 @@ $(".content .class-name p").on('click','span',function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
 
-    //has_load_page = false;
+    has_load_page = false;
     load_student_info($(".class-name .index").attr('value'), 1);
 });
 

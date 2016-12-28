@@ -177,6 +177,10 @@ function load_student_class_rank(current, class_id) {
             exam_obj.find('.current-page').html(data.exam.rank);
             read_obj.find('.page').html(data.reading.total);
             exam_obj.find('.page').html(data.exam.total);
+            read_obj.siblings('.rank-message').find('.current-page').html(data.reading.rank);
+            read_obj.siblings('.rank-message').find('.page').html(data.reading.total);
+            exam_obj.siblings('.rank-message').find('.current-page').html(data.exam.rank);
+            exam_obj.siblings('.rank-message').find('.page').html(data.exam.total);
         },
         error: error_handler()
     });
