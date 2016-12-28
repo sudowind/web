@@ -21,7 +21,7 @@ html{
 }
 .title{
     display: inline-block;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 .title .down{
     width: 649px;;
@@ -73,7 +73,7 @@ html{
     line-height: 78px;
     border: 1px solid #e8e8e8;
     background: #f9f9f9;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 .content .class-name p{
     font-size: 18px;
