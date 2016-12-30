@@ -37,8 +37,9 @@ function on_button_click(e) {
 }
 
 $('.slide-button').click(function () {
+    var obj = $(this);
     $('.book-info-box').fadeOut(function() {
-        change_slide(Number($(this).attr('value')));
+        change_slide(Number(obj.attr('value')));
         $('.book-info-box').fadeIn();
     });
 });
@@ -297,7 +298,7 @@ function init() {
         url: URL_BASE + '/tasks/web/task/student/' + $.getUrlParam('student_id') + '/list',
         success: function (data) {
             for (var i = 0; i < data.length; ++i) {
-                if (data[i].status == 4) {
+                if (data[i].status == 5) {
                     read_book.push(data[i]);
                 }
                 else {
@@ -306,7 +307,8 @@ function init() {
             }
             load_slide(0);
             load_read_book(1);
-        }
+        },
+        error: error_handler()
     });
     // 加载已经读完的书
 }

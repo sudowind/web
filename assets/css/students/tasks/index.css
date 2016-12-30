@@ -26,7 +26,7 @@ body {
 }
 .title{
     display: inline-block;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 .title .down{
     width: 649px;;
@@ -80,7 +80,7 @@ body {
     height: 1017px;
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
-    margin-top:30px;
+    margin-top: 15px;
     position: relative;
 }
 .book .sort{
@@ -238,6 +238,13 @@ body {
     top: 256px;
     left:96px;
     cursor:pointer;
+}
+.appraisal .btn:hover {
+    color: #ffffff;
+}
+.appraisal .btn,.appraisal .disabled {
+    font-size: 12px;
+    padding: 0;
 }
 
 .list .list-book .check p{

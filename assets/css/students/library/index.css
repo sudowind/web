@@ -23,7 +23,7 @@
 }
 .title{
     display: inline-block;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 .title .down{
     width: 649px;;
@@ -57,7 +57,7 @@
     height: 1017px;
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
-    margin-top:30px;
+    margin-top:15px;
     position: relative;
 }
 .book .sort{

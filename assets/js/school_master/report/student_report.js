@@ -37,19 +37,20 @@ function on_button_click(e) {
 }
 
 $('.slide-button').click(function () {
+    var obj = $(this);
     $('.book-info-box').fadeOut(function() {
-        change_slide(Number($(this).attr('value')));
+        change_slide(Number(obj.attr('value')));
         $('.book-info-box').fadeIn();
     });
 });
 
 var reading_book = [];
 var read_book = [];
-var currend_no = 0;
+var current_no = 0;
 
 // 以下两个函数用来实现左右切换的功能
 function load_slide(index) {
-    currend_no = index;
+    current_no = index;
     var data = reading_book[index];
     var percent = Math.ceil(data.currentPage * 100.0 / data.totalPage);
     $('#book_name').html('<h3>' + data.book.name + '</h3>');
@@ -63,13 +64,13 @@ function change_slide(dir) {
     var next_no = 0;
     if (dir > 0) {
         // 表示向右
-        next_no = currend_no + 1;
+        next_no = current_no + 1;
         if (next_no == reading_book.length)
             next_no = 0;
     }
     else {
         // 表示向左
-        next_no = currend_no - 1;
+        next_no = current_no - 1;
         if (next_no == -1)
             next_no = reading_book.length - 1;
     }

@@ -7,7 +7,7 @@
 .content{
     padding:21px 20px;
     position: relative;
-    top: 0px;
+    top: 0;
 }
 .title h3{
     width: 81px;
@@ -116,12 +116,13 @@
 }
 .tab .progress{
     height: 35px;
-    position: static;
+    position: relative;
     border-radius: 16px;
     background: #e8e8e8;
     margin-top:30px;
     margin-left: 14px;
     width: 450px;
+    top: 0;
 }
 .tab .progress .progress-bar {
     line-height: 35px;
@@ -169,6 +170,15 @@
 .tab .classes-info-part table tbody tr td{
     height: 50px;
     text-align: center;
+}
+.rank-message {
+    position: absolute;
+    color: #ffffff;
+    top: 6px;
+    left: 15px;
+}
+.rank-message img {
+    margin-right: 10px;
 }
 /*学生表现*/
 .tab .student-show-list {

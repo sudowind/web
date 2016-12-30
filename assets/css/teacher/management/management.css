@@ -7,7 +7,7 @@
 .content{
     padding:21px 20px;
     position: relative;
-    top: 0px;
+    top: 0;
 }
 .title h3{
     width: 81px;
@@ -18,7 +18,7 @@
 }
 .title{
     display: inline-block;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 .title .down{
     width: 649px;;
@@ -70,7 +70,7 @@
     /*line-height: 78px;*/
     border: 1px solid #e8e8e8;
     background: #f9f9f9;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 .content .class-name p{
     font-size: 18px;
