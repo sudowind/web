@@ -6,6 +6,8 @@ function right_bar_cb() {
 }
 
 $(".list").on('click','p',function(){
-    $(".list p").removeClass();
-    $(this).addClass('index');
-})
+    var Index = $(this).index();
+    $(this).addClass('index').siblings().removeClass('index');
+    $(".lab").eq(Index).addClass('show').siblings().removeClass('show');
+
+});

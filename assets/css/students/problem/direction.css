@@ -52,12 +52,86 @@
 .nav img{
     margin-left: 10px;
 }
-#problem .content {
+#problem .content{
+
+}
+
+#problem .personal-data {
+    width: 522px;
+    height: 1100px;
+    background: #f9f9f9;
+    border:1px solid #e8e8e8;
     float: left;
     margin-left: 10px;
+    overflow-y: scroll;
+}
+.right-title{
+    height: 40px;
+    line-height: 30px;
+    margin: 10px;
+    border-bottom: 1px solid #e8e8e8;
+    font-weight: bolder;
+    font-size: 15px;
+}
+.cont h2{
+    margin-left: 10px;
+    font-size: 17px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
 
+.cont p {
+    margin: 20px;
+    font-size: 16px;
+}
+.cont p span{
+    color: red;
+}
+.cont .img{
+    width: 500px;
+    height: 330px;
+}
+.cont .img img{
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+#problem .change-pwd {
+    width: 522px;
+    height: 1100px;
+    background: #f9f9f9;
+    border:1px solid #e8e8e8;
+    float: left;
+    margin-left: 10px;
+    overflow-y: scroll;
+}
+
+#problem .add-task {
+    width: 522px;
+    height: 1100px;
+    background: #f9f9f9;
+    border:1px solid #e8e8e8;
+    float: left;
+    margin-left: 10px;
+    overflow-y: scroll;
+}
+.img-index{
+    height: 568px;
+    width: 500px;
+}
+.img-index img{
+    width: 100%;
+    height: 100%;
 }
 .index{
     background: #f99d32;
     color: #FFFFFF;
+}
+.lab{
+    display: none;
+}
+.show{
+    display: block;
 }

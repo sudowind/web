@@ -176,7 +176,6 @@ function grade_teacher(page){
                     url: URL_BASE + '/users/web/user/'+ userId + '',
                     success: function(data) {
                         //console.log(data.classes);
-
                         if(data.gender == '1'){
                             gender = '男';
                         }else if(data.gender == '2'){
@@ -185,23 +184,45 @@ function grade_teacher(page){
                         classes_list = '';
                         html = fill_teacher(data);
                         $(".information").append(html);
+
+
+                        //根据年级删除老师的函数
+                        $(".delete").on('click',function(){
+                            var teacherId = this.value;
+                            var teacher_name = $(this).parent().children().eq(1).text();
+                            var text = '<p>'+'确定删除老师  '+'<span>'+ teacher_name +'</span>'+'  的个人信息么？'+'</p>';
+
+                            my_tip.bind(text, function() {
+                                $.ajax({
+                                    xhrFields: {
+                                        withCredentials: true
+                                    },
+                                    type: 'POST',
+                                    url: URL_BASE + '/users/web/teacher/'+ teacherId + '/delete',
+                                    success: function() {
+                                        $(".teacher-information").remove();
+                                        has_load_page = false;
+                                        grade_teacher(1)
+                                    }
+                                });
+                            });
+                        });
                     }
                 });
             }
-
+                //分页
             if (!has_load_page) {
-                has_load_page = true;
-                var page_count = Math.ceil((data.length * 1.0) / element_count);
-                $('#teacher_list_class').createPage({
-                    pageCount: page_count,
-                    current: 1,
-                    backFn: function(p) {
-                        $('.information ul').remove();
-                        load_teacher(p);
-                    }
-                });
-            }
-
+                    has_load_page = true;
+                    var page_count = Math.ceil((data.length * 1.0) / element_count);
+                    $('#teacher_list_class').createPage({
+                        pageCount: page_count,
+                        current: 1,
+                        backFn: function(p) {
+                            $('.information ul').remove();
+                            grade_teacher(p);
+                        }
+                    });
+                }
         }
     });
 }
