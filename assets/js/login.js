@@ -3,14 +3,13 @@
  */
 function on_drop_down_click() {
     $('.sub-menu').slideToggle();
-    var tmp = $('#drop_down_icon');
-    if (tmp.attr('src') != '../assets/img/login/dropdown_open.png') {
-        tmp.attr('src', '../assets/img/login/dropdown_open.png').addClass('drop-down-icon-open').removeClass('drop-down-icon-close');
-    }
-    else {
-        tmp.attr('src', '../assets/img/login/dropdown_close.png').addClass('drop-down-icon-close').removeClass('drop-down-icon-open');
-    }
-
+    //var tmp = $('#drop_down_icon');
+    //if (tmp.attr('src') != '../assets/img/login/dropdown_open.png') {
+    //    tmp.attr('src', '../assets/img/login/dropdown_open.png').addClass('drop-down-icon-open').removeClass('drop-down-icon-close');
+    //}
+    //else {
+    //    tmp.attr('src', '../assets/img/login/dropdown_close.png').addClass('drop-down-icon-close').removeClass('drop-down-icon-open');
+    //}
     return_to_login();
 }
 

@@ -31,8 +31,11 @@ function add_teacher(){
             "userType": "3"
         }]),
         success: function() {
-            $(".teacher-information").remove();
-            has_load_page = false;
+            //$(".teacher-information").remove();
+            //$(".option").eq(0).addClass('index').siblings().removeClass('index');
+            init_grade();
+            $("#teacher_list_all").css("display","block");
+            $("#teacher_list_class").css("display","none");
             load_teacher(1);
         }
     });
@@ -51,8 +54,8 @@ function init_grade() {
     }
     html = '<span class="index option" value="1">全部</span>' + html;
     $('.class-name .grade').html(html).on('click','span',function (){
-        $(this).siblings().removeClass('index');
-        $(this).addClass('index');
+        $(this).addClass('index').siblings().removeClass('index');
+        //$(this);
         $(".information ul").remove();
         has_load_page = false;
         if($(this).attr('value') == 1){
