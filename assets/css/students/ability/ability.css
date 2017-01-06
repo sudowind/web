@@ -1,0 +1,50 @@
+/*头部信息*/
+#info{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.content{
+    padding: 21px 20px;
+    position: relative;
+    top: 0;
+}
+.title h3{
+    width: 90px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+    padding-bottom: 30px;
+}
+.title .down{
+    width: 640px;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #e8e8e8;
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -184,11 +184,35 @@ function init() {
         success: function (data) {
             $('#book_count').html(data.studentReadingInfo.bookCount);
             $('#word_count').html(data.studentReadingInfo.wordCount);
-            $('#time_count').html(Math.ceil(Number(data.studentReadingInfo.timeCount) / 6000));
+            $('#time_count').html(Math.ceil(Number(data.studentReadingInfo.timeCount) / 60000));
             myChart.setOption(set_ability_analysis_option(data));
         },
         error: error_handler()
     });
     // 学生班级排名
     load_student_class_rank('student');
+    // 获取本年度阅读进度
+    var semester = get_current_semester();
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/statistic/web/timeline/student/current/semesterReadingInfo',
+        type: 'get',
+        data: {
+            startTime: semester[0],
+            endTime: semester[1]
+        },
+        success: function (data) {
+            $('.school-year-plan').find('p strong').html(data.target);
+            $('.already-read').find('p strong').html(data.now);
+            var percent = data.now / data.target;
+            if (percent > 1)
+                percent = 1;
+            bar.animate(percent);
+        },
+        error: error_handler()
+    });
+    // 从服务器获取是否进行过阅读能力测试，提醒用户进行阅读能力测试，同时利用cookie存储是否提醒过进行阅读能力测试
+
 }

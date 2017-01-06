@@ -44,7 +44,7 @@
   }
 }
 
-// Mixin for generating new styles
+// Mixin for generating v1.0.1 styles
 @mixin btn-styles($btn-color: #555) {
   @include gradient-vertical($start-color: $btn-color, $end-color: darken($btn-color, 12%));
   @include reset-filter; // Disable gradients for IE9 because filter bleeds through rounded corners; see https://github.com/twbs/bootstrap/issues/10620
@@ -194,7 +194,7 @@
   @include box-shadow($shadow);
 }
 
-// Mixin for generating new styles
+// Mixin for generating v1.0.1 styles
 @mixin alert-styles($color) {
   @include gradient-vertical($start-color: $color, $end-color: darken($color, 7.5%));
   border-color: darken($color, 15%);
@@ -216,7 +216,7 @@
   @include gradient-vertical($start-color: darken($progress-bg, 4%), $end-color: $progress-bg)
 }
 
-// Mixin for generating new styles
+// Mixin for generating v1.0.1 styles
 @mixin progress-bar-styles($color) {
   @include gradient-vertical($start-color: $color, $end-color: darken($color, 10%));
 }
@@ -229,7 +229,7 @@
 .progress-bar-danger     { @include progress-bar-styles($progress-bar-danger-bg); }
 
 // Reset the striped class because our mixins don't do multiple gradients and
-// the above custom styles override the new `.progress-bar-striped` in v3.2.0.
+// the above custom styles override the v1.0.1 `.progress-bar-striped` in v3.2.0.
 .progress-bar-striped {
   @include gradient-striped;
 }
@@ -265,7 +265,7 @@
   @include box-shadow(0 1px 2px rgba(0,0,0,.05));
 }
 
-// Mixin for generating new styles
+// Mixin for generating v1.0.1 styles
 @mixin panel-heading-styles($color) {
   @include gradient-vertical($start-color: $color, $end-color: darken($color, 5%));
 }

@@ -1,6 +1,6 @@
 /*返回按钮*/
 .return-button {
-    margin: -50px 0 0 675px;
+    margin: -10px 0 0 675px;
     background: #fb9e1d;
     color: #ffffff;
 }
@@ -14,7 +14,7 @@
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
     height: 250px;
-    margin-top: -12px;
+    margin-top: 10px;
     margin-bottom: 20px;
     position: relative;
     top: 0;

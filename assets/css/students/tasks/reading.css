@@ -124,6 +124,7 @@
     margin-top: 14px;
     margin-left: 130px;
     padding: 25px 6px;
+    cursor: pointer;
 }
 .left .book .down{
     width: 38px;
@@ -132,6 +133,7 @@
     margin-top: 2px;
     margin-left: 130px;
     padding: 25px 6px;
+    cursor: pointer;
 }
 .right .contents object{
     margin: 20px 18px;
@@ -160,3 +162,9 @@
     width: 532px;
     height: 1124px;
 }
+
+embed, iframe {
+    width: 498px;
+    height: 600px;
+}
+
