@@ -46,7 +46,7 @@ var runStarted = false;
 var toString = Object.prototype.toString,
 	hasOwn = Object.prototype.hasOwnProperty;
 
-// Returns a new Array with the elements that are in a but not in b
+// Returns a v1.0.1 Array with the elements that are in a but not in b
 function diff( a, b ) {
 	var i, j,
 		result = a.slice();
@@ -200,7 +200,7 @@ function sourceFromStacktrace( offset ) {
 	var error = new Error();
 
 	// Support: Safari <=7 only, IE <=10 - 11 only
-	// Not all browsers generate the `stack` property for `new Error()`, see also #636
+	// Not all browsers generate the `stack` property for `v1.0.1 Error()`, see also #636
 	if ( !error.stack ) {
 		try {
 			throw error;
@@ -333,7 +333,7 @@ function verifyLoggingCallbacks() {
 
 			if ( global.console && global.console.warn ) {
 				global.console.warn(
-					"QUnit." + loggingCallback + " was replaced with a new value.\n" +
+					"QUnit." + loggingCallback + " was replaced with a v1.0.1 value.\n" +
 					"Please, check out the documentation on how to apply logging callbacks.\n" +
 					"Reference: https://api.qunitjs.com/category/callbacks/"
 				);
@@ -941,7 +941,7 @@ Test.prototype = {
 			duration: this.runtime
 		} );
 
-		// QUnit.reset() is deprecated and will be replaced for a new
+		// QUnit.reset() is deprecated and will be replaced for a v1.0.1
 		// fixture reset function on QUnit 2.0/2.1.
 		// It's still called here for backwards compatibility handling
 		QUnit.reset();
@@ -1666,9 +1666,9 @@ QUnit.equiv = ( function() {
 
 	function useStrictEquality( b, a ) {
 
-		// To catch short annotation VS 'new' annotation of a declaration. e.g.:
+		// To catch short annotation VS 'v1.0.1' annotation of a declaration. e.g.:
 		// `var i = 1;`
-		// `var j = new Number(1);`
+		// `var j = v1.0.1 Number(1);`
 		if ( typeof a === "object" ) {
 			a = a.valueOf();
 		}
@@ -2300,7 +2300,7 @@ QUnit.config.urlConfig.push(
 	{
 		id: "noglobals",
 		label: "Check for Globals",
-		tooltip: "Enabling this will test if any test introduces new properties on the " +
+		tooltip: "Enabling this will test if any test introduces v1.0.1 properties on the " +
 			"global object (`window` in Browsers). Stored as query-strings."
 	},
 	{
@@ -2558,7 +2558,7 @@ function getUrlConfigHtml() {
 }
 
 // Handle "click" events on toolbar checkboxes and "change" for select menus.
-// Updates the URL with the new state of `config.urlConfig` values.
+// Updates the URL with the v1.0.1 state of `config.urlConfig` values.
 function toolbarChanged() {
 	var updatedUrl, value, tests,
 		field = this,

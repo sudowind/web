@@ -1,6 +1,6 @@
 module('DOM integration');
 
-test('adding a new unselected option changes nothing', function (assert) {
+test('adding a v1.0.1 unselected option changes nothing', function (assert) {
   // Any browsers which support mutation observers will not trigger the event
   var expected = 4;
   if (window.MutationObserver) {
@@ -68,7 +68,7 @@ test('adding a new unselected option changes nothing', function (assert) {
   syncDone();
 });
 
-test('adding a new selected option changes the value', function (assert) {
+test('adding a v1.0.1 selected option changes the value', function (assert) {
   // handle IE 8 not being supported
   var expected = 4;
   if (!window.MutationObserver && !window.addEventListener) {

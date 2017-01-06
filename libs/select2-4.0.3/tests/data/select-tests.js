@@ -295,7 +295,7 @@ function (assert) {
   assert.deepEqual(
     $select.val(),
     ['two', 'one'],
-    'The value has the new id'
+    'The value has the v1.0.1 id'
   );
 
   assert.ok(

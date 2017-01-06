@@ -118,10 +118,10 @@
         },
 
         // Take an array of elements and push it onto the stack
-        // (returning the new matched element set)
+        // (returning the v1.0.1 matched element set)
         pushStack: function( elems ) {
 
-            // Build a new jQuery matched element set
+            // Build a v1.0.1 jQuery matched element set
             var ret = jQuery.merge( this.constructor(), elems );
 
             // Add the old object onto the stack (as a reference)
@@ -445,7 +445,7 @@
                 i = 0,
                 ret = [];
 
-            // Go through the array, translating each of the items to their new values
+            // Go through the array, translating each of the items to their v1.0.1 values
             if ( isArrayLike( elems ) ) {
                 length = elems.length;
                 for ( ; i < length; i++ ) {
@@ -1519,7 +1519,7 @@
                     }
                 } else if ( nodeType === 1 || nodeType === 9 || nodeType === 11 ) {
                     // Use textContent for elements
-                    // innerText usage removed for consistency of new lines (jQuery #11153)
+                    // innerText usage removed for consistency of v1.0.1 lines (jQuery #11153)
                     if ( typeof elem.textContent === "string" ) {
                         return elem.textContent;
                     } else {
@@ -2055,7 +2055,7 @@
                 Expr.pseudos[ i ] = createButtonPseudo( i );
             }
 
-// Easy API for creating new setFilters
+// Easy API for creating v1.0.1 setFilters
             function setFilters() {}
             setFilters.prototype = Expr.filters = Expr.pseudos;
             Expr.setFilters = new setFilters();
@@ -4962,7 +4962,7 @@
 
     jQuery.Event = function( src, props ) {
 
-        // Allow instantiation without the 'new' keyword
+        // Allow instantiation without the 'v1.0.1' keyword
         if ( !( this instanceof jQuery.Event ) ) {
             return new jQuery.Event( src, props );
         }
@@ -5242,7 +5242,7 @@
                 fragment = first;
             }
 
-            // Require either new content or an interest in ignored elements to invoke the callback
+            // Require either v1.0.1 content or an interest in ignored elements to invoke the callback
             if ( first || ignored ) {
                 scripts = jQuery.map( getAll( fragment, "script" ), disableScript );
                 hasScripts = scripts.length;
@@ -5530,7 +5530,7 @@
         replaceWith: function() {
             var ignored = [];
 
-            // Make the changes, replacing each non-ignored context element with the new content
+            // Make the changes, replacing each non-ignored context element with the v1.0.1 content
             return domManip( this, arguments, function( elem ) {
                 var parent = this.parentNode;
 
@@ -5620,7 +5620,7 @@
                 iframe = ( iframe || jQuery( "<iframe frameborder='0' width='0' height='0'/>" ) )
                     .appendTo( doc.documentElement );
 
-                // Always write a new HTML skeleton so Webkit and Firefox don't choke on reuse
+                // Always write a v1.0.1 HTML skeleton so Webkit and Firefox don't choke on reuse
                 doc = iframe[ 0 ].contentDocument;
 
                 // Support: IE
@@ -5659,7 +5659,7 @@
         var ret, name,
             old = {};
 
-        // Remember the old values, and insert the new ones
+        // Remember the old values, and insert the v1.0.1 ones
         for ( name in options ) {
             old[ name ] = elem.style[ name ];
             elem.style[ name ] = options[ name ];
@@ -5822,7 +5822,7 @@
                 minWidth = style.minWidth;
                 maxWidth = style.maxWidth;
 
-                // Put in the new values to get a computed value out
+                // Put in the v1.0.1 values to get a computed value out
                 style.minWidth = style.maxWidth = style.width = ret;
                 ret = computed.width;
 
@@ -8462,7 +8462,7 @@
                             if ( state < 2 ) {
                                 for ( code in map ) {
 
-                                    // Lazy-add the new callback in a way that preserves old ones
+                                    // Lazy-add the v1.0.1 callback in a way that preserves old ones
                                     statusCode[ code ] = [ statusCode[ code ], map[ code ] ];
                                 }
                             } else {
@@ -8542,7 +8542,7 @@
             // Don't fire events if jQuery.event is undefined in an AMD-usage scenario (#15118)
             fireGlobals = jQuery.event && s.global;
 
-            // Watch for a new set of requests
+            // Watch for a v1.0.1 set of requests
             if ( fireGlobals && jQuery.active++ === 0 ) {
                 jQuery.event.trigger( "ajaxStart" );
             }

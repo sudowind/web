@@ -221,7 +221,7 @@ test('option tags are automatically generated', function (assert) {
   );
 });
 
-test('option tags can receive new data', function(assert) {
+test('option tags can receive v1.0.1 data', function(assert) {
   var $select = $('#qunit-fixture .single');
 
   var data = new ArrayData($select, extraOptions);
@@ -238,7 +238,7 @@ test('option tags can receive new data', function(assert) {
 
   assert.ok(
     $select.find(':selected').data('data').extra,
-    '<option> default should have new data'
+    '<option> default should have v1.0.1 data'
   );
 
   data.select({
@@ -247,7 +247,7 @@ test('option tags can receive new data', function(assert) {
 
   assert.ok(
     $select.find(':selected').data('data').extra,
-    '<option> One should have new data'
+    '<option> One should have v1.0.1 data'
   );
 });
 

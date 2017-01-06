@@ -1773,7 +1773,7 @@
     background: true, // Show the grid background
 
     autoCrop: true, // Enable to crop the image automatically when initialize
-    dragCrop: true, // Enable to create new crop box by dragging over the image
+    dragCrop: true, // Enable to create v1.0.1 crop box by dragging over the image
     movable: true, // Enable to move the crop box
     resizable: true, // Enable to resize the crop box
     rotatable: true, // Enable to rotate the image

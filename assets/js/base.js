@@ -9,7 +9,7 @@ var TASK_STATUS = {
 };
 
 Date.prototype.getFullDate = function() {
-    // 缁欏畾Date锛岃幏鍙栨棩鏈熷瓧绗︿覆
+    // 返回date对应的日期字符串
     var year = this.getFullYear().toString();
     var month = this.getMonth().toString();
     if (month.length < 2)
@@ -21,7 +21,7 @@ Date.prototype.getFullDate = function() {
 };
 
 function open_mail_url(mail_address) {
-    // 浼犲叆閭锛屾墦寮�閭鐧诲綍椤甸潰
+    // 给定邮箱打开邮箱登录界面
     var url = '';
     if (mail_address.indexOf('gmail') >= 0) {
         url = 'http://gmail.google.com';
@@ -33,12 +33,12 @@ function open_mail_url(mail_address) {
 }
 
 String.prototype.format = function(args) {
-    // string鐨刦ormat鍑芥暟
+    // string format
     if (arguments.length>0) {
         var result = this;
         if (arguments.length == 1 && typeof (args) == "object") {
             for (var key in args) {
-                var reg=new RegExp ("({"+key+"})","g");
+                var reg = new RegExp ("({"+key+"})","g");
                 result = result.replace(reg, args[key]);
             }
         }
@@ -50,7 +50,7 @@ String.prototype.format = function(args) {
                 }
                 else
                 {
-                    var reg=new RegExp ("({["+i+"]})","g");
+                    var reg = new RegExp ("({["+i+"]})","g");
                     result = result.replace(reg, arguments[i]);
                 }
             }
@@ -102,4 +102,36 @@ function safe_divide(a, b) {
         return 0;
     else
         return a / b;
+}
+
+function get_current_semester() {
+    var now = new Date();
+    var curr_month = now.getMonth();
+    var start_time = 0;
+    var end_time = 0;
+    var start = now, end = now;
+    console.log(curr_month);
+    if (curr_month >= 2 && curr_month <= 7) {
+        start.setMonth(2);
+        start_time = start.setDate(0);
+        end.setMonth(8);
+        end_time = end.setDate(0);
+    }
+    else {
+        if (curr_month > 7) {
+            start.setMonth(8);
+            start_time = start.setDate(0);
+            end.setYear(now.getYear() + 1 + 1900);
+            end.setMonth(2);
+            end_time = end.setDate(0);
+        }
+        else {
+            start.setYear(now.getYear() - 1 + 1900);
+            start.setMonth(8);
+            start_time = start.setDate(0);
+            end.setMonth(2);
+            end_time = end.setDate(0);
+        }
+    }
+    return [start_time, end_time];
 }

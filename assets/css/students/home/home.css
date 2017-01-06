@@ -126,7 +126,7 @@
 }
 .cla-ranking{
     width: 483px;
-    height: 228px;
+    height: 282px;
     border: 1px solid #e8e8e8;
     background: #f9f9f9;
     float: right;
@@ -161,7 +161,7 @@
 .rank-message {
     position: absolute;
     color: #ffffff;
-    top: 6px;
+    top: 7px;
     left: 15px;
 }
 .rank-message img {
@@ -296,7 +296,7 @@
 .dimensionality{
     float: right;
     width: 483px;
-    height: 550px;
+    height: 500px;
     border: 1px solid #e8e8e8;
     margin-top: 9px;
     background: #f9f9f9;
@@ -327,6 +327,30 @@
     float: left;
 }
 
+#level_test_modal .modal-content{
+    width: 600px;
+    height: 400px;
+}
 
+#level_test_modal .modal-body {
+    text-align: center;
+    font-size: 16px;
+}
 
+#level_test_modal #modal_info {
+    text-align: left;
+    line-height: 1.4;
+    padding: 20px 50px;
+    height: 310px;
+}
+
+#level_test_modal #modal_info p {
+    margin: 10px 0;
+}
+
+#level_test_modal #modal_confirm_button, #level_test_modal #modal_quit {
+    background: #fb9e1d;
+    color: #ffffff;
+    margin: auto 10px;
+}
 

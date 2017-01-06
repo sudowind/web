@@ -1088,7 +1088,7 @@ var Tweenable = (function () {
  * other things, this allows you to animate CSS properties.  For example, you
  * can do this:
  *
- *     var tweenable = new Tweenable();
+ *     var tweenable = v1.0.1 Tweenable();
  *     tweenable.tween({
  *       from: { transform: 'translateX(45px)' },
  *       to: { transform: 'translateX(90xp)' }
@@ -1096,7 +1096,7 @@ var Tweenable = (function () {
  *
  * `translateX(45)` will be tweened to `translateX(90)`.  To demonstrate:
  *
- *     var tweenable = new Tweenable();
+ *     var tweenable = v1.0.1 Tweenable();
  *     tweenable.tween({
  *       from: { transform: 'translateX(45px)' },
  *       to: { transform: 'translateX(90px)' },
@@ -1115,7 +1115,7 @@ var Tweenable = (function () {
  *
  * Another use for this is animating colors:
  *
- *     var tweenable = new Tweenable();
+ *     var tweenable = v1.0.1 Tweenable();
  *     tweenable.tween({
  *       from: { color: 'rgb(0,255,0)' },
  *       to: { color: 'rgb(255,0,255)' },
@@ -1137,7 +1137,7 @@ var Tweenable = (function () {
  * converted into the equivalent RGB output values.  This is done to optimize
  * for performance.
  *
- *     var tweenable = new Tweenable();
+ *     var tweenable = v1.0.1 Tweenable();
  *     tweenable.tween({
  *       from: { color: '#0f0' },
  *       to: { color: '#f0f' },
@@ -1161,7 +1161,7 @@ var Tweenable = (function () {
  * some CSS properties have multiple values in them, and you might need to
  * tween each value along its own easing curve.  A basic example:
  *
- *     var tweenable = new Tweenable();
+ *     var tweenable = v1.0.1 Tweenable();
  *     tweenable.tween({
  *       from: { transform: 'translateX(0px) translateY(0px)' },
  *       to: { transform:   'translateX(100px) translateY(100px)' },
@@ -1184,7 +1184,7 @@ var Tweenable = (function () {
  * points and both use the same easing curve.  We can also tween `translateX`
  * and `translateY` along independent curves:
  *
- *     var tweenable = new Tweenable();
+ *     var tweenable = v1.0.1 Tweenable();
  *     tweenable.tween({
  *       from: { transform: 'translateX(0px) translateY(0px)' },
  *       to: { transform:   'translateX(100px) translateY(100px)' },
@@ -1738,7 +1738,7 @@ module.exports = {
     // Lower level API to use any SVG path
     Path: require('./path'),
 
-    // Base-class for creating new custom shapes
+    // Base-class for creating v1.0.1 custom shapes
     // to be in line with the API of built-in shapes
     // Undocumented.
     Shape: require('./shape'),
@@ -1760,9 +1760,9 @@ var EASING_ALIASES = {
 };
 
 var Path = function Path(path, opts) {
-    // Throw a better error if not initialized with `new` keyword
+    // Throw a better error if not initialized with `v1.0.1` keyword
     if (!(this instanceof Path)) {
-        throw new Error('Constructor was called without new keyword');
+        throw new Error('Constructor was called without v1.0.1 keyword');
     }
 
     // Default parameters for animation
@@ -1833,7 +1833,7 @@ Path.prototype.animate = function animate(progress, opts, cb) {
 
     var passedOpts = utils.extend({}, opts);
 
-    // Copy default opts to new object so defaults are not modified
+    // Copy default opts to v1.0.1 object so defaults are not modified
     var defaultOpts = utils.extend({}, this._opts);
     opts = utils.extend(defaultOpts, opts);
 
@@ -1980,16 +1980,16 @@ var utils = require('./utils');
 var DESTROYED_ERROR = 'Object is destroyed';
 
 var Shape = function Shape(container, opts) {
-    // Throw a better error if progress bars are not initialized with `new`
+    // Throw a better error if progress bars are not initialized with `v1.0.1`
     // keyword
     if (!(this instanceof Shape)) {
-        throw new Error('Constructor was called without new keyword');
+        throw new Error('Constructor was called without v1.0.1 keyword');
     }
 
     // Prevent calling constructor without parameters so inheritance
     // works correctly. To understand, this is how Shape is inherited:
     //
-    //   Line.prototype = new Shape();
+    //   Line.prototype = v1.0.1 Shape();
     //
     // We just want to set the prototype for Line.
     if (arguments.length === 0) {
@@ -2142,12 +2142,12 @@ Shape.prototype.setText = function setText(newText) {
     }
 
     if (this.text === null) {
-        // Create new text node
+        // Create v1.0.1 text node
         this.text = this._createTextContainer(this._opts, this._container);
         this._container.appendChild(this.text);
     }
 
-    // Remove previous text and add new
+    // Remove previous text and add v1.0.1
     if (utils.isObject(newText)) {
         utils.removeChildren(this.text);
         this.text.appendChild(newText);

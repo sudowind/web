@@ -8,6 +8,7 @@ function left_bar_cb() {
 }
 
 var button_ids = ['intro', 'comment', 'note'];
+var today_start_at = 0;
 
 function on_button_click(e) {
     //alert($(e).attr('id'));
@@ -78,6 +79,11 @@ $('#record_button').click(function () {
             return;
         }
 
+        if (Number(curr_page) <= today_start_at) {
+            my_tip.alert('阅读页码应大于起始阅读页码');
+            return;
+        }
+
         $.ajax({
             xhrFields: {
                 withCredentials: true
@@ -124,6 +130,8 @@ function load_progress() {
             var percent = Math.round(curr_page * 100.0 / total_page);
             $('.plan').find('span').html(percent);
             $('.progress-bar').css('width', percent.toString() + '%');
+            $('#today_page').attr('placeholder', curr_page).attr('min', curr_page).attr('max', total_page).val(curr_page);
+            today_start_at = curr_page;
         },
         error: ajax_error_handler
     });
