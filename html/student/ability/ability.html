@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/students/tasks/test.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
     <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
     <link rel="stylesheet" href="../../../assets/css/students/ability/ability.css">
 </head>
@@ -28,6 +30,30 @@
                 <span class="down"></span>
             </div>
         </div>
+        <div id="question_body" class="part-basis">
+            <div class="question">
+                <!--<div class="question-res">-->
+                    <!--&lt;!&ndash;<img src="../../../assets/img/student/tasks/wrong.png" alt="">&ndash;&gt;-->
+                <!--</div>-->
+                <!--<div class="question-content">-->
+                    <!--<div class="question-q question-body">1. 小老鼠在粮仓偷粮吃，被大花猫发现了，吓得一头钻进墙洞里。大花猫在墙洞外急得“喵喵”叫，可小老鼠就是不出来，大花猫没办法，只好离开了。经历了这么一次惊吓，小老鼠害怕了好长时间，总担心再被猫追。有什么办法可以逃过猫的追赶呢？小老鼠转着眼珠儿想主意。正巧，一只麻雀飞过头顶。小老鼠忽然有了个想法：我要练习飞翔！小老鼠下定了决心。</div>-->
+                    <!--<br />-->
+                    <!--<div class="question-q">小老鼠为什么要练习飞翔 ：</div>-->
+                    <!--<br />-->
+                    <!--<div class="select-option selectable">A. 3月</div>-->
+                    <!--<div class="select-option selectable">B. 8月</div>-->
+                    <!--<div class="select-option selectable">C. 12月</div>-->
+                    <!--<div class="select-option selectable">D. 9月</div>-->
+                <!--</div>-->
+            </div>
+            <div class="btn-part">
+                <div class="progress" >
+                    <div class="progress-bar" id="exam_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
+                </div>
+                <div class="btn" id="last">上一题</div>
+                <div class="btn disabled" id="next">下一题</div>
+            </div>
+        </div>
     </div>
 
     <div id="right_bar"></div>
@@ -38,6 +64,7 @@
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/page.js"></script>
 <script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
