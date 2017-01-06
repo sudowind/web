@@ -68,3 +68,10 @@ $("#teacher_list_class").createPage({
         //console.log(p);
     }
 });
+$("#teacher_list_search").createPage({
+    pageCount:20,
+    current:1,
+    backFn:function(p){
+        //console.log(p);
+    }
+});

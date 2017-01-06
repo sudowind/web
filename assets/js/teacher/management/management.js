@@ -64,6 +64,7 @@ $(".content .class-name p").on('click','span',function(){
 
 var has_load_page = false;
 //加载学生信息
+
 function load_student_info(classId, page){
     var html = '';
     $.ajax({
@@ -156,7 +157,6 @@ function load_student_info(classId, page){
                         url: URL_BASE + '/users/web/student/' + studentId + '/password?newPassword=' + newPassword +  '',
                         success: function() {
                             $(".form-change-pwd").css("display","none");
-                            //$('.modal').modal('hide');
                             my_tip.bind(text, function() {
 
                             });
@@ -191,9 +191,6 @@ function fill_student(data){
 //获取老师所带班级
 function load_classname(){
     var html = '';
-    var add_className_html = '';
-    var add_className_num = 0;
-
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -209,12 +206,6 @@ function load_classname(){
             }
             $(".class-name p").append(html);
             $(".class-name p span").eq(0).addClass("index");
-            //添加学生模态框的班级选项
-
-            //for(var i = 0;i < data.length; i++){
-            //    add_className_html += '<option value="'+ data[i].id +'">'+ data[i].name +'</option>'
-            //}
-            //$("#className").append(add_className_html);
             load_student_info(class_id, 1);
         }
     });
@@ -224,3 +215,43 @@ function fill_classname(data){
     num++;
     return    '<span value="'+ data.id +'">'+ data.name + '</span>';
 }
+
+
+//搜索框搜索学生事件
+$(".button").on("click",function(){
+    var text = '';
+    var classId = $(".class-name p .index").attr('value');
+    var search = $(".frame input").val();
+    var hint = '<p>'+'学生姓名不能为空'+'</p>';
+    if(search == ''){
+        my_tip.alert(hint);
+        return;
+    }
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        contentType: 'application/json',
+        type: 'GET',
+        url: URL_BASE + '/users/web/class/'+ classId +'/students',
+        success: function(data) {
+            for(var i = 0; i < data.length; ++i){
+                if(data[i].name.indexOf(search) !== -1){
+                    if(data[i].gender == '1'){
+                        gender = '男';
+                    }else if(data[i].gender == '2'){
+                        gender = '女';
+                    }
+                    if(data[i].passwordStatus == '1' || data[i].passwordStatus == '2'){
+                        passwordStatus = '正常';
+                    }else if(data[i].passwordStatus == '3'){
+                        passwordStatus = '修改密码';
+                    }
+                    text += fill_student(data[i]);
+                }
+            }
+            $('.information ul').remove();
+            $(".information .head").after(text);
+        }
+    });
+});
