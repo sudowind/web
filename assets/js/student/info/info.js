@@ -89,6 +89,7 @@ function change_info(){
         }else if($("#girl").is(":checked")) {
             var gender = 2;
         }
+        console.log(gender);
 
         $.ajax({
             xhrFields: {
@@ -96,8 +97,10 @@ function change_info(){
             },
             contentType: 'application/json',
             data: JSON.stringify({
-                "birthday": birthday,
-                "email": "email",
+                "info":{
+                    "birthday": birthday
+                },
+                "email": email,
                 "gender": gender
             }),
             type: 'PUT',

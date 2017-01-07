@@ -31,8 +31,6 @@ function add_teacher(){
             "userType": "3"
         }]),
         success: function() {
-            //$(".teacher-information").remove();
-            //$(".option").eq(0).addClass('index').siblings().removeClass('index');
             init_grade();
             $("#teacher_list_all").css("display","block");
             $("#teacher_list_class").css("display","none");
@@ -94,6 +92,7 @@ function load_teacher(page){
                 end_id = data.length;
             }
             //console.log(start_id);
+            //console.log(end_id);
             for(var i = start_id; i < end_id; ++i){
                 if(data[i].gender == '1'){
                     gender = '男';
@@ -274,13 +273,69 @@ function fill_class(list){
     return  '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'+ list.name +'</a></li>'
 }
 
-
-
-
-
-
-
-
+//搜索框搜索老师事件
+$(".button").on("click",function(){
+    var search = $(".frame input").val();
+    var hint = '<p>'+'教师姓名不能为空'+'</p>';
+    if(search == ''){
+        my_tip.alert(hint);
+        return;
+    };
+    $("#teacher_list_all").css("display","none");
+    $("#teacher_list_class").css("display","none");
+    //$("#teacher_list_search").css("display","block");
+    $('.information ul').remove();
+    //var search_page = 1;
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        contentType: 'application/json',
+        type: 'GET',
+        url: URL_BASE + '/users/web/school/current/teacher/list',
+        success: function(data) {
+            //console.log(data);
+            //var element_count = 18;
+            //var start_id = (search_page - 1) * element_count;
+            //var end_id = start_id + element_count;
+            //if (end_id > data.length) {
+            //    end_id = data.length;
+            //}
+            //console.log(start_id);
+            for(var i = 0; i < data.length; ++i){
+                if(data[i].name.indexOf(search) !== -1){
+                    if(data[i].gender == '1'){
+                        gender = '男';
+                    }else if(data[i].gender == '2'){
+                        gender = '女';
+                    }
+                    if( data[i].classes == '' ){
+                        html = fill_teacher_null(data[i]);
+                        $(".information").append(html);
+                    }else{
+                        classes_list = '';
+                        html = fill_teacher(data[i]);
+                        $(".information").append(html);
+                    }
+                }
+            }
+            $(".grade").children().removeClass();
+            $(".grade").children().eq(0).addClass('index');
+            //if (!has_load_page) {
+            //    has_load_page = true;
+            //    var page_count = Math.ceil((data.length * 1.0) / element_count);
+            //    $('#teacher_list_search').createPage({
+            //        pageCount: page_count,
+            //        current: 1,
+            //        backFn: function(p) {
+            //            $('.information ul').remove();
+            //            load_teacher(p);
+            //        }
+            //    });
+            //}
+        }
+    });
+});
 
 
 
