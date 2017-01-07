@@ -2,9 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>考拉阅读</title>
+    <link rel=icon href="../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <!--<link rel="stylesheet" href="../assets/css/login.css">-->
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/login.css">
+    <link rel="stylesheet" href="../include/css/tip_modal.css">
 </head>
 <body>
-    test
+
+    <div id="select_part">
+        <img id="logo" src="../assets/img/logo_blue.png" alt="">
+        <div class="rotate-div rotate-1 s-color" id="school_master" state="1" value="5">
+            <div>我是校长</div></div>
+        <div class="rotate-div rotate-2 u-color" state="2" value="4">
+            <div>2</div></div>
+        <div class="rotate-div rotate-3 t-color" state="3" value="3">
+            <div style="display: none">3</div></div>
+        <div class="rotate-div rotate-4 s-color" state="4" value="2">
+            <div style="display: none">4</div></div>
+        <div class="rotate-div rotate-5 u-color" state="5" value="1">
+            <div style="display: none">5</div></div>
+        <div class="rotate-div rotate-6 tmp-rotate-6 t-color" state="6" value="6">
+            <div>6</div></div>
+    </div>
+
+    <div id="login_part">
+        <img src="../assets/img/login_logo.png" alt="logo">
+        <div>
+            <label for="account"></label><input type="text" id="account" placeholder="请输入账号/手机号/邮箱"><br>
+            <label for="password"></label><input type="password" id="password" placeholder="请输入密码">
+            <div id="login_button" class="btn">登&nbsp;&nbsp;&nbsp;&nbsp;录</div>
+        </div>
+        <div id="rem_psd">
+            <label for="remember_password"></label>
+            <input type="checkbox" id="remember_password">
+            记住密码
+        </div>
+        <div id="forget_password">
+            <a onclick="forget_password()">忘记密码</a> | <a onclick="forget_password()">立即注册</a>
+        </div>
+    </div>
+
+    <canvas id="snowCanvas" width="1500px" height="1000px"></canvas>
+
+    <div id="page_footer" class="fixed-bottom" style="background: #edeef0"></div>
+    <script src="../libs/jquery-2.2.4.js"></script>
+    <script src="../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+    <script src="../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+    <script src="../assets/js/load.js"></script>
+    <script src="../assets/js/base.js"></script>
+    <script src="../assets/js/tip_modal.js"></script>
+    <script src="../assets/js/cookie.js"></script>
+    <script src="../assets/js/login.js"></script>
+    <script src="../assets/js_v1.0.1/login.js"></script>
+    <script>
+
+    </script>
 </body>
 </html>

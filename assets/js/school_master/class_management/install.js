@@ -27,6 +27,7 @@ $('.select-class img').click(function() {
 
 var class_name = '';
 var grade_name = '';
+var grade_num;
 
 $('.class-option').click(function () {
     class_name = $(this).text();
@@ -146,15 +147,16 @@ function init() {
     }
     var html = '';
     var table_html = '';
+    var gn = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
     for (var i = 0; i < 6; ++i) {
         var year = (base_year + i).toString();
         if (i == 0) {
-            html += '<span class="index option" value="' + year + '">' + year +'级</span>'
+            html += '<span class="index option" value="' + year + '">' + gn[i] +'</span>'
         }
         else {
-            html += '<span class="option" value="' + year + '">' + year +'级</span>'
+            html += '<span class="option" value="' + year + '">' + gn[i] +'</span>'
         }
-        table_html += '<td class="grade-option" value="' + year + '">' + year + '级</td>'
+        table_html += '<td class="grade-option" value="' + year + '">' + gn[i] + '</td>'
     }
     $('.select-grade').html(html);
     $('.select-grade .option').click(function () {
@@ -166,6 +168,7 @@ function init() {
     $('#table_grade_select').find('tr').html(table_html);
     $('.grade-option').click(function () {
         grade_name = $(this).text();
+        grade_num = $(this).attr('value');
         if (grade_name !== '' && class_name !== '') {
             $('#class_submit_button').removeClass('disabled');
         }
@@ -186,7 +189,7 @@ function init() {
 $('#class_submit_button').click(function () {
 
     var name = grade_name + class_name;
-    var grade = Number(grade_name.substr(0, 4));
+    var grade = Number(grade_num);
 
     var modal_obj = $('#select_teacher_modal');
     modal_obj.find('#modal_info b').html(name);
@@ -220,7 +223,7 @@ $('#class_submit_button').click(function () {
 
 $('#add_teacher_confirm_button').click(function () {
     var name = grade_name + class_name;
-    var grade = Number(grade_name.substr(0, 4));
+    var grade = Number(grade_num);
     var teacher_list = $('#teacher_selector').val();
 
     $.ajax({

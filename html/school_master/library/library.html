@@ -37,17 +37,17 @@
             <div class="book ">
                 <div class="sort">
                     <p>书籍内容：</p>
-                    <span class="index" value="0">全部</span>
-                    <span value="14">寓言故事</span>
-                    <span value="15">自然科普</span>
-                    <span value="6">儿童文学</span>
-                    <span value="7">漫画</span>
-                    <span value="8">绘本</span>
-                    <span value="9">社科</span>
-                    <span value="10">国学</span>
-                    <span value="11">科幻</span>
-                    <span value="12">卡通</span>
-                    <span value="13">主题学习丛书</span>
+                    <!--<span class="index" value="0">全部</span>-->
+                    <!--<span value="14">寓言故事</span>-->
+                    <!--<span value="15">自然科普</span>-->
+                    <!--<span value="6">儿童文学</span>-->
+                    <!--<span value="7">漫画</span>-->
+                    <!--<span value="8">绘本</span>-->
+                    <!--<span value="9">社科</span>-->
+                    <!--<span value="10">国学</span>-->
+                    <!--<span value="11">科幻</span>-->
+                    <!--<span value="12">卡通</span>-->
+                    <!--<span value="13">主题学习丛书</span>-->
                 </div>
                 <div class="grade">
                     <p>阅读等级：</p>
@@ -90,6 +90,7 @@
 <script src="../../../libs/jquery-3.1.1.min.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
 <script src="../../../assets/js/school_master/library/library.js"></script>
@@ -99,7 +100,7 @@
     var text = '<div align="left">推荐阅读等级：<br />一年级→600-700ER<br />二年级→700-800ER<br />三年级→800-900ER<br />四年级→900-1000ER<br />五年级→1000-1100ER<br />六年级→1100-1200ER</div>';
     $('#level_more_info').attr('title', text);
     $('[data-toggle=tooltip]').tooltip();
-    load_book(0,1);
+    gen_book_type();
 </script>
 </body>
 </html>

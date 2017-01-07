@@ -150,7 +150,7 @@ body {
 }
 .list .list-book .image {
     width: 156px;
-    height: 280px;
+    height: 300px;
     border: 1px solid #e8e8e8;
     padding: 18px 13px 30px 16px ;
     background: #ffffff;
@@ -185,14 +185,14 @@ body {
     font-size: 13px;
     font-weight: bold;
     width: 120px;
-    height: 40px;
+    height: 60px;
 
     display: table-cell;
     vertical-align: middle;
 }
 .list .list-book .plan{
     position: absolute;
-    top: 238px;
+    top: 254px;
     left: 9px;
     font-size: 12px;
     width: 140px;
@@ -200,7 +200,7 @@ body {
     text-align: center;
 }
 .list .list-book .progress-index{
-    top: 230px;
+    top: 245px;
 }
 .list .list-book .pages{
     position: absolute;
@@ -221,7 +221,7 @@ body {
     border-radius: 4px;
     font-size: 12px;
     position: absolute;
-    top: 256px;
+    top: 270px;
     left:6px;
     cursor:pointer;
 }
@@ -235,7 +235,7 @@ body {
     border-radius: 4px;
     font-size: 12px;
     position: absolute;
-    top: 256px;
+    top: 270px;
     left:96px;
     cursor:pointer;
 }

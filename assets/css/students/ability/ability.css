@@ -40,12 +40,17 @@
 
 .question-q {
     font-size: 16px;
+    line-height: 1.5;
+}
+
+.select-option {
+    margin: 5px 0;
 }
 
 .btn-part {
     position: absolute;
     width: 654px;
-    bottom: 38px;
+    bottom: 30px;
     text-align: center;
 }
 
@@ -65,7 +70,10 @@
     height: 10px;
 }
 
-
+#finish_test {
+    font-size: 16px;
+    line-height: 2;
+}
 
 
 

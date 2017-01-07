@@ -63,7 +63,7 @@ $('#last').click(function () {
     var html = gen_question(level_test_question[curr_index]);
     $('.question').html(html);
     if (ans[curr_index] < 0) {
-        $('#next').addClass('disabled');
+        // $('#next').addClass('disabled');
     }
     else {
         $('#next').removeClass('disabled');
@@ -72,6 +72,14 @@ $('#last').click(function () {
 });
 $('#next').click(function () {
     curr_index += 1;
+    if (curr_index >= max_index) {
+        my_tip.bind('是否确认要提交？', function() {
+            $('.question').hide();
+            $('.btn-part').hide();
+            $('#finish_test').show();
+        });
+        return;
+    }
     if (curr_index >= max_index - 1) {
         curr_index = max_index - 1;
         $(this).html('提交');
@@ -82,7 +90,7 @@ $('#next').click(function () {
     var html = gen_question(level_test_question[curr_index]);
     $('.question').html(html);
     if (ans[curr_index] < 0) {
-        $(this).addClass('disabled');
+        // $(this).addClass('disabled');
     }
     else {
         $(this).removeClass('disabled');

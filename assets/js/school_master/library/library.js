@@ -3,8 +3,8 @@
  */
 
 var curr_type = 0;
-var curr_start_score = 0;
-var curr_end_score = 0;
+var curr_start_score = 600;
+var curr_end_score = 1200;
 var has_load_book = false;
 
 function left_bar_cb() {
@@ -122,3 +122,30 @@ function fill_book(data) {
             '</div>';
 }
 
+function gen_book_type() {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/books/open/tag/type/list',
+        type: 'get',
+        success: function (data) {
+            var html = '<span class="index" value="0">全部</span>';
+            for (var i in data) {
+                if (data[i].id != '0')
+                    html += '<span value="{0}">{1}</span>'.format(data[i].id, data[i].name);
+            }
+            $('.book .sort').append(html);
+            //按书籍类型筛选
+            $(".book .sort span").click(function(){
+                $(this).siblings().attr("class","");
+                $(this).attr("class","index");
+
+                has_load_book = false;
+                load_book(Number($(this).attr('value')), 1);
+            });
+            load_book(0,1);
+        },
+        error: error_handler()
+    })
+}
