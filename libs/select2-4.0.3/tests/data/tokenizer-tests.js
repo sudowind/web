@@ -214,6 +214,6 @@ test('works with multiple tokens given', function (assert) {
   assert.equal(
     $select.children('option').length,
     3,
-    'The two v1.0.1 tags should have been created'
+    'The two css_v1.0.1 tags should have been created'
   );
 });

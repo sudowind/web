@@ -127,7 +127,7 @@ function load_table_row(row_selector, data) {
         var obj = $(row_selector);
         obj.find('.table-img div').html(book_name);
         obj.find('.table-img img').attr('src', data.book.coverUri);
-        obj.find('.book-score').html(data.book.levelScore);
+        obj.find('.book-score').html(data.book.levelScore+'ER');
         var start_date = new Date(data.startTime);
         var finish_date = new Date(data.endTime);
         obj.find('.start_date').html(start_date.getFullDate());

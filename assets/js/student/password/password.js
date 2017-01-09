@@ -97,7 +97,7 @@ $("#submit").click(function(){
                 newPassword: newPassword
             },
             success: function(data) {
-                my_tip.alert("密码修改成功");
+                my_tip.alert("修改密码成功");
             },
             error:function(data){
                 my_tip.alert("原始密码输入错误");

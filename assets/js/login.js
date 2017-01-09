@@ -105,8 +105,22 @@ function send_vc() {
 }
 
 $('#fp_teacher_confirm_button').click(function () {
-    $('#before_input').hide();
-    $('#after_input').show();
+    var find_userId = $("#fp_account").val();
+    console.log(find_userId);
+    $.ajax({
+        type: 'POST',
+        url: URL_BASE + '/users/open/user/masterChangePassword',
+        xhrFields: {
+            withCredentials: true
+        },
+        data: {
+            userId:find_userId
+        },
+        success: function (data) {
+            $('#before_input').hide();
+            $('#after_input').show();
+        }
+    });
 });
 
 function login() {
@@ -153,3 +167,35 @@ function login() {
 }
 
 // $('#submit_button').click(login());
+
+
+//记住密码
+if($('#remember_password').is(':checked')){
+    setCookie('customername', $('#username').val().trim());
+    setCookie('customerpass', $('#password').val().trim());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

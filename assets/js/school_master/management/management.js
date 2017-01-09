@@ -31,6 +31,7 @@ function add_teacher(){
             "userType": "3"
         }]),
         success: function() {
+            $('.information ul').remove();
             init_grade();
             $("#teacher_list_all").css("display","block");
             $("#teacher_list_class").css("display","none");

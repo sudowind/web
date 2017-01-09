@@ -6,7 +6,7 @@ function right_bar_cb() {
     $('#info_button').attr('class', 'side-button-selected right-side-button');
 }
 
-//ȡ��ȷ��button�ĵ���¼���ʽ
+//取消确定button的点击事件样式
 function Change() {
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
@@ -18,7 +18,7 @@ function Change() {
     $(".off").css("display","inline");
     $(".sure").css("display","inline");
     $(".birth span").css("display","none");
-    //$(".email span").css("display","none");
+    $(".email span").css("display","none");
 }
 function Sure(){
     document.getElementById("boy").disabled = true;
@@ -49,7 +49,7 @@ function Back(){
 }
 
 
-//�����ȡ������Ϣ
+//载入读取个人信息
 function load_info() {
     $.ajax({
         xhrFields: {
@@ -58,7 +58,7 @@ function load_info() {
         type: 'GET',
         url: URL_BASE + '/users/web/user/current',
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             $(".name span").html(data.name);
             $(".birth span").html(data.birthday);
             $(".email span").html(data.email);
@@ -76,40 +76,7 @@ function load_info() {
     });
 }
 
-
-//�޸ĸ�����Ϣ
-function change_info(){
-    $(".sure").click(function(){
-        var birthday = "";
-        var email = $(".mail").val();
-        if($("#boy").is(":checked")) {
-            var gender = 1;
-        }else if($("#girl").is(":checked")) {
-            var gender = 2;
-        }
-
-        $.ajax({
-            xhrFields: {
-                withCredentials: true
-            },
-            contentType: 'application/json',
-            data: JSON.stringify({
-
-                "birthday": birthday,
-                "email": "email",
-                "gender": gender
-            }),
-            type: 'PUT',
-            url: URL_BASE + '/users/web/user/current',
-            success: function(data) {
-                //console.log(data);
-                load_info();
-            }
-        });
-    })
-}
-
-//�޸�ͷ��
+//修改头像
 
 $('#submit').click(function () {
     $.ajax({
@@ -132,4 +99,154 @@ $('#modify_avatar').click(function () {
     }
 );
 
+//修改个人信息
+$(".sure").click(function() {
+    var birthday = $(".laydate").val();
+    if ($("#boy").is(":checked")) {
+        var gender = 1;
+    } else if ($("#girl").is(":checked")) {
+        var gender = 2;
+    }
+
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        contentType: 'application/json',
+        data: JSON.stringify({
+            "info": {
+                "birthday": birthday
+            },
+            "gender": gender
+        }),
+        type: 'PUT',
+        url: URL_BASE + '/users/web/user/current',
+        success: function (data) {
+            //console.log(data);
+            load_info();
+        },
+        error: ajax_error_handler
+    });
+});
+
+// 设置重发验证码的时间
+var t = 10;
+function reset_time() {
+    t = 10;
+}
+
+function send_vc() {
+    var tmp = $('#send_vc');
+    tmp.addClass('disabled');
+    t -= 1;
+    tmp.html('重发验证码(' + t.toString() + ')');
+    if (t == 0) {
+        tmp.removeClass('disabled');
+        tmp.html('发送验证码');
+        reset_time();
+        return;
+    }
+    setTimeout(send_vc, 1000);
+}
+
+
+//绑定邮箱获取验证码
+var code ='';
+$(".email .btn").on("click",function () {
+
+    var newAccount = $(".mail").val();
+    if(newAccount == ''){
+        my_tip.alert("请输入邮箱");
+        return;
+    }
+    //console.log(newAccount);
+    $.ajax({
+        url: URL_BASE + '/users/web/user/current/account/preChange',
+        type: 'POST',
+        xhrFields: {
+            withCredentials: true
+        },
+        data: {
+            newAccount: newAccount,
+            accountType: 4
+        },
+        success: function (data) {
+            console.log(data);
+            $(".sure").click(function(){
+                var birthday = $(".laydate").val();
+                if($("#boy").is(":checked")) {
+                    var gender = 1;
+                }else if($("#girl").is(":checked")) {
+                    var gender = 2;
+                }
+
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "info":{
+                            "birthday": birthday
+                        },
+                        "gender": gender
+                    }),
+                    type: 'PUT',
+                    url: URL_BASE + '/users/web/user/current',
+                    success: function(data) {
+                        //console.log(data);
+                        load_info();
+                    },
+                    error: ajax_error_handler
+                });
+                //验证邮箱验证码
+                code = $(".code-num").val();
+                console.log(code);
+                $.ajax({
+                    url: URL_BASE + '/users/web/user/current/account/doChange',
+                    type: 'POST',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: {
+                        authId: data,
+                        authCode: code
+                    },
+                    success: function (data) {
+                        console.log(data);
+
+                        //邮箱验证成功之后修改个人信息
+                        var birthday = $(".laydate").val();
+                        if($("#boy").is(":checked")) {
+                            var gender = 1;
+                        }else if($("#girl").is(":checked")) {
+                            var gender = 2;
+                        }
+
+                        $.ajax({
+                            xhrFields: {
+                                withCredentials: true
+                            },
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "info":{
+                                    "birthday": birthday
+                                },
+                                "gender": gender
+                            }),
+                            type: 'PUT',
+                            url: URL_BASE + '/users/web/user/current',
+                            success: function(data) {
+                                //console.log(data);
+                                load_info();
+                            },
+                            error: ajax_error_handler
+                        });
+                    },
+                    error: ajax_error_handler
+                });
+            });
+        }
+    })
+});
 

@@ -330,7 +330,7 @@ define([
           }
         }
 
-        // If any children matched, return the v1.0.1 object
+        // If any children matched, return the css_v1.0.1 object
         if (match.children.length > 0) {
           return match;
         }

@@ -237,9 +237,9 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	// Take an array of elements and push it onto the stack
-	// (returning the v1.0.1 matched element set)
+	// (returning the css_v1.0.1 matched element set)
 	pushStack: function( elems, name, selector ) {
-		// Build a v1.0.1 jQuery matched element set
+		// Build a css_v1.0.1 jQuery matched element set
 		var ret = this.constructor();
 
 		if ( jQuery.isArray( elems ) ) {
@@ -1719,7 +1719,7 @@ jQuery.extend({
 		}
 
 		if ( !id ) {
-			// Only DOM nodes need a v1.0.1 unique ID for each element since their data
+			// Only DOM nodes need a css_v1.0.1 unique ID for each element since their data
 			// ends up in the global cache
 			if ( isNode ) {
 				elem[ internalKey ] = id = ++jQuery.uuid;
@@ -2755,7 +2755,7 @@ if ( !getSetAttribute ) {
 				undefined;
 		},
 		set: function( elem, value, name ) {
-			// Set the existing or create a v1.0.1 attribute node
+			// Set the existing or create a css_v1.0.1 attribute node
 			var ret = elem.getAttributeNode( name );
 			if ( !ret ) {
 				ret = document.createAttribute( name );
@@ -3511,7 +3511,7 @@ jQuery.removeEvent = document.removeEventListener ?
 	};
 
 jQuery.Event = function( src, props ) {
-	// Allow instantiation without the 'v1.0.1' keyword
+	// Allow instantiation without the 'css_v1.0.1' keyword
 	if ( !(this instanceof jQuery.Event) ) {
 		return new jQuery.Event( src, props );
 	}
@@ -4603,7 +4603,7 @@ var Expr = Sizzle.selectors = {
 
 		text: function( elem ) {
 			var attr = elem.getAttribute( "type" ), type = elem.type;
-			// IE6 and 7 will map elem.type to 'text' for v1.0.1 HTML5 types (search, etc)
+			// IE6 and 7 will map elem.type to 'text' for css_v1.0.1 HTML5 types (search, etc)
 			// use getAttribute instead to test this case
 			return elem.nodeName.toLowerCase() === "input" && "text" === type && ( attr === type || attr === null );
 		},
@@ -6026,7 +6026,7 @@ jQuery.fn.extend({
 		if ( this[0] ) {
 			parent = value && value.parentNode;
 
-			// If we're in a fragment, just use that instead of building a v1.0.1 one
+			// If we're in a fragment, just use that instead of building a css_v1.0.1 one
 			if ( jQuery.support.parentNode && parent && parent.nodeType === 11 && parent.childNodes.length === this.length ) {
 				results = { fragment: parent };
 
@@ -6697,7 +6697,7 @@ jQuery.extend({
 		var old = {},
 			ret, name;
 
-		// Remember the old values, and insert the v1.0.1 ones
+		// Remember the old values, and insert the css_v1.0.1 ones
 		for ( name in options ) {
 			old[ name ] = elem.style[ name ];
 			elem.style[ name ] = options[ name ];
@@ -6770,7 +6770,7 @@ if ( document.documentElement.currentStyle ) {
 			left = style.left;
 			rsLeft = elem.runtimeStyle && elem.runtimeStyle.left;
 
-			// Put in the v1.0.1 values to get a computed value out
+			// Put in the css_v1.0.1 values to get a computed value out
 			if ( rsLeft ) {
 				elem.runtimeStyle.left = elem.currentStyle.left;
 			}
@@ -6899,7 +6899,7 @@ if ( !jQuery.support.opacity ) {
 				}
 			}
 
-			// otherwise, set v1.0.1 filter values
+			// otherwise, set css_v1.0.1 filter values
 			style.filter = ralpha.test( filter ) ?
 				filter.replace( ralpha, opacity ) :
 				filter + " " + opacity;
@@ -7623,7 +7623,7 @@ jQuery.extend({
 		// Determine if request has content
 		s.hasContent = !rnoContent.test( s.type );
 
-		// Watch for a v1.0.1 set of requests
+		// Watch for a css_v1.0.1 set of requests
 		if ( fireGlobals && jQuery.active++ === 0 ) {
 			jQuery.event.trigger( "ajaxStart" );
 		}
@@ -8193,7 +8193,7 @@ if ( jQuery.support.ajax ) {
 			return {
 				send: function( headers, complete ) {
 
-					// Get a v1.0.1 xhr
+					// Get a css_v1.0.1 xhr
 					var xhr = s.xhr(),
 						handle,
 						i;

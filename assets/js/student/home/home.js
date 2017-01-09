@@ -111,7 +111,7 @@ function load_info(){
         type: 'GET',
         url: URL_BASE + '/users/web/user/current',
         success: function(data) {
-            // console.log(data.headimg);
+            //console.log(data);
             $(".head-img img").attr('src',data.headimg);
             $('.name').html(data.name);
             //$(".name span").html(data.name);

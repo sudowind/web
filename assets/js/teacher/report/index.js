@@ -128,6 +128,7 @@ function load_student_performance(class_id) {
     });
 }
 
+
 function load_table(page, elem_per_page, sort_by,  order, type) {
     // type 表示要加载班级表格还是学生表格
     // 加载出表格
@@ -156,19 +157,20 @@ function load_table(page, elem_per_page, sort_by,  order, type) {
     }
     var html = '';
     for (var i = start_index; i < end_index; ++i) {
+        var examScore = (data[i].examScore*100).toFixed(0)+"%";
         if (type == 'class') {
             html += '<tr><td class="sort">{0}</td>'.format(i + 1) +
                 '<td class="classes">{0}</td>'.format(data[i].className) +
                 '<td class="read-num">{0}</td>'.format(data[i].wordCount / 10000) +
                 '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
-                '<td class="accuracy">{0}</td></tr>'.format(data[i].examScore);
+                '<td class="accuracy">{0}</td></tr>'.format(examScore);
         }
         else {
             html += '<tr><td class="sort">{0}</td>'.format(data[i].studentId) +
                 '<td class="name">{0}</td>'.format(data[i].studentName) +
                 '<td class="read-num">{0}</td>'.format(data[i].wordCount) +
                 '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
-                '<td class="accuracy">{0}</td>'.format(data[i].examScore) +
+                '<td class="accuracy">{0}</td>'.format(examScore) +
                 '<td class="operation" style="cursor: pointer;" onclick="window.open(\'../report/student_report.html?student_id={0}\')">{1}</td></tr>'.format(data[i].studentId, '查看');
         }
     }

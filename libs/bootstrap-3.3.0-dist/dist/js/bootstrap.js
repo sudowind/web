@@ -1436,7 +1436,7 @@ if (typeof jQuery === 'undefined') {
 
     $tip.addClass('in')
 
-    // check to see if placing tip in v1.0.1 offset caused the tip to resize itself
+    // check to see if placing tip in css_v1.0.1 offset caused the tip to resize itself
     var actualWidth  = $tip[0].offsetWidth
     var actualHeight = $tip[0].offsetHeight
 

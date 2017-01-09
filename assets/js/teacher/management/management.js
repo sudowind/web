@@ -7,27 +7,53 @@ function left_bar_cb() {
 //学生列表的性别以及是否修改密码的参数
 var gender = '';
 var passwordStatus = '';
+
+
+var name = '';
+var schoolEntranceDate = '';
 //教师添加学生模态框
 $(".add-task").on('click',function(){
     $(".form-add-student").css("display","block");
     $(".form-change-pwd").css("display","none");
+
+    $(".form-add-student p .name").focus(function(){
+        $(".form-add-student .point_name").css('display','none');
+    });
+
+    $(".form-add-student .time input").focus(function(){
+        $(".form-add-student .point_time").css('display','none');
+    });
+
 });
 
 //添加学生的事件
 $("#sure_add_student").on('click',function(){
-    $(".modal").modal('hide');
-    add_student($(".class-name .index").attr('value'));
+    name = $(".form-add-student p .name").val();
+    schoolEntranceDate = $("#time").val();
+
+    if(name == ''){
+        $(".form-add-student .point_name").css('display','inline');
+    }
+    if(schoolEntranceDate == ''){
+        $(".form-add-student .point_time").css('display','inline');
+    }
+    if($(".form-add-student .point_name").css('display') == 'none' && $(".form-add-student .point_time").css('display') == 'none'){
+        $(".modal").modal('hide');
+        add_student($(".class-name .index").attr('value'));
+    }
+
 });
 
 function add_student(classId){
-    var name = $(".form-add-student p .name").val();
+    name = $(".form-add-student p .name").val();
+    schoolEntranceDate = $("#time").val();
+    var password = "123456";
+
     if($("#boy").is(":checked")) {
         var gender = "1";
     }else if($("#girl").is(":checked")) {
         var gender = "2";
     }
-    var schoolEntranceDate = $("#time").val();
-    var password = "123456";
 
     $.ajax({
         xhrFields: {
@@ -46,6 +72,7 @@ function add_student(classId){
             "userType": "2"
         }]),
         success: function() {
+            has_load_page = false;
             $(".student-information").remove();
             load_student_info($(".class-name .index").attr('value'), 1);
         }
@@ -78,7 +105,7 @@ function load_student_info(classId, page){
         },
         success: function(data) {
             //console.log(data);
-            var element_count = 18;
+            var element_count= 18;
             var start_id = (page - 1) * element_count;
             var end_id = start_id + element_count;
             if (end_id > data.length) {
@@ -91,8 +118,8 @@ function load_student_info(classId, page){
                 }else if(data[i].gender == '2'){
                     gender = '女';
                 }
-
-                if(data[i].passwordStatus == '1' || data[i].passwordStatus == '2'){
+                console.log(data[i].passwordStatus);
+                if(data[i].passwordStatus == '1'|| data[i].passwordStatus == '2' ){
                     passwordStatus = '正常';
                 }else if(data[i].passwordStatus == '3'){
                     passwordStatus = '修改密码';
@@ -128,6 +155,7 @@ function load_student_info(classId, page){
                         type: 'POST',
                         url: URL_BASE + '/users/web/student/'+ studentId + '/delete',
                         success: function() {
+                            has_load_page = false;
                             $(".student-information").remove();
                             load_student_info($(".class-name .index").attr('value'), 1)
                         }
@@ -146,20 +174,26 @@ function load_student_info(classId, page){
                 $(".studentName").html(studentName);
 
                 $("#newPassword").on('click',function(){
-                    var studentId = $(".studentId").val();
+                    //var change_studentId = $(".studentId").val();
                     var newPassword = $(".change-pwd").val();
+                    console.log(studentId);
                     var text = '<p>修改密码成功</p>';
                     $.ajax({
                         xhrFields: {
                             withCredentials: true
                         },
+                        data: {
+                            newPassword:newPassword
+                        },
                         type: 'PUT',
-                        url: URL_BASE + '/users/web/student/' + studentId + '/password?newPassword=' + newPassword +  '',
+                        url: URL_BASE + '/users/web/student/' + studentId + '/password',
                         success: function() {
-                            $(".form-change-pwd").css("display","none");
+                            $("#myModal").removeClass('in');
+                            load_student_info($(".class-name .index").attr('value'), 1);
                             my_tip.bind(text, function() {
 
                             });
+
                         }
                     });
                 })
@@ -169,10 +203,12 @@ function load_student_info(classId, page){
         error: ajax_error_handler
     });
 }
-var Color = '';
-var red = '';
-var modal_string = '';
+
 function fill_student(data){
+    var Color = '';
+    var red = '';
+    var modal_string = '';
+    //console.log(passwordStatus)
     if(passwordStatus =='修改密码'){
         Color = "color: red;cursor: pointer;";
         red = "red";
@@ -185,7 +221,7 @@ function fill_student(data){
                     +'<li class="time">'+ data.info.schoolEntranceDate+'</li>'
                     +'<li class="state ' + red + '" style="' + Color +  '" ' + modal_string + ' >'+ passwordStatus +'</li>'
                     +'<li id="del" class="delete" value="' + data.id + '">删除</li>'
-                +'</ul>'
+                +'</ul>';
 }
 
 //获取老师所带班级
@@ -242,11 +278,13 @@ $(".button").on("click",function(){
                     }else if(data[i].gender == '2'){
                         gender = '女';
                     }
-                    if(data[i].passwordStatus == '1' || data[i].passwordStatus == '2'){
+
+                    if(data[i].passwordStatus == '1'|| data[i].passwordStatus == '2' ){
                         passwordStatus = '正常';
                     }else if(data[i].passwordStatus == '3'){
                         passwordStatus = '修改密码';
                     }
+
                     text += fill_student(data[i]);
                 }
             }

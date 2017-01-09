@@ -122,8 +122,9 @@ function generate_answer(data) {
                 '<div class="question-content">' +
                 '<div class="question-q">' + question_id.toString() + '. ' + data.content.title + '</div>' +
                 options +
-                '<div class="answer">' +
-                '<div class="answer-analysis">解析：<br />' + data.answer.reason + '</div><div class="true-answer">正确答案<br />' + String.fromCharCode(0x40 + data.answer.correctId) +'</div><div></div>' +
+                '<div class="answer clear">' +
+                //'<div class="answer-analysis">解析：<br />' + data.answer.reason + '</div>' +
+                '<div class="true-answer">正确答案<br />' + String.fromCharCode(0x40 + data.answer.correctId) +'</div>' +
                 '</div>' +
                 '</div>' +
                 '</div>';

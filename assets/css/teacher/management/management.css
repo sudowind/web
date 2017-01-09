@@ -167,20 +167,20 @@
     float: right;
 }
 .index-body form{
-    margin-left: 152px;
-    margin-top: 50px;
+    margin-left: 134px;
+    margin-top: 44px;
 }
 .index-body form p{
-    margin-top: 24px;
+    margin-top: 28px;
 }
 .index-body form p input{
     width: 200px;
     height: 35px;
     text-align: center;
-    margin-left: 74px;
+    margin-left: 66px;
 }
 .index-body form .time input{
-    margin-left: 46px;
+    margin-left: 38px;
 }
 .index-body form p select{
     margin-left: 72px;
@@ -204,8 +204,8 @@
     color: #FFFFFF;
     background: #f99d32;
     border-radius: 8px;
-    margin-top: 40px;
-    margin-left: 76px;
+    margin-top: 30px;
+    margin-left: 88px;
     cursor: pointer;
 }
 .index-body .form-change-pwd{
@@ -263,8 +263,12 @@
     padding-top: 0;
     margin-top: -60px;
 }
-
-
+/*添加学生输入内容为空的红色提示*/
+.form-add-student .point{
+    color: red;
+    font-size: 14px;
+    display: none;
+}
 
 
 

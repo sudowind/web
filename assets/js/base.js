@@ -110,7 +110,7 @@ function get_current_semester() {
     var start_time = 0;
     var end_time = 0;
     var start = now, end = now;
-    console.log(curr_month);
+    //console.log(curr_month);
     if (curr_month >= 2 && curr_month <= 7) {
         start.setMonth(2);
         start_time = start.setDate(0);

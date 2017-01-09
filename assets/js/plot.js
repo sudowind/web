@@ -23,6 +23,7 @@ function load_rank_list(current, grade) {
         type: 'get',
         data: data,
         success: function (data) {
+            //console.log(data)
             var html = '';
             var list_data;
             if (current == 'student') {

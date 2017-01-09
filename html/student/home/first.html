@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
+    <meta name="viewport" content="width=device-width">
+    <title>我的主页</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/students/home/first.css">
+</head>
+<body background="../../../assets/img/background.png">
+<div class="main-body">
+    <div id="left_bar"></div>
+    <div id="first">
+        <div class="content">
+            <div class="title">
+                <h3>欢迎来到考拉阅读</h3>
+                <span class="down"></span>
+            </div>
+            <div class="sign-in">
+                <div class="bg">
+                    <img src="../../../assets/img/student/home/sign-in_bg.png" alt=""/>
+                </div>
+                <div class="cont">
+                    <div class="head-img">
+                        <img src="" alt=""/>
+                    </div>
+                    <div class="name">
+                    </div>
+                    <div id="checked_info">
+                        <p>连续签到<span id="continue_count">6</span>天</p>
+                        <div class="right">
+                            <img src="../../../assets/img/student/home/right.png" alt=""/>
+                        </div>
+                    </div>
+                    <!--<div class="btn">签到</div>-->
+                    <div class="btn-already" id="check_in">已签到</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right_bar"></div>
+</div>
+
+<div id="page_footer" style="background: #edeef0"></div>
+<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/student/home/first.js"></script>
+
+<script>
+    load('../../../include/html/');
+    load_info();
+    init();
+</script>
+
+</body>
+</html>

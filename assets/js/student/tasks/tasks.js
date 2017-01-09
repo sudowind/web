@@ -99,7 +99,7 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
                         // my_tip.alert(data.id);
                         // alert(obj.attr('value'));
                         obj.find('.book-name').html(book_data.name);
-                        obj.find('.level-score').html(book_data.levelScore);
+                        obj.find('.level-score').html(book_data.levelScore+'ER');
                         obj.parent().find('img').attr('src', book_data.coverUri);
                         if (book_data.examStatus.indexOf('无题') >= 0) {
                             obj.parent().siblings().find('.appraisal btn').html('无题').addClass('disabled');

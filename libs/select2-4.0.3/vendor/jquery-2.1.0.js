@@ -116,10 +116,10 @@
         },
 
         // Take an array of elements and push it onto the stack
-        // (returning the v1.0.1 matched element set)
+        // (returning the css_v1.0.1 matched element set)
         pushStack: function( elems ) {
 
-            // Build a v1.0.1 jQuery matched element set
+            // Build a css_v1.0.1 jQuery matched element set
             var ret = jQuery.merge( this.constructor(), elems );
 
             // Add the old object onto the stack (as a reference)
@@ -293,7 +293,7 @@
             }
 
             // If the function hasn't returned already, we're confident that
-            // |obj| is a plain object, created by {} or constructed with v1.0.1 Object
+            // |obj| is a plain object, created by {} or constructed with css_v1.0.1 Object
             return true;
         },
 
@@ -465,7 +465,7 @@
                 isArray = isArraylike( elems ),
                 ret = [];
 
-            // Go through the array, translating each of the items to their v1.0.1 values
+            // Go through the array, translating each of the items to their css_v1.0.1 values
             if ( isArray ) {
                 for ( ; i < length; i++ ) {
                     value = callback( elems[ i ], i, arg );
@@ -1480,7 +1480,7 @@
                     }
                 } else if ( nodeType === 1 || nodeType === 9 || nodeType === 11 ) {
                     // Use textContent for elements
-                    // innerText usage removed for consistency of v1.0.1 lines (jQuery #11153)
+                    // innerText usage removed for consistency of css_v1.0.1 lines (jQuery #11153)
                     if ( typeof elem.textContent === "string" ) {
                         return elem.textContent;
                     } else {
@@ -1973,7 +1973,7 @@
                 Expr.pseudos[ i ] = createButtonPseudo( i );
             }
 
-// Easy API for creating v1.0.1 setFilters
+// Easy API for creating css_v1.0.1 setFilters
             function setFilters() {}
             setFilters.prototype = Expr.filters = Expr.pseudos;
             Expr.setFilters = new setFilters();
@@ -3482,7 +3482,7 @@
     function Data() {
         // Support: Android < 4,
         // Old WebKit does not have Object.preventExtensions/freeze method,
-        // return v1.0.1 empty object instead with no [[set]] accessor
+        // return css_v1.0.1 empty object instead with no [[set]] accessor
         Object.defineProperty( this.cache = {}, 0, {
             get: function() {
                 return {};
@@ -4602,7 +4602,7 @@
     };
 
     jQuery.Event = function( src, props ) {
-        // Allow instantiation without the 'v1.0.1' keyword
+        // Allow instantiation without the 'css_v1.0.1' keyword
         if ( !(this instanceof jQuery.Event) ) {
             return new jQuery.Event( src, props );
         }
@@ -5268,7 +5268,7 @@
         replaceWith: function() {
             var arg = arguments[ 0 ];
 
-            // Make the changes, replacing each context element with the v1.0.1 content
+            // Make the changes, replacing each context element with the css_v1.0.1 content
             this.domManip( arguments, function( elem ) {
                 arg = this.parentNode;
 
@@ -5279,7 +5279,7 @@
                 }
             });
 
-            // Force removal if there was no v1.0.1 content (e.g., from empty arguments)
+            // Force removal if there was no css_v1.0.1 content (e.g., from empty arguments)
             return arg && (arg.length || arg.nodeType) ? this : this.remove();
         },
 
@@ -5445,7 +5445,7 @@
                 // Use the already-created iframe if possible
                 iframe = (iframe || jQuery( "<iframe frameborder='0' width='0' height='0'/>" )).appendTo( doc.documentElement );
 
-                // Always write a v1.0.1 HTML skeleton so Webkit and Firefox don't choke on reuse
+                // Always write a css_v1.0.1 HTML skeleton so Webkit and Firefox don't choke on reuse
                 doc = iframe[ 0 ].contentDocument;
 
                 // Support: IE
@@ -5501,7 +5501,7 @@
                 minWidth = style.minWidth;
                 maxWidth = style.maxWidth;
 
-                // Put in the v1.0.1 values to get a computed value out
+                // Put in the css_v1.0.1 values to get a computed value out
                 style.minWidth = style.maxWidth = style.width = ret;
                 ret = computed.width;
 
@@ -5621,7 +5621,7 @@
         var ret, name,
             old = {};
 
-        // Remember the old values, and insert the v1.0.1 ones
+        // Remember the old values, and insert the css_v1.0.1 ones
         for ( name in options ) {
             old[ name ] = elem.style[ name ];
             elem.style[ name ] = options[ name ];
@@ -7914,7 +7914,7 @@
                         if ( map ) {
                             if ( state < 2 ) {
                                 for ( code in map ) {
-                                    // Lazy-add the v1.0.1 callback in a way that preserves old ones
+                                    // Lazy-add the css_v1.0.1 callback in a way that preserves old ones
                                     statusCode[ code ] = [ statusCode[ code ], map[ code ] ];
                                 }
                             } else {
@@ -7980,7 +7980,7 @@
             // We can fire global events as of now if asked to
             fireGlobals = s.global;
 
-            // Watch for a v1.0.1 set of requests
+            // Watch for a css_v1.0.1 set of requests
             if ( fireGlobals && jQuery.active++ === 0 ) {
                 jQuery.event.trigger("ajaxStart");
             }

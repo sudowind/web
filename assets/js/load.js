@@ -72,7 +72,7 @@ function fill_data(data) {
     $('.page-count').html(data.pageCount);
     $('.curr-page').html(data.pageCount);
     $('#isbn').html(data.isbn);
-    $('#level_score').html(data.levelScore);
+    $('#level_score').html(data.levelScore +'ER');
     $('#intro_part').html(data['introduction']);
     $('.book-image').find('img').attr('src', data.coverUri);
     $('.img img').attr('src', data.coverUri);

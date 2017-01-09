@@ -201,19 +201,17 @@
 
 .figure-switch_bar {
     background: #ffffff;
-    width: 580px;
+    width: 146px;
     margin: -30px auto 0 auto;
     height: 30px;
     border: 1px solid #d8d8d8;
+    text-align: center;
 }
 
 .figure-switch {
     padding-top: 3px;
     height: 30px;
-    width: 25%;
-    float: left;
     text-align: center;
-
     cursor: pointer;
 }
 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>找回密码</title>
+    <link rel=icon href="../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../assets/css_v1.0.1/student/find_pwd/find_pwd.css">
+</head>
+<body>
+    <div id="find_pwd">
+        <div class="title">
+            <h2>找回密码</h2>
+            <p></p>
+        </div>
+        <div class="content">
+            <div class="step">
+                <p class="one"><img src="../../assets/img/v1.0.1/find_one_select.png" alt=""/></p>
+                <p class="one_font blue">输入账号</p>
+                <p><img src="../../assets/img/v1.0.1/find_heng.png" alt=""/></p>
+                <p class="two"><img src="../../assets/img/v1.0.1/find_two_unselect.png" alt=""/></p>
+                <p class="two_font">验证信息</p>
+                <p><img src="../../assets/img/v1.0.1/find_heng.png" alt=""/></p>
+                <p class="three"><img src="../../assets/img/v1.0.1/find_three_unselect.png" alt=""/></p>
+                <p class="three_font">重置密码</p>
+                <p><img src="../../assets/img/v1.0.1/find_heng.png" alt=""/></p>
+                <p class="four"><img src="../../assets/img/v1.0.1/find_four_unselect.png" alt=""/></p>
+                <p class="four_font">成功</p>
+            </div>
+            <div class="ipt_id" style="display: none">
+                <span>考拉阅读学号、绑定手机号或邮箱</span>
+                <input type="text" placeholder="输入考拉阅读学号、绑定手机或邮箱"/>
+                <div class="btn">下一步</div>
+            </div>
+            <div class="test_info" style="display: none">
+                <p>考拉阅读账号：<span>S111111</span></p>
+                <p>选择找回方式</p>
+                <div class="phone_find">
+                    <div class="left">
+                        <img src="../../assets/img/v1.0.1/phone.png" alt=""/>
+                        <p>手机找回方式</p>
+                    </div>
+                    <div class="right">
+                        <p>已绑定手机号：<span>18888888888</span></p>
+                        <div class="point">输入手机收到的验证码重置密码</div>
+                    </div>
+                    <div class="phone_send">免费发送验证码</div>
+                </div>
+                <div class="phone_find">
+                    <div class="left">
+                        <img src="../../assets/img/v1.0.1/e-mail.png" alt=""/>
+                        <p>邮箱找回方式</p>
+                    </div>
+                    <div class="right">
+                        <p>已绑定邮箱：<span>18888888888@163.com</span></p>
+                        <div class="point">输入邮箱收到的验证码重置密码</div>
+                    </div>
+                    <div class="mail_send">免费发送验证码</div>
+                </div>
+            </div>
+            <div class="phone_reset_pwd">
+                <div class="left">
+                    <span>请输入短信验证码</span>
+                    <input type="text" placeholder="请输入短信验证码"/>
+                </div>
+                <div class="right">60s后重新发送</div>
+                <p>验证码已发送，如未收到，请稍等片刻</p>
+            </div>
+        </div>
+    </div>
+<div id="page_footer" style="background: #edeef0"></div>
+<script src="../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../assets/js_v1.0.1/find_pwd/find_pwd.js"></script>
+<script>
+    // 为了保证页脚始终在低端，并且保证横向缩放页脚始终居中，分别改变了marginTop和width
+    $('#page_footer').load('../../include/html/footer.html', function() {
+        $('.qrcode').attr('src', '../../assets/img/qrcode.png');
+        $('.footer').css('marginTop', '0').css('width', '100%').css('height','60px');
+        $('.footer-content').css('font-size','14px');
+    });
+</script>
+</body>
+</html>
