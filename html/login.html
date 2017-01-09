@@ -108,12 +108,12 @@
                         <div id="fp_next_step" class="btn" onclick="find_password()">发送验证码</div>
                     </div>
                     <div id="step_2">
-                        <div id="fp_message">设置新密码的验证码已发送到你绑定的邮箱8723*****@qq.com</div>
+                        <div id="fp_message">设置新密码的验证码已发送到你绑定的邮箱</div>
                         <div id="go_to_mail" class="btn">去邮箱</div>
                         <div class="fp-input-container">
                             <div class="fp-input-group">
                                 <div class="input-label">收到的验证码：</div>
-                                <label for="code_input"></label><input id="code_input" class="fp-input">
+                                <label for="code_input"></label><input id="code_input" class="fp-input" placeholder="请确保大小写正确">
                                 <div id="send_vc" class="btn" onclick="send_vc()">发送验证码</div>
                             </div>
                             <!--<div class="alert-message"><p>验证码输入错误，请重新输入</p></div>-->
@@ -161,6 +161,7 @@
 <script src="../libs/jquery-2.2.4.js"></script>
 <script src="../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../assets/js/load.js"></script>
+<script src="../assets/js/base.js"></script>
 <script src="../assets/js/tip_modal.js"></script>
 <script src="../assets/js/cookie.js"></script>
 <script src="../assets/js/login.js"></script>

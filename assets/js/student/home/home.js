@@ -206,7 +206,7 @@ function init() {
         success: function (data) {
             $('.school-year-plan').find('p strong').html(data.target);
             $('.already-read').find('p strong').html(data.now);
-            var percent = data.now / data.target;
+            var percent = safe_divide(data.now, data.target);
             if (percent > 1)
                 percent = 1;
             bar.animate(percent);

@@ -42,9 +42,14 @@ function forget_password() {
     $('#find_password').show();
 }
 
+var account = '';
+var email = '';
+var auth_id = 0;
 function find_password() {
-    $('#step_1').hide();
-    $('#step_2').show();
+    $('#code_input').val('');
+    $('#new_password').val('');
+    $('#new_password_confirm').val('');
+    send_vc();
 }
 
 function return_to_login() {
@@ -85,12 +90,37 @@ $('.fp-sub-menu .fp-function').click(function () {
 });
 
 // 设置重发验证码的时间
-var t = 10;
+var t = 60;
 function reset_time() {
-    t = 10;
+    t = 60;
 }
 
 function send_vc() {
+    account = $('#step_1_user').val();
+    email = $('#step_1_mail').val();
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'post',
+        url: URL_BASE + '/users/open/user/mailPassword/preChange',
+        data: {
+            userId: account,
+            email: email
+        },
+        success: function (data) {
+            auth_id = data;
+            $('#step_1').hide();
+            $('#step_2').show();
+            refresh_button();
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            my_tip.alert(xhr.responseJSON.message);
+        }
+    });
+}
+
+function refresh_button() {
     var tmp = $('#send_vc');
     tmp.addClass('disabled');
     t -= 1;
@@ -101,7 +131,7 @@ function send_vc() {
         reset_time();
         return;
     }
-    setTimeout(send_vc, 1000);
+    setTimeout(refresh_button, 1000);
 }
 
 $('#fp_teacher_confirm_button').click(function () {
@@ -168,17 +198,46 @@ function login() {
 
 // $('#submit_button').click(login());
 
-
 //记住密码
 if($('#remember_password').is(':checked')){
     setCookie('customername', $('#username').val().trim());
     setCookie('customerpass', $('#password').val().trim());
 }
 
+$('#go_to_mail').click(function () {
+    open_mail_url(email);
+});
 
-
-
-
+$('#fp_mail_confirm_button').click(function () {
+    var new_password, new_password_confirm;
+    new_password = $('#new_password').val();
+    new_password_confirm = $('#new_password_confirm').val();
+    if (new_password != new_password_confirm) {
+        my_tip.alert('两次输入的密码不相同！');
+        return;
+    }
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/users/open/user/mailPassword/doChange',
+        type: 'post',
+        data: {
+            userId: account,
+            authId: auth_id,
+            authCode: $('#code_input').val(),
+            newPassword: new_password
+        },
+        success: function (data) {
+            my_tip.alert('密码修改成功,即将前往登录页面', function () {
+                return_to_login();
+            });
+        },
+        error: function (xhr) {
+            my_tip.alert(xhr.responseJSON.message);
+        }
+    })
+});
 
 
 

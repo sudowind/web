@@ -87,9 +87,26 @@ function load_page() {
                     online_text = '转线上阅读';
                     break;
             }
-            $('#offline_read').html(offline_text);
-            $('#online_read').html(online_text);
+            $.ajax({
+                type: 'GET',
+                xhrFields: {
+                    withCredentials: true
+                },
+                url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
+                data: {
+                    bookId: Number($.getUrlParam('book_id')),
+                    page: 0
+                },
+                success: function (data) {
+                    if (data.status == 'empty') {
+                        online_text = '暂无线上资源';
+                        $('#online_read').addClass('disabled');
+                    }
+                    $('#offline_read').html(offline_text);
+                    $('#online_read').html(online_text);
+                }
+            });
         },
-        error: ajax_error_handler
+        error: error_handler()
     });
 }

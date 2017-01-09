@@ -52,9 +52,15 @@ function load_pdf_page(page) {
             page: page
         },
         success: function (data) {
-            // $('#pdf1').html('<iframe src="{0}#toolbar=0&navpanes=0&scrollbar=0"></iframe>'.format(data.url));
-            $('iframe').attr('src', '{0}#toolbar=0&navpanes=0&scrollbar=0'.format(data.url));
-            total_page = data.totalPage;
+
+            if (data.status == 'empty') {
+                $('iframe').append('暂无线上图书');
+            }
+            else {
+                // $('#pdf1').html('<iframe src="{0}#toolbar=0&navpanes=0&scrollbar=0"></iframe>'.format(data.url));
+                $('iframe').attr('src', '{0}#toolbar=0&navpanes=0&scrollbar=0'.format(data.url));
+                total_page = data.totalPage;
+            }
         },
         error: error_handler({404: function () {
             console.log('tedst');

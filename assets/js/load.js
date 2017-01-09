@@ -116,7 +116,7 @@ function load_page() {
                 $('#end_date').html(end_date.getFullDate());
                 var process = Math.ceil(data.currentPage * 100.0/ data.totalPage);
                 $('.progress-bar').css('width', process.toString() + '%');
-
+                $('.ratio span').html(process.toString());
             },
             error: ajax_error_handler
         });
