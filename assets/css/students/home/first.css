@@ -98,3 +98,58 @@
 #checked_info {
     display: none;
 }
+
+.right_content{
+    width: 482px;
+    height: 1088px;
+    border: 1px solid #e8e8e8;
+    background: #f9f9f9;
+    float: left;
+    margin-left: 16px;
+}
+.right_img{
+    text-align: center;
+}
+.text{
+    width: 360px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    color: #fb9e1d;
+    font-size: 16px;
+    margin-left: 60px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+.open_read{
+    margin-left: 160px;
+    margin-top: 20px;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #fb9e1d;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -128,7 +128,6 @@ $(".sure").click(function() {
         error: ajax_error_handler
     });
 });
-
 // 设置重发验证码的时间
 var t = 10;
 function reset_time() {
@@ -153,12 +152,7 @@ function send_vc() {
 //绑定邮箱获取验证码
 var code ='';
 $(".email .btn").on("click",function () {
-
     var newAccount = $(".mail").val();
-    if(newAccount == ''){
-        my_tip.alert("请输入邮箱");
-        return;
-    }
     //console.log(newAccount);
     $.ajax({
         url: URL_BASE + '/users/web/user/current/account/preChange',
