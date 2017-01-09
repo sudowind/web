@@ -6,7 +6,7 @@
     float: left;
 }
 .content{
-    padding: 21px 20px;
+    padding: 21px 20px 0 20px;
     position: relative;
     top: 0;
 }
@@ -19,7 +19,7 @@
 }
 .title{
     display: inline-block;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 .title .down{
     width: 640px;
@@ -29,10 +29,51 @@
     float: right;
 }
 
+/*问题部分*/
+#question_body {
+    width: 730px;
+    height: 600px;
+    margin: auto;
+    padding: 38px;
+    position: relative;
+}
 
+.question-q {
+    font-size: 16px;
+    line-height: 1.5;
+}
 
+.select-option {
+    margin: 5px 0;
+}
 
+.btn-part {
+    position: absolute;
+    width: 654px;
+    bottom: 30px;
+    text-align: center;
+}
 
+#question_body .btn {
+    background: #fb9e1d;
+    color: #ffffff;
+    margin: 20px;
+    width: 80px;
+}
+#question_body .btn:hover {
+    color: #ffffff;
+}
+
+.progress {
+    top: -10px;
+    width: 640px;
+    height: 10px;
+}
+
+#finish_test {
+    font-size: 16px;
+    line-height: 2;
+}
 
 
 

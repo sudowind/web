@@ -18,7 +18,7 @@
 }
 .title{
     display: inline-block;
-    padding-bottom: 20px;
+    padding-bottom: 0;
 }
 .title .down{
     width: 649px;;
@@ -48,7 +48,7 @@
 .book{
     width: 728px;
     border: 1px solid #e8e8e8;
-    margin-top:20px;
+    margin-top: 10px;
     position: relative;
 }
 .book .sort{
@@ -62,7 +62,7 @@
     float: left;
     margin-top: 22px;
     margin-left: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 55px;
 }
 .book .sort span{
     line-height: 28px;
@@ -164,12 +164,12 @@
 
 /*下半部图书列表内容*/
 #book_list {
-    height: 546px;
+    height: 575px;
 }
 
 .books{
     width: 728px;
-    height: 666px;
+    height: 700px;
     border: 1px solid #e8e8e8;
     background: #f9f9f9;
     margin-top: 20px;
@@ -209,7 +209,7 @@
 }
 .list .list-book .image {
     width: 156px;
-    height: 256px;
+    height: 270px;
     border: 1px solid #e8e8e8;
     padding: 15px 13px 30px 16px ;
     background: #ffffff;
@@ -239,14 +239,14 @@
     font-weight: bold;
     cursor:pointer;
     width: 120px;
-    height: 40px;
+    height: 60px;
 
     display: table-cell;
     vertical-align: middle;
 }
 .list .list-book .type{
     position: absolute;
-    top: 232px;
+    top: 245px;
     left: 16px;
     font-size: 12px;
     color: #999999;
@@ -254,7 +254,7 @@
 }
 .list .list-book p{
     position: absolute;
-    top: 232px;
+    top: 245px;
     left: 118px;
     font-size: 12px;
     color: #f99d32;

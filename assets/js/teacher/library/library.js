@@ -3,22 +3,14 @@
  */
 
 var curr_type = 0;
-var curr_start_score = 0;
-var curr_end_score = 0;
+var curr_start_score = 600;
+var curr_end_score = 1200;
 var has_load_book = false;
 
 function left_bar_cb() {
     $('#library_button').attr('class', 'side-button-selected left-side-button');
 }
-//按书籍类型筛选
-$(".book .sort span").click(function(){
-    $(this).siblings().attr("class","");
-    $(this).attr("class","index");
 
-    has_load_book = false;
-    load_book(Number($(this).attr('value')), 1);
-
-});
 //按阅读班级筛选
 $(".book .className").on('click','span',function(){
     $(this).siblings().attr("class","");
@@ -177,7 +169,8 @@ function load_classname(){
             $(".className p").after(html);
             $(".className span").eq(0).addClass("index");
             $(".books .statistics span").html(data.totalItem);
-            load_book(Number($(".book .sort .index").attr('value')),1,data[0].id);
+            gen_book_type();
+            load_book(0,1,data[0].id);
         }
     });
 }
@@ -217,5 +210,32 @@ function load_class_books(classId,page){
             }
         }
     });
+}
+
+function gen_book_type() {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/books/open/tag/type/list',
+        type: 'get',
+        success: function (data) {
+            var html = '<span class="index" value="0">全部</span>';
+            for (var i in data) {
+                if (data[i].id != '0')
+                    html += '<span value="{0}">{1}</span>'.format(data[i].id, data[i].name);
+            }
+            $('.book .sort').append(html);
+            //按书籍类型筛选
+            $(".book .sort span").click(function(){
+                $(this).siblings().attr("class","");
+                $(this).attr("class","index");
+
+                has_load_book = false;
+                load_book(Number($(this).attr('value')), 1);
+            });
+        },
+        error: error_handler()
+    })
 }
 

@@ -133,7 +133,7 @@
 }
 .list .list-book .image {
     width: 156px;
-    height: 260px;
+    height: 270px;
     border: 1px solid #e8e8e8;
     padding: 15px 13px 30px 16px ;
     background: #ffffff;
@@ -158,7 +158,7 @@
 }
 .list .list-book .book-name{
     text-align: center;
-    height: 40px;
+    height: 60px;
     width: 122px;
     font-size: 13px;
     font-weight: bold;
@@ -169,7 +169,7 @@
 }
 .list .list-book .type{
     position: absolute;
-    top: 236px;
+    top: 245px;
     left: 16px;
     font-size: 12px;
     color: #999999;
@@ -177,7 +177,7 @@
 }
 .list .list-book p{
     position: absolute;
-    top: 236px;
+    top: 245px;
     left: 118px;
     font-size: 12px;
     color: #f99d32;

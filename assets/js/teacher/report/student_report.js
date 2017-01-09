@@ -305,7 +305,15 @@ function init() {
                     reading_book.push(data[i]);
                 }
             }
-            load_slide(0);
+            if (reading_book.length > 0) {
+                load_slide(0);
+            }
+            else {
+                $('#left_slide').hide();
+                $('#right_slide').hide();
+                $('.book-info-box').hide();
+            }
+
             load_read_book(1);
         },
         error: error_handler()
