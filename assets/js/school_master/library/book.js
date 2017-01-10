@@ -58,6 +58,9 @@ function load_table_line (row_selector, data) {
 $('#add_to_task').click(function() {
     window.open('assign_task.html?book_id=' + $.getUrlParam('book_id'), '_self');
 });
+$('#online_read').click(function() {
+    window.open('reading.html?book_id=' + $.getUrlParam('book_id'), '_self');
+});
 
 function clear_rows() {
     for (var i = 0; i < 10; ++i) {

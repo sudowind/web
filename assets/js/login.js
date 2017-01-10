@@ -169,13 +169,11 @@ function login() {
 // $('#submit_button').click(login());
 
 
-//记住密码
+//记住密码功能
 if($('#remember_password').is(':checked')){
-    setCookie('customername', $('#username').val().trim());
-    setCookie('customerpass', $('#password').val().trim());
+    setCookie('username', $('#username').val().trim());
+    setCookie('userpassword', $('#password').val().trim());
 }
-
-
 
 
 

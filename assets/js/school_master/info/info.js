@@ -17,7 +17,7 @@ function Change() {
     $(".off").css("display","inline");
     $(".sure").css("display","inline");
     $(".birth span").css("display","none");
-    //$(".email span").css("display","none");
+    $(".email span").css("display","none");
 }
 function Sure(){
     document.getElementById("boy").disabled = true;
@@ -127,3 +127,99 @@ $('#modify_avatar').click(function () {
         $('#avatar-modal').modal('show');
     }
 );
+
+
+//绑定邮箱获取验证码
+var code ='';
+$(".email .btn").on("click",function () {
+    var newAccount = $(".mail").val();
+    //console.log(newAccount);
+    $.ajax({
+        url: URL_BASE + '/users/web/user/current/account/preChange',
+        type: 'POST',
+        xhrFields: {
+            withCredentials: true
+        },
+        data: {
+            newAccount: newAccount,
+            accountType: 4
+        },
+        success: function (data) {
+            console.log(data);
+            $(".sure").click(function(){
+                var birthday = $(".laydate").val();
+                if($("#boy").is(":checked")) {
+                    var gender = 1;
+                }else if($("#girl").is(":checked")) {
+                    var gender = 2;
+                }
+
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "info":{
+                            "birthday": birthday
+                        },
+                        "gender": gender
+                    }),
+                    type: 'PUT',
+                    url: URL_BASE + '/users/web/user/current',
+                    success: function(data) {
+                        //console.log(data);
+                        load_info();
+                    },
+                    error: ajax_error_handler
+                });
+                //验证邮箱验证码
+                code = $(".code-num").val();
+                console.log(code);
+                $.ajax({
+                    url: URL_BASE + '/users/web/user/current/account/doChange',
+                    type: 'POST',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: {
+                        authId: data,
+                        authCode: code
+                    },
+                    success: function (data) {
+                        console.log(data);
+
+                        //邮箱验证成功之后修改个人信息
+                        var birthday = $(".laydate").val();
+                        if($("#boy").is(":checked")) {
+                            var gender = 1;
+                        }else if($("#girl").is(":checked")) {
+                            var gender = 2;
+                        }
+
+                        $.ajax({
+                            xhrFields: {
+                                withCredentials: true
+                            },
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                "info":{
+                                    "birthday": birthday
+                                },
+                                "gender": gender
+                            }),
+                            type: 'PUT',
+                            url: URL_BASE + '/users/web/user/current',
+                            success: function(data) {
+                                //console.log(data);
+                                load_info();
+                            },
+                            error: ajax_error_handler
+                        });
+                    },
+                    error: ajax_error_handler
+                });
+            });
+        }
+    })
+});
