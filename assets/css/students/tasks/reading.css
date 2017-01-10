@@ -166,6 +166,9 @@
 
 embed, iframe {
     width: 498px;
-    height: 600px;
+    height: 676px;
 }
 
+iframe {
+    border: 1px solid #e8e8e8;
+}

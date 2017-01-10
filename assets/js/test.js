@@ -168,6 +168,7 @@ function load_questions(exam_id) {
             if (data.hasResult) {
                 // 已经做过这次测试，则加载结果
                 // my_tip.alert('已经做过了！');
+                $('#test_submit').addClass('hide');
                 var i = 0;
                 for (i = 0; i < data.examRecord.answer.length; ++i) {
                     id2answer[data.examRecord.answer[i].questionId] = data.examRecord.answer[i].answer;
