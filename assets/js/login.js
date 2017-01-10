@@ -188,6 +188,16 @@ function login() {
                         break;
                 }
                 setCookie('USER', data.userId);
+                //判断是否记住密码,设置cookie
+                if($('#remember_password').is(':checked')){
+                    setCookie('username', $('#user_name').val().trim(),7);
+                    setCookie('userpassword', $('#password').val().trim(),7);
+                    setCookie('usertype',data.userType,7);
+                }else{
+                    delCookie('username');
+                    delCookie('usertype');
+                    delCookie('userpassword');
+                }
             }
             else {
                 my_tip.alert(data.message);
@@ -198,10 +208,7 @@ function login() {
 
 // $('#submit_button').click(login());
 
-if($('#remember_password').is(':checked')){
-    setCookie('username', $('#username').val().trim());
-    setCookie('userpassword', $('#password').val().trim());
-}
+
 
 $('#go_to_mail').click(function () {
     open_mail_url(email);

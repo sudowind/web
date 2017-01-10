@@ -175,8 +175,30 @@
     $('#find_by_teacher').hide();
     delCookie('USER');
 
-    //进入登录界面后，判断cookie中是否有帐号密码，如果有就自动填充
-//
+    //判断cookie中是否有帐号密码
+    $(function(){
+        //获取cookie
+        var username = getCookie('username');
+        var userpassword = getCookie('userpassword');
+        var usertype = getCookie('usertype');
+        if(username != "" && userpassword != ""){
+            $("#user_name").val(username);
+            $("#password").val(userpassword);
+            $('#remember_password').attr('checked','true');
+            switch (usertype){
+                case '3':
+                    $("#drop_down .login-nav-img").attr('src','../assets/img/login/teacher.png');
+                    $("#drop_down .login-nav-content").text('我是老师');
+                    $("#drop_down ").attr('value','3');
+                    break;
+                case  '4':
+                    $("#drop_down .login-nav-img").attr('src','../assets/img/login/school_master.png');
+                    $("#drop_down .login-nav-content").text('我是校长');
+                    $("#drop_down ").attr('value','4');
+                    break;
+            }
+        }
+    });
 </script>
 </body>
 </html>

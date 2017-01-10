@@ -15,15 +15,15 @@ function left_bar_cb() {
 $(".book .className").on('click','span',function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
-
     has_load_book = false;
     load_book($(".book .sort .index").attr('value'),1,$(this).attr('value'));
 
 });
+
 //按阅读等级筛选
 $(".book .read-lv .lv_button span").click(function(){
-    $(this).siblings().attr("class","");
-    $(this).attr("class","index");
+    $(this).siblings().removeClass('index');
+    $(this).addClass('index');
 });
 
 $(".book .grade span").click(function(){
@@ -46,13 +46,8 @@ $(".book .grade span").click(function(){
 
 //自主选择阅读等级事件
 $(".btn-sure").on('click',function(){
-    if($(".num-min").val() !== ''){
+    if($(".num-min").val() !== '' || $(".num-max").val() !== ''){
         curr_start_score = $(".num-min").val();
-        has_load_book = false;
-        console.log($(".book .sort .index").attr('value'))
-        load_book(Number($(".book .sort .index").attr('value')),1,$(".book .className .index").attr('value'));
-    }
-    if($(".num-max").val() !== ''){
         curr_end_score = $(".num-max").val();
         has_load_book = false;
         load_book(Number($(".book .sort .index").attr('value')),1,$(".book .className .index").attr('value'));
@@ -147,7 +142,6 @@ function fill_class_books(data){
 
 //生成班级button
 function fill_classname(data){
-
     return    '<span value="'+ data.id +'">'+ data.name + '</span>';
 }
 
