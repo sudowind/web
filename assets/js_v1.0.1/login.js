@@ -138,6 +138,10 @@ window.onload = function() {
     function range(start, end) {
         return Math.random() * (end - start) + start;
     }
+
+    $('#login_button').click(function () {
+
+    })
 };
 $(window).resize(resizeCanvas);
 function resizeCanvas() {
@@ -244,8 +248,10 @@ $('.rotate-div').click(function() {
         })
     }
     else if (value == 5) {
+        var color = $(this).css('background');
         $('#select_part').hide(0, function () {
-            $('#login_part').show(1000);
+            $('#login_part').show();
+            $('#login_button').css('background', color);
         });
     }
     else if (value == 4) {

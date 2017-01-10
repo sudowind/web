@@ -8,16 +8,20 @@ var TASK_STATUS = {
     4: 'completed'
 };
 
-Date.prototype.getFullDate = function() {
+Date.prototype.getFullDate = function(type) {
     // 返回date对应的日期字符串
     var year = this.getFullYear().toString();
-    var month = this.getMonth().toString();
+    var month = (this.getMonth() + 1).toString();
     if (month.length < 2)
         month = '0' + month;
     var day = this.getDate().toString();
     if (day.length < 2)
         day = '0' + day;
-    return '{0}-{1}-{2}'.format(year, month, day);
+    if (type == 'zh') {
+        return '{0}年{1}月{2}'.format(year, month, day);
+    }
+    else
+        return '{0}-{1}-{2}'.format(year, month, day);
 };
 
 function open_mail_url(mail_address) {

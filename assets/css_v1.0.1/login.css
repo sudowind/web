@@ -118,11 +118,11 @@ body {
 }
 
 #select_part {
-    display: none;
+    /*display: none;*/
 }
 
 #login_part {
-    /*display: none;*/
+    display: none;
     width: 600px;
     height: 500px;
     margin: -100px auto;

@@ -38,11 +38,14 @@
                     <div class="progress-bar" id="exam_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
                 </div>
                 <div class="btn" id="last">上一题</div>
-                <div class="btn" id="next">下一题</div>
+                <div class="btn disabled" id="next">下一题</div>
             </div>
             <div id="finish_test" style="display: none;">
-                你的ER等级为：780ER<br />
+                你的ER等级为：<span id="er_score"></span>ER<br />
                 恭喜你完成了ER阅读能力测试！阅读难度为750ER~850ER的读物最适合你哦！<a href="../library/index.html">前往图书馆</a>
+            </div>
+            <div id="has_done">
+                您好：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为保证测试的准确性，两次测试间隔时间为两个月，您上次测试时间为<span id="last_test_date"></span>，请<span id="wait_date"></span>天之后再参与测试。
             </div>
         </div>
     </div>

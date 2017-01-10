@@ -129,12 +129,34 @@ $(".sure").click(function() {
     });
 });
 
+var t = 60;
+function reset_time() {
+    t = 60;
+}
 
+function refresh_button() {
+    var tmp = $('.email .btn');
+    tmp.addClass('disabled');
+    t -= 1;
+    tmp.attr('value', '重发验证码(' + t.toString() + ')');
+    if (t == 0) {
+        tmp.removeClass('disabled');
+        tmp.attr('value', '发送验证码');
+        reset_time();
+        return;
+    }
+    setTimeout(refresh_button, 1000);
+}
 
 //绑定邮箱获取验证码
 var code ='';
 $(".email .btn").on("click",function () {
     var newAccount = $(".mail").val();
+    if (newAccount == '') {
+        my_tip.alert('请填写邮箱！');
+        return;
+    }
+    refresh_button();
     //console.log(newAccount);
     $.ajax({
         url: URL_BASE + '/users/web/user/current/account/preChange',

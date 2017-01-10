@@ -37,7 +37,7 @@ function on_button_click(e) {
 //添加书库之后确认日期的点击事件
 $('.modal-footer .btn').one("click",function(){
     $('#myModal').modal('hide');
-    $(".book-image .btn").html("已添加“阅读任务”");
+    $(".book-image .btn").html("已添加“阅读中心”");
 });
 
 $('#add_to_task').click(function () {
@@ -50,7 +50,7 @@ $('#add_to_task').click(function () {
         url: URL_BASE + '/tasks/web/task/student/current',
         data: {bookId: $.getUrlParam('book_id')},
         success: function (data) {
-            $('#add_to_task').html('已添加到“阅读任务”');
+            $('#add_to_task').html('已添加到“阅读中心”');
         },
         error: ajax_error_handler
     });

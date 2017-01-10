@@ -1,0 +1,24 @@
+.footer{
+    background: #edeef0;
+    height: 100px;
+    width: 1300px;
+    margin: 70px auto 0 auto;
+    text-align: center;
+    padding-top: 35px;
+}
+
+.footer-content {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-cell {
+    float: left;
+    width: 33%;
+}
+
+.qrcode {
+    margin-top: -15px;
+}
+

@@ -10,7 +10,7 @@ $(".section-retract").click(function(){
     $(".cover").css("display","none");
 });
 $(".title img").click(function(){
-    $(this).attr("src","../../../assets/img/student/tasks/label.png");
+    record();
 });
 $(".out").on('click',function(){
     window.open('read.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
@@ -22,12 +22,14 @@ function left_bar_cb() {
 
 var curr_page = 1;
 var total_page = 0;
+var max_page = 0;   // 已读到的页面
 
 $('.left .book .up').click(function () {
     curr_page -= 1;
     if (curr_page == 0)
         curr_page = 1;
     load_pdf_page(curr_page);
+    $('.title img').attr("src","../../../assets/img/student/tasks/unlabel.png");
 });
 
 $('.left .book .down').click(function () {
@@ -35,11 +37,35 @@ $('.left .book .down').click(function () {
     if (curr_page > total_page)
         curr_page = total_page;
     load_pdf_page(curr_page);
+    $('.title img').attr("src","../../../assets/img/student/tasks/unlabel.png");
 });
 
 $(document).ready(function () {
-    load_pdf_page(1);
+    load_task_info();
 });
+
+function load_task_info() {
+    var task_id = $.getUrlParam('task_id');
+    if (task_id != null) {
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'GET',
+            url: URL_BASE + '/tasks/web/task/' + task_id,
+            success: function(data) {
+                // my_tip.alert(data.id);
+                // do some thing
+                max_page = data.currentPage;
+                if (max_page == 0)
+                    max_page = 1;
+                curr_page = max_page;
+                load_pdf_page(max_page);
+            },
+            error: error_handler()
+        });
+    }
+}
 
 function load_pdf_page(page) {
     $.ajax({
@@ -62,8 +88,46 @@ function load_pdf_page(page) {
                 total_page = data.totalPage;
             }
         },
-        error: error_handler({404: function () {
-            console.log('tedst');
-        }})
+        error: error_handler()
+    })
+}
+
+var exit = function () {
+    console.log('test');
+};
+
+function record() {
+    if (curr_page <= max_page) {
+        my_tip.alert('当前页页码需大于上次保存页码');
+        return;
+    }
+    var end_time = new Date();
+    end_time.setMinutes(end_time.getMinutes() - 1);
+    end_time.setSeconds(0);
+    $.ajax({
+        async: false,
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'post',
+        url: URL_BASE + '/tasks/web/task/student/current/' + $.getUrlParam('task_id') + '/record',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            "createTime": 0,
+            "currentPage": Number(curr_page),
+            "endTime": end_time.setMilliseconds(0),
+            "id": 0,
+            "onlineStatus": "1",
+            "startTime": start_time.setMilliseconds(0),
+            "taskId": 0
+        }),
+        success: function (data) {
+            $('.title img').attr("src","../../../assets/img/student/tasks/label.png");
+            var progress = curr_page / total_page;
+            $('.progress-bar').css('width', '{0}%'.format(Math.ceil(progress * 100)));
+            $('.ratio span').html(Math.ceil(progress * 100));
+            my_tip.alert('阅读进度保存成功');
+        },
+        error: error_handler()
     })
 }

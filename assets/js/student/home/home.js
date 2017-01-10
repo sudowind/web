@@ -114,19 +114,6 @@ function load_info(){
             //console.log(data);
             $(".head-img img").attr('src',data.headimg);
             $('.name').html(data.name);
-            //$(".name span").html(data.name);
-            //$(".birth span").html(data.birthday);
-            //$(".email span").html(data.email);
-            //$(".school span").html(data.school.name);
-            //$(".class-name span").html(data.classes[0].name);
-            //$(".city span").html(data.school.address);
-            //$("#headimg").attr('src', data.headimg);
-            //if(data.gender == 1 ){
-            //    $("#boy").attr("checked","checked");
-            //}else if(data.gender == 2 ){
-            //    $("#girl").attr("checked","");
-            //}
-
         },
         error: error_handler()
     });
@@ -149,6 +136,21 @@ function check_in() {
 }
 
 function init() {
+    // 从服务器获取是否进行过阅读能力测试，提醒用户进行阅读能力测试，同时利用cookie存储是否提醒过进行阅读能力测试
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/tasks/web/erTest/latest',
+        type: 'get',
+        success: function (data) {
+            if (!data.hasTest) {
+                var obj = $('#ability_rank').parent();
+                obj.html('<div class="rank-message"><span style="cursor: pointer" onclick="window.open(\'../ability/ability.html\', \'_self\')">还未完成阅读能力测试，点击前往阅读能力测试</span></div>');
+            }
+        },
+        error: error_handler()
+    });
     // 获取签到信息
     $.ajax({
         xhrFields: {
@@ -213,6 +215,4 @@ function init() {
         },
         error: error_handler()
     });
-    // 从服务器获取是否进行过阅读能力测试，提醒用户进行阅读能力测试，同时利用cookie存储是否提醒过进行阅读能力测试
-
 }
