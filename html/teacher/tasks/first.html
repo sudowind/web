@@ -23,7 +23,7 @@
             </div>
             <div class="right_content">
                 <div class="first_img"><img src="../../../assets/img/teacher/first.png" alt=""/></div>
-                <div class="text"><p>亲爱的<span>王澈</span>老师，您还没有添加学生，暂时无法查看学生们的相关阅读数据，快去添加学生吧！</p></div>
+                <div class="text"><p>亲爱的<span class="name">王澈</span>老师，您还没有添加学生，暂时无法查看学生们的相关阅读数据，快去添加学生吧！</p></div>
                 <div class="add_student"><a href="../management/management.html">添加学生</a></div>
             </div>
         </div>
@@ -38,6 +38,20 @@
 
 <script>
     load('../../../include/html/', 'teacher');
+    $(document).ready(function () {
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'GET',
+            url: URL_BASE + '/users/web/user/current',
+            success: function(data) {
+                //console.log(data);
+                $('.name').html(data.name);
+            },
+            error: error_handler()
+        });
+    });
 </script>
 
 </body>

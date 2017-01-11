@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
     <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css/intro.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
     <link rel="stylesheet" href="../../../assets/css/pagination.css">
@@ -91,6 +92,7 @@
         </div>
     </div>
     <div id="right_bar"></div>
+    <div id="tmp_modal"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 
@@ -101,6 +103,7 @@
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/student/tasks/reading.js"></script>
 
@@ -110,6 +113,10 @@
     set_online_status('true');
 //    pdf1.LoadFile("../../../assets/img/student/tasks/react.pdf");
 //    pdf1.SetShowToolbar(false);
+    var start_time = new Date();
+    start_time.setMinutes(start_time.getMinutes() - 1);
+    start_time.setSeconds(0);
+
 </script>
 </body>
 </html>

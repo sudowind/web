@@ -115,7 +115,7 @@ function send_vc() {
             refresh_button();
         },
         error: function(xhr, textStatus, errorThrown) {
-            my_tip.alert(xhr.responseJSON.message);
+            my_tip.alert('账号或邮箱输入有误！');
         }
     });
 }
@@ -176,12 +176,19 @@ function login() {
         },
         success: function (data) {
             if (data.success) {
+                // alert(data.loginCount);
                 switch (user_type) {
                     case '2':
-                        window.open('../../../html/student/home/home.html', '_self');
+                        if (data.loginCount == 0)
+                            window.open('../../../html/student/home/first.html', '_self');
+                        else
+                            window.open('../../../html/student/home/home.html', '_self');
                         break;
                     case '3':
-                        window.open('../../../html/teacher/tasks/index.html', '_self');
+                        if (data.loginCount == 0)
+                            window.open('../../../html/teacher/tasks/first.html', '_self');
+                        else
+                            window.open('../../../html/teacher/tasks/index.html', '_self');
                         break;
                     case '4':
                         window.open('../../../html/school_master/tasks/teacher_detail.html', '_self');

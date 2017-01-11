@@ -113,18 +113,20 @@
 .text{
     width: 360px;
     height: 100px;
-    line-height: 50px;
-    text-align: center;
+    line-height: 30px;
+    /*text-align: center;*/
     color: #fb9e1d;
     font-size: 16px;
     margin-left: 60px;
     margin-top: 30px;
-    font-weight: bold;
 }
 .open_read{
-    margin-left: 160px;
-    margin-top: 20px;
-    width: 150px;
+    /*margin-left: 160px;*/
+    /*margin-top: 20px;*/
+    float: left;
+    /*width: 150px;*/
+    padding: 0 10px;
+    margin: 300px 10px;
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -134,8 +136,9 @@
     cursor: pointer;
 }
 
-
-
+.buttons .open_read:first-child {
+    margin-left: 110px;
+}
 
 
 

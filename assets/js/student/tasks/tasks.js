@@ -207,7 +207,7 @@ function init_teachers() {
         url: URL_BASE + '/users/web/class/current/teachers',
         success: function(data) {
             for (var i = 0; i < data.length; ++i) {
-                html += '<span value="' + data[i].id + '">' + data[i].name + '老师发布</span>';
+                html += '<span value="' + data[i].id + '">' + data[i].name + '老师推荐</span>';
             }
             $('.grade').html(html).find('span').click(function () {
                 $(this).siblings('span').removeClass('index');

@@ -55,7 +55,7 @@
                         <input class="btn" type="button" value="免费获取验证码" style="display: none" />
                     </p>
                     <p class="code" style="display: none">
-                        验证码：<input class="code-num" type="text" placeholder="6位数字"/>
+                        验证码：<input class="code-num" type="text" placeholder="6位验证码"/>
                     </p>
 
                     <input class="change-info" type="button"  onclick="Change()" value="修改" />
@@ -116,6 +116,7 @@
         </div>
     </div>
     <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+    <div id="tmp_modal"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 <script src="../../../libs/jquery-2.2.4.js"></script>
@@ -126,10 +127,11 @@
 <script src="../../../assets/js/cookie.js"></script>
 <!--<script src="../../../assets/js/student/tasks/tasks.js"></script>-->
 <script src="../../../assets/js/tip_modal.js"></script>
-<script src="../../../assets/js/school_master/info/info.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
 <script src="../../../libs/cropper/cropper.min.js"></script>
 <script src="../../../libs/sitelogo/sitelogo.js"></script>
+<script src="../../../assets/js/school_master/info/info.js"></script>
+
 <script>
     $('[data-toggle=tooltip]').tooltip();
     load('../../../include/html/', 'school_master');

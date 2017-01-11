@@ -23,6 +23,9 @@ function init() {
         },
         error: error_handler()
     });
+    // $('.open_read').click(function () {
+    //     window.open('../ability/ability.html', '_self');
+    // });
 }
 
 function check_in() {

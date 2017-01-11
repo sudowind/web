@@ -129,30 +129,33 @@ $(".sure").click(function() {
     });
 });
 // 设置重发验证码的时间
-var t = 10;
+var t = 60;
 function reset_time() {
-    t = 10;
+    t = 60;
 }
 
-function send_vc() {
-    var tmp = $('#send_vc');
+function refresh_button() {
+    var tmp = $('.email .btn');
     tmp.addClass('disabled');
     t -= 1;
-    tmp.html('重发验证码(' + t.toString() + ')');
+    tmp.attr('value', '重发验证码(' + t.toString() + ')');
     if (t == 0) {
         tmp.removeClass('disabled');
-        tmp.html('发送验证码');
+        tmp.attr('value', '发送验证码');
         reset_time();
         return;
     }
-    setTimeout(send_vc, 1000);
+    setTimeout(refresh_button, 1000);
 }
-
-
 //绑定邮箱获取验证码
 var code ='';
 $(".email .btn").on("click",function () {
     var newAccount = $(".mail").val();
+    if (newAccount == '') {
+        my_tip.alert('请填写邮箱！');
+        return;
+    }
+    refresh_button();
     //console.log(newAccount);
     $.ajax({
         url: URL_BASE + '/users/web/user/current/account/preChange',

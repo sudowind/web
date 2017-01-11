@@ -9,7 +9,7 @@ function load(src, type) {
     if (typeof type == 'undefined') {
         type = 'student';
     }
-
+    $('#page_header').load(src + type + '/header.html');
     $('#page_footer').load(src + 'footer.html');
     $('#left_bar').load(src + type + '/left_bar.html', function() {
         if (typeof left_bar_cb != 'undefined') {

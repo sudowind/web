@@ -1,11 +1,11 @@
 /**
- * Created by yilong on 2016/11/7.
+ * Created by wind on 2017/1/10.
  */
 function right_bar_cb() {
     $('#info_button').attr('class', 'side-button-selected right-side-button');
 }
 
-//È¡ÏûÈ·¶¨buttonµÄµã»÷ÊÂ¼şÑùÊ½
+//å–æ¶ˆç¡®å®šbuttonçš„ç‚¹å‡»äº‹ä»¶æ ·å¼
 function Change() {
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
@@ -48,7 +48,7 @@ function Back(){
 }
 
 
-//ÔØÈë¶ÁÈ¡¸öÈËĞÅÏ¢
+//è½½å…¥è¯»å–ä¸ªäººä¿¡æ¯
 function load_info() {
     $.ajax({
         xhrFields: {
@@ -75,7 +75,7 @@ function load_info() {
     });
 }
 
-//ĞŞ¸ÄÍ·Ïñ
+//ä¿®æ”¹å¤´åƒ
 
 $('#submit').click(function () {
     $.ajax({
@@ -99,7 +99,7 @@ $('#modify_avatar').click(function () {
 );
 
 
-//ĞŞ¸Ä¸öÈËĞÅÏ¢
+//ä¿®æ”¹ä¸ªäººä¿¡æ¯
 $(".sure").click(function() {
     var birthday = $(".laydate").val();
     if ($("#boy").is(":checked")) {
@@ -128,12 +128,34 @@ $(".sure").click(function() {
         error: ajax_error_handler
     });
 });
+// è®¾ç½®é‡å‘éªŒè¯ç çš„æ—¶é—´
+var t = 60;
+function reset_time() {
+    t = 60;
+}
 
-//°ó¶¨ÓÊÏä»ñÈ¡ÑéÖ¤Âë
+function refresh_button() {
+    var tmp = $('.email .btn');
+    tmp.addClass('disabled');
+    t -= 1;
+    tmp.attr('value', 'é‡å‘éªŒè¯ç (' + t.toString() + ')');
+    if (t == 0) {
+        tmp.removeClass('disabled');
+        tmp.attr('value', 'å‘é€éªŒè¯ç ');
+        reset_time();
+        return;
+    }
+    setTimeout(refresh_button, 1000);
+}
+//ç»‘å®šé‚®ç®±è·å–éªŒè¯ç 
 var code ='';
 $(".email .btn").on("click",function () {
     var newAccount = $(".mail").val();
-    console.log(newAccount);
+    if (newAccount == '') {
+        my_tip.alert('è¯·å¡«å†™é‚®ç®±ï¼');
+        return;
+    }
+    refresh_button();
     $.ajax({
         url: URL_BASE + '/users/web/user/current/account/preChange',
         type: 'POST',
@@ -173,7 +195,7 @@ $(".email .btn").on("click",function () {
                     },
                     error: ajax_error_handler
                 });
-                //ÑéÖ¤ÓÊÏäÑéÖ¤Âë
+                //éªŒè¯é‚®ç®±éªŒè¯ç 
                 code = $(".code-num").val();
                 console.log(code);
                 $.ajax({
@@ -189,7 +211,7 @@ $(".email .btn").on("click",function () {
                     success: function (data) {
                         //console.log(data);
 
-                        //ÓÊÏäÑéÖ¤³É¹¦Ö®ºóĞŞ¸Ä¸öÈËĞÅÏ¢
+                        //é‚®ç®±éªŒè¯æˆåŠŸä¹‹åä¿®æ”¹ä¸ªäººä¿¡æ¯
                         var birthday = $(".laydate").val();
                         if($("#boy").is(":checked")) {
                             var gender = 1;

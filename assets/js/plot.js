@@ -68,13 +68,13 @@ function load_rank_list(current, grade) {
 function set_ability_analysis_option(data) {
     var u_data = [0, 0, 0, 0, 0], c_data = [0, 0, 0, 0, 0], g_data = [0, 0, 0, 0, 0];
     for (var i in data.studentAbility) {
-        u_data[data.studentAbility[i].id - 1] = data.studentAbility[i].score * 100;
+        u_data[data.studentAbility[i].id - 1] = Math.ceil(data.studentAbility[i].score * 100);
     }
     for (var i in data.classAbility) {
-        c_data[data.classAbility[i].id - 1] = data.classAbility[i].score * 100;
+        c_data[data.classAbility[i].id - 1] = Math.ceil(data.classAbility[i].score * 100);
     }
     for (var i in data.gradeAbility) {
-        g_data[data.gradeAbility[i].id - 1] = data.gradeAbility[i].score * 100;
+        g_data[data.gradeAbility[i].id - 1] = Math.ceil(data.gradeAbility[i].score * 100);
     }
     // console.log(u_data);
     // console.log(c_data);

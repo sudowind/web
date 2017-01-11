@@ -27,6 +27,44 @@ $(document).ready(function () {
         },
         error: error_handler()
     });
+    // 判断上次考试距离现在有多久
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/tasks/web/erTest/latest',
+        type: 'get',
+        success: function (data) {
+            if (data.hasTest) {
+                var last_time = data.erTestRecord.createTime;
+                var last = new Date(last_time);
+                var now = new Date();
+                var days = Math.ceil((now.getTime() - last_time) / 86400000);
+                // var next_time = last_time + 60 * 86400000;
+                if (days < 60) {
+                    $('#last_test_date').html(last.getFullDate('zh'));
+                    $('#wait_date').html(60 - days);
+                    $('.question').hide();
+                    $('.btn-part').hide();
+                    $('#finish_test').hide();
+                    $('#has_done').show();
+                }
+                else {
+                    $('.question').show();
+                    $('.btn-part').show();
+                    $('#finish_test').hide();
+                    $('#has_done').hide();
+                }
+            }
+            else {
+                $('.question').show();
+                $('.btn-part').show();
+                $('#finish_test').hide();
+                $('#has_done').hide();
+            }
+        },
+        error: error_handler()
+    });
 });
 
 function gen_question(question) {
@@ -63,7 +101,7 @@ $('#last').click(function () {
     var html = gen_question(level_test_question[curr_index]);
     $('.question').html(html);
     if (ans[curr_index] < 0) {
-        // $('#next').addClass('disabled');
+        $('#next').addClass('disabled');
     }
     else {
         $('#next').removeClass('disabled');
@@ -74,6 +112,16 @@ $('#next').click(function () {
     curr_index += 1;
     if (curr_index >= max_index) {
         my_tip.bind('是否确认要提交？', function() {
+            $.ajax({
+                xhrFields: {
+                    withCredentials: true
+                },
+                type: 'post',
+                url: URL_BASE + '/tasks/web/erTest/record',
+                success: function (data) {
+                    $('#er_score').html(data);
+                }
+            });
             $('.question').hide();
             $('.btn-part').hide();
             $('#finish_test').show();
@@ -90,7 +138,7 @@ $('#next').click(function () {
     var html = gen_question(level_test_question[curr_index]);
     $('.question').html(html);
     if (ans[curr_index] < 0) {
-        // $(this).addClass('disabled');
+        $(this).addClass('disabled');
     }
     else {
         $(this).removeClass('disabled');
