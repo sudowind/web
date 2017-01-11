@@ -110,15 +110,15 @@ function load_page() {
             success: function(data) {
                 // my_tip.alert(data.id);
                 // do some thing
-                var start_date = new Date(data.startTime);
-                var end_date = new Date(data.endTime);
+                var start_date = new Date(data.userCreateTime);
+                var end_date = new Date(data.finishTime);
                 $('#start_date').html(start_date.getFullDate());
                 $('#end_date').html(end_date.getFullDate());
                 var process = Math.ceil(data.currentPage * 100.0/ data.totalPage);
                 $('.progress-bar').css('width', process.toString() + '%');
                 $('.ratio span').html(process.toString());
             },
-            error: ajax_error_handler
+            error: error_handler()
         });
     }
 }

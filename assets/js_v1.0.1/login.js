@@ -156,6 +156,7 @@ function resizeCanvas() {
 resizeCanvas();
 
 var r = 300;
+var user_type;
 
 var pos = [
     {
@@ -190,7 +191,6 @@ var pos = [
     }
 ];
 var curr_deg = [0, 60, 120, 180, 240, -60];
-var z_index = [];
 
 var v2index_r = {
     1: 5,
@@ -210,6 +210,8 @@ var v2index = {
     6: 4
 };
 
+var ROTATE_TIME = 0.5;
+
 $('.rotate-div').click(function() {
     var value = $(this).attr('value');
 
@@ -227,7 +229,7 @@ $('.rotate-div').click(function() {
             }
             // if (curr_state == 1)
             //     console.log(pos[pos_index]);
-            TweenMax.to($(this), 1, {
+            TweenMax.to($(this), ROTATE_TIME, {
                 rotationY:curr_deg[curr_state - 1],
                 x: pos[pos_index].x,
                 z: pos[pos_index].z,
@@ -238,10 +240,10 @@ $('.rotate-div').click(function() {
             if (curr_value < 1)
                 curr_value = 6;
             if (curr_value < 4) {
-                $(this).find('div').hide(1000);
+                $(this).find('div').hide(500);
             }
             else {
-                $(this).find('div').show(1000);
+                $(this).find('div').show(500);
             }
 
             $(this).attr('value', curr_value);
@@ -253,6 +255,7 @@ $('.rotate-div').click(function() {
             $('#login_part').show();
             $('#login_button').css('background', color);
         });
+        user_type = Number($(this).attr('type'));
     }
     else if (value == 4) {
 
@@ -268,7 +271,7 @@ $('.rotate-div').click(function() {
             }
             if (curr_state == 1)
                 console.log('reverse');
-            TweenMax.to($(this), 1, {
+            TweenMax.to($(this), ROTATE_TIME, {
                 rotationY:curr_deg[curr_state - 1],
                 x: pos[pos_index].x,
                 z: pos[pos_index].z,
@@ -280,10 +283,10 @@ $('.rotate-div').click(function() {
             if (curr_value > 6)
                 curr_value = 1;
             if (curr_value < 4) {
-                $(this).find('div').hide(1000);
+                $(this).find('div').hide(500);
             }
             else {
-                $(this).find('div').show(1000);
+                $(this).find('div').show(500);
             }
 
             $(this).attr('value', curr_value);

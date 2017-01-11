@@ -92,7 +92,7 @@ function load_read_book(page) {
             '<img src="' + data.book.coverUri +'" alt="">' +
             '<span>' + data.book.levelScore + '</span>' +
             '<div class="book-name">' + data.book.name + '</div>' +
-            '<div class="read-interval">09.01-10.26</div>' +
+            '<div class="read-interval"></div>' +
             '</div>';
 
     }
@@ -112,10 +112,11 @@ function load_read_book(page) {
 
 function load_chart(element_id) {
     var myChart = echarts.init(document.getElementById(element_id));
+    var curr_semester = get_current_semester();
     if (element_id.indexOf('count') >= 0) {
-        var start_time = 1481877328616;
-        var end_time = 1481878441981;
-        var step = 100000;
+        var start_time = curr_semester[0];
+        var end_time = curr_semester[1];
+        var step = 2592000000;
         $.ajax({
             xhrFields: {
                 withCredentials: true

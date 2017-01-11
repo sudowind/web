@@ -40,6 +40,7 @@ $(document).ready(function () {
                 var last = new Date(last_time);
                 var now = new Date();
                 var days = Math.ceil((now.getTime() - last_time) / 86400000);
+                $('.er-score').html(data.erTestRecord.erScore);
                 // var next_time = last_time + 60 * 86400000;
                 if (days < 60) {
                     $('#last_test_date').html(last.getFullDate('zh'));
@@ -61,6 +62,11 @@ $(document).ready(function () {
                 $('.btn-part').show();
                 $('#finish_test').hide();
                 $('#has_done').hide();
+                //
+                // $('.question').hide();
+                // $('.btn-part').hide();
+                // $('#finish_test').show();
+                // $('#has_done').hide();
             }
         },
         error: error_handler()
@@ -119,7 +125,14 @@ $('#next').click(function () {
                 type: 'post',
                 url: URL_BASE + '/tasks/web/erTest/record',
                 success: function (data) {
-                    $('#er_score').html(data);
+                    $('.er-score').html(data);
+                    var range_start = data - 100;
+                    var range_end = data + 50;
+                    if (range_start < 600)
+                        range_start = 600;
+                    if (range_end > 1200)
+                        range_end = 1200;
+                    $('#er_range').html('{0}ER~{1}ER'.format(range_start, range_end));
                 }
             });
             $('.question').hide();

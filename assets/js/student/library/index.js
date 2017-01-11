@@ -10,34 +10,105 @@ var curr_type = 0;
 var curr_start_score = 600;
 var curr_end_score = 1200;
 
+var has_recommend_result;
+var recommend_start_score = 0;
+var recommend_end_score = 0;
+
 var has_load_book = false;
 
 function gen_book_type() {
-    $.ajax({
-        xhrFields: {
-            withCredentials: true
-        },
-        url: URL_BASE + '/books/open/tag/type/list',
-        type: 'get',
-        success: function (data) {
-            var html = '<span class="index" value="0">全部</span>';
-            for (var i in data) {
-                if (data[i].id != '0')
-                    html += '<span value="{0}">{1}</span>'.format(data[i].id, data[i].name);
-            }
-            $('.book .sort').append(html);
-            $(".book .sort span").click(function(){
-                $(this).siblings().attr("class","");
-                $(this).attr("class","index");
+    var promise = new Promise(function(resolve, reject) {
+        resolve();
+    });
 
-                has_load_book = false;
-                load_book(Number($(this).attr('value')), 1);
+    promise.then(function () {
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            url: URL_BASE + '/books/open/tag/type/list',
+            type: 'get',
+            success: function (data) {
+                var html = '<span class="index" value="0">全部</span>';
+                for (var i in data) {
+                    if (data[i].id != '0')
+                        html += '<span value="{0}">{1}</span>'.format(data[i].id, data[i].name);
+                }
+                $('.book .sort').append(html);
+                $(".book .sort span").click(function(){
+                    $(this).siblings().attr("class","");
+                    $(this).attr("class","index");
 
-            });
-            load_book(0, 1);
-        },
-        error: error_handler()
+                    has_load_book = false;
+                    load_book(Number($(this).attr('value')), 1);
+
+                });
+                // load_book(0, 1);
+            },
+            error: error_handler()
+        });
     })
+        .then(function () {
+            $.ajax({
+                xhrFields: {
+                    withCredentials: true
+                },
+                url: URL_BASE + '/tasks/web/erTest/latest',
+                type: 'get',
+                success: function (data) {
+                    if (data.hasTest) {
+                        has_recommend_result = true;
+                        recommend_start_score = data.erTestRecord.erScore  - 100;
+                        recommend_end_score = data.erTestRecord.erScore  + 50;
+                        if (recommend_start_score < 600)
+                            recommend_start_score = 600;
+                        if (recommend_end_score > 1200)
+                            recommend_end_score = 1200;
+                        curr_start_score = recommend_start_score;
+                        curr_end_score = recommend_end_score;
+                        $('.grade span:nth-child(2)').html('推荐');
+                    }
+                    load_book(0, 1);
+                }
+            });
+        })
+        .then(function () {
+            // load_book(0, 1);
+        })
+        .catch(function (error) {
+            console.log('error: ', error);
+        });
+
+    // $.ajax({
+    //     xhrFields: {
+    //         withCredentials: true
+    //     },
+    //     url: URL_BASE + '/books/open/tag/type/list',
+    //     type: 'get',
+    //     success: function (data) {
+    //         var html = '<span class="index" value="0">全部</span>';
+    //         for (var i in data) {
+    //             if (data[i].id != '0')
+    //                 html += '<span value="{0}">{1}</span>'.format(data[i].id, data[i].name);
+    //         }
+    //         $('.book .sort').append(html);
+    //         $(".book .sort span").click(function(){
+    //             $(this).siblings().attr("class","");
+    //             $(this).attr("class","index");
+    //
+    //             has_load_book = false;
+    //             load_book(Number($(this).attr('value')), 1);
+    //
+    //         });
+    //
+    //         $.ajax({
+    //
+    //         });
+    //
+    //         load_book(0, 1);
+    //     },
+    //     error: error_handler()
+    // })
 }
 
 function load_book(type, page) {
@@ -102,8 +173,14 @@ $(".book .grade span").click(function(){
     var start_score = Number($(this).attr('value'));
     // console.log(start_score);
     if (start_score == 0) {
-        curr_start_score = 600;
-        curr_end_score = 1200;
+        if (has_recommend_result) {
+            curr_start_score = recommend_start_score;
+            curr_end_score = recommend_end_score;
+        }
+        else {
+            curr_start_score = 600;
+            curr_end_score = 1200;
+        }
     }
     else {
         curr_start_score = start_score;

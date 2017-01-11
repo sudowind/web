@@ -37,6 +37,7 @@ function clear_rows() {
     }
 }
 
+var ELEM_PER_PAGE = 10;
 var has_load_page = false;
 function load_student_info(class_id, page) {
     clear_rows();
@@ -50,8 +51,8 @@ function load_student_info(class_id, page) {
             classId: class_id
         },
         success: function (data) {
-            var start_id = (page - 1) * 10;
-            var end_id = start_id + 10;
+            var start_id = (page - 1) * ELEM_PER_PAGE;
+            var end_id = start_id + ELEM_PER_PAGE;
             if (end_id > data.length)
                 end_id = data.length;
             for (var i = 0; i < end_id - start_id; ++i) {
@@ -59,7 +60,8 @@ function load_student_info(class_id, page) {
             }
             if (!has_load_page) {
                 has_load_page = true;
-                var page_count = Math.ceil((data.length * 1.0) / 10);
+                var page_count = Math.ceil((data.length * 1.0) / ELEM_PER_PAGE);
+                console.log(page_count);
                 $('#teacher_task_pagination').createPage({
                     pageCount: page_count,
                     current: 1,

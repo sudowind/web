@@ -33,6 +33,23 @@ function init() {
     //     load_table_line('#row' + i.toString());
     // }
     init_class();
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
+        data: {
+            page: 0
+        },
+        success: function (data) {
+
+            if (data.status == 'empty') {
+                $('#online_read').html('暂无线上资源').addClass('disabled');
+            }
+        },
+        error: error_handler()
+    })
 }
 
 function load_table_line (row_selector, data) {
@@ -69,6 +86,7 @@ function clear_rows() {
     $('#read_count').find('span').html('0');
 }
 
+var ELEM_PER_PAGE = 8;
 var has_load_page = false;
 function load_student_info(class_id, teacher_id, page) {
     clear_rows();
@@ -82,8 +100,8 @@ function load_student_info(class_id, teacher_id, page) {
             classId: class_id
         },
         success: function (data) {
-            var start_id = (page - 1) * 10;
-            var end_id = start_id + 10;
+            var start_id = (page - 1) * ELEM_PER_PAGE;
+            var end_id = start_id + ELEM_PER_PAGE;
             if (end_id > data.length)
                 end_id = data.length;
             for (var i = 0; i < end_id - start_id; ++i) {
@@ -98,12 +116,13 @@ function load_student_info(class_id, teacher_id, page) {
             $('#read_count').find('span').html(finish_count.toString());
             if (!has_load_page) {
                 has_load_page = true;
-                var page_count = Math.ceil((data.length * 1.0) / 10);
+                var page_count = Math.ceil((data.length * 1.0) / ELEM_PER_PAGE);
+                console.log(page_count);
                 $('#student_pagination').createPage({
                     pageCount: page_count,
                     current: 1,
                     backFn: function(p) {
-                        load_student_info(class_id, p);
+                        load_student_info(class_id, teacher_id, p);
                     }
                 });
             }
@@ -125,6 +144,7 @@ function load_teacher(class_id) {
                 teacher_html += '<option value="{0}">{1}</option>'.format(data[i].id, data[i].name);
             }
             $('#teacher_selector').html(teacher_html).unbind().change(function () {
+                has_load_page = false;
                 load_student_info(class_id, $(this).val(), 1);
             });
             if (data.length > 0)
@@ -149,6 +169,7 @@ function load_class(grade) {
                 class_html += '<option value="{0}">{1}</option>'.format(data[i].id, data[i].name);
             }
             $('#class_selector').html(class_html).unbind().change(function () {
+                has_load_page = false;
                 $('#teacher_selector').html('');
                 load_teacher($(this).val());
             });
