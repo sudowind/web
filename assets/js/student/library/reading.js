@@ -1,5 +1,5 @@
 /**
- * Created by yilong on 2016/10/21.
+ * Created by yilong on 2017/1/11.
  */
 $(".unopen").click(function(){
     $(".section").css("display","block");
@@ -52,14 +52,9 @@ function load_pdf_page(page) {
             page: page
         },
         success: function (data) {
-            if (data.status == 'empty') {
-                $('iframe').append('暂无线上图书');
-            }
-            else {
-                // $('#pdf1').html('<iframe src="{0}#toolbar=0&navpanes=0&scrollbar=0"></iframe>'.format(data.url));
-                $('iframe').attr('src', '{0}#toolbar=0&navpanes=0&scrollbar=0'.format(data.url));
-                total_page = data.totalPage;
-            }
+            // $('#pdf1').html('<iframe src="{0}#toolbar=0&navpanes=0&scrollbar=0"></iframe>'.format(data.url));
+            $('iframe').attr('src', '{0}#toolbar=0&navpanes=0&scrollbar=0'.format(data.url));
+            total_page = data.totalPage;
         },
         error: error_handler({404: function () {
             console.log('tedst');

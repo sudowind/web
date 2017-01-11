@@ -10,6 +10,14 @@ $("#sure_add_teacher").click(function(){
 });
 function add_teacher(){
     var name = $(".add-teacher p .name").val();
+    if(name == ''){
+        my_tip.alert('请填写教师姓名');
+        return;
+    }
+    if(name.length > 4 || name.length < 2 ){
+        my_tip.alert('请填写正确格式的姓名');
+        return;
+    }
     if($("#boy").is(":checked")) {
         var gender = "1";
     }else if($("#girl").is(":checked")) {
@@ -322,23 +330,13 @@ $(".button").on("click",function(){
             }
             $(".grade").children().removeClass();
             $(".grade").children().eq(0).addClass('index');
-            //if (!has_load_page) {
-            //    has_load_page = true;
-            //    var page_count = Math.ceil((data.length * 1.0) / element_count);
-            //    $('#teacher_list_search').createPage({
-            //        pageCount: page_count,
-            //        current: 1,
-            //        backFn: function(p) {
-            //            $('.information ul').remove();
-            //            load_teacher(p);
-            //        }
-            //    });
-            //}
         }
     });
 });
 
-
+$(".back").on('click',function(){
+    $("#myModal").modal('hide');
+});
 
 
 

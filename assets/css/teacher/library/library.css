@@ -76,11 +76,13 @@
     cursor:pointer;
 }
 .book .className p{
+    width: 105px;
     font-weight: bold;
     font-size: 18px;
     float: left;
-    margin-top: 22px;
-    margin-left: 15px;margin-bottom: 20px;
+    padding-top: 22px;
+    padding-left: 14px;
+    padding-bottom: 20px;
 }
 .book .className span{
     line-height: 28px;
@@ -102,7 +104,7 @@
 }
 .book .className{
     background: #f9f9f9;
-    border-bottom: 1px dashed #d8d8d8;
+    border-top: 1px dashed #d8d8d8;
     padding-bottom: 18px;
 }
 .book .grade span{
@@ -115,6 +117,7 @@
     margin-left: 14px;
     display: inline-block;
     cursor:pointer;
+    /*float: left;*/
 }
 .book .grade img{
     margin-left: 20px;
@@ -123,18 +126,12 @@
     background: #f9f9f9;
 }
 .book .read-lv{
-    height: 66px;
     background: #f9f9f9;
+    padding-bottom: 20px;
 }
-/*.book .read-lv p{*/
-    /*float: left;font-weight: bold;*/
-    /*font-size: 18px;*/
-    /*margin-top: 15px;*/
-    /*margin-left: 15px;*/
-/*}*/
 .book .read-lv .box {
     float: left;
-    margin: 20px 15px ;
+    margin: 20px 15px 0 15px;
     padding-left: 104px;
 }
 .book .read-lv .box input{

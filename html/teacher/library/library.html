@@ -21,7 +21,7 @@
     <div id="library">
         <div class="content">
             <div class="title">
-                <h3>Library</h3>
+                <h3>图书馆</h3>
                 <span class="down"></span>
             </div>
             <!--<div class="seek">-->
@@ -47,10 +47,10 @@
                     <!--<span value="12">卡通</span>-->
                     <!--<span value="13">主题学习丛书</span>-->
                 </div>
-                <div class="className">
-                    <p>所带班级：</p>
-                    <!--<span class="index" value="0">全部</span>-->
-                </div>
+                <!--<div class="className">-->
+                    <!--<p>所带班级：</p>-->
+                    <!--&lt;!&ndash;<span class="index" value="0">全部</span>&ndash;&gt;-->
+                <!--</div>-->
                 <div class="grade">
                     <p>阅读等级：</p>
                     <span class="index" value="0">全部</span>
@@ -77,9 +77,13 @@
                         <span class="btn-clear">取消</span>
                     </div>
                 </div>
+                <div class="className clear">
+                    <p>所带班级：</p>
+                    <!--<span class="index" value="0">全部</span>-->
+                </div>
             </div>
             <div class="books">
-                <div class="statistics">共<span>20</span>本读物</div>
+                <div class="statistics">共<span>0</span>本读物</div>
                 <div id="book_list"></div>
                 <div class="tcdPageCode" id="teacher_task_pagination"></div>
             </div>
@@ -94,7 +98,6 @@
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../assets/js/base.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
-<script src="../../../assets/js/page.js"></script>
 <script src="../../../assets/js/teacher/library/library.js"></script>
 <script>
     load('../../../include/html/','teacher');

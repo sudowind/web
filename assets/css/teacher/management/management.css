@@ -197,15 +197,16 @@
     height: 16px;
 }
 .index-body form .submit{
-    width: 150px;
+    width: 130px;
     height: 45px;
     line-height: 45px;
     text-align: center;
     color: #FFFFFF;
     background: #f99d32;
     border-radius: 8px;
-    margin-top: 30px;
-    margin-left: 88px;
+    position: absolute;
+    top: 280px;
+    left: 340px;
     cursor: pointer;
 }
 .index-body .form-change-pwd{
@@ -270,6 +271,32 @@
     display: none;
 }
 
+.back{
+    width: 130px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #f99d32;
+    border-radius: 8px;
+    position: absolute;
+    top: 280px;
+    left: 114px;
+    cursor: pointer;
+}
+#newPassword{
+    width: 130px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #f99d32;
+    border-radius: 8px;
+    position: absolute;
+    top: 210px;
+    left: 230px;
+    cursor: pointer;
+}
 
 
 

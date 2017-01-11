@@ -193,15 +193,15 @@
     height: 16px;
 }
 .content .modal-body form .submit{
-    width: 150px;
+    width: 130px;
     height: 45px;
     line-height: 45px;
     text-align: center;
     color: #FFFFFF;
     background: #f99d32;
     border-radius: 8px;
-    margin-top: 46px;
-    margin-left: 84px;
+    margin-top: 58px;
+    margin-left: 188px;
     cursor: pointer;
 }
 
@@ -232,8 +232,19 @@
     /*display: none;*/
 }
 
-
-
+.back{
+    width: 130px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #f99d32;
+    border-radius: 8px;
+    position: absolute;
+    top: 280px;
+    left: 114px;
+    cursor: pointer;
+}
 
 
 

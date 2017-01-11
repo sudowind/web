@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=620px,initial-scale=1,target-densitydpi=device-dpi,minimum-scale=1,maximum-scale=1,user-scalable=1" />-->
+    <meta name="viewport" content="width=device-width">
+    <title>线上阅读</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
+    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
+    <link rel="stylesheet" href="../../../assets/css/intro.css">
+    <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../../assets/css/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
+    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/students/tasks/reading.css">
+</head>
+<body background="../../../assets/img/background.png">
+
+<div class="main-body">
+    <div id="left_bar"></div>
+    <div id="reading">
+        <div class="content">
+            <div class="title">
+                <h3>在线阅读</h3>
+                <span class="down"></span>
+            </div>
+            <div class="left">
+                <div class="out">
+                    <img src="../../../assets/img/student/tasks/out.png" alt=""/><span>退出阅读</span>
+                </div>
+                <div class="book">
+                    <div class="img">
+                        <img src="" alt=""/>
+                    </div>
+                    <div class="up">
+                        <img src="../../../assets/img/student/tasks/up.png" alt=""/>
+                    </div>
+                    <div class="down">
+                        <img src="../../../assets/img/student/tasks/down.png" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="title">导读
+                    <!--<img src="../../../assets/img/student/tasks/unlabel.png" alt=""/>-->
+                </div>
+                <!--<div>-->
+                <!--<img src="../../../assets/img/student/tasks/index.png" width="532px" alt=""/>-->
+                <!--</div>-->
+
+                <div class="contents">
+                    <!--<embed src="../../../assets/img/student/tasks/react.pdf"> </embed>-->
+                    <object id="pdf1" name="pdf1">
+                        <iframe></iframe>
+                        <!--<param name="bgcolor" value="#FFFFFF">-->
+                        <!--<param name="allowfullscreen" value="true">-->
+                        <!--<param name="wmode" value="window">-->
+                    </object>
+                </div>
+
+                <!--<div class="status">-->
+                <!--<p><span>本书已读完</span>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#">做测评</a></p>-->
+                <!--</div>-->
+                <div class="cover" style="display: none"></div>
+                <div class="section" style="display: none">
+                    <div class="section-menu">
+                        <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
+                        <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
+                        <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
+                        <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
+                        <p>第<span class="section-num">一</span>章&nbsp;&nbsp;&nbsp;&nbsp;<span class="section-name">鸭子骑车记</span></p>
+                    </div>
+                    <div class="section-retract">
+                        <img src="../../../assets/img/student/tasks/section.png" alt=""/>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="right_bar"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/remodal/dist/remodal.min.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/page.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/teacher/library/reading.js"></script>
+
+<script>
+    load('../../../include/html/');
+    load_page();
+</script>
+</body>
+</html>
+
+

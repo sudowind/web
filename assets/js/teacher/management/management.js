@@ -46,7 +46,12 @@ $("#sure_add_student").on('click',function(){
 
 function add_student(classId){
     name = $(".form-add-student p .name").val();
+    if(name.length > 4 || name.length < 2 ){
+        my_tip.alert('请填写正确格式的姓名');
+        return;
+    }
     schoolEntranceDate = $("#time").val();
+
     var password = "123456";
 
     if($("#boy").is(":checked")) {
@@ -176,7 +181,7 @@ function load_student_info(classId, page){
                 $("#newPassword").on('click',function(){
                     //var change_studentId = $(".studentId").val();
                     var newPassword = $(".change-pwd").val();
-                    console.log(studentId);
+                    //console.log(studentId);
                     var text = '<p>修改密码成功</p>';
                     $.ajax({
                         xhrFields: {
@@ -188,7 +193,7 @@ function load_student_info(classId, page){
                         type: 'PUT',
                         url: URL_BASE + '/users/web/student/' + studentId + '/password',
                         success: function() {
-                            $("#myModal").removeClass('in');
+                            $("#myModal").modal('hide');
                             load_student_info($(".class-name .index").attr('value'), 1);
                             my_tip.bind(text, function() {
 
@@ -292,4 +297,7 @@ $(".button").on("click",function(){
             $(".information .head").after(text);
         }
     });
+});
+$(".back").on('click',function(){
+    $("#myModal").modal('hide');
 });
