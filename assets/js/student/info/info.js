@@ -10,7 +10,7 @@ function right_bar_cb() {
 function Change() {
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
-    $(".laydate").css("display","inline");
+    $(".laydate").css("display","inline").val($(".birth span").html());
     $(".mail").css("display","inline");
     $(".info-list .btn").css("display","inline");
     $(".code").css("display","block");
@@ -59,8 +59,12 @@ function load_info() {
         url: URL_BASE + '/users/web/user/current',
         success: function(data) {
             //console.log(data);
+            if(data.info.birthday == 'null'){
+                $(".birth span").html();
+            }else{
+                $(".birth span").html(data.info.birthday);
+            }
             $(".name span").html(data.name);
-            $(".birth span").html(data.info.birthday);
             $(".email span").html(data.email);
             $(".school span").html(data.school.name);
             $(".class-name span").html(data.classes[0].name);

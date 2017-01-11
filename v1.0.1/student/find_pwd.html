@@ -33,7 +33,8 @@
                 <input type="text" placeholder="输入考拉阅读学号、绑定手机或邮箱"/>
                 <div class="btn">下一步</div>
             </div>
-            <div class="test_info" style="display: none">
+            选择
+            <div class="test_info" style="display: block">
                 <p>考拉阅读账号：<span>S111111</span></p>
                 <p>选择找回方式</p>
                 <div class="phone_find">
@@ -59,13 +60,23 @@
                     <div class="mail_send">免费发送验证码</div>
                 </div>
             </div>
-            <div class="phone_reset_pwd">
+            <!--手机验证验证码-->
+            <div class="phone_reset_pwd clear" style="display: none">
                 <div class="left">
                     <span>请输入短信验证码</span>
                     <input type="text" placeholder="请输入短信验证码"/>
                 </div>
-                <div class="right">60s后重新发送</div>
+                <div class="right"><span>60</span>s后重新发送</div>
                 <p>验证码已发送，如未收到，请稍等片刻</p>
+                <div class="back"><a href="">返回</a></div>
+                <div class="next_step">下一步</div>
+            </div>
+            <!--手机方式重置密码-->
+            <div class="success_reset_pwd" style="display: none">
+                <div class="new_pwd">重置新密码 <input type="text" placeholder="输入新密码"/></div>
+                <div class="sure_pwd">确认新密码 <input type="text" placeholder="输入新密码"/></div>
+                <p>新密码与原密码不一致，请重新输入</p>
+                <div id="success_login">重置成功并登陆</div>
             </div>
         </div>
     </div>
