@@ -99,14 +99,14 @@
     margin-left: 10px;
 }
 
-/*.tcdPageCode {*/
-    /*padding-top: 250px;*/
-/*}*/
-
 #comment_container {
     height: 600px;
 }
-
+#add_to_task{
+    position: absolute;
+    top: 191px;
+    left: 190px;
+}
 
 
 

@@ -56,3 +56,7 @@ $('#add_to_task').click(function () {
     });
 
 });
+//在线阅读
+$('#online_read').click(function() {
+    window.open('reading.html?book_id=' + $.getUrlParam('book_id'), '_self');
+});
