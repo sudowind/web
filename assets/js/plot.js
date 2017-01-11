@@ -67,6 +67,7 @@ function load_rank_list(current, grade) {
 
 function set_ability_analysis_option(data) {
     var u_data = [0, 0, 0, 0, 0], c_data = [0, 0, 0, 0, 0], g_data = [0, 0, 0, 0, 0];
+    var col_name = ['', '', '', '', ''];
     for (var i in data.studentAbility) {
         u_data[data.studentAbility[i].id - 1] = Math.ceil(data.studentAbility[i].score * 100);
     }
@@ -75,6 +76,7 @@ function set_ability_analysis_option(data) {
     }
     for (var i in data.gradeAbility) {
         g_data[data.gradeAbility[i].id - 1] = Math.ceil(data.gradeAbility[i].score * 100);
+        col_name[data.gradeAbility[i].id - 1] = data.gradeAbility[i].displayName;
     }
     // console.log(u_data);
     // console.log(c_data);
@@ -104,7 +106,8 @@ function set_ability_analysis_option(data) {
         yAxis: [
             {
                 type: 'category',
-                data: ['评价赏析', '组织概况', '语义推论', '意义构建', '信息提取'],
+                // data: ['评价赏析', '组织概况', '语义推论', '意义构建', '信息提取'],
+                data: col_name,
                 axisTick: {
 
                 }

@@ -114,9 +114,12 @@ function load_chart(element_id) {
     var myChart = echarts.init(document.getElementById(element_id));
     var curr_semester = get_current_semester();
     if (element_id.indexOf('count') >= 0) {
-        var start_time = curr_semester[0];
-        var end_time = curr_semester[1];
-        var step = 2592000000;
+        // var start_time = curr_semester[0];
+        var step = 86400000 * 15;
+        var end_time = new Date();
+        var end_time_stamp = end_time.getTime() - 2400000;
+        var start_time_stamp = end_time_stamp - step * 11;
+        console.log(end_time_stamp);
         $.ajax({
             xhrFields: {
                 withCredentials: true
@@ -124,13 +127,13 @@ function load_chart(element_id) {
             type: 'get',
             url: URL_BASE + '/statistic/web/timeline/student/{0}/studentTimeline'.format($.getUrlParam('student_id')),
             data: {
-                startTime: start_time,
-                endTime: end_time,
+                startTime: start_time_stamp,
+                endTime: end_time_stamp,
                 step: step
             },
             success: function (data) {
                 var index = [];
-                for (var i = start_time; i < end_time; i += step) {
+                for (var i = start_time_stamp; i <= end_time_stamp; i += step) {
                     index.push(i);
                 }
                 myChart.setOption(set_option('line', data, index));
@@ -158,6 +161,7 @@ var sort_func = function(a, b) {
 };
 
 function set_option(chart_type, data, index) {
+    console.log(index);
     if (chart_type == 'line') {
         var student_list = [];
         var class_list = [];
@@ -169,26 +173,31 @@ function set_option(chart_type, data, index) {
 
         for (var i in index) {
             if (u_data[0] && u_data[0].timestamp == index[i]) {
-                student_list.push(u_data.shift().wordCount);
+                student_list.push((u_data.shift().wordCount / 10000).toFixed(2));
             }
             else {
                 student_list.push(0);
             }
 
             if (c_data[0] && c_data[0].timestamp == index[i]) {
-                class_list.push(c_data.shift().wordCount);
+                class_list.push((c_data.shift().wordCount / 10000).toFixed(2));
             }
             else {
                 class_list.push(0);
             }
 
             if (s_data[0] && s_data[0].timestamp == index[i]) {
-                school_list.push(s_data.shift().wordCount);
+                school_list.push((s_data.shift().wordCount / 10000).toFixed(2));
             }
             else {
                 school_list.push(0);
             }
         }
+
+        index.forEach(function (val, idx) {
+            var tmp = new Date(val);
+            index[idx] = {value: tmp.getFullDate()};
+        });
 
         return {
             tooltip: {
@@ -208,13 +217,14 @@ function set_option(chart_type, data, index) {
             //calculable: true,
             yAxis: [
                 {
-                    type: 'value'
+                    type: 'value',
+                    name: '单位：万字'
                 }
             ],
             xAxis: [
                 {
                     type: 'category',
-                    data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+                    data: index
                 }
             ],
             // grid: {

@@ -173,21 +173,21 @@ function set_option(chart_type, data, index) {
 
         for (var i in index) {
             if (u_data[0] && u_data[0].timestamp == index[i]) {
-                student_list.push(u_data.shift().wordCount);
+                student_list.push((u_data.shift().wordCount / 10000).toFixed(2));
             }
             else {
                 student_list.push(0);
             }
 
             if (c_data[0] && c_data[0].timestamp == index[i]) {
-                class_list.push(c_data.shift().wordCount);
+                class_list.push((c_data.shift().wordCount / 10000).toFixed(2));
             }
             else {
                 class_list.push(0);
             }
 
             if (s_data[0] && s_data[0].timestamp == index[i]) {
-                school_list.push(s_data.shift().wordCount);
+                school_list.push((s_data.shift().wordCount / 10000).toFixed(2));
             }
             else {
                 school_list.push(0);
@@ -217,7 +217,8 @@ function set_option(chart_type, data, index) {
             //calculable: true,
             yAxis: [
                 {
-                    type: 'value'
+                    type: 'value',
+                    name: '单位：万字'
                 }
             ],
             xAxis: [
