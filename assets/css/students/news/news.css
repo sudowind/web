@@ -112,7 +112,7 @@
     text-align: center;
 
 }
-.message-content p .button{
+.message-content p .button a{
     color: #fb9e1d;
     cursor: pointer;
 }

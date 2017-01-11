@@ -28,7 +28,7 @@
                 <p class="four"><img src="../../assets/img/v1.0.1/find_four_unselect.png" alt=""/></p>
                 <p class="four_font">成功</p>
             </div>
-            <div class="ipt_id" style="display: none">
+            <div class="ipt_id">
                 <span>考拉阅读学号、绑定手机号或邮箱</span>
                 <input type="text" placeholder="输入考拉阅读学号、绑定手机或邮箱"/>
                 <div class="btn">下一步</div>
@@ -60,7 +60,7 @@
                     <div class="mail_send">免费发送验证码</div>
                 </div>
             </div>
-            <!--手机验证验证码-->
+            <!--手机获取验证码-->
             <div class="phone_reset_pwd clear" style="display: none">
                 <div class="left">
                     <span>请输入短信验证码</span>
@@ -68,10 +68,20 @@
                 </div>
                 <div class="right"><span>60</span>s后重新发送</div>
                 <p>验证码已发送，如未收到，请稍等片刻</p>
-                <div class="back"><a href="">返回</a></div>
-                <div class="next_step">下一步</div>
+                <div class="back">返回</div>
+                <div class="phone_next_step">下一步</div>
             </div>
-            <!--手机方式重置密码-->
+            <!--邮箱获取验证码-->
+            <div class="mail_reset_pwd clear" style="display: none">
+                <div class="left">
+                    <span>请输入邮箱验证码</span>
+                    <input type="text" placeholder="请输入邮箱验证码"/>
+                    <span class="already">验证码已发送，如未收到，请稍等片刻</span>
+                </div>
+                <div class="back">返回</div>
+                <div class="mail_next_step">下一步</div>
+            </div>
+            <!--重置密码成功-->
             <div class="success_reset_pwd" style="display: none">
                 <div class="new_pwd">重置新密码 <input type="text" placeholder="输入新密码"/></div>
                 <div class="sure_pwd">确认新密码 <input type="text" placeholder="输入新密码"/></div>
