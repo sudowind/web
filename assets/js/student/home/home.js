@@ -79,7 +79,7 @@ option = {
 //饼状图
 var bar = new ProgressBar.Circle('#progress_bar', {
     color: '#fb9e1d',
-    strokeWidth: 12,
+    strokeWidth: 8,
     trailWidth: 8,
     easing: 'easeInOut',
     duration: 1400,
@@ -87,7 +87,7 @@ var bar = new ProgressBar.Circle('#progress_bar', {
         autoStyleContainer: false
     },
     from: { color: '#fb9e1d', width: 8 },
-    to: { color: '#fb9e1d', width: 12 },
+    to: { color: '#fb9e1d', width: 8 },
     // Set default step function for all animate calls
     step: function(state, circle) {
         circle.path.setAttribute('stroke', state.color);
@@ -185,7 +185,7 @@ function init() {
         type: 'get',
         success: function (data) {
             $('#book_count').html(data.studentReadingInfo.bookCount);
-            $('#word_count').html(data.studentReadingInfo.wordCount);
+            $('#word_count').html((data.studentReadingInfo.wordCount / 10000).toFixed(2));
             $('#time_count').html(Math.ceil(Number(data.studentReadingInfo.timeCount) / 60000));
             myChart.setOption(set_ability_analysis_option(data));
         },
@@ -206,12 +206,16 @@ function init() {
             endTime: semester[1]
         },
         success: function (data) {
-            $('.school-year-plan').find('p strong').html(data.target);
-            $('.already-read').find('p strong').html(data.now);
+            $('.school-year-plan').find('p strong').html((data.target / 10000).toFixed(2));
+            $('.already-read').find('p strong').html((data.now / 10000).toFixed(2));
             var percent = safe_divide(data.now, data.target);
-            if (percent > 1)
-                percent = 1;
-            bar.animate(percent);
+            var show_percent = percent;
+            if (show_percent > 1)
+                show_percent = 1;
+            bar.animate(show_percent, {}, function () {
+                $('.progressbar-text').html('{0}%'.format(Math.ceil(percent * 100)));
+            });
+            // $('.progressbar-text').html('234');
         },
         error: error_handler()
     });

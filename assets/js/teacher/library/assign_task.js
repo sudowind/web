@@ -103,7 +103,8 @@ function load_student_info(class_id) {
             for (var i = 0; i < data.length; ++i) {
                 var progress_html = '';
                 if (data[i].status == 1) {
-                    progress_html = '<td class="progress-part">未布置任务</td>';
+                    progress_html = '<td class="progress-part">未布置任务</td>' +
+                        '<td><img src="../../../assets/img/teacher/single_unselected.png" alt="" class="single-select" onclick="on_single_select_click(this)" value="0" student_id="' + data[i].user.id + '"></td></tr>';
                 }
                 else {
                     if (data[i].status == 4) {
@@ -124,8 +125,7 @@ function load_student_info(class_id) {
                 }
                 html += '<tr><td>' + class_id2name[class_id] + '</td>' +
                     '<td>' + data[i].user.name + '</td>' +
-                    progress_html +
-                    '<td><img src="../../../assets/img/teacher/single_unselected.png" alt="" class="single-select" onclick="on_single_select_click(this)" value="0" student_id="' + data[i].user.id + '"></td></tr>';
+                    progress_html;
             }
             $('#table_content').find('table tbody').html(html);
             $('#finish_count').find('span').html(finish_count.toString());

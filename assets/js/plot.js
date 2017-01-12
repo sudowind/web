@@ -33,7 +33,7 @@ function load_rank_list(current, grade) {
                     '<img src="' + my_data.user.headimg + '" alt=""/>' +
                     '<div class="me-right">' +
                     '<p class="me-name">' + my_data.user.name + '</p>' +
-                    '<strong><span>' + my_data.rankValue + '</span>字</strong>' +
+                    '<strong><span>' + (my_data.rankValue / 10000).toFixed(2) + '</span>万字</strong>' +
                     '</div>' +
                     '</div>';
                 list_data = data.topList;
@@ -54,7 +54,7 @@ function load_rank_list(current, grade) {
                     '<img class="head" src="' + tmp.user.headimg + '" alt=""/>' +
                     '<div class="right">' +
                     '<p class="name">' + tmp.user.name + '</p>' +
-                    '<strong><span>' + tmp.rankValue + '</span>字</strong>' +
+                    '<strong><span>' + (tmp.rankValue / 10000).toFixed(2)  + '</span>万字</strong>' +
                     '</div>' +
                     '</li>';
             }

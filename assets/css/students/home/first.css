@@ -126,7 +126,7 @@
     float: left;
     /*width: 150px;*/
     padding: 0 10px;
-    margin: 300px 10px;
+    margin: 300px 20px 0 150px;
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -137,9 +137,24 @@
 }
 
 .buttons .open_read:first-child {
-    margin-left: 110px;
+    margin-left: 210px;
 }
 
+.go-to-library {
+    float: left;
+    /*width: 150px;*/
+    padding: 0 10px;
+    margin: 313px 10px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    /*background: #fb9e1d;*/
+    border-radius: 6px;
+    color: #999999;
+    cursor: pointer;
+
+    font-size: 12px;
+}
 
 
 

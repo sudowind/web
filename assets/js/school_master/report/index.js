@@ -17,7 +17,8 @@ var curr_tab = 'class';
 var class_has_load_page = false;
 var student_has_load_page = false;
 
-var ELEM_PER_PAGE = 6;
+var ELEM_PER_PAGE_CLASS = 6;
+var ELEM_PER_PAGE_STUDENT = 10;
 
 var student_sort_by = 'wordCount';
 var student_order = 'reverse';
@@ -74,7 +75,7 @@ function load_class_performance(class_id) {
         success: function(data) {
             // 将数据加载到变量中
             class_performance = data.gradeList;
-            load_table(1, ELEM_PER_PAGE, class_sort_by, class_order, 'class');
+            load_table(1, ELEM_PER_PAGE_CLASS, class_sort_by, class_order, 'class');
         },
         error: error_handler()
     });
@@ -94,7 +95,7 @@ function load_student_performance(class_id) {
         },
         success: function (data) {
             student_performance = data;
-            load_table(1, ELEM_PER_PAGE, student_sort_by, student_order, 'student');
+            load_table(1, ELEM_PER_PAGE_STUDENT, student_sort_by, student_order, 'student');
         },
         error: error_handler()
     });
@@ -128,19 +129,25 @@ function load_table(page, elem_per_page, sort_by,  order, type) {
     }
     var html = '';
     for (var i = start_index; i < end_index; ++i) {
+        var examScore;
+        if (data[i].examScore == 'NaN')
+            examScore = '-';
+        else
+            examScore = (data[i].examScore * 100).toFixed(0)+"%";
+
         if (type == 'class') {
             html += '<tr><td class="sort">{0}</td>'.format(i + 1) +
                 '<td class="classes">{0}</td>'.format(data[i].className) +
-                '<td class="read-num">{0}</td>'.format(data[i].wordCount / 10000) +
+                '<td class="read-num">{0}</td>'.format((data[i].wordCount / 10000).toFixed(2)) +
                 '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
-                '<td class="accuracy">{0}</td></tr>'.format(data[i].examScore);
+                '<td class="accuracy">{0}</td></tr>'.format(examScore);
         }
         else {
             html += '<tr><td class="sort">{0}</td>'.format(data[i].studentId) +
                 '<td class="name">{0}</td>'.format(data[i].studentName) +
-                '<td class="read-num">{0}</td>'.format(data[i].wordCount) +
+                '<td class="read-num">{0}</td>'.format((data[i].wordCount / 10000).toFixed(2)) +
                 '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
-                '<td class="accuracy">{0}</td>'.format(data[i].examScore) +
+                '<td class="accuracy">{0}</td>'.format(examScore) +
                 '<td class="operation" style="cursor: pointer;" onclick="window.open(\'../report/student_report.html?student_id={0}\')">{1}</td></tr>'.format(data[i].studentId, '查看');
         }
     }
@@ -193,17 +200,21 @@ $('.sortable-column').click(function () {
 
     obj.siblings('.sortable-column').removeClass('column-index').find('img').attr('src', '../../../assets/img/teacher/sort.png');
     obj.addClass('column-index');
+    var elem_per_page;
     if (curr_tab == 'student') {
         student_sort_by = $(this).attr('value');
         student_order = order;
         student_has_load_page = false;
+        elem_per_page = 10;
     }
     else {
         class_sort_by = $(this).attr('value');
         class_order = order;
         class_has_load_page = false;
+        elem_per_page = 6;
     }
-    load_table(1, ELEM_PER_PAGE, $(this).attr('value'), order, curr_tab);
+
+    load_table(1, elem_per_page, $(this).attr('value'), order, curr_tab);
 });
 
 function load_class(grade) {

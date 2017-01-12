@@ -67,6 +67,14 @@ $('#class_input').click(function () {
     else {
         $('#class_submit_button').addClass('disabled');
     }
+}).keyup(function () {
+    class_name = $(this).val();
+    if (grade_name !== '' && class_name !== '') {
+        $('#class_submit_button').removeClass('disabled');
+    }
+    else {
+        $('#class_submit_button').addClass('disabled');
+    }
 });
 
 $('#create_class_button').click(function () {
@@ -92,14 +100,14 @@ function load_grade_class(grade) {
                 html += '<span class="option" value="{0}">{1}<img src="../../../assets/img/school_master/delete.png" alt=""></span>'.format(data[i].id, data[i].name);
             }
             $('.select-class').html(html);
-            $('.select-class .option').hover(
-                function(){
-                    $(this).find('img').css({"display":"block"});
-                },
-                function(){
-                    $(this).find('img').css({"display":"none"});
-                }
-            );
+            // $('.select-class .option').hover(
+            //     function(){
+            //         $(this).find('img').css({"display":"block"});
+            //     },
+            //     function(){
+            //         $(this).find('img').css({"display":"none"});
+            //     }
+            // );
             $('.select-class img').click(function() {
                 var text = '是否要删除 <b>' + $(this).parent().text() + '</b>，一旦删除，阅读记录将无法恢复！';
                 my_tip.bind(text, function(){});
