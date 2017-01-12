@@ -121,10 +121,11 @@ function load_student_info(class_id) {
                         '<div class="progress-message percent">进度' + percent + '%</div>' +
                         '</div>' +
                         '<!--<div class="progress-message page">200页/200页</div>-->' +
-                        '</td>';
+                        '</td><td></td>';
                 }
                 html += '<tr><td>' + class_id2name[class_id] + '</td>' +
                     '<td>' + data[i].user.name + '</td>' +
+                    '<td>' + rand_ER() + '</td>' +
                     progress_html;
             }
             $('#table_content').find('table tbody').html(html);

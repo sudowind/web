@@ -71,20 +71,6 @@ $('.select-option').bind('click', function() {
 });
 
 function load_info() {
-    // 加载task的信息
-    $.ajax({
-        xhrFields: {
-            withCredentials: true
-        },
-        type: 'get',
-        url: URL_BASE + '/tasks/web/task/' + $.getUrlParam('task_id'),
-        success: function (data) {
-            var start_date = new Date(data.startTime);
-            var end_date = new Date(data.endTime);
-            $('#start_date').html(start_date.getFullDate());
-            $('#end_date').html(end_date.getFullDate());
-        }
-    });
     // 加载学生信息
     $.ajax({
         xhrFields: {

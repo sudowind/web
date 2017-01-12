@@ -139,3 +139,7 @@ function get_current_semester() {
     }
     return [start_time, end_time];
 }
+
+function rand_ER() {
+    return Math.ceil((Math.random() * 600000) % 600) + 600;
+}

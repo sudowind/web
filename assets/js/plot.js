@@ -175,16 +175,22 @@ function load_student_class_rank(current, class_id) {
         success: function (data) {
             var read_obj = $('#reading_rank');
             var exam_obj = $('#exam_rank');
+            var ability_obj = $('#ability_rank');
             read_obj.css('width', (safe_divide(data.reading.rank * 100, data.reading.total)).toString() + '%');
             exam_obj.css('width', (safe_divide(data.exam.rank * 100, data.exam.total)).toString() + '%');
+            ability_obj.css('width', (safe_divide(data.exam.rank * 100, data.exam.total)).toString() + '%');
             read_obj.find('.current-page').html(data.reading.rank);
             exam_obj.find('.current-page').html(data.exam.rank);
+            ability_obj.find('.current-page').html(data.exam.rank);
             read_obj.find('.page').html(data.reading.total);
             exam_obj.find('.page').html(data.exam.total);
+            ability_obj.find('.page').html(data.exam.total);
             read_obj.siblings('.rank-message').find('.current-page').html(data.reading.rank);
             read_obj.siblings('.rank-message').find('.page').html(data.reading.total);
             exam_obj.siblings('.rank-message').find('.current-page').html(data.exam.rank);
             exam_obj.siblings('.rank-message').find('.page').html(data.exam.total);
+            ability_obj.siblings('.rank-message').find('.current-page').html(data.exam.rank);
+            ability_obj.siblings('.rank-message').find('.page').html(data.exam.total);
         },
         error: error_handler()
     });

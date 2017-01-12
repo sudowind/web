@@ -1,0 +1,25 @@
+/*
+文件中包括书籍摘要信息的展示，书籍介绍部分的展示
+主要是将大量公用的css进行抽取，单独展示
+*/
+
+/*图书摘要信息部分表格*/
+
+.book-info-box .book-info table {
+    float: left;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.book-info-box .book-info table tbody tr td{
+    height: 40px;
+    width: 300px;
+    /*width: 220px;*/
+    /*padding-right: 70px;*/
+}
+
+.book-info-box .book-info table tbody tr td span{
+    color: #afafaf;
+}
+
+/*简介部分的css*/

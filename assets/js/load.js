@@ -11,6 +11,9 @@ function load(src, type) {
     }
     $('#page_header').load(src + type + '/header.html', function () {
         $('.header').css('width', $(window).get(0).innerWidth);
+        if (typeof header_cb != 'undefined') {
+            header_cb();
+        }
     });
     $('#page_footer').load(src + 'footer.html');
     $('#left_bar').load(src + type + '/left_bar.html', function() {
@@ -147,6 +150,9 @@ var error_handler = function () {
 };
 
 var window_resize = function () {
-    $('.header').css('width', $(window).get(0).innerWidth);
-    $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
+    var width = document.body.scrollWidth;
+    var height = document.body.scrollHeight;
+    $('.header').css('width', width);
+    $('.main-container').css('min-height', height - 100)
+        .css('margin-left', (width - 890) / 2);
 };
