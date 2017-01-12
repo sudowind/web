@@ -9,7 +9,9 @@ function load(src, type) {
     if (typeof type == 'undefined') {
         type = 'student';
     }
-    $('#page_header').load(src + type + '/header.html');
+    $('#page_header').load(src + type + '/header.html', function () {
+        $('.header').css('width', $(window).get(0).innerWidth);
+    });
     $('#page_footer').load(src + 'footer.html');
     $('#left_bar').load(src + type + '/left_bar.html', function() {
         if (typeof left_bar_cb != 'undefined') {
@@ -142,4 +144,9 @@ var error_handler = function () {
             }
         }
     }
+};
+
+var window_resize = function () {
+    $('.header').css('width', $(window).get(0).innerWidth);
+    $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
 };

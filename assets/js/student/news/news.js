@@ -24,3 +24,7 @@ function on_button_click(e){
         }
     }
 }
+
+$('.message-content .button').click(function () {
+    window.open('../library/index.html', '_self');
+});
