@@ -18,6 +18,7 @@ function load_comments(page) {
             itemPerPage: item_per_page
         },
         success: function(data) {
+
             data.data = data.data.sort(function(a, b) {
                 return b.createTime - a.createTime;
             });

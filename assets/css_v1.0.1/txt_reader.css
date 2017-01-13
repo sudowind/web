@@ -62,3 +62,15 @@
 .color-yellow {
     background: rgb(252, 254, 190);
 }
+.color-multiple {
+    background: url(../img/colorchoose.png) no-repeat;
+}
+
+.color-choose-div {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    background: url(../img/color.png) no-repeat;
+    height: 430px;
+    width: 430px;
+}

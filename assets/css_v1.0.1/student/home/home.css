@@ -46,6 +46,7 @@
 .info-class {
     position: relative;
     margin-bottom: 10px;
+    cursor: pointer;    /* 如果有班级，就取消pointer */
 }
 .info-class img {
     position: absolute;
@@ -404,5 +405,53 @@
     color: #999999;
     cursor: pointer;
 
+    font-size: 12px;
+}
+
+/*加入班级模态框*/
+#join_class_modal {
+    text-align: center;
+}
+#join_class_modal .btn {
+    width: 250px;
+    color: #ffffff;
+    background: #3c97cf;
+    margin-top: 5px;
+}
+#join_class_modal .btn:hover {
+    color: #ffffff;
+}
+#join_class_modal .modal-content {
+    position: relative;
+    height: 300px;
+}
+#class_code {
+    width: 250px;
+    height: 34px;
+    border: solid 1px #999999;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 14px;
+
+    margin: 20px 0;
+}
+#join_class_modal .modal-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 30px auto 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#join_class_modal .close-modal {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+#join_class_modal .modal-info div:nth-child(5) {
+    text-align: right;
+    color: #3c97cf;
+    width: 250px;
+    margin: auto;
     font-size: 12px;
 }

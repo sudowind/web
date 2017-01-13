@@ -2,33 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>全文测试</title>
+    <meta name="viewport" content="width=device-width">
+    <title>阅读中心</title>
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal.css">
-    <link rel="stylesheet" href="../../../libs/remodal/dist/remodal-default-theme.css">
+    <link rel="stylesheet" href="../../../libs/TimePicki-master/css/timepicki.css">
+
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
-    <link rel="stylesheet" href="../../../assets/css/footer.css">
-    <link rel="stylesheet" href="../../../assets/css/pagination.css">
-    <link rel="stylesheet" href="../../../assets/css/students/sidebar.css">
-    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
-    <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
-    <link rel="stylesheet" href="../../../assets/css/students/tasks/test.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/tasks/test.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
 </head>
-<body background="../../../assets/img/background.png">
-
-<div class="main-body">
-    <div id="left_bar"></div>
-
-    <div id="library">
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
         <div class="content">
-            <div class="title">
-                <h3>阅读任务</h3>
-                <span class="down"></span>
-            </div>
-
-            <!--<a href="index.html"><div align="right" class="return-button btn"><p>返回</p></div></a>-->
-
             <div id="test_part">
                 <div class="test-header">
                     <div>阅读测评</div>
@@ -59,27 +56,37 @@
             </div>
         </div>
     </div>
-    <div id="right_bar"></div>
-    <div id="tmp_modal"></div>
+    <div style="clear: both"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 
-<script src="../../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../../libs/jquery-2.2.4.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
-<script src="../../../libs/remodal/dist/remodal.min.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
-<script src="../../../libs/progressbar.js"></script>
-<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../libs/TimePicki-master/js/timepicki.js"></script>
 <script src="../../../assets/js/load.js"></script>
-<script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/comment.js"></script>
 <script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/base.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
 <script src="../../../assets/js/test.js"></script>
-
 <script>
-    load('../../../include/html/');
-    load_exam();
-</script>
+    $(document).ready(function () {
+        load('../../../include/html/');
 
+        load_exam();
+
+        window_resize();
+    });
+    $(window).resize(window_resize);
+
+    function header_cb() {
+        $('#tasks_button').addClass('header-nav-selected').css('color', '#3c97cf');
+    }
+</script>
 </body>
 </html>

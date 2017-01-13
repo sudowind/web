@@ -17,7 +17,7 @@
             ' data-content="" data-html="true">A</div>' +
             '</div>';
 
-        var content = '<div class="reader-content"></div>';
+        var content = '<div class="reader-content"><div class="color-choose-div"><canvas id="color_canvas" width="430px" height="430px"></canvas></div></div>';
 
         obj.append(tool_bar);
         obj.append(content);
@@ -34,16 +34,30 @@
         $('.change-option').attr('data-content', pop_content);
         $('[data-toggle=popover]').popover();
 
-
         $('.reader-content').click(function () {
-            $('[data-toggle=popover]').popover('hide')
+            $('[data-toggle=popover]').popover('hide');
+            // $('.color-choose-div').hide();
         });
 
+        // $('.reader-content').append('<p>123</p>');
+
+        // $('.color-choose-div').click(function (e) {
+        //     e = e || window.event;
+        //     console.log(e);
+        //     var ctx = document.getElementById('color_canvas').getContext('2d');
+        //     var c = ctx.getImageData(e.clientX, e.clientY, 480, 480).data;
+        //     console.log(c);
+        // });
+
         return this;
-    }
+    };
 })(jQuery);
 
 function set_attr(attr, e) {
     var size = $(e).css(attr);
     $('.reader-content').css(attr, size);
 }
+
+// function choose_color() {
+//     $('.color-choose-div').toggle();
+// }

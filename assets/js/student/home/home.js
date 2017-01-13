@@ -114,6 +114,11 @@ function load_info(){
             //console.log(data);
             $(".head-img img").attr('src',data.headimg);
             $('.name').html(data.name);
+            $('.info-name').html(data.name);
+            $('.info-account').html(data.id);
+            $('.info-school').html(data.school.name);
+            if (data.classes.length > 0)
+                $('.info-class').html(data.classes[0].name).off('click').css('cursor', 'text');
         },
         error: error_handler()
     });

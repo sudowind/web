@@ -11,11 +11,6 @@ body {
      width: 770px;
      height: 1250px;
      float: left;
- }
-.content{
-    padding:21px 20px;
-    position: relative;
-    top: 0;
 }
 .title h3{
     width: 81px;

@@ -14,6 +14,20 @@ function load(src, type) {
         if (typeof header_cb != 'undefined') {
             header_cb();
         }
+        $('.exit-button').click(function () {
+
+            $.ajax({
+                url: URL_BASE + '/users/open/logout',
+                xhrFields: {
+                    withCredentials: true
+                },
+                type: 'POST',
+                success: function () {
+                    window.open('../../../v1.0.1/login.html', '_self');
+                },
+                error: ajax_error_handler
+            });
+        });
     });
     $('#page_footer').load(src + 'footer.html');
     $('#left_bar').load(src + type + '/left_bar.html', function() {
