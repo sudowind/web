@@ -1,17 +1,79 @@
 body {
-    background: url(../../img/student/background.png) no-repeat;
+    background: url(../../img/teacher/background.png) no-repeat;
 }
 
 .main-container {
-    width: 890px;
+    width: 1135px;
     margin: 0 auto -70px auto;
     padding: 65px 60px 15px 60px;
-    background-color: rgba(116, 178, 194, 0.2);
+    background-color: rgba(101, 121, 151, 0.2);
 }
 
 .content{
+    width: 770px;
     background: #ffffff;
-    padding:21px 20px;
+    padding: 21px 20px;
     position: relative;
     top: 0;
+    float: left;
+}
+
+.teacher-info {
+    float: left;
+    width: 215px;
+    min-height: 530px;
+    /*background: */
+    margin-right: 30px;
+    font-size: 16px;
+
+    text-align: center;
+}
+
+.head-img {
+    margin: 40px auto 10px auto;
+    width: 80px;
+    height: 80px;
+}
+
+.head-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+}
+
+.info-school {
+    color: #999999;
+    height: 45px;
+}
+
+.info-certification img {
+    margin-top: -4px;
+}
+
+.own-class-info {
+    display: none;
+    margin: 60px auto 0 2px;
+    padding-bottom: 20px;
+    width: 210px;
+    background: #ffffff;
+    border-radius: 11px;
+}
+
+.own-class-info img{
+    margin-left: -80px;
+}
+
+.own-class-info .class_elem {
+    color: #999999;
+    margin-top: 20px;
+}
+
+.no-class {
+    margin: 80px auto 0 auto;
+}
+
+.no-class div {
+    color: #999999;
+    margin-top: 10px;
 }

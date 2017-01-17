@@ -31,7 +31,7 @@ $(".book .grade span").click(function(){
     $(this).attr("class","index");
 
     var start_score = Number($(this).attr('value'));
-    console.log(start_score);
+    // console.log(start_score);
     if (start_score == 0) {
         curr_start_score = 600;
         curr_end_score = 1200;
@@ -112,9 +112,9 @@ function fill_book(data) {
                             '<div class="book-name">' + data.name + '</div>'+
                         '</div>'+
                     '</a>'+
-                    '<div class="already-reading">' +
-                        '<span>'+ data.studentReadCount +'</span>位同学已读完' +
-                    '</div>' +
+                    // '<div class="already-reading">' +
+                    //     '<span>'+ data.studentReadCount +'</span>位同学已读完' +
+                    // '</div>' +
                     '<span class="type">' + data.displayTypeName + '</span>'+
                     '<p>' + data.examStatus + '</p>'+
                 '</div>'+
@@ -185,7 +185,7 @@ function load_class_books(classId,page){
         type: 'GET',
         url: URL_BASE + '/tasks/web/task/teacher/current/list',
         success: function(data) {
-            console.log(data);
+            // console.log(data);
             for (var i = 0; i < data.data.length; ++i) {
                  html += fill_class_books(data.data[i].book);
             }

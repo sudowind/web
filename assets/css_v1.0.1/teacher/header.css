@@ -40,9 +40,9 @@
     padding: 14px 10px;
 }
 .header-nav-button:hover {
-    color: #3c97cf;
+    color: #365a97;
 
-    border-bottom: 3px solid #3c97cf;
+    border-bottom: 3px solid #365a97;
 }
 
 .header-text {
@@ -50,13 +50,13 @@
     padding: 14px 10px;
 }
 .header-text:hover {
-    color: #3c97cf;
+    color: #365a97;
 }
 .header-text img {
     margin-top: -1px;
 }
 
 .header-nav-selected {
-    color: #3c97cf;
-    border-bottom: 3px solid #3c97cf;
+    color: #365a97;
+    border-bottom: 3px solid #365a97;
 }

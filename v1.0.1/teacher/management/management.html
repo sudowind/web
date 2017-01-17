@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>班级管理</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/base.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/question.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/management/management.css">
+
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="teacher-info" style="background: url(../../../assets/img/teacher/teacher_without_class.png) no-repeat;">
+            <div class="head-img">
+                <img src="" alt="">
+            </div>
+            <div class="info-account">考拉阅读账号：T</div>
+            <div class="info-name"></div>
+            <div class="info-school"></div>
+            <div class="info-certification">未认证&nbsp;<img src="../../../assets/img/teacher/no_ceti.png"></div>
+        </div>
+        <div class="content">
+            <div class="classes-part part-basis">
+                <table>
+                    <tr>
+                    </tr>
+                </table>
+            </div>
+            <div class="part-basis class-info">
+                <div>班级代码：<span>123456</span><small>（学生添加此班级代码即可加入班级）</small><div><u>转让班级</u></div></div>
+                <div>班级：<span>三年级1班</span></div>
+                <div>班级人数：<span>45</span>人<div><u>解散班级</u></div></div>
+            </div>
+            <div class="part-basis student-part">
+                <table id="head_table">
+                    <thead>
+                    <tr>
+                        <td>全选</td>
+                        <td>考拉学号</td>
+                        <td>姓名</td>
+                        <td>性别</td>
+                        <td>状态</td>
+                    </tr>
+                    </thead>
+                </table>
+                <div id="student_table">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>全选</td>
+                            <td>考拉学号</td>
+                            <td>姓名</td>
+                            <td>性别</td>
+                            <td>状态</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-part">
+                    <div class="btn">允许加入班级</div>
+                    <div class="btn">拒绝加入班级</div>
+                    <div class="btn disabled">删除学生</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="tmp_modal"></div>
+    <div style="clear: both"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/echarts.min.js"></script>
+
+<script src="../../../assets/js/test.js"></script>
+<script src="../../../assets/js/plot.js"></script>
+<script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/login.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
+<script src="../../../assets/js/teacher/management/manage.js"></script>
+<script>
+    $(document).ready(function () {
+        load('../../../include/html/', 'teacher');
+        init_class();
+        load_teacher_info();
+        window_resize_teacher();
+    });
+    $(window).resize(window_resize_teacher);
+
+    function header_cb() {
+        $('#management_button').addClass('header-nav-selected').css('color', '#365a97');
+    }
+</script>
+</body>
+</html>

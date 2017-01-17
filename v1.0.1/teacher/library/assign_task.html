@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>图书馆</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/base.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/library/assign_task.css">
+
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="teacher-info" style="background: url(../../../assets/img/teacher/teacher_without_class.png) no-repeat;">
+            <div class="head-img">
+                <img src="" alt="">
+            </div>
+            <div class="info-account">考拉阅读账号：T</div>
+            <div class="info-name"></div>
+            <div class="info-school"></div>
+            <div class="info-certification">未认证&nbsp;<img src="../../../assets/img/teacher/no_ceti.png"></div>
+        </div>
+        <div class="content">
+            <a href="#"><div align="right" class="return-button btn" onclick="window.open('book.html?book_id='+$.getUrlParam('book_id'), '_self')"><p>返回</p></div></a>
+
+            <div class="book-info-box">
+                <div class="book-image">
+                    <img src="" alt="" width="90%" height="90%">
+                    <!--<p class="btn" data-toggle="modal" data-target="#myModal">添加到“阅读任务”</p>-->
+
+                </div>
+                <div class="book-info">
+                    <div><h3><b id="book_name"></b>&nbsp;<small id="display_type"></small></h3></div>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>作者&nbsp;&nbsp;<span id="author"></span></td>
+                            <td>出版社&nbsp;&nbsp;<span id="publisher"></span></td>
+                        </tr>
+                        <tr>
+                            <td>字数&nbsp;&nbsp;<span id="word_count"></span></td>
+                            <td>ISBN编号&nbsp;&nbsp;<span id="isbn"></span></td>
+                        </tr>
+                        <tr>
+                            <td>阅读等级&nbsp;&nbsp;<span id="level_score"></span></td>                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p id="finish_count"><span>0</span>名同学已读完</p>
+            </div>
+
+            <div class="part-basis" id="set_info_part">
+                <div id="set_time_title" class="set_info_title">
+                    <img src="../../../assets/img/teacher/library/set_time.png" alt=""><div>设定阅读时间</div>
+                </div>
+                <div class="info-content">
+                    <span>开始日期：</span><input id="start_date" class="laydate-icon" onclick="laydate()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>结束日期：</span><input id="end_date" class="laydate-icon" onclick="laydate()">
+                </div>
+                <div class="set_info_title">
+                    <img src="../../../assets/img/teacher/library/set_class.png" alt=""><div>选择班级</div>
+                </div>
+                <div class="info-content">
+                    <label for="class_selector"></label><select id="class_selector">
+                    <option value="">全部班级</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                </select>
+                </div>
+            </div>
+
+            <div id="choose_part" class="part-basis">
+
+                <table>
+                    <thead>
+                    <tr>
+                        <td>班级</td>
+                        <td>姓名</td>
+                        <td>阅读能力</td>
+                        <td>阅读进度</td>
+                        <td><img src="../../../assets/img/teacher/total_unselected.png" alt="" id="total_selector" value="0">&nbsp;&nbsp;全选</td>
+                    </tr>
+                    </thead>
+                </table>
+                <div id="table_content">
+                    <table>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--<div class="tcdPageCode" id="student_pagination"></div>-->
+
+                <div id="confirm_button" class="btn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+
+        </div>
+    </div>
+    <div id="tmp_modal"></div>
+    <div style="clear: both"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/login.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
+<script src="../../../assets/js/teacher/library/assign_task.js"></script>
+<script>
+    $(document).ready(function () {
+        load('../../../include/html/', 'teacher');
+        init();
+        load_page();
+        load_teacher_info();
+        window_resize_teacher();
+    });
+    $(window).resize(window_resize_teacher);
+
+    function header_cb() {
+        $('#library_button').addClass('header-nav-selected').css('color', '#365a97');
+    }
+</script>
+</body>
+</html>

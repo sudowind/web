@@ -97,7 +97,7 @@ function load_table_row(row_selector, data) {
             }
         });
         bars[1] = new ProgressBar.Circle(row_selector + ' td:nth-child(' + (3).toString() + ') div', {
-            color: '#fb9e1d',
+            color: '#365a97',
             // This has to be the same size as the maximum width to
             // prevent clipping
             strokeWidth: 12,
@@ -107,8 +107,8 @@ function load_table_row(row_selector, data) {
             text: {
                 autoStyleContainer: false
             },
-            from: { color: '#fb9e1d', width: 8 },
-            to: { color: '#fb9e1d', width: 12 },
+            from: { color: '#365a97', width: 8 },
+            to: { color: '#365a97', width: 12 },
             // Set default step function for all animate calls
             step: function(state, circle) {
                 circle.path.setAttribute('stroke', state.color);
@@ -191,6 +191,6 @@ function init_class() {
             });
             load_tasks(CLASS_ID, 1);
         },
-        error: ajax_error_handler
+        error: error_handler()
     });
 }

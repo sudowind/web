@@ -1,0 +1,172 @@
+/*返回按钮*/
+.return-button {
+    margin: -50px 0 -36px 675px;
+    background: #fb9e1d;
+    color: #ffffff;
+}
+
+.return-button p {
+    color: #ffffff;
+}
+
+/*图书摘要信息部分*/
+.book-info-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 250px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    top: 0;
+}
+
+.book-info-box .book-image {
+    width: 150px;
+    height: 190px;
+    margin: 20px 20px 0 20px;
+    float: left;
+    text-align: center;
+}
+
+.book-info-box p {
+    background: #d32e2e;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: -10px 0 0 24px;
+    width: 140px;
+    text-align: center;
+    float: left;
+}
+.book-info-box p:hover {
+    color: #ffffff;
+}
+
+.book-info-box .book-info {
+    width: 450px;
+    margin: 25px 40px 0 0;
+    float: left;
+}
+
+/*设置时间部分*/
+#set_info_part {
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+#set_info_part .info-content {
+    padding: 10px 20px;
+}
+
+.set_info_title {
+    border-bottom: solid 1px #e8e8e8;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.set_info_title img {
+    float: left;
+    margin: 5px 10px 0 0;
+}
+
+.set_info_title div {
+    margin-top: 3px;
+    float: left;
+}
+
+#class_selector {
+    float: left;
+    width: 150px;
+    padding: 5px 5px;
+    border: solid 1px #e8e8e8;
+    border-radius: 5px;
+}
+
+/*挑选学生部分*/
+#choose_part {
+    text-align: center;
+    height: 600px;
+}
+
+/*表格样式*/
+#choose_part table thead {
+    font-size: 16px;
+    text-align: center;
+}
+
+#choose_part table tbody {
+    text-align: center;
+}
+
+#choose_part table thead tr td {
+    padding: 15px;
+    line-height: 25px;
+    font-weight: bold;
+    text-align: center;
+    width: 138px;
+}
+#choose_part table thead tr td:nth-child(4) {
+    padding: 15px;
+    line-height: 25px;
+    font-weight: bold;
+    text-align: center;
+    width: 178px;
+}
+
+#choose_part table tbody tr {
+    height: 50px;
+}
+
+#choose_part table tbody tr td {
+    padding: 15px 15px;
+    text-align: center;
+    height: 50px;
+    width: 178px;
+}
+
+thead tr td img {
+    margin-top: -2px;
+}
+
+td img {
+    cursor: pointer;
+}
+
+#confirm_button {
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 5px 20px;
+    background: #fb9e1d;
+    color: #ffffff;
+}
+
+#table_content {
+    overflow: auto;
+    height: 468px;
+    border-bottom: 1px dotted #fb9e1d;
+    border-top: 1px dotted #fb9e1d;
+
+}
+
+.progress-wrapper {
+    text-align: center;
+}
+
+.progress-message{
+    font-size: 8px;
+    color: #a8a8a8;
+}
+
+.progress-part {
+    padding: 0;
+}
+
+.progress {
+    position: static;
+    border: 1px solid #febc3c;
+    margin-bottom:0;
+}
+

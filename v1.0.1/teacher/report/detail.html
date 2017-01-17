@@ -2,34 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width">
+    <title>阅读报告</title>
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
-    <link rel="stylesheet" href="../../../assets/css/footer.css">
-    <link rel="stylesheet" href="../../../assets/css/intro.css">
-    <link rel="stylesheet" href="../../../assets/css/question.css">
-    <link rel="stylesheet" href="../../../assets/css/comment.css">
-    <link rel="stylesheet" href="../../../assets/css/teacher/sidebar.css">
-    <link rel="stylesheet" href="../../../assets/css/students/library/reset.css">
-    <link rel="stylesheet" href="../../../assets/css/students/library/index.css">
-    <link rel="stylesheet" href="../../../assets/css/pagination.css">
-    <link rel="stylesheet" href="../../../assets/css/teacher/report/detail.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/base.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/question.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/report/detail.css">
+
 </head>
-<body background="../../../assets/img/background.png">
-
-<div class="main-body">
-    <div id="left_bar"></div>
-    <div id="library">
-        <div class="content">
-            <div class="title">
-                <h3>Tasks</h3>
-                <span class="down"></span>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="teacher-info" style="background: url(../../../assets/img/teacher/teacher_without_class.png) no-repeat;">
+            <div class="head-img">
+                <img src="" alt="">
             </div>
-
-            <!--<a href="#"><div align="right" class="return-button btn"><p>返回</p></div></a>-->
-
-
+            <div class="info-account">考拉阅读账号：T</div>
+            <div class="info-name"></div>
+            <div class="info-school"></div>
+            <div class="info-certification">未认证&nbsp;<img src="../../../assets/img/teacher/no_ceti.png"></div>
+        </div>
+        <div class="content">
             <div class="student-img-box">
                 <div class="student-img">
                     <img src="" alt="">
@@ -115,45 +122,49 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
-    <div id="right_bar"></div>
     <div id="tmp_modal"></div>
+    <div style="clear: both"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
-<script src="../../../libs/jquery-3.1.1.min.js"></script>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
-<script src="../../../libs/remodal/dist/remodal.min.js"></script>
+<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
-<script src="../../../libs/progressbar.js"></script>
-<script src="../../../libs/jquery.page.js"></script>
-<script src="../../../assets/js/load.js"></script>
+
 <script src="../../../assets/js/test.js"></script>
-<script src="../../../assets/js/comment.js"></script>
 <script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/load.js"></script>
 <script src="../../../assets/js/base.js"></script>
-<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/login.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
 <script src="../../../assets/js/teacher/report/detail.js"></script>
-
-
 <script>
-    load('../../../include/html/', 'teacher');
-    load_page();
-    load_info();
-    load_comments(1);
-    load_exam();
-    teacher_load_notes(1, $.getUrlParam('student_id'));  // 这里load的是该学生的笔记
-    bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-    bar.text.style.fontSize = '3rem';
+    $(document).ready(function () {
+        load('../../../include/html/', 'teacher');
+        load_page();
+        load_info();
+        load_comments(1);
+        load_exam();
+        teacher_load_notes(1, $.getUrlParam('student_id'));  // 这里load的是该学生的笔记
+        bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+        bar.text.style.fontSize = '3rem';
+        load_teacher_info();
+        window_resize_teacher();
+    });
+    $(window).resize(window_resize_teacher);
 
-//    on_button_click($('#test_button'));
-
-//    bar.set(0.10);  // Number from 0.0 to 1.0
-//    bar.animate(0.90);  // Number from 0.0 to 1.0
+    function header_cb() {
+        $('#report_button').addClass('header-nav-selected').css('color', '#365a97');
+    }
 </script>
-
 </body>
 </html>

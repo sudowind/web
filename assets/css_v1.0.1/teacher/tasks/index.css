@@ -6,7 +6,7 @@
 /*选择班级部分*/
 .classes-part {
     clear: both;
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     margin-bottom: 15px;
     padding: 10px 20px;
     height: 100%;
@@ -122,7 +122,7 @@
     height: 28px;
     line-height: 28px;
     text-align: center;
-    background: #f99d32;
+    background: #365a97;
     color: #ffffff;
     font-size: 15px;
     font-weight: bold;
