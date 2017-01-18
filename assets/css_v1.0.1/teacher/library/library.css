@@ -1,0 +1,285 @@
+#library{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.content{
+    padding:21px 20px;
+    position: relative;
+    top: 0px;
+}
+.title h3{
+    width: 81px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+    padding-bottom: 0;
+}
+.title .down{
+    width: 649px;;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #cccccc;
+    float: right;
+}
+.seek .frame{
+    margin-top: 15px;
+}
+.seek .frame input{
+    width: 398px;
+    height: 42px;
+    border: 1px solid #f99d32;
+    float: left;
+}
+.seek .button input{
+    background: #f99d32;
+    border: none;
+    padding: 11px 18px;
+    font-size: 14px;
+    color: #ffffff;
+    cursor:pointer;
+}
+/*图书分类部分*/
+.book{
+    width: 728px;
+    border: 1px solid #e8e8e8;
+    margin-top: 10px;
+    position: relative;
+}
+.book .sort{
+    border-bottom: 1px dashed #d8d8d8;
+    padding-bottom: 16px;
+    background: #f9f9f9;
+}
+.book .sort p{
+    font-weight: bold;
+    font-size: 18px;
+    float: left;
+    margin-top: 22px;
+    margin-left: 15px;
+    margin-bottom: 55px;
+}
+.book .sort span{
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #f99d32;
+    border-radius: 10px;
+    padding: 0px 20px;
+    margin-top: 20px;
+    margin-left: 14px;
+    display: inline-block;
+    cursor:pointer;
+}
+.book .className p{
+    width: 105px;
+    font-weight: bold;
+    font-size: 18px;
+    float: left;
+    padding-top: 22px;
+    padding-left: 14px;
+    padding-bottom: 20px;
+}
+.book .className span{
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #f99d32;
+    border-radius: 10px;
+    padding: 0px 18px;
+    margin-top: 20px;
+    margin-left: 14px;
+    display: inline-block;
+    cursor:pointer;
+}
+.book .grade p{
+    font-weight: bold;
+    font-size: 18px;
+    float: left;
+    margin-top: 26px;
+    margin-left: 15px;
+}
+.book .className{
+    background: #f9f9f9;
+    border-top: 1px dashed #d8d8d8;
+    padding-bottom: 18px;
+}
+.book .grade span{
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #f99d32;
+    border-radius: 10px;
+    padding: 0px 18px;
+    margin-top: 20px;
+    margin-left: 14px;
+    display: inline-block;
+    cursor:pointer;
+    /*float: left;*/
+}
+.book .grade img{
+    margin-left: 20px;
+    margin-top: -4px;
+}
+.book .grade {
+    background: #f9f9f9;
+}
+.book .read-lv{
+    background: #f9f9f9;
+    padding-bottom: 20px;
+}
+.book .read-lv .box {
+    float: left;
+    margin: 20px 15px 0 15px;
+    padding-left: 104px;
+}
+.book .read-lv .box input{
+    width: 78px;
+    height: 30px;
+    border: 1px solid #f99d32;
+    border-radius: 8px;
+    text-align: center;
+}
+.book .read-lv .lv_button{
+    padding-top: 20px;
+}
+.book .read-lv .lv_button span{
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #f99d32;
+    border-radius: 10px;
+    padding: 0px 16px;
+    margin-left: 30px;
+    display: inline-block;
+    cursor:pointer;
+}
+.index{
+    background: #f99d32;
+    color: #ffffff;
+}
+
+/*下半部图书列表内容*/
+#book_list {
+    height: 575px;
+}
+
+.books{
+    width: 728px;
+    min-height: 700px;
+    border: 1px solid #e8e8e8;
+    background: #f9f9f9;
+    margin-top: 20px;
+}
+.books .statistics{
+    height: 48px;
+    line-height: 48px;
+    padding-left: 15px;
+    font-size: 19px;
+    color: #365a97;
+    font-weight: bold;
+    border-bottom: 1px solid #e8e8e8;
+}
+/*图书列表部分*/
+.list{
+    /*margin-top:11px;*/
+    float: left;
+}
+.list .list-book{
+    margin-top:17px;
+    margin-left: 14px;
+    margin-right: 8px;
+    position: relative;
+    top: 0;
+    box-shadow:2px 2px 2px #ccc;
+}
+.list .list-book .already-reading{
+    width: 156px;
+    height: 32px;
+    background: #febc3c;
+    position: absolute;
+    top: 92px;
+    left: 0px;
+    color: #ffffff;
+    line-height: 32px;
+    text-align: center;
+}
+.list .list-book .image {
+    width: 156px;
+    height: 270px;
+    border: 1px solid #e8e8e8;
+    padding: 15px 13px 30px 16px ;
+    background: #ffffff;
+}
+.list .list-book .image img{
+    cursor:pointer;
+    width: 122px;
+    height: 172px;
+}
+.list .list-book .image span {
+    position: absolute;
+    top: 160px;
+    left: 75px;
+    width: 64px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: #f99d32;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+}
+.list .list-book .book-name{
+    text-align: center;
+    /*margin-top: 13px;*/
+    font-size: 13px;
+    font-weight: bold;
+    cursor:pointer;
+    width: 120px;
+    height: 60px;
+
+    display: table-cell;
+    vertical-align: middle;
+}
+.list .list-book .type{
+    position: absolute;
+    top: 245px;
+    left: 16px;
+    font-size: 12px;
+    color: #999999;
+    cursor:pointer;
+}
+.list .list-book p{
+    position: absolute;
+    top: 245px;
+    left: 118px;
+    font-size: 12px;
+    color: #365a97;
+    cursor:pointer;
+}
+
+/*分页部分*/
+.tcdPageCode{
+    padding: 26px 20px;
+    color: #f99d32;
+    clear: both;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

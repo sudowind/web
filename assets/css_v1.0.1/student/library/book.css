@@ -1,0 +1,135 @@
+/*图书摘要信息部分*/
+.book-info-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 250px;
+    margin-bottom: 20px;
+    position: relative;
+    top: 0;
+}
+
+.book-info-box .book-image {
+    width: 150px;
+    height: 190px;
+    margin: 20px 20px;
+    float: left;
+    text-align: center;
+}
+
+.book-info-box .book-image p {
+    background: #fb9e1d;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 12px 4px;
+    width: 140px;
+    text-align: center;
+}
+
+.book-info-box .book-info {
+    width: 450px;
+    margin: 25px 40px;
+    float: left;
+}
+
+/*文章详细信息部分*/
+.book-detail-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 800px;
+    font-size: 16px;
+}
+
+.book-detail-box .nav-bar {
+    height: 50px;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+}
+
+.book-detail-box .nav-bar .nav-button{
+    width: 50%;
+    height: 50px;
+    background: #fb9e1d;
+    float: left;
+    border-bottom: 1px solid #e8e8e8;
+    cursor: pointer;
+    padding-top: 12px;
+}
+
+.book-detail-box .nav-bar .nav-button img {
+    margin-right: 10px;
+}
+
+.btn-content-wrapper {
+    text-align: center;
+}
+
+.introduce, .comments, .introduce, .test {
+    padding-top: 12px;
+    padding-left: 10px;
+    float: left;
+    color: #000000;
+}
+
+.book-detail-box .book-detail-content {
+    padding: 20px;
+}
+
+.book-detail-box .book-detail-content p {
+    line-height: 150%;
+}
+
+/*模态框*/
+.modal-footer div {
+    float: left;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: -7px;
+}
+
+.modal-footer div:nth-child(1) {
+    background: #fb9e1d;
+    margin-left: 115px;
+}
+
+.modal-footer div:nth-child(3) {
+    background: #776c60;
+    margin-left: 10px;
+}
+
+#comment_container {
+    height: 600px;
+}
+#add_to_task{
+    position: absolute;
+    top: 191px;
+    left: 190px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

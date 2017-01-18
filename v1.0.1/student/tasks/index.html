@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>查看（已读完）</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../libs/TimePicki-master/css/timepicki.css">
+
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/tasks/index.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="content">
+            <div class="seek">
+                <!--<span class="frame">-->
+                <!--<input type="text" placeholder="请输入图书名"/>-->
+                <!--</span>-->
+                <!--<span class="button">-->
+                <!--<input  type="submit" value="搜索一下"/>-->
+                <!--</span>-->
+                <span class="add-task">
+                    <p>
+                        <img src="../../../assets/img/student/tasks/add.png" alt=""/>去选图书
+                    </p>
+                </span>
+            </div>
+
+
+            <div class="book ">
+                <div class="sort">
+                    <p>类别：</p>
+                    <span class="index reading" value="2">阅读中</span>
+                    <span class="read" value="5">已读完</span>
+                </div>
+                <div class="grade">
+                    <!--<p>任务来源：</p>-->
+                    <!--<span class="index" value="0">自主发布</span>-->
+                    <!--<span value="3">王澈老师发布</span>-->
+                    <!--<span>那个老师发布</span>-->
+                    <!--<span>那个老师发布</span>-->
+                    <!--<span>那个老师发布</span>-->
+                    <!--<span>那个老师发布</span>-->
+                    <!--<span>那个老师发布</span>-->
+                </div>
+
+                <div id="book_list"></div>
+                <!--分页-->
+                <div class="tcdPageCode" id="book_pagination"></div>
+
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
+<script src="../../../assets/js/student/tasks/tasks.js"></script>
+<script>
+    $(document).ready(function () {
+        load('../../../include/html/');
+        init_teachers();
+        window_resize();
+    });
+    $(window).resize(window_resize);
+
+    function header_cb() {
+        $('#tasks_button').addClass('header-nav-selected').css('color', '#3c97cf');
+    }
+</script>
+</body>
+</html>

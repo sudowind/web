@@ -1,0 +1,330 @@
+/*返回按钮*/
+.return-button {
+    margin: -23px 0 0 675px;
+    background: #fb9e1d;
+    color: #ffffff;
+}
+
+.return-button p {
+    color: #ffffff;
+}
+
+/*图书摘要信息部分*/
+.book-info-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 250px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.book-info-box .book-image {
+    width: 150px;
+    height: 190px;
+    margin: 20px 20px 0 20px;
+    float: left;
+    text-align: center;
+}
+
+.book-info-box p {
+    clear: both;
+    padding-left: 27px;
+}
+
+.book-info-box .book-info {
+    width: 450px;
+    margin: 25px 40px 0 40px;
+    float: left;
+}
+
+.book-info-box .book-info table {
+    float: left;
+    font-size: 16px;
+    margin: 20px 0 0 0;
+}
+
+.book-info-box .book-info table tbody tr td{
+    height: 40px;
+    padding-right: 70px;
+}
+
+.book-info-box .book-info table tbody tr td span{
+    color: #afafaf;
+}
+
+/*文章详细信息部分*/
+.book-detail-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 800px;
+    font-size: 16px;
+}
+
+.book-detail-box .nav-bar {
+    height: 50px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.book-detail-box .nav-bar .nav-button{
+    cursor: pointer;
+    width: 25%;
+    height: 50px;
+    background: #fb9e1d;
+    float: left;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    position: relative;
+    padding-top: 12px;
+}
+
+.book-detail-box .nav-bar .nav-button:not(:first-child) {
+    border-left: 1px solid #e8e8e8;
+}
+
+.book-detail-box .nav-bar .nav-button img {
+    margin-right: 10px;
+}
+
+.btn-content-wrapper {
+    text-align: center;
+}
+
+.introduce, .comments, .introduce, .test {
+    padding-top: 12px;
+    padding-left: 10px;
+    float: left;
+    color: #000000;
+}
+
+/*文章内容简介*/
+.book-detail-box .book-detail-content {
+    padding: 20px;
+}
+
+.book-detail-box .book-detail-content p {
+    line-height: 150%;
+}
+
+#comment_container {
+    height: 550px;
+}
+
+/*note部分*/
+#node_part {
+    margin: 10px;
+}
+
+.note {
+    margin: 30px 10px 10px;
+
+}
+
+.note_id {
+    background: #fb9e1d;
+    padding: 5px 10px;
+    color: #ffffff;
+    float: left;
+}
+
+.note_time {
+    padding: 5px;
+    float: right;
+}
+
+.note_content {
+    clear: both;
+    padding-top: 10px;
+    height: 140px;
+}
+
+#note_container {
+    height: 336px;
+}
+
+/*测试题部分*/
+#test_part div select {
+    color: grey;
+    float: left;
+    width: 170px;
+    padding: 3px 10px;
+    margin: 190px 10px 10px;
+    border-radius: 3px;
+}
+
+#test_part {
+    margin: 10px;
+    font-size: 14px;
+}
+
+#progress_bar {
+    float: left;
+    width: 172px;
+    height: 172px;
+    margin: 10px;
+    left: 78px;
+    position: relative;
+}
+
+/*计分板部分*/
+.grade-board {
+    clear: both;
+    background: #e8e8e8;
+    margin: 0 70px 0 70px;
+    height: 80px;
+    padding: 1px 1px 1px 0;
+}
+
+.grade-content {
+    background: #FFFFFF;
+    height: 58px;
+    margin: 10px;
+    padding: 9px;
+    overflow: auto;
+}
+
+.grade-example {
+    float: left;
+    width: 60px;
+    margin-top: -5px;
+}
+
+.grade-detail {
+    color: #FFFFFF;
+    padding: 0 5px 5px 5px;
+    margin: -10px 10px 0 10px;
+    float: left;
+    width: 20px;
+}
+
+.grade-right {
+    background: #fb9e1d;
+}
+
+.grade-wrong {
+    background: #08dec5;
+}
+
+.question-part {
+    margin: 10px;
+    padding: 10px;
+    background: #ffffff;
+    height: 455px;
+    overflow: auto;
+}
+
+.question {
+    float: left;
+    margin-top: 10px;
+}
+
+.question-q {
+    color: #9f502a;
+    /*width: 600px;*/
+}
+
+.question-res {
+    width: 25px;
+    height: 20px;
+    float: left;
+    margin-left: -5px;
+}
+
+.question-content {
+    float: left;
+    width: 620px;
+}
+
+.select-option {
+    padding: 3px 0 3px 10px;
+    margin: 5px 10px 5px 15px;
+    background: #f5ebcb;
+    color: #000000;
+}
+
+.selectable {
+    cursor: pointer;
+}
+.selectable:hover {
+    color: #FFFFFF;
+    background: #08dec5;
+}
+.wrong-answer {
+    color: #FFFFFF;
+    background: #08dec5;
+}
+
+.option-selected {
+    color: #FFFFFF;
+    background: #fb9e1d;
+}
+
+.answer {
+    padding: 7px 0 7px 10px;
+    margin: 10px 10px 10px 15px;
+    border: solid 1px #e8e8e8;
+    color: #fb9e1d;
+    /*display: none;*/
+    position: relative;
+}
+
+.answer-analysis {
+    width: 450px;
+    float: left;
+}
+
+.true-answer {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    color: #FFFFFF;
+    background: #fb9e1d;
+    padding-top: 14px;
+    margin-right:10px;
+
+    float: right;
+}
+
+.answer div:last-child {
+    clear: both;
+}
+
+hr {
+    clear: both;
+}
+
+
+#comment_pagination {
+    padding-top: 117px;
+}
+
+#note_pagination {
+    padding-top: 270px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,100 @@
+/*选择班级部分*/
+.classes-part {
+    clear: both;
+    /*margin-top: 50px;*/
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    height: 100%;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.classes-part p {
+    float: left;
+}
+
+.option  {
+    background: #ffffff;
+    color: #6e6e6e;
+    border: solid 1px #fb9e1d;
+    padding: 2px 10px;
+    margin: 5px 7px;
+    display: inline-block;
+
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.classes-part table tr td:first-child {
+    padding-top: 5px;
+    vertical-align: top;
+}
+.classes-part table tr td:nth-child(2){
+    width: 550px;
+}
+
+.index {
+    background: #fb9e1d;
+    color: #ffffff;
+}
+
+.class-info {
+    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+
+.class-info div div {
+    float: right;
+}
+
+.class-info small {
+    color: #8ea2c5;
+}
+
+.student-part {
+    /*padding: 10px 20px;*/
+    font-size: 16px;
+}
+
+#head_table {
+    width: 730px;
+    text-align: center;
+}
+
+#student_table {
+    height: 600px;
+    border-top: 1px dotted #97a9c8;
+    border-bottom: 1px dotted #97a9c8;
+}
+
+#student_table table {
+    width: 730px;
+    text-align: center;
+}
+
+.btn-part {
+    text-align: center;
+}
+
+.btn-part .btn {
+    color: #ffffff;
+    margin: 10px;
+}
+.btn-part .btn:hover {
+    color: #ffffff;
+}
+
+.btn-part .btn:first-child {
+    background: #fb9e1d;
+}
+
+.btn-part .btn:not(first-child) {
+    background: #365a97;
+}
+

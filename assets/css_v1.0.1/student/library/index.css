@@ -1,0 +1,264 @@
+.part-basis {
+    background: #f9f9f9;
+    border: solid 1px #e8e8e8;
+}
+
+#library{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.content{
+    background: #fff;
+    width: 770px;
+    padding:20px;
+    position: relative;
+    top: 0;
+}
+.title h3{
+    width: 81px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+    padding-bottom: 15px;
+}
+.title .down{
+    width: 649px;;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #cccccc;
+    float: right;
+}
+.seek .frame{
+    margin-top: 15px;
+}
+.seek .frame input{
+    width: 398px;
+    height: 44px;
+    border: 1px solid #f99d32;
+    float: left;
+    padding-left: 10px;
+    font-size: 16px;
+}
+.seek .button input{
+    background: #f99d32;
+    border: none;
+    padding: 11px 18px;
+    font-size: 16px;
+    color: #ffffff;
+    cursor:pointer;
+}
+/*图书分类部分*/
+.book{
+    width: 728px;
+    height: 1017px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    margin-top:15px;
+    position: relative;
+}
+.book .sort{
+    border-bottom: 1px dashed #d8d8d8;
+    padding-bottom: 22px;
+}
+.book .sort p{
+    font-weight: bold;
+    font-size: 18px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-bottom: 70px;
+}
+.book .sort span{
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #f99d32;
+    border-radius: 10px;
+    padding: 0px 20px;
+    margin-top: 24px;
+    margin-left: 14px;
+    display: inline-block;
+    cursor:pointer;
+}
+.index{
+    background: #f99d32;color: #FFFFFF;
+}
+.book .grade p{
+    font-weight: bold;
+    font-size: 18px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-bottom: 70px;
+}
+.book .grade span{
+    min-width: 78px;
+    padding: 0 10px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    padding: 0px 20px;
+    padding: 0px 20px;
+    border: 1px solid #f99d32;
+    border-radius: 10px;
+    margin-top: 24px;
+    margin-left: 14px;
+    display: inline-block;
+    cursor:pointer;
+}
+.book .grade {
+    position: relative;
+    padding-bottom: 27px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.book .grade img {
+    margin: -5px 0 0 10px;
+    cursor: pointer;
+}
+/*图书列表部分*/
+.list{
+    margin-top:11px;
+    float: left;
+}
+.list .list-book{
+    margin-top:17px;
+    margin-left: 14px;
+    margin-right: 8px;
+    position: relative;
+    top: 0;
+    box-shadow:2px 2px 2px #ccc;
+}
+.list .list-book .image {
+    width: 156px;
+    height: 270px;
+    border: 1px solid #e8e8e8;
+    padding: 15px 13px 30px 16px ;
+    background: #ffffff;
+}
+.list .list-book .image img{
+    cursor:pointer;
+    width: 122px;
+    height: 172px;
+}
+.list .list-book .image span {
+    position: absolute;
+    top: 160px;
+    left: 75px;
+    width: 64px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: #f99d32;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+}
+.list .list-book .book-name{
+    text-align: center;
+    height: 60px;
+    width: 122px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor:pointer;
+
+    display: table-cell;
+    vertical-align: middle;
+}
+.list .list-book .type{
+    position: absolute;
+    top: 245px;
+    left: 16px;
+    font-size: 12px;
+    color: #999999;
+    cursor:pointer;
+}
+.list .list-book p{
+    position: absolute;
+    top: 245px;
+    left: 118px;
+    font-size: 12px;
+    color: #f99d32;
+    cursor:pointer;
+}
+
+#book_list {
+    height: 600px;
+}
+
+/*分页部分*/
+a:hover{
+    text-decoration:none;
+}
+.tcdPageCode{
+    padding: 55px 20px;
+    color: #f99d32;
+    clear: both;
+    text-align: center;
+}
+.tcdPageCode a{
+    display: inline-block;
+    color: #f99d32;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    border: 1px solid #f99d32;
+    margin: 0 2px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.tcdPageCode a:hover{
+    text-decoration: none;
+    border: 1px solid #f99d32;
+}
+.tcdPageCode span.current{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #f9f9f9;
+    background-color: #f99d32;
+    border: 1px solid #f99d32;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.tcdPageCode span.disabled{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #f99d32;
+    background: #ffffff;
+    border: 1px solid #f99d32;
+    border-radius: 4px;
+    vertical-align:middle;
+}
+.tcdNumber, .tcdPageCode span.current {
+    width: 40px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,390 @@
+#library{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.content{
+    padding:21px 20px;
+    position: relative;
+    top: 0;
+}
+.title h3{
+    width: 81px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+    padding-bottom: 30px;
+}
+.title .down{
+    width: 649px;;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #cccccc;
+    float: right;
+}
+.left{
+    width: 230px;
+    height: 840px;
+    float: left;
+}
+.right {
+    float: right;
+    font-size: 15px;
+}
+.right .option{
+    width: 485px;
+    border: 1px solid #e8e8e8;
+    background: #f9f9f9;
+    padding: 10px 5px;
+}
+.right .option div{
+    margin: 10px 0 0 10px;
+}
+.right .option span{
+    border: 1px solid #f99d32;
+    border-radius: 8px;
+    padding:4px 12px;
+    margin: 5px 7px;
+    cursor: pointer;
+    display: inline-block;
+}
+#teacher_classes {
+    width: 410px;
+}
+.option table td:first-child {
+    vertical-align: top;
+}
+
+.index{
+    background: #f99d32;
+    color: #FFFFFF;
+}
+.right .option div input{
+    width: 118px;
+    height: 28px;
+    border-radius: 8px;
+    margin-left: 14px;
+}
+.right .option div img{
+    margin-left: 14px;
+}
+.tab{
+    width: 485px;
+    height: 720px;
+    background: #f9f9f9;
+    margin-top: 9px;
+    border: 1px solid #e8e8e8;
+}
+.tab .nav-bar{
+    width: 483px;
+    height: 45px;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    cursor: pointer;
+}
+.tab .nav-bar .nav-button{
+    width: 50%;
+    float: left;
+    line-height: 44px;
+}
+.tab .nav-bar .nav-button img{
+    padding-bottom: 6px;
+    margin-right: 8px;
+}
+.tab .nav-bar .nav-button:nth-of-type(1){
+    border-right: 1px solid #e8e8e8;
+}
+.tab .nav-bar .nav-button:nth-of-type(2){
+    border-right: 1px solid #e8e8e8;
+}
+.tab .cla-rank {
+    border-bottom: 1px dashed #febc3c;
+    height: 258px;
+}
+.tab .cla-rank h3{
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 19px;
+    padding-left: 14px;
+    height: 54px;
+    border-bottom: 1px solid #e8e8e8;
+}
+.tab .progress{
+    height: 35px;
+    position: relative;
+    border-radius: 16px;
+    background: #e8e8e8;
+    margin-top:24px;
+    margin-left: 14px;
+    width: 450px;
+    top: 0;
+}
+.tab .progress .progress-bar {
+    line-height: 35px;
+    text-align: left;
+    border-radius: 15px;
+}
+.tab .progress .progress-bar img{
+    margin-left: 30px;
+    margin-right: 5px;
+}
+
+/*可排序表头*/
+.sortable-column {
+    cursor: pointer;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.column-index {
+    font-weight: bold;
+}
+
+/*班级表现*/
+.tab .classes-info-part {
+    height: 415px;
+    width: 483px;
+}
+.tab .classes-info-part table {
+    width: 483px;
+}
+.tab .classes-info-part table thead{
+    font-size: 14px;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+}
+.tab .classes-info-part table thead tr td{
+    padding:14px 12px;
+    line-height: 25px;
+    text-align: center;
+}
+.tab .classes-info-part table tbody tr {
+    height: 50px;
+}
+.tab .classes-info-part table tbody tr td{
+    height: 50px;
+    text-align: center;
+}
+.rank-message {
+    position: absolute;
+    color: #ffffff;
+    top: 6px;
+    left: 15px;
+}
+.rank-message img {
+    margin-right: 10px;
+}
+/*学生表现*/
+.tab .student-show-list {
+    height: 415px;
+    width: 483px;
+}
+.tab .student-show-list table {
+    width: 483px;
+}
+.tab .student-show-list table thead{
+    font-size: 14px;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+}
+.tab .student-show-list table thead tr td{
+    padding:8px 12px;
+    line-height: 25px;
+    text-align: center;
+}
+.tab .student-show-list table thead tr td img{
+    margin-left: 4px;
+    padding-bottom: 4px;
+}
+.tab .student-show-list table tbody tr {
+    height: 50px;
+}
+.tab .student-show-list table tbody tr td{
+    height: 50px;
+    text-align: center;
+}
+.tab .student-show-list table tbody tr td a{
+    color: #000000;
+}
+
+/*个人阅读详情*/
+.people-part .down-load{
+    width: 153px;
+    height: 30px;
+    background: #fb9e1d;
+    color: #FFFFFF;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 6px;
+    margin: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    /*position: relative;*/
+}
+.people-part .people-list{
+    width: 465px;
+    height: 623px;
+    margin: 10px;
+}
+.people-part .people-list ul{
+    width: 465px;
+    height: 50px;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #e8e8e8;
+    border-right: none;
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+.people-part .people-list ul li{
+    width: 60px;
+    padding: 16px 10px;
+    float: left;
+    height: 50px;
+    border-right: 1px solid #e8e8e8;
+
+}
+.people-part .people-list ul li:nth-of-type(3){
+    width: 158px;
+}
+.people-part .people-list ul li:nth-of-type(4){
+    width: 125px;
+}
+.people-part .people-list ul li:nth-of-type(5){
+    padding: 8px;
+    border-radius: 8px;
+}
+.people-part .people-list table {
+    margin-top: 10px;
+    border: 1px solid #e8e8e8;
+    width: 465px;
+    background: #FFFFFF;
+    text-align: center;
+    font-size: 13px;
+}
+
+.people-part .people-list table tbody {
+    width: 465px;
+    height: 97px;
+}
+.people-part .people-list table tbody tr td{
+    /*width: 60px;*/
+    height: 48px;
+    border: 1px dashed #e8e8e8;
+}
+.people-part .people-list table tbody .tr td:nth-of-type(1){
+    width: 60px;
+}
+.people-part .people-list table tbody .tr td:nth-of-type(2){
+    width: 60px;
+}
+.people-part .people-list table tbody .tr td:nth-of-type(3){
+    width: 158px;
+}
+.people-part .people-list table tbody .tr td:nth-of-type(6){
+    width: 60px;
+}
+
+
+
+/*学霸榜部分*/
+.top{
+    width: 230px;
+    height: 800px;
+    float: left;
+    box-shadow: 1px 1px 3px #ccc;
+    border-radius: 6px;
+}
+.top .title {
+    height: 90px;
+    width: 230px;
+    background: #f0f0f0;
+    border-radius: 6px;
+}
+.top .title img{
+    margin-left: 36px;
+}
+.top .title span{
+    line-height: 90px;
+    margin-left: 15px;
+    color: #f89d32;font-weight: bold;
+}
+.top-list .me{
+    width: 230px;
+    height: 60px;
+    background: #febc3c;
+}
+.top-list .me-rank{
+    float: left;
+    margin-top: 12px;
+    margin-left: 34px;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+.top-list .me img{
+    float: left;
+    border: 2px solid #44bdef;
+    border-radius: 100px;
+    width: 42px;
+    height: 42px;
+    margin-top: 9px;
+    margin-left: 22px;
+}
+.top-list .me .me-right{
+    float: left;
+    margin-top: 14px;
+    margin-left: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+.top-list ul li{
+    height: 60px;
+    font-size: 13px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.top-list ul li .rank{
+    float: left;
+    margin-top: 12px;
+    margin-left: 34px;
+    font-size: 25px;
+    color: #febc3c;
+    width: 30px;
+    text-align: center;
+}
+.top-list ul li .head{
+    float: left;
+    border: 2px solid #44bdef;
+    border-radius: 100px;
+    width: 42px;
+    height: 42px;
+    margin-top: 9px;
+    margin-left: 22px;
+}
+.top-list ul li .right{
+    float: left;
+    margin-top: 14px;
+    margin-left: 12px;
+    line-height: 16px;
+}
+
+
+/*分页部分*/
+#class_pagination {
+    margin-top: -100px;
+}
+
+#student_pagination {
+    margin-top: 158px;
+}
+
+
+
+
+
+

@@ -8,3 +8,10 @@ body {
     padding: 65px 60px 15px 60px;
     background-color: rgba(116, 178, 194, 0.2);
 }
+
+.content{
+    background: #ffffff;
+    padding:21px 20px;
+    position: relative;
+    top: 0;
+}

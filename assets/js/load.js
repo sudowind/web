@@ -11,6 +11,23 @@ function load(src, type) {
     }
     $('#page_header').load(src + type + '/header.html', function () {
         $('.header').css('width', $(window).get(0).innerWidth);
+        if (typeof header_cb != 'undefined') {
+            header_cb();
+        }
+        $('.exit-button').click(function () {
+
+            $.ajax({
+                url: URL_BASE + '/users/open/logout',
+                xhrFields: {
+                    withCredentials: true
+                },
+                type: 'POST',
+                success: function () {
+                    window.open('../../../v1.0.1/login.html', '_self');
+                },
+                error: ajax_error_handler
+            });
+        });
     });
     $('#page_footer').load(src + 'footer.html');
     $('#left_bar').load(src + type + '/left_bar.html', function() {
@@ -113,6 +130,8 @@ function load_page() {
                 // my_tip.alert(data.id);
                 // do some thing
                 var start_date = new Date(data.userCreateTime);
+                if (data.finishTime == 0)
+                    data.finishTime = data.endTime;
                 var end_date = new Date(data.finishTime);
                 $('#start_date').html(start_date.getFullDate());
                 $('#end_date').html(end_date.getFullDate());
@@ -147,6 +166,47 @@ var error_handler = function () {
 };
 
 var window_resize = function () {
-    $('.header').css('width', $(window).get(0).innerWidth);
-    $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
+    var width = document.body.scrollWidth;
+    var height = document.body.scrollHeight;
+    $('.header').css('width', width);
+    $('.main-container').css('min-height', height - 100)
+        .css('margin-left', (width - 890) / 2);
 };
+
+var window_resize_teacher = function () {
+    var width = document.body.scrollWidth;
+    var height = document.body.scrollHeight;
+    $('.header').css('width', width);
+    $('.main-container').css('min-height', height - 100)
+        .css('margin-left', (width - 1135) / 2);
+};
+
+function load_teacher_info() {
+    $.ajax({
+        url: URL_BASE + '/users/web/user/current',
+        type: 'get',
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function(data) {
+            $('.info-name').html(data.name);
+            $('.info-school').html(data.school.name);
+            $('.info-account').append(data.id);
+            $('.head-img img').attr('src', data.headimg);
+            if (data.classes.length > 0) {
+                var html = '';
+                var i = 0;
+                for (i = 0; i < data.classes.length; ++i) {
+                    html += '<div class="class_elem">{0}</div>'.format(data.classes[i].name);
+                }
+                $('.own-class-info').append(html).show();
+                $('.no-class').hide();
+            }
+            else {
+                $('.own-class-info').hide();
+                $('.no-class').show();
+            }
+        },
+        error: error_handler()
+    })
+}

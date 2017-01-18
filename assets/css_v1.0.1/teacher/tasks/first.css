@@ -1,0 +1,65 @@
+#first{
+    background: #fff;
+    width: 770px;
+    height: 1250px;
+    float: left;
+}
+.content{
+    padding:21px 20px;
+    position: relative;
+    top: 0px;
+}
+.title h3{
+    width: 139px;
+    height: 36px;
+    border-bottom: 4px solid #f99d32;
+    font-size: 15px;
+    float: left;
+}
+.title{
+    display: inline-block;
+    padding-bottom: 30px;
+}
+.title .down {
+    width: 590px;
+    height: 30px;
+    margin-top: 6px;
+    border-bottom: 4px solid #cccccc;
+    float: right;
+}
+.right_content{
+    width: 728px;
+    height: 1088px;
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+}
+.first_img{
+    text-align: center;
+    margin-top: 40px;
+}
+.text{
+    width: 500px;
+    height: 100px;
+    line-height: 50px;
+    color: #fb9e1d;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 120px;
+    margin-top: 30px;
+}
+.add_student{
+    width: 150px;
+    height: 40px;
+    background: #fb9e1d;
+    border-radius: 6px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 286px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.add_student a{
+    color: #ffffff;
+    text-decoration:none;
+}

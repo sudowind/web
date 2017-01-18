@@ -102,6 +102,9 @@ function load_class_performance(class_id) {
         },
         success: function(data) {
             // 将数据加载到变量中
+            for (var i = 0; i < data.gradeList.length; ++i) {
+                data.gradeList[i].bookCount = rand_ER();
+            }
             class_performance = data.gradeList;
             load_table(1, ELEM_PER_PAGE_CLASS, class_sort_by, class_order, 'class');
         },
@@ -122,6 +125,9 @@ function load_student_performance(class_id) {
             endTime: 0
         },
         success: function (data) {
+            for (var i = 0; i < data.length; ++i) {
+                data[i].bookCount = rand_ER();
+            }
             student_performance = data;
             load_table(1, ELEM_PER_PAGE_STUDENT, student_sort_by, student_order, 'student');
         },

@@ -1,0 +1,287 @@
+/*图书摘要信息部分*/
+.book-info-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 250px;
+    margin-bottom: 10px;
+    position: relative;
+    top: 0;
+}
+
+.book-info-box .book-image {
+    width: 150px;
+    height: 190px;
+    margin: 20px 20px 0 20px;
+    float: left;
+    text-align: center;
+}
+
+.book-info-box p {
+    background: #ffffff;
+    border: solid 1px #fb9e1d;
+    color: #fb9e1d;
+    border-radius: 5px;
+    padding: 5px;
+    margin: -10px 0 0 24px;
+    width: 140px;
+    text-align: center;
+    float: left;
+}
+.book-info-box p:hover {
+    color: #fb9e1d;
+}
+
+.book-info-box .book-info {
+    width: 450px;
+    margin: 25px 40px 0 0;
+    float: left;
+}
+
+.book-info-box .book-info table {
+    float: left;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.book-info-box .book-info table tbody tr td{
+    height: 40px;
+    padding-right: 70px;
+}
+
+.book-info-box .book-info table tbody tr td span{
+    color: #afafaf;
+}
+
+/*进度填写部分*/
+.progress-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 160px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.progress-box .nav-bar {
+    height: 50px;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.progress-box .nav-bar img {
+    margin-right: 10px;
+}
+
+.progress-content {
+    padding: 20px;
+}
+
+.progress-input {
+    font-size: 16px;
+    border-radius: 0;
+    width: 100px;
+    float: left;
+    margin: -5px 10px 0 10px;
+}
+
+#start_read_time + .timepicker_wrap {
+    left: 121px;
+}
+
+#finish_read_time + .timepicker_wrap {
+    left: 275px;
+}
+
+.progress-content label {
+    float: left;
+    clear: left;
+}
+
+.progress-content #page_count {
+    float: left;
+}
+
+#today_page {
+    width: 90px;
+}
+
+.progress {
+    margin-left: 20px;
+    float: left;
+    position: static;
+}
+
+.plan {
+    left: 295px;
+    top: 406px;
+    position: absolute;
+    font-size: 12px;
+    color: #999999;
+    width: 140px;
+    text-align: center;
+}
+
+.pages {
+    left: 330px;
+    top: 475px;
+    position: absolute;
+    font-size: 12px;
+    color: #999999;
+}
+
+#record_button {
+    float: left;
+    margin-top: -26px;
+    margin-left: 226px;
+    color: #ffffff;
+}
+
+/*文章详细信息部分*/
+.book-detail-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 700px;
+    font-size: 16px;
+}
+
+.book-detail-box .nav-bar {
+    height: 50px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.book-detail-box .nav-bar .nav-button{
+    cursor: pointer;
+    width: 33.33%;
+    height: 50px;
+    background: #fb9e1d;
+    float: left;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    position: relative;
+    padding-top: 12px;
+}
+
+.book-detail-box .nav-bar .nav-button:not(:first-child) {
+    border-left: 1px solid #e8e8e8;
+}
+
+.book-detail-box .nav-bar .nav-button img {
+    margin-right: 10px;
+}
+
+.btn-content-wrapper {
+    text-align: center;
+}
+
+.introduce, .comments, .introduce, .test {
+    padding-top: 12px;
+    padding-left: 10px;
+    float: left;
+    color: #000000;
+}
+
+.book-detail-box .book-detail-content {
+    padding: 20px;
+}
+
+.book-detail-box .book-detail-content p {
+    line-height: 150%;
+}
+
+#comment_container {
+    height: 450px;
+}
+
+/*笔记部分*/
+#note_part {
+    display: none;
+    padding: 20px;
+}
+
+.note_id {
+    background: #fb9e1d;
+    padding: 5px 10px;
+    color: #ffffff;
+    float: left;
+}
+
+.note_time {
+    padding: 5px;
+    float: right;
+}
+
+.note_content {
+    clear: both;
+    padding-top: 10px;
+    font-size: 14px;
+    height: 120px;
+}
+
+#note_part textarea {
+    width: 660px;
+    height: 100px;
+    /*margin-top: 10px;*/
+    margin-left: 15px;
+    padding: 10px;
+    border: solid 1px #e8e8e8;
+}
+
+.note-title {
+    margin-bottom: 10px;
+}
+
+#note_container {
+    height: 336px;
+}
+
+#submit_note {
+    margin: 10px 0 10px 621px;
+    color: #ffffff;
+}
+
+.button-able {
+    background: #fb9e1d;
+}
+
+.button-disabled {
+    background: #bababa;
+}
+
+hr {
+    margin: 10px;
+}
+
+/*分页部分*/
+#comment_pagination {
+    padding-top: 80px;
+}
+
+#note_pagination {
+    padding-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

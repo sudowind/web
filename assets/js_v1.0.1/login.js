@@ -140,9 +140,72 @@ window.onload = function() {
     }
 
     $('#login_button').click(function () {
-
+        login();
     })
 };
+
+function login() {
+    var account = $('#account').val();
+    var password = $('#password').val();
+    // var user_type = $('.main-button').attr('value');
+    // user_type = 5;
+
+    if (!account || !password) {
+        my_tip.alert('请填写用户名和密码！');
+        return;
+    }
+    $.ajax({
+        type: 'POST',
+        url: URL_BASE + '/users/open/login',
+        xhrFields: {
+            withCredentials: true
+        },
+        data: {
+            account: account,
+            password: password,
+            userType: user_type
+        },
+        success: function (data) {
+            if (data.success) {
+                console.log(user_type);
+                // alert(data.loginCount);
+                switch (user_type) {
+                    case 2:
+
+                        if (data.loginCount == 0)
+                            window.open('../../../v1.0.1/student/home/first.html', '_self');
+                        else
+                            window.open('../../../v1.0.1/student/home/home.html', '_self');
+                        break;
+                    case 3:
+                        if (data.loginCount == 0)
+                            window.open('../../../v1.0.1/teacher/library/library.html', '_self');
+                        else
+                            window.open('../../../v1.0.1/teacher/library/library.html', '_self');
+                        break;
+                    case 4:
+                        window.open('../../../v1.0.1/school_master/tasks/teacher_detail.html', '_self');
+                        break;
+                }
+                setCookie('USER', data.userId);
+                //判断是否记住密码,设置cookie
+                if($('#remember_password').is(':checked')){
+                    setCookie('username', $('#user_name').val().trim(),7);
+                    setCookie('userpassword', $('#password').val().trim(),7);
+                    setCookie('usertype',data.userType,7);
+                }else{
+                    delCookie('username');
+                    delCookie('usertype');
+                    delCookie('userpassword');
+                }
+            }
+            else {
+                my_tip.alert(data.message);
+            }
+        }
+    });
+}
+
 $(window).resize(resizeCanvas);
 function resizeCanvas() {
     var canvas = $('#snowCanvas');

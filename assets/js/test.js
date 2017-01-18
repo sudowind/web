@@ -34,6 +34,10 @@ function init_value() {
     question_id = 0;
 }
 
+function generate_question_for_teacher(data) {
+
+}
+
 function generate_question(data) {
     // 以下两个变量控制
     var selectable = '';
