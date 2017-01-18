@@ -231,6 +231,7 @@
 
 #note_container {
     height: 336px;
+    overflow-y: scroll;
 }
 
 #submit_note {

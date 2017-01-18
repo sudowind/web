@@ -3,6 +3,7 @@
  */
 var has_load_note_page = false;
 var current_count = 1;
+var item_per_page = 100;
 
 function load_notes(page, student_id) {
     current_count = 1;
@@ -17,7 +18,7 @@ function load_notes(page, student_id) {
         url: URL_BASE + '/tasks/web/note/list',
         data: {
             page: page - 1,
-            itemPerPage: 2,
+            itemPerPage: item_per_page,
             bookId: $.getUrlParam('book_id'),
             studentId: student_id
         },

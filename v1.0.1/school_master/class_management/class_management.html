@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>班级管理</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+    <link rel="stylesheet" href="../../../libs/select2-4.0.3/dist/css/select2.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/base.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/nav_bar.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/question.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/class_management/class_management.css">
+
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="teacher-info" style="background: url(../../../assets/img/teacher/teacher_without_class.png) no-repeat;">
+            <div class="head-img">
+                <img src="" alt="">
+            </div>
+            <div class="info-account">考拉阅读账号：H</div>
+            <div class="info-name"></div>
+            <br>
+            <div class="info-school"></div>
+        </div>
+        <div class="content">
+            <div class="nav-part">
+                <div id="class_detail_button" class="selected" value="1" onclick="on_button_click(this);"><img src="../../../assets/img/school_master/class_detail_selected.png" alt=""> 班级详情</div>
+                <div id="claim_class_button" class="unselected" value="0" onclick="on_button_click(this);"><img src="../../../assets/img/school_master/claim_class_unselected.png" alt=""> 认领班级</div>
+            </div>
+            <div id="class_detail_part" >
+                <div class="part-basis select-part">
+                    <table>
+                        <tr>
+                            <td class="select-title">年级信息：</td>
+                            <td class="select-grade">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="select-title">班级信息：</td>
+                            <td class="select-class"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="part-basis class-info">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>班级名称</td>
+                            <td>班级代码</td>
+                            <td>带班老师</td>
+                            <td>老师考拉阅读账号</td>
+                            <td>操作</td>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>一年级一班</td>
+                                <td>000001</td>
+                                <td>张三</td>
+                                <td>T123456</td>
+                                <td><u>查看</u></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="claim_class_part" style="display: none;">
+                <div class="class-info part-basis">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>班级名称</td>
+                            <td>班级代码</td>
+                            <td>带班老师</td>
+                            <td>老师考拉阅读账号</td>
+                            <td>是否认领该班级</td>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>一年级一班</td>
+                                <td>000001</td>
+                                <td>张三</td>
+                                <td>T123456</td>
+                                <td><img class="single-select" value="0" src="../../../assets/img/school_master/unchecked.png" alt=""></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="btn">认&nbsp;&nbsp;&nbsp;&nbsp;领</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tmp_modal"></div>
+    <div class="modal fade" id="install_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin-top: 200px;">
+            <div class="modal-content">
+                <div id="modal_info">
+                    <div class="close-modal" data-dismiss="modal"><img src="../../../assets/img/close_modal.png" alt=""></div>
+                    <div id="create_class_box">
+                        <div>
+                            <div class="table-head">选择年级：</div>
+                            <table id="table_grade_select">
+                                <tr>
+                                </tr>
+                            </table>
+                        </div>
+                        <br />
+                        <div>
+                            <div class="table-head">选择班级：</div>
+                            <table>
+                                <tr>
+                                    <td class="class-option">1班</td>
+                                    <td class="class-option">2班</td>
+                                    <td class="class-option">3班</td>
+                                    <td class="class-option">4班</td>
+                                    <td class="class-option">5班</td>
+                                    <td class="class-option">6班</td>
+                                <tr>
+                                    <td class="class-option">7班</td>
+                                    <td class="class-option">8班</td>
+                                    <td class="class-option">9班</td>
+                                    <td class="class-option">10班</td>
+                                    <td colspan="2" id="class_input"><input placeholder="请输入自定义班级名称"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="class_submit_button" data-dismiss="modal" class="btn disabled">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                        <div id="class_cancel_button" data-dismiss="modal" class="btn">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/echarts.min.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/select2.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
+
+<script src="../../../assets/js/test.js"></script>
+<script src="../../../assets/js/plot.js"></script>
+<script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/login.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
+<script src="../../../assets/js/school_master/class_management/class_management.js"></script>
+<script>
+    $(document).ready(function () {
+        load('../../../include/html/', 'school_master');
+
+        load_teacher_info();
+        window_resize_teacher();
+    });
+    $(window).resize(window_resize_teacher);
+
+    function header_cb() {
+        $('#management_button').addClass('header-nav-selected').css('color', '#44435b');
+    }
+</script>
+</body>
+</html>

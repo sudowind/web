@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>阅读任务</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/base.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/question.css">
+
+    <!--<link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">-->
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/tasks/teacher_detail.css">
+
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="teacher-info" style="background: url(../../../assets/img/teacher/teacher_without_class.png) no-repeat;">
+            <div class="head-img">
+                <img src="" alt="">
+            </div>
+            <div class="info-account">考拉阅读账号：H</div>
+            <div class="info-name"></div>
+            <br>
+            <div class="info-school"></div>
+        </div>
+        <div class="content">
+            <!--<div class="seek">-->
+            <!--<span class="frame">-->
+            <!--<input type="text" placeholder="请输入图书名"/>-->
+            <!--</span>-->
+            <!--<span class="button">-->
+            <!--<input  type="submit" value="搜索一下"/>-->
+            <!--</span>-->
+            <!--</div>-->
+            <div class="part-basis select-part">
+                <table>
+                    <tr>
+                        <td class="select-title">年&nbsp;&nbsp;&nbsp;&nbsp;级：</td>
+                        <td class="select-grade">
+                            <!--<span class="index option">全部</span>-->
+                            <span class="index option">2011级</span>
+                            <span class="option">2012级</span>
+                            <span class="option">2013级</span>
+                            <span class="option">2014级</span>
+                            <span class="option">2015级</span>
+                            <span class="option">2016级</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="select-title">老&nbsp;&nbsp;&nbsp;&nbsp;师：</td>
+                        <td class="select-teacher">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="select-title">所带班级：</td>
+                        <td class="select-class">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="book-part part-basis">
+                <table>
+                    <thead>
+                    <tr>
+                        <td>图书</td>
+                        <td>已读完人数</td>
+                        <td>测试正确率</td>
+                        <td>阅读时间</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr id="row1"></tr>
+                    <tr id="row2"></tr>
+                    <tr id="row3"></tr>
+                    </tbody>
+                </table>
+                <div class="tcdPageCode" id="teacher_task_pagination"></div>
+            </div>
+
+        </div>
+    </div>
+    <div id="tmp_modal"></div>
+    <div class="modal fade" id="install_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin-top: 200px;">
+            <div class="modal-content">
+                <div id="modal_info">
+                    <div class="close-modal" data-dismiss="modal"><img src="../../../assets/img/close_modal.png" alt=""></div>
+                    <div id="create_class_box">
+                        <div>
+                            <div class="table-head">选择年级：</div>
+                            <table id="table_grade_select">
+                                <tr>
+                                </tr>
+                            </table>
+                        </div>
+                        <br />
+                        <div>
+                            <div class="table-head">选择班级：</div>
+                            <table>
+                                <tr>
+                                    <td class="class-option">1班</td>
+                                    <td class="class-option">2班</td>
+                                    <td class="class-option">3班</td>
+                                    <td class="class-option">4班</td>
+                                    <td class="class-option">5班</td>
+                                    <td class="class-option">6班</td>
+                                <tr>
+                                    <td class="class-option">7班</td>
+                                    <td class="class-option">8班</td>
+                                    <td class="class-option">9班</td>
+                                    <td class="class-option">10班</td>
+                                    <td colspan="2" id="class_input"><input placeholder="请输入自定义班级名称"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="class_submit_button" data-dismiss="modal" class="btn disabled">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                        <div id="class_cancel_button" data-dismiss="modal" class="btn">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/echarts.min.js"></script>
+
+<script src="../../../assets/js/test.js"></script>
+<script src="../../../assets/js/plot.js"></script>
+<script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/login.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
+<script src="../../../assets/js/school_master/tasks/teacher_detail.js"></script>
+<script>
+    $(document).ready(function () {
+        load('../../../include/html/', 'school_master');
+        init();
+        init_grade();
+        load_teacher_info();
+        window_resize_teacher();
+    });
+    $(window).resize(window_resize_teacher);
+
+    function header_cb() {
+        $('#tasks_button').addClass('header-nav-selected').css('color', '#44435b');
+    }
+</script>
+</body>
+</html>

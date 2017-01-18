@@ -1,0 +1,293 @@
+/*返回按钮*/
+.return-button {
+    margin: -50px 0 0 675px;
+    background: #fb9e1d;
+    color: #ffffff;
+}
+
+.return-button p {
+    color: #ffffff;
+}
+
+/*学生照片部分*/
+.student-img-box {
+    float: left;
+    width: 170px;
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 250px;
+    margin-top: -12px;
+    margin-right: 20px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.student-img {
+    display:inline-block;
+    position:relative;
+    width:100px;
+    height:100px;
+    overflow:hidden;
+    border-radius:50%;
+
+    margin: 30px 5px 13px;
+}
+
+.student-img img {
+    width:100%;
+}
+
+.student-img-box div {
+    font-size: 18px;
+}
+
+.student-img-box div small {
+    color: #999999;
+}
+
+/*图书摘要信息部分*/
+.book-info-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 250px;
+    margin-top: -12px;
+    margin-bottom: 20px;
+    position: relative;
+    float: left;
+}
+
+.book-info-box .book-image {
+    width: 150px;
+    height: 190px;
+    margin: 20px 20px 0 20px;
+    float: left;
+    text-align: center;
+}
+
+.book-info-box p {
+    clear: both;
+    padding-left: 27px;
+}
+
+.book-info-box .book-info {
+    width: 328px;
+    margin: 25px 10px 0 10px;
+    float: left;
+}
+
+.book-info-box .book-info table {
+    float: left;
+    font-size: 14px;
+    margin: 20px 0 0 0;
+}
+
+.book-info-box .book-info table tbody tr td{
+    height: 40px;
+    padding-right: 20px;
+}
+
+.book-info-box .book-info table tbody tr td span{
+    color: #afafaf;
+}
+
+/*文章详细信息部分*/
+.book-detail-box {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    height: 800px;
+    font-size: 16px;
+    clear: both;
+}
+
+/*nav_bar*/
+.book-detail-box .nav-bar {
+    height: 50px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.book-detail-box .nav-bar .nav-button{
+    cursor: pointer;
+    width: 25%;
+    height: 50px;
+    background: #fb9e1d;
+    float: left;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    position: relative;
+    padding-top: 12px;
+}
+
+.book-detail-box .nav-bar .nav-button:not(:first-child) {
+    border-left: 1px solid #e8e8e8;
+}
+
+.book-detail-box .nav-bar .nav-button img {
+    margin-right: 10px;
+}
+
+.btn-content-wrapper {
+    text-align: center;
+}
+
+.book-detail-box .nav-bar .nav-button div {
+    padding-top: 12px;
+    padding-left: 10px;
+    float: left;
+    color: #000000;
+}
+
+/*文章内容简介*/
+.book-detail-box .book-detail-content {
+    padding: 20px;
+}
+
+.book-detail-box .book-detail-content p {
+    line-height: 150%;
+}
+
+#comment_container {
+    height: 720px;
+}
+
+/*note部分*/
+#node_part {
+    margin: 10px;
+}
+
+.note {
+    margin: 30px 10px 10px;
+
+}
+
+.note_id {
+    background: #fb9e1d;
+    padding: 5px 10px;
+    color: #ffffff;
+    float: left;
+}
+
+.note_time {
+    padding: 5px;
+    float: right;
+}
+
+.note_content {
+    clear: both;
+    padding-top: 10px;
+    height: 140px;
+}
+
+#note_container {
+    height: 748px;
+    overflow-y: scroll;
+}
+
+/*测试题部分*/
+#test_part div select {
+    color: grey;
+    float: left;
+    width: 170px;
+    padding: 3px 10px;
+    margin: 190px 10px 10px;
+    border-radius: 3px;
+}
+
+#test_part {
+    margin: 10px;
+}
+
+#progress_bar {
+    float: left;
+    width: 172px;
+    height: 172px;
+    margin: 10px;
+    left: 78px;
+    position: relative;
+}
+
+/*计分板部分*/
+.grade-board {
+    clear: both;
+    background: #e8e8e8;
+    margin: 0 70px 0 70px;
+    height: 80px;
+    padding: 1px 1px 1px 0;
+}
+
+.grade-content {
+    background: #FFFFFF;
+    height: 58px;
+    margin: 10px;
+    padding: 9px;
+    overflow: auto;
+}
+
+.grade-example {
+    float: left;
+    width: 60px;
+    margin-top: -5px;
+}
+
+.grade-detail {
+    color: #FFFFFF;
+    padding: 0 5px 5px 5px;
+    margin: -10px 10px 0 10px;
+    float: left;
+    width: 20px;
+}
+
+.grade-right {
+    background: #fb9e1d;
+}
+
+.grade-wrong {
+    background: #08dec5;
+}
+
+/*解析答案*/
+.answer {
+    padding: 7px 0 7px 10px;
+    margin: 10px 10px 10px 15px;
+    border: solid 1px #e8e8e8;
+    color: #fb9e1d;
+    /*display: none;*/
+    position: relative;
+}
+
+.answer-analysis {
+    width: 450px;
+    float: left;
+}
+
+.true-answer {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    color: #FFFFFF;
+    background: #fb9e1d;
+    padding-top: 14px;
+    margin-right:10px;
+
+    float: right;
+}
+
+.answer div:last-child {
+    clear: both;
+}
+
+hr {
+    clear: both;
+}
+
+
+/*分页部分*/
+#comment_pagination {
+    padding-top: 227px;
+}
+
+#note_pagination {
+    padding-top: 270px;
+}

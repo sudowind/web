@@ -32,8 +32,8 @@
     <div id="login_part">
         <img src="../assets/img/login_logo.png" alt="logo">
         <div>
-            <label for="account"></label><input type="text" id="account" placeholder="请输入账号/手机号/邮箱"><br>
-            <label for="password"></label><input type="password" id="password" placeholder="请输入密码">
+            <label for="account"></label><input type="text" id="account" placeholder="请输入账号/手机号/邮箱" onkeydown="if(event.keyCode == 13){login();}"><br>
+            <label for="password"></label><input type="password" id="password" placeholder="请输入密码" onkeydown="if(event.keyCode == 13){login();}">
             <div id="login_button" class="btn">登&nbsp;&nbsp;&nbsp;&nbsp;录</div>
         </div>
         <div id="rem_psd">

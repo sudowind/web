@@ -119,7 +119,7 @@ function load_chart(element_id) {
         var end_time = new Date();
         var end_time_stamp = end_time.getTime() - 2400000;
         var start_time_stamp = end_time_stamp - step * 11;
-        console.log(end_time_stamp);
+        // console.log(end_time_stamp);
         $.ajax({
             xhrFields: {
                 withCredentials: true
@@ -161,7 +161,7 @@ var sort_func = function(a, b) {
 };
 
 function set_option(chart_type, data, index) {
-    console.log(index);
+    // console.log(index);
     if (chart_type == 'line') {
         var student_list = [];
         var class_list = [];

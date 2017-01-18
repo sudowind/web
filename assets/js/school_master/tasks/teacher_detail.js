@@ -54,7 +54,7 @@ function load_table_row(row_selector, data, class_id, teacher_id) {
             }
         });
         bars[1] = new ProgressBar.Circle(row_selector + ' td:nth-child(' + (3).toString() + ') div', {
-            color: '#fb9e1d',
+            color: '#44435b',
             // This has to be the same size as the maximum width to
             // prevent clipping
             strokeWidth: 12,
@@ -64,8 +64,8 @@ function load_table_row(row_selector, data, class_id, teacher_id) {
             text: {
                 autoStyleContainer: false
             },
-            from: { color: '#fb9e1d', width: 8 },
-            to: { color: '#fb9e1d', width: 12 },
+            from: { color: '#44435b', width: 8 },
+            to: { color: '#44435b', width: 12 },
             // Set default step function for all animate calls
             step: function(state, circle) {
                 circle.path.setAttribute('stroke', state.color);

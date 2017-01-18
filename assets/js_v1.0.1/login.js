@@ -184,7 +184,7 @@ function login() {
                             window.open('../../../v1.0.1/teacher/library/library.html', '_self');
                         break;
                     case 4:
-                        window.open('../../../v1.0.1/school_master/tasks/teacher_detail.html', '_self');
+                        window.open('../../../v1.0.1/school_master/library/library.html', '_self');
                         break;
                 }
                 setCookie('USER', data.userId);

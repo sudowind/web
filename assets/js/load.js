@@ -193,7 +193,7 @@ function load_teacher_info() {
             $('.info-school').html(data.school.name);
             $('.info-account').append(data.id);
             $('.head-img img').attr('src', data.headimg);
-            if (data.classes.length > 0) {
+            if (data.classes != null && data.classes.length > 0) {
                 var html = '';
                 var i = 0;
                 for (i = 0; i < data.classes.length; ++i) {
