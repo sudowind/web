@@ -7,7 +7,7 @@ function left_bar_cb() {
     $('#library_button').attr('class', 'side-button-selected left-side-button');
 }
 
-var button_ids = ['intro', 'comment', 'student'];
+var button_ids = ['intro', 'comment', 'student', 'test'];
 
 function on_button_click(e) {
     //alert($(e).attr('id'));

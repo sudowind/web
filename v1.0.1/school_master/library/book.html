@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>图书馆</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/base.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/question.css">
+
+    <!--<link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">-->
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/library/book.css">
+
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="teacher-info" style="background: url(../../../assets/img/teacher/teacher_without_class.png) no-repeat;">
+            <div class="head-img">
+                <img src="" alt="">
+            </div>
+            <div class="info-account">考拉阅读账号：H</div>
+            <div class="info-name"></div>
+            <br>
+            <div class="info-school"></div>
+        </div>
+        <div class="content">
+            <a href="#"><div align="right" class="return-button btn" onclick="window.open('library.html', '_self')"><p>返回</p></div></a>
+
+            <div class="book-info-box">
+                <div class="book-image">
+                    <img src="" alt="" width="90%" height="90%">
+                    <!--<p class="btn" data-toggle="modal" data-target="#myModal">添加到“阅读任务”</p>-->
+
+                </div>
+                <div class="book-info">
+                    <div><h3><b id="book_name"></b>&nbsp;<small id="display_type"></small></h3></div>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>作者&nbsp;&nbsp;<span id="author"></span></td>
+                            <td>出版社&nbsp;&nbsp;<span id="publisher"></span></td>
+                        </tr>
+                        <tr>
+                            <td>字数&nbsp;&nbsp;<span id="word_count"></span></td>
+                            <td>ISBN编号&nbsp;&nbsp;<span id="isbn"></span></td>
+                        </tr>
+                        <tr>
+                            <td>阅读等级&nbsp;&nbsp;<span id="level_score"></span></td>                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="btn" id="online_read">在线阅读</p>
+            </div>
+
+            <div class="book-detail-box" >
+                <div class="nav-bar">
+                    <div class="nav-button" id="intro_button" onclick="on_button_click(this);" value="1" style="color: #FFFFFF" btn-type="introduce">
+                        <img src="../../../assets/img/student/book/intro_selected.png" alt="">简介
+                    </div>
+                    <div class="nav-button" id="comment_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="comments">
+                        <img src="../../../assets/img/student/book/comment_unselected.png" alt="">评论(<span id="comment_count"></span>)
+                    </div>
+                    <div class="nav-button" id="test_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="comments">
+                        <img src="../../../assets/img/student/book/test_unselected.png" alt="">测试
+                    </div>
+                    <div class="nav-button" id="student_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="student">
+                        <img src="../../../assets/img/student/book/student_unselected.png" alt="">在读学生详情
+                    </div>
+                </div>
+                <div class="book-detail-content" id="intro_part">
+                    <!--<p>&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗、老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们干了一件很不平凡的事情…作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</p>-->
+                </div>
+
+                <div class="book-comment" style="display: none;" id="comment_part">
+                    <div id="comment_container"></div>
+
+                    <textarea placeholder="发表一下你的评论吧……" id="user_comment"></textarea>
+                    <p class="btn" id="submit_comment" onclick="">发表评论</p>
+
+                    <!--分页-->
+                    <div class="tcd-wrapper">
+                        <div class="tcdPageCode" id="comment_pagination"></div>
+                    </div>
+                </div>
+
+                <div id="test_part" style="display: none">
+                    <div class="progress-part">
+                        <label for="chapter_selector"></label>
+                        <select id="chapter_selector"></select>
+                        <hr />
+
+                    </div>
+                    <div class="question-part">
+
+                        <div id="question_type_1" class="hide">
+                            <div class="question-class"><b style="color: #9f502a;">&nbsp;&nbsp;&nbsp;&nbsp;选择题：请选择唯一正确答案的编号填入答卷中</b></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="student_part">
+                    <div id="overall_info">
+                        <label for="grade_selector"></label>
+                        <select id="grade_selector">
+                            <!--<optgroup label="2011级">-->
+                            <!--<option value="">1班</option>-->
+                            <!--<option value="">2班</option>-->
+                            <!--</optgroup>-->
+
+                            <!--<option value="">全部年级</option>-->
+                            <!--<option value="">全部年级</option>-->
+                        </select>
+                        <label for="class_selector"></label>
+                        <select id="class_selector">
+                        </select>
+                        <label for="teacher_selector"></label>
+                        <select id="teacher_selector">
+                        </select>
+                        <div id="read_count">
+                            <span>0</span>位同学已读完
+                        </div>
+                    </div>
+                    <div class="student-info-part">
+                        <table>
+                            <thead>
+                            <tr>
+                                <td>账号</td>
+                                <td>姓名</td>
+                                <td>当前进度</td>
+                                <td>测试题分数</td>
+                                <td>读书笔记</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr id="row0">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row1">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row2">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row3">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row4">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row5">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row6">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="row7">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tcdPageCode" id="student_pagination">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="tmp_modal"></div>
+    <div class="modal fade" id="install_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin-top: 200px;">
+            <div class="modal-content">
+                <div id="modal_info">
+                    <div class="close-modal" data-dismiss="modal"><img src="../../../assets/img/close_modal.png" alt=""></div>
+                    <div id="create_class_box">
+                        <div>
+                            <div class="table-head">选择年级：</div>
+                            <table id="table_grade_select">
+                                <tr>
+                                </tr>
+                            </table>
+                        </div>
+                        <br />
+                        <div>
+                            <div class="table-head">选择班级：</div>
+                            <table>
+                                <tr>
+                                    <td class="class-option">1班</td>
+                                    <td class="class-option">2班</td>
+                                    <td class="class-option">3班</td>
+                                    <td class="class-option">4班</td>
+                                    <td class="class-option">5班</td>
+                                    <td class="class-option">6班</td>
+                                <tr>
+                                    <td class="class-option">7班</td>
+                                    <td class="class-option">8班</td>
+                                    <td class="class-option">9班</td>
+                                    <td class="class-option">10班</td>
+                                    <td colspan="2" id="class_input"><input placeholder="请输入自定义班级名称"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="class_submit_button" data-dismiss="modal" class="btn disabled">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                        <div id="class_cancel_button" data-dismiss="modal" class="btn">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/echarts.min.js"></script>
+
+<script src="../../../assets/js/test.js"></script>
+<script src="../../../assets/js/plot.js"></script>
+<script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/login.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
+<script src="../../../assets/js/school_master/library/book.js"></script>
+<script>
+    $(document).ready(function () {
+        load('../../../include/html/', 'school_master');
+        init();
+        load_page();
+        load_comments(1);
+        load_teacher_info();
+        window_resize_teacher();
+    });
+    $(window).resize(window_resize_teacher);
+
+    function header_cb() {
+        $('#library_button').addClass('header-nav-selected').css('color', '#44435b');
+    }
+</script>
+</body>
+</html>

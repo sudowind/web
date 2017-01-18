@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>阅读报告</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+    <link rel="stylesheet" href="../../../libs/select2-4.0.3/dist/css/select2.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/base.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/nav_bar.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/question.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/report/student_report.css">
+
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="teacher-info" style="background: url(../../../assets/img/teacher/teacher_without_class.png) no-repeat;">
+            <div class="head-img">
+                <img src="" alt="">
+            </div>
+            <div class="info-account">考拉阅读账号：H</div>
+            <div class="info-name"></div>
+            <br>
+            <div class="info-school"></div>
+        </div>
+        <div class="content">
+            <!--<a href="#"><div align="right" class="return-button btn"><p>返回</p></div></a>-->
+
+
+            <div class="student-img-box">
+                <div class="student-img">
+                    <img src="" alt="">
+                </div>
+                <div><span id="student_name"></span><br />
+                    <small><span id="school_name"></span><br /><span id="class_name"></span></small></div>
+            </div>
+            <div class="part-basis" id="reading_book">
+                <div id="reading-tag">
+                    <div>正在阅读的书籍</div>
+                </div>
+                <div id="left_slide" class="slide-button" value="-1">
+                    <img src="../../../assets/img/left_slide.png" alt="">
+                </div>
+                <div class="book-info-box">
+                    <div class="book-image">
+                        <img src="" alt="" width="90%" height="90%">
+                    </div>
+                    <div class="book-info">
+                        <div>
+                            <div id="book_name"></div>
+                            <div id="author"></div>
+                            <div id="progress_part">
+                                <span id="progress-info">阅读进度：已读完<span id="percent">72</span>%</span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                         aria-valuenow="45"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 0">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div id="right_slide" class="slide-button" value="1">
+                    <img src="../../../assets/img/right_slide.png" alt="">
+                </div>
+                <div class="clear-both"></div>
+            </div>
+
+            <!--阅读能力部分-->
+            <div class="book-detail-box" >
+                <div class="nav-bar">
+                    <div class="nav-button" id="count_button" onclick="on_button_click(this);" value="1"
+                         style="color: #ffffff"
+                         btn-type="read_count">
+                        <img src="../../../assets/img/teacher/report/count_selected.png" alt="">阅读量
+                    </div>
+                    <div class="nav-button" id="ability_button" style="background: #f9f9f9"
+                         onclick="on_button_click(this);"
+                         value="0" btn-type="read_ability">
+                        <img src="../../../assets/img/teacher/report/ability_unselected.png" alt="">阅读能力维度解析
+                    </div>
+                </div>
+
+                <div id="count_part">
+                    <div id="count_figure"></div>
+                    <div class="figure-switch_bar">
+                        <!--<div class="figure-switch">周</div>-->
+                        <!--<div class="figure-switch">月</div>-->
+                        <div class="figure-switch">学年</div>
+                        <!--<div class="figure-switch">年</div>-->
+                    </div>
+                </div>
+
+                <div id="ability_part">
+                    <div id="ability_figure">
+                    </div>
+                </div>
+
+            </div>
+
+            <!--选书部分-->
+            <div class="select-book-box part-basis">
+                <div id="select_book_title">
+                    <div>
+                        <img src="../../../assets/img/teacher/report/read_book.png" alt="">
+                        <span>已读书籍</span>
+                    </div>
+                </div>
+                <div id="select_book_content">
+                </div>
+                <div class="tcdPageCode" id="book_pagination"></div>
+            </div>
+        </div>
+    </div>
+    <div id="tmp_modal"></div>
+    <div class="modal fade" id="install_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin-top: 200px;">
+            <div class="modal-content">
+                <div id="modal_info">
+                    <div class="close-modal" data-dismiss="modal"><img src="../../../assets/img/close_modal.png" alt=""></div>
+                    <div id="create_class_box">
+                        <div>
+                            <div class="table-head">选择年级：</div>
+                            <table id="table_grade_select">
+                                <tr>
+                                </tr>
+                            </table>
+                        </div>
+                        <br />
+                        <div>
+                            <div class="table-head">选择班级：</div>
+                            <table>
+                                <tr>
+                                    <td class="class-option">1班</td>
+                                    <td class="class-option">2班</td>
+                                    <td class="class-option">3班</td>
+                                    <td class="class-option">4班</td>
+                                    <td class="class-option">5班</td>
+                                    <td class="class-option">6班</td>
+                                <tr>
+                                    <td class="class-option">7班</td>
+                                    <td class="class-option">8班</td>
+                                    <td class="class-option">9班</td>
+                                    <td class="class-option">10班</td>
+                                    <td colspan="2" id="class_input"><input placeholder="请输入自定义班级名称"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="class_submit_button" data-dismiss="modal" class="btn disabled">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                        <div id="class_cancel_button" data-dismiss="modal" class="btn">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/echarts.min.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/select2.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
+
+<script src="../../../assets/js/test.js"></script>
+<script src="../../../assets/js/plot.js"></script>
+<script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/login.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
+<script src="../../../assets/js/school_master/report/student_report.js"></script>
+<script>
+    $(document).ready(function () {
+        load('../../../include/html/', 'school_master');
+        load_chart('count_figure');
+        $('.read-book').tooltip();
+        init();
+        load_teacher_info();
+        window_resize_teacher();
+    });
+    $(window).resize(window_resize_teacher);
+
+    function header_cb() {
+        $('#report_button').addClass('header-nav-selected').css('color', '#44435b');
+    }
+</script>
+</body>
+</html>

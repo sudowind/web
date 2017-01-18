@@ -36,10 +36,11 @@
             <div class="info-school"></div>
             <div class="info-certification">未认证&nbsp;<img src="../../../assets/img/teacher/no_ceti.png"></div>
         </div>
-        <div class="content">
+        <div class="content" style="display: none;" id="has_class">
             <div class="classes-part part-basis">
                 <table>
                     <tr>
+
                     </tr>
                 </table>
             </div>
@@ -52,7 +53,7 @@
                 <table id="head_table">
                     <thead>
                     <tr>
-                        <td>全选</td>
+                        <td>全选 <img class="total-selector" src="../../../assets/img/teacher/single_unselected.png" alt=""></td>
                         <td>考拉学号</td>
                         <td>姓名</td>
                         <td>性别</td>
@@ -64,11 +65,18 @@
                     <table>
                         <tbody>
                         <tr>
-                            <td>全选</td>
-                            <td>考拉学号</td>
-                            <td>姓名</td>
-                            <td>性别</td>
-                            <td>状态</td>
+                            <td><img class="single-selector" onclick="on_single_select_click(this);" student_id="1" src="../../../assets/img/teacher/single_unselected.png" alt="" value="0"></td>
+                            <td>S 123456</td>
+                            <td>苏琪</td>
+                            <td>男</td>
+                            <td>已加入班级</td>
+                        </tr>
+                        <tr>
+                            <td><img class="single-selector" onclick="on_single_select_click(this);" student_id="2" src="../../../assets/img/teacher/single_unselected.png" alt="" value="0"></td>
+                            <td>S 123456</td>
+                            <td>苏琪</td>
+                            <td>男</td>
+                            <td>待审核</td>
                         </tr>
                         </tbody>
                     </table>
@@ -81,8 +89,55 @@
             </div>
 
         </div>
+        <div class="content" id="has_no_class">
+            <div class="part-basis">
+                <img src="../../../assets/img/no_class.png" alt="">
+                <div style="clear: both;"></div>
+                <div class="btn"><img src="../../../assets/img/white_plus.png" alt=""> 创建班级</div>
+            </div>
+        </div>
     </div>
     <div id="tmp_modal"></div>
+    <div class="modal fade" id="install_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin-top: 200px;">
+            <div class="modal-content">
+                <div id="modal_info">
+                    <div class="close-modal" data-dismiss="modal"><img src="../../../assets/img/close_modal.png" alt=""></div>
+                    <div id="create_class_box">
+                        <div>
+                            <div class="table-head">选择年级：</div>
+                            <table id="table_grade_select">
+                                <tr>
+                                </tr>
+                            </table>
+                        </div>
+                        <br />
+                        <div>
+                            <div class="table-head">选择班级：</div>
+                            <table>
+                                <tr>
+                                    <td class="class-option">1班</td>
+                                    <td class="class-option">2班</td>
+                                    <td class="class-option">3班</td>
+                                    <td class="class-option">4班</td>
+                                    <td class="class-option">5班</td>
+                                    <td class="class-option">6班</td>
+                                <tr>
+                                    <td class="class-option">7班</td>
+                                    <td class="class-option">8班</td>
+                                    <td class="class-option">9班</td>
+                                    <td class="class-option">10班</td>
+                                    <td colspan="2" id="class_input"><input placeholder="请输入自定义班级名称"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="class_submit_button" data-dismiss="modal" class="btn disabled">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                        <div id="class_cancel_button" data-dismiss="modal" class="btn">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div style="clear: both"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>

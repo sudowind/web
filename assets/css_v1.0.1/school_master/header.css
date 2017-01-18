@@ -1,0 +1,62 @@
+.header {
+    z-index: 1;
+    position: fixed;
+    background: #ffffff;
+    height: 50px;
+    box-shadow: 2px 0 5px #888888;
+}
+
+.header-content {
+    width: 70%;
+    margin: auto;
+}
+
+.logo {
+    /*margin-top: 4px;*/
+    width: 164px;
+    height: 49px;
+}
+
+.header-nav-bar {
+    /*width: 80%;*/
+    float: right;
+}
+
+.header-nav-bar div {
+    float: left;
+    height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    color: #999999;
+    font-size: 16px;
+}
+
+.header-extra {
+    padding: 14px 0;
+}
+
+.header-nav-button {
+    cursor: pointer;
+    padding: 14px 10px;
+}
+.header-nav-button:hover {
+    color: #44435b;
+
+    border-bottom: 3px solid #44435b;
+}
+
+.header-text {
+    cursor: pointer;
+    padding: 14px 10px;
+}
+.header-text:hover {
+    color: #44435b;
+}
+.header-text img {
+    margin-top: -1px;
+}
+
+.header-nav-selected {
+    color: #44435b;
+    border-bottom: 3px solid #44435b;
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>图书馆</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/base.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/question.css">
+
+    <!--<link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">-->
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/library/library.css">
+
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="teacher-info" style="background: url(../../../assets/img/teacher/teacher_without_class.png) no-repeat;">
+            <div class="head-img">
+                <img src="" alt="">
+            </div>
+            <div class="info-account">考拉阅读账号：H</div>
+            <div class="info-name"></div>
+            <br>
+            <div class="info-school"></div>
+        </div>
+        <div class="content">
+            <div class="seek">
+                <!--<div class="seek">-->
+                <!--<span class="frame">-->
+                <!--<input type="text" placeholder="请输入图书名"/>-->
+                <!--</span>-->
+                <!--<span class="button">-->
+                <!--<input  type="submit" value="搜索一下"/>-->
+                <!--</span>-->
+            </div>
+            <!--</div>-->
+            <div class="book ">
+                <div class="sort">
+                    <p>书籍内容：</p>
+                    <!--<span class="index" value="0">全部</span>-->
+                    <!--<span value="14">寓言故事</span>-->
+                    <!--<span value="15">自然科普</span>-->
+                    <!--<span value="6">儿童文学</span>-->
+                    <!--<span value="7">漫画</span>-->
+                    <!--<span value="8">绘本</span>-->
+                    <!--<span value="9">社科</span>-->
+                    <!--<span value="10">国学</span>-->
+                    <!--<span value="11">科幻</span>-->
+                    <!--<span value="12">卡通</span>-->
+                    <!--<span value="13">主题学习丛书</span>-->
+                </div>
+                <div class="grade">
+                    <p>阅读等级：</p>
+                    <span class="index" value="0">全部</span>
+                    <span value="600">600-700ER</span>
+                    <span value="700">700-800ER</span>
+                    <span value="800">800-900ER</span>
+                    <span value="900">900-1000ER</span>
+                    <span value="1000">1000-1100ER</span>
+                    <span value="1100">1100-1200ER</span>
+                    <img src="../../../assets/img/teacher/more_info_teacher.png" alt="" data-html="true" data-toggle="tooltip" title="" id="level_more_info">
+                </div>
+                <div class="read-lv">
+                    <!--<p>阅读等级：</p>-->
+                    <div class="box">
+                        <!--<input onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">-->
+                        <input class="num-min" type="number" min="600" max="1199" step="50" value="" placeholder="600" oninput="if(value.length>4)value=value.slice(0,4)"/>
+                        <img src="../../../assets/img/teacher/heng.png" alt=""/>
+                        <input class="num-max" type="number" min="700" max="1200" step="50" value="" placeholder="1200" oninput="if(value.length>4)value=value.slice(0,4)" />
+                    </div>
+                    <div class="lv_button">
+                        <!--<input class="index submit" type="submit" value="确定"/>-->
+                        <!--<input class="del" type="button" value="取消"/>-->
+                        <span class="index btn-sure" >确定</span>
+                        <span class="btn-clear">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="books">
+                <div class="statistics">共<span></span>本读物</div>
+                <div id="book_list"></div>
+                <div class="tcdPageCode" id="teacher_task_pagination"></div>
+            </div>
+        </div>
+    </div>
+    <div id="tmp_modal"></div>
+    <div class="modal fade" id="install_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin-top: 200px;">
+            <div class="modal-content">
+                <div id="modal_info">
+                    <div class="close-modal" data-dismiss="modal"><img src="../../../assets/img/close_modal.png" alt=""></div>
+                    <div id="create_class_box">
+                        <div>
+                            <div class="table-head">选择年级：</div>
+                            <table id="table_grade_select">
+                                <tr>
+                                </tr>
+                            </table>
+                        </div>
+                        <br />
+                        <div>
+                            <div class="table-head">选择班级：</div>
+                            <table>
+                                <tr>
+                                    <td class="class-option">1班</td>
+                                    <td class="class-option">2班</td>
+                                    <td class="class-option">3班</td>
+                                    <td class="class-option">4班</td>
+                                    <td class="class-option">5班</td>
+                                    <td class="class-option">6班</td>
+                                <tr>
+                                    <td class="class-option">7班</td>
+                                    <td class="class-option">8班</td>
+                                    <td class="class-option">9班</td>
+                                    <td class="class-option">10班</td>
+                                    <td colspan="2" id="class_input"><input placeholder="请输入自定义班级名称"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="class_submit_button" data-dismiss="modal" class="btn disabled">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                        <div id="class_cancel_button" data-dismiss="modal" class="btn">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/echarts.min.js"></script>
+
+<script src="../../../assets/js/test.js"></script>
+<script src="../../../assets/js/plot.js"></script>
+<script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/login.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
+<script src="../../../assets/js/school_master/library/library.js"></script>
+<script>
+    $(document).ready(function () {
+        load('../../../include/html/', 'school_master');
+        var text = '<div align="left">推荐阅读等级：<br />一年级→600-700ER<br />二年级→700-800ER<br />三年级→800-900ER<br />四年级→900-1000ER<br />五年级→1000-1100ER<br />六年级→1100-1200ER</div>';
+        $('#level_more_info').attr('title', text);
+        $('[data-toggle=tooltip]').tooltip();
+        gen_book_type();
+        load_teacher_info();
+        window_resize_teacher();
+    });
+    $(window).resize(window_resize_teacher);
+
+    function header_cb() {
+        $('#library_button').addClass('header-nav-selected').css('color', '#44435b');
+    }
+</script>
+</body>
+</html>

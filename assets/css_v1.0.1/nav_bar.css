@@ -1,0 +1,35 @@
+.book-detail-box .nav-bar {
+    height: 50px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.book-detail-box .nav-bar .nav-button{
+    cursor: pointer;
+    width: 25%;
+    height: 50px;
+    background: #fb9e1d;
+    float: left;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    position: relative;
+    padding-top: 12px;
+}
+
+.book-detail-box .nav-bar .nav-button:not(:first-child) {
+    border-left: 1px solid #e8e8e8;
+}
+
+.book-detail-box .nav-bar .nav-button img {
+    margin-right: 10px;
+}
+
+.btn-content-wrapper {
+    text-align: center;
+}
+
+.introduce, .comments, .introduce, .test {
+    padding-top: 12px;
+    padding-left: 10px;
+    float: left;
+    color: #000000;
+}

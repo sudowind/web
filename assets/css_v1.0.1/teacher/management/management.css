@@ -37,6 +37,11 @@
     width: 550px;
 }
 
+.classes-part img {
+    margin: -2px 0 0 5px;
+    cursor: pointer;
+}
+
 .index {
     background: #fb9e1d;
     color: #ffffff;
@@ -65,6 +70,29 @@
 #head_table {
     width: 730px;
     text-align: center;
+    font-weight: bold;
+}
+#head_table tr td {
+    padding: 10px;
+}
+#head_table img {
+    margin-top: -4px;
+    cursor: pointer;
+}
+#head_table tr td:first-child {
+    width: 120px;
+}
+#head_table tr td:nth-child(2) {
+    width: 150px;
+}
+#head_table tr td:nth-child(3) {
+    width: 150px;
+}
+#head_table tr td:nth-child(4) {
+    width: 100px;
+}
+#head_table tr td:nth-child(5) {
+    width: 210px;
 }
 
 #student_table {
@@ -76,6 +104,28 @@
 #student_table table {
     width: 730px;
     text-align: center;
+}
+#student_table img {
+    margin-top: -4px;
+    cursor: pointer;
+}
+#student_table table tr td {
+    padding: 10px;
+}
+#student_table table tr td:first-child {
+    width: 120px;
+}
+#student_table table tr td:nth-child(2) {
+    width: 150px;
+}
+#student_table table tr td:nth-child(3) {
+    width: 150px;
+}
+#student_table table tr td:nth-child(4) {
+    width: 100px;
+}
+#student_table table tr td:nth-child(5) {
+    width: 210px;
 }
 
 .btn-part {
@@ -98,3 +148,85 @@
     background: #365a97;
 }
 
+/*创建班级*/
+#create_class_box {
+    margin: 20px;
+    padding: 20px 20px 0 20px;
+    background: #ffffff;
+}
+
+.table-head {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#create_class_box table td{
+    border: solid 1px #e8e8e8;
+    width: 80px;
+    cursor: pointer;
+}
+
+td input {
+    color: #fb9e1d;
+    text-align: center;
+    border: none;
+}
+
+#class_submit_button, #class_cancel_button {
+    /*margin-top: 20px;*/
+    margin: 20px;
+    background: #365a97;
+    padding: 5px 10px;
+    color: #ffffff;
+}
+
+*::-webkit-input-placeholder {
+    color: #fb9e1d;
+}
+*:-moz-placeholder {
+    color: #fb9e1d;
+}
+*:-ms-input-placeholder {
+    /* IE10+ */
+    color: #fb9e1d;
+}
+
+/*模态框*/
+#install_modal .modal-content {
+    width: 650px;
+    text-align: center;
+    /*height: 400px;*/
+}
+
+#install_modal .close-modal {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/*没有班级的情况*/
+#has_no_class .part-basis {
+    padding:50px;
+    height: 700px;
+}
+
+#has_no_class div {
+    background: #f6f6f6;
+    text-align: center;
+}
+
+#has_no_class div .btn {
+    background: #365a97;
+    color: #ffffff;
+    font-size: 26px;
+    margin-top: 50px;
+}
+#has_no_class div .btn:hover {
+    color: #ffffff;
+}
+
+#has_no_class div .btn img {
+    margin-top: -4px;
+}

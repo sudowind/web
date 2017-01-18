@@ -5,7 +5,7 @@ function left_bar_cb() {
     $('#tasks_button').attr('class', 'side-button-selected left-side-button');
 }
 
-var button_ids = ['intro', 'comment', 'student'];
+var button_ids = ['intro', 'comment', 'student', 'test'];
 function on_button_click(e) {
     //alert($(e).attr('id'));
     if ($(e).attr('value') == '0') {
