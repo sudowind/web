@@ -2,9 +2,6 @@
  * Created by yilong on 2017/1/12.
  */
 
-
-
-
 $('#modify_avatar').click(function () {
         $('#avatar-modal').modal('show');
     });
@@ -70,7 +67,7 @@ $(".change_password").on('click',function(){
 $("#change").on('click',function(){
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
-    $(".gray").css('display','none');
+    $(".none").css('display','none');
     $(".select_open").css('display','inline-block');
     $(".name input").css('display','inline-block');
     $("#change").css('display','none');
@@ -81,7 +78,7 @@ $("#change").on('click',function(){
 $("#back").on('click',function(){
     document.getElementById("boy").disabled = true;
     document.getElementById("girl").disabled = true;
-    $(".gray").css('display','inline-block');
+    $(".none").css('display','inline-block');
     $(".select_open").css('display','none');
     $(".name input").css('display','none');
     $("#change").css('display','inline-block');
@@ -228,65 +225,4 @@ $("#sure").click(function() {
         },
         error: ajax_error_handler
     });
-});
-
-
-//修改密码
-$("#password-1").blur(function(){
-    var oldPassword = $("#password-1").val();
-    var reg = /^[0-9]*$/;
-    //if(!verification(oldPassword)){
-    console.log(oldPassword);
-    if(!reg.test(oldPassword)){
-        $(".old-pw span").css("display","block");
-    }
-    $(this).focus(function(){
-        $(".old-pw span").css("display","none");
-    })
-});
-$("#password-2").blur(function(){
-    var newPassword = $("#password-2").val();
-    var reg = /^[0-9]*$/;
-    //if(!verification(newPassword)){
-    if(!reg.test(newPassword)){
-        $(".set-pw span").css("display","block");
-    }
-    $(this).focus(function(){
-        $(".set-pw span").css("display","none");
-    })
-});
-$("#password-3").blur(function(){
-    var newPassword = $("#password-2").val();
-    var surePassword = $("#password-3").val();
-    if(newPassword != surePassword){
-        $(".sure-pw span").css("display","block");
-    }else{
-        $(".sure-pw span").css("display","none");
-    }
-});
-$("#sure_change_pwd").click(function(){
-    var oldPassword = $("#password-1").val();
-    var newPassword = $("#password-2").val();
-    var surePassword = $("#password-3").val();
-    console.log(oldPassword);
-
-    if( newPassword = surePassword){
-        $.ajax({
-            xhrFields: {
-                withCredentials: true
-            },
-            type: 'PUT',
-            url: URL_BASE + '/users/web/user/current/password',
-            data: {
-                oldPassword: oldPassword,
-                newPassword: newPassword
-            },
-            success: function(data) {
-                my_tip.alert("修改密码成功");
-            },
-            error:function(data){
-                my_tip.alert("原始密码输入错误");
-            }
-        });
-    }
 });

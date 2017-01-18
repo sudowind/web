@@ -6,41 +6,18 @@
     <title>消息</title>
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/base.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/message/message.css"/>
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/message/message.css"/>
 </head>
 <body>
 <div id="page_header"></div>
 <div class="main-container">
     <div id="news clear ">
-        <div class="recommend_read_btn index">推荐阅读提醒</div>
         <div class="system_message_btn">系统消息</div>
         <div class="main">
-            <div class="recommend_read">
-                <div class="list">
-                    <p class="head-img">
-                        <img src="../../../assets/img/student/info/2.jpg" alt=""/>
-                    </p>
-                    <div class="right-content">
-                        <p class="name">赵云</p>
-                        <p class="time">2016-12-05</p>
-                        <p class="cont"><span class="book-name">《鸭子骑车记》</span>已添加到你的阅读任务，结束时间是<span class="end-time">2017-01-21</span>，请及时完成。</p>
-                    </div>
-                </div>
-                <div class="list">
-                    <p class="head-img">
-                        <img src="../../../assets/img/student/info/2.jpg" alt=""/>
-                    </p>
-                    <div class="right-content">
-                        <p class="name">赵云</p>
-                        <p class="time">2016-12-05</p>
-                        <p class="cont"><span class="book-name">《鸭子骑车记》</span>已添加到你的阅读任务，结束时间是<span class="end-time">2017-01-21</span>，请及时完成。</p>
-                    </div>
-                </div>
-            </div>
             <div class="system_message">
                 <div class="list">
                     <p class="head-img">
@@ -76,14 +53,14 @@
 <script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../assets/js/cookie.js"></script>
 <script src="../../../assets/js/login.js"></script>
-<script src="../../../assets/js_v1.0.1/student/message/message.js"></script>
+<script src="../../../assets/js_v1.0.1/teacher/message/message.js"></script>
 
 <script>
-    load('../../../include/html/');
+    load('../../../include/html/','teacher');
     $(document).ready(function () {
         $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
     });
-    $(window).resize(window_resize);
+    $(window).resize(window_resize_teacher);
 
     function header_cb() {
         $('#message_button').addClass('header-nav-selected').css('color', '#3c97cf');

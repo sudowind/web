@@ -104,6 +104,4 @@ $("#submit").click(function(){
             }
         });
     }
-
-
-})
+});
