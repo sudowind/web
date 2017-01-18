@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>我的主页</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link href="../../../libs/cropper/cropper.min.css" rel="stylesheet">
+    <link href="../../../libs/sitelogo/sitelogo.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../libs/select2-4.0.3/dist/css/select2.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/info/info.css"/>
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div id="info clear ">
+        <div class="personal_information index">个人信息</div>
+        <div class="change_password">修改密码</div>
+        <div class="main">
+            <div class="change_info">
+                <div id="crop-avatar">
+                    <div class="avatar-view">
+                        <img data-toggle="tooltip" title="修改头像" id="headimg" src="" alt="Logo">
+                        <div class="btn" id="modify_avatar">修改头像</div>
+                    </div>
+                </div>
+                <div class="info_list">
+                    <div class="group id">考拉阅读账号: <span></span></div>
+                    <div class="group name">姓名: <span class="gray">苏琪</span><input type="text"/></div>
+                    <div class="group sex">性别:
+                        <input id="boy" type="radio" disabled="disabled" value="男" name="auto" checked="checked">男
+                        <input id="girl" type="radio" disabled="disabled" value="女" name="auto">女
+                    </div>
+                    <div class="group birthday">出生年月:
+                        <span class="gray">2009-10-15</span>
+                        <span  class="select_open" style="display: none">
+                            <label for="select_year"></label>
+                            <select id="select_year"></select>年
+                            <label for="select_month"></label>
+                            <select id="select_month"></select>月
+                            <label for="select_day"></label>
+                            <select id="select_day"></select>日
+                        </span>
+                    </div>
+                    <div class="group age">年龄: <span>55</span></div>
+                    <div class="group star_sign">星座: <img src="../../../../assets/img/v1.0.1/xingzuo.png" alt=""/></div>
+                    <div class="group city">城市:
+                        <span class="gray">北京市丰台区</span>
+                        <span class="select_open" style="display: none">
+                            <label for="select_province"></label>
+                            <select id="select_province"></select>省
+                            <label for="select_city"></label>
+                            <select id="select_city"></select>市
+                            <label for="select_district"></label>
+                            <select id="select_district"></select>区
+                        </span>
+                    </div>
+                    <div class="group school">学校:
+                        <span class="gray">北京市丰台区小学</span>
+                        <span  class="select_open" style="display: none">
+                            <label for="select_school"></label>
+                            <select id="select_school"></select>
+                        </span>
+                    </div>
+                    <div class="group class_name">班级:
+                        <span class="gray">一年级一班</span>
+                        <span class="select_open" style="display: none">
+                            <label for="select_class"></label>
+                            <select id="select_class"></select>
+                        </span>
+                    </div>
+                    <div class="group phone">手机号: <span>18888888888</span><p> 绑定新的手机</p></div>
+                    <div class="group mail">邮箱: <span>邮箱未绑定</span><p>绑定邮箱</p></div>
+                    <div id="back">取消</div>
+                    <div id="change">修改</div>
+                    <div id="sure">确定</div>
+                </div>
+            </div>
+            <!--绑定手机-->
+            <div class="new_phone" style="display: none">
+                <div class="title">
+                    <div>绑定新的手机号码</div>
+                    <p></p>
+                </div>
+                <div class="pwd" style="display: none">
+                    <div class="group">
+                        <span class="tit">当前密码</span>
+                        <input  class="ipt" type="password" placeholder="请输入密码"/>
+                        <span class="error">密码输入错误，请重新输入</span>
+                    </div>
+                    <div class="up">上一步</div>
+                    <div class="down">下一步</div>
+                </div>
+                <div class="phone_num" style="display: none">
+                    <div class="group">
+                        <span class="tit">新的手机密码</span>
+                        <input  class="ipt" type="password" placeholder="请输入11位新的手机号"/>
+                        <div class="gain">获取验证码</div>
+                        <span class="error">手机格式错误，请输入新的手机号码</span>
+                    </div>
+                    <div class="group">
+                        <span class="tit">验证码</span>
+                        <input  class="ipt" type="password" placeholder="请输入验证码"/>
+                    </div>
+                    <div class="up">上一步</div>
+                    <div id="sure_new_phone">绑定</div>
+                </div>
+            </div>
+            <!--绑定邮箱-->
+            <div class="new_mail" style="display: none">
+                <div class="title">
+                    <div>绑定新的邮箱</div>
+                    <p></p>
+                </div>
+                <div class="pwd" style="display: none">
+                    <div class="group">
+                        <span class="tit">当前密码</span>
+                        <input  class="ipt" type="password" placeholder="请输入密码"/>
+                        <span class="error">密码输入错误，请重新输入</span>
+                    </div>
+                    <div class="up">上一步</div>
+                    <div class="down">下一步</div>
+                </div>
+                <div class="mail_num" style="display: none">
+                    <div class="group">
+                        <span class="tit">邮箱</span>
+                        <input  class="ipt" type="password" placeholder="请输入邮箱地址"/>
+                        <div class="gain">获取验证码</div>
+                        <span class="error">邮箱格式错误，请输入新的邮箱</span>
+                    </div>
+                    <div class="group">
+                        <span class="tit">验证码</span>
+                        <input  class="ipt" type="password" placeholder="请输入验证码"/>
+                    </div>
+                    <div class="up">上一步</div>
+                    <div id="sure_new_mail">绑定</div>
+                </div>
+            </div>
+            <!--修改密码-->
+            <div class="change_pwd" style="display: none">
+                <div class="cont">
+                    <div class="group">
+                        <span class="tit">当前密码</span>
+                        <input  class="ipt" type="password" placeholder="请输入当前密码"/>
+                    </div>
+                    <div class="group">
+                        <span class="tit">设置新密码</span>
+                        <input  class="ipt" type="password" placeholder="请输入新密码"/>
+                    </div>
+                    <div class="group">
+                        <span class="tit">确认新密码</span>
+                        <input  class="ipt" type="password" placeholder="请输入新密码"/>
+                    </div>
+                    <div id="sure_change_pwd">确认</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--头像裁剪-->
+    <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form class="avatar-form" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" type="button">&times;</button>
+                        <h4 class="modal-title" id="avatar-modal-label">修改头像</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="avatar-body">
+                            <div class="avatar-upload">
+                                <input class="avatar-src" name="avatar_src" type="hidden">
+                                <input class="avatar-data" name="avatar_data" type="hidden">
+                                <label for="avatarInput">图片上传(文件大小不能超过200kB)</label>
+                                <input class="avatar-input" id="avatarInput" name="img" type="file">
+                                <div id="alert_msg">文件过大，请重新选取</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="avatar-wrapper"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="preview-wrap-lg avatar-preview"><div class=" preview-lg"></div></div>
+                                    <div class="preview-wrap-md avatar-preview"><div class=" preview-md"></div></div>
+                                    <div class="preview-wrap-sm avatar-preview"><div class=" preview-sm"></div></div>
+                                </div>
+                            </div>
+                            <div class="row avatar-btns">
+                                <div class="col-md-9">
+                                    <div class="btn-group">
+                                        <button class="btn" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees"><i class="fa fa-undo"></i> 向左旋转</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees"><i class="fa fa-repeat"></i> 向右旋转</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn btn-block avatar-save" type="submit" id="headimg_submit"><i class="fa fa-save"></i> 保存修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+<script src="../../../libs/cropper/cropper.min.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/login.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/select2.full.js"></script>
+<script src="../../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
+<script src="../../../assets/js_v1.0.1/student/info/info.js"></script>
+<script src="../../../assets/js_v1.0.1/student/info/sitelogo.js"></script>
+
+<script>
+    load('../../../include/html/');
+    $(document).ready(function () {
+        $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
+    });
+    $(window).resize(window_resize);
+    load_info();
+</script>
+</body>
+</html>

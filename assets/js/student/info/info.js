@@ -81,23 +81,6 @@ function load_info() {
     });
 }
 
-//修改头像
-$('#submit').click(function () {
-    $.ajax({
-        url: URL_BASE + '/users/web/user/current/headimg',
-        type: 'PUT',
-        xhrFields: {
-            withCredentials: true
-        },
-        data: new FormData($('#headimg_form')[0]),
-        processData: false,
-        contentType: false,
-        success: function () {
-            my_tip.alert('haha');
-        }
-    })
-});
-
 $('#modify_avatar').click(function () {
         $('#avatar-modal').modal('show');
     }

@@ -48,7 +48,8 @@
                             </span>
                         </p>
                         <p class="birth">
-                            出生年月：<input class="laydate laydate-icon" onclick="laydate()"style="display: none" ><span></span>
+                            出生年月：<input class="laydate laydate-icon" onclick="layui.laydate({elem: this,min: '2004-01-01 00:00:00',
+  max: '2012-12-31 23:59:59'})" style="display: none" ><span></span>
                         </p>
                         <p class="city">
                             城市：<span></span>
@@ -134,16 +135,19 @@
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/page.js"></script>
 <script src="../../../assets/js/tip_modal.js"></script>
-<script src="../../../libs/laydate/laydate.js"></script>
 <script src="../../../libs/cropper/cropper.min.js"></script>
 <script src="../../../libs/sitelogo/sitelogo.js"></script>
 <script src="../../../assets/js/student/info/info.js"></script>
-
+<script src="../../../libs/layui-v1.0.7/layui/layui.js" charset="utf-8"></script>
 <script>
     $('[data-toggle=tooltip]').tooltip();
     load('../../../include/html/');
 //    upload("selectFile","file");
     load_info();
+
+    layui.use('laydate', function(){
+
+    });
 </script>
 </body>
 </html>
