@@ -51,6 +51,26 @@
 }
 .content .group select{
     width: 88px;
+
+}
+.content .group .date{
+    float: right;
+    margin-right: 203px;
+    margin-top: -8px;
+}
+.content .group .date select{
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 38px;
+    border: 1px solid #cbc8c8;
+    border-radius: 4px;
+    margin-right: 6px;
+    text-align: center;
+    font-size: 14px;
+}
+.content .group .date select option{
+    padding-left: 100px;
+    text-align: center;
 }
 .select2-container .select2-selection--single{
     height: 38px;
@@ -106,7 +126,7 @@
     margin-top: 30px;
     cursor: pointer;
 }
-.select2{
+.group span .select2{
     margin-right: 6px;
 }
 #select_school{

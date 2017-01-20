@@ -319,6 +319,7 @@ $('.rotate-div').click(function() {
             $('#login_button').css('background', color);
         });
         user_type = Number($(this).attr('type'));
+        setCookie('user_type',user_type);
     }
     else if (value == 4) {
 
@@ -355,4 +356,5 @@ $('.rotate-div').click(function() {
             $(this).attr('value', curr_value);
         })
     }
+    console.log(user_type);
 });

@@ -25,7 +25,7 @@
             <div class="change_info">
                 <div id="crop-avatar">
                     <div class="avatar-view">
-                        <img data-toggle="tooltip" title="修改头像" id="headimg" src="../../../assets/img/student/info/1.png" alt="Logo">
+                        <img data-toggle="tooltip" title="修改头像" id="headimg" src="" alt="Logo">
                         <div class="btn" id="modify_avatar">修改头像</div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                         <span class="tit">验证码</span>
                         <input  class="ipt" type="password" placeholder="请输入验证码"/>
                     </div>
-                    <div class="up">上一步</div>
+                    <div class="up">上一步</div>i
                     <div id="sure_new_phone">绑定</div>
                 </div>
             </div>
@@ -124,21 +124,23 @@
             <!--修改密码-->
             <div class="change_pwd" style="display: none">
                 <div class="cont">
-                    <div class="group">
-                        <span class="tit">当前密码</span>
-                        <input  class="ipt" type="password" placeholder="请输入当前密码"/>
+                    <div class="group old-pw">
+                        <p class="tit">当前密码</p>
+                        <input  class="ipt" id="password-1" type="password" placeholder="请输入当前密码"/>
+                        <span style="display: none">请输入正确格式的原始密码</span>
                     </div>
-                    <div class="group">
-                        <span class="tit">设置新密码</span>
-                        <input  class="ipt" type="password" placeholder="请输入新密码"/>
+                    <div class="group set-pw">
+                        <p class="tit">设置新密码</p>
+                        <input  class="ipt" id="password-2" type="password" placeholder="请输入新密码"/>
+                        <span style="display: none">请输入正确格式的新密码</span>
                     </div>
-                    <div class="group">
-                        <span class="tit">确认新密码</span>
-                        <input  class="ipt" type="password" placeholder="请输入新密码"/>
+                    <div class="group sure-pw">
+                        <p class="tit">确认新密码</p>
+                        <input  class="ipt" id="password-3" type="password" placeholder="请输入新密码"/>
+                        <span style="display: none">新密码输入不一致，请重新输入</span>
                     </div>
                     <div id="sure_change_pwd">确认</div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -205,12 +207,13 @@
 <script src="../../../assets/js/login.js"></script>
 <script src="../../../libs/select2-4.0.3/dist/js/select2.full.js"></script>
 <script src="../../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
-<script src="../../../assets/js_v1.0.1/teacher/info/info.js"></script>
-<script src="../../../assets/js_v1.0.1/student/info/sitelogo.js"></script>
+<script src="../../../assets/js_v1.0.1/school_master/info/info.js"></script>
+<script src="../../../libs/sitelogo/sitelogo.js"></script>
 <script>
-    load('../../../include/html/', 'teacher');
+    load('../../../include/html/', 'school_master');
     $(document).ready(function () {
         $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
+        load_info();
     });
     $(window).resize(window_resize_teacher);
 

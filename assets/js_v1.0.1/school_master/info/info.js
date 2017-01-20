@@ -161,7 +161,7 @@ function load_info() {
         type: 'GET',
         url: URL_BASE + '/users/web/user/current',
         success: function(data) {
-            //console.log(data.school.address);
+            console.log(data);
             if(data.info.birthday == 'null'){
                 $(".birthday .gray").html();
             }else{
@@ -170,8 +170,9 @@ function load_info() {
             $(".id span").html(data.id);
             $(".name span").html(data.name);
             $(".mail span").html(data.email);
+            $(".school .gray").html(data.school.name);
             $(".phone span").html(data.tel);
-            $(".school .school_cont").html(data.school.address);
+            $(".city .gray").html(data.school.address);
             $("#headimg").attr('src', data.headimg);
             if(data.gender == 1 ){
                 $("#boy").attr("checked","checked");

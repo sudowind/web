@@ -19,7 +19,7 @@
             <div class="content">
                 <div class="group">
                     <span class="tit">姓名</span>
-                    <input class="ipt" type="text" placeholder="请输入姓名"/>
+                    <input class="ipt name" type="text" placeholder="请输入姓名"/>
                 </div>
                 <div class="group">
                         <span class="tit">性别</span>
@@ -28,20 +28,36 @@
                 </div>
                 <div class="group">
                         <span class="tit">出生年月</span>
-                        <span>
-                            <label for="select_year"></label>
-                            <select id="select_year"></select>年
-                            <label for="select_month"></label>
-                            <select id="select_month"></select>月
-                            <label for="select_day"></label>
-                            <select id="select_day"></select>日
-                        </span>
+                        <div class="date">
+                            <form name="reg_testdate">
+                                <select name="YYYY" onchange="YYYYDD(this.value)">
+                                    <!--<option value="">请选择 年</option>-->
+                                </select>年
+                                <select name="MM" onchange="MMDD(this.value)">
+                                    <!--<option value="">选择 月</option>-->
+                                </select>月
+                                <select name="DD">
+                                    <!--<option value="">选择 日</option>-->
+                                </select>日
+                            </form>
+                        </div>
                 </div>
+                <!--<div class="group">-->
+                    <!--<span class="tit">出生年月</span>-->
+                        <!--<span>-->
+                            <!--<label for="select_year"></label>-->
+                            <!--<select id="select_year"></select>年-->
+                            <!--<label for="select_month"></label>-->
+                            <!--<select id="select_month"></select>月-->
+                            <!--<label for="select_day"></label>-->
+                            <!--<select id="select_day"></select>日-->
+                        <!--</span>-->
+                <!--</div>-->
                 <div class="group">
                     <span class="tit">地址</span>
                     <span>
                         <label for="select_province"></label>
-                        <select id="select_province"></select>省
+                        <select id="select_province" style="width: 156px;font-size: 10px"></select>省
                         <label for="select_city"></label>
                         <select id="select_city"></select>市
                         <label for="select_district"></label>
@@ -53,27 +69,27 @@
                     <label for="select_school"></label>
                     <select  class="ipt" id="select_school"></select>
                 </div>
-                <div class="group">
-                    <span class="tit">密码</span>
-                    <input class="ipt" type="password" placeholder="请输入密码"/>
+                <div class="group set-pw">
+                    <p class="tit">密码</p>
+                    <input class="ipt" id="password-1" type="password" placeholder="请输入密码"/>
+                </div>
+                <div class="group sure-pw">
+                    <p class="tit">确认密码</p>
+                    <input  class="ipt" id="password-2" type="password" placeholder="请输入密码"/>
+                    <span class="error pass_no">密码与原密码不一致，请重新输入</span>
                 </div>
                 <div class="group">
-                    <span class="tit">确认密码</span>
-                    <input  class="ipt" type="password" placeholder="请输入密码"/>
-                    <span class="error">密码与原密码不一致，请重新输入</span>
-                </div>
-                <div class="group">
-                    <span class="tit">绑定手机号码</span>
-                    <input class="ipt" type="password" placeholder="请输入手机号"/>
+                    <p class="tit">绑定手机号码</p>
+                    <input class="ipt" id="phone_num" type="text" placeholder="请输入手机号"/>
                     <span class="error">手机号输入有误，请重新输入</span>
                     <p>可通过该手机快速找回密码</p>
                 </div>
                 <div class="group">
-                    <input class="note_pwd" type="password" placeholder="请输入短信验证码"/>
+                    <input class="note_pwd" type="text" placeholder="请输入短信验证码"/>
                     <span class="get_pwd">获取验证码</span>
                     <span class="error">短信验证码失效，请重新获取验证码</span>
                 </div>
-                <div id="sign_in">注册</div>
+                <div id="sign_in" onclick="sign_in()">注册</div>
             </div>
         </div>
         <!--注册成功-->
@@ -90,6 +106,8 @@
     <script src="../../libs/select2-4.0.3/dist/js/select2.full.js"></script>
     <script src="../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
     <script src="../../assets/js_v1.0.1/sign_in/sign_in.js"></script>
+    <script src="../../assets/js/base.js"></script>
+    <script src="../../assets/js/load.js"></script>
     <script>
         // 为了保证页脚始终在低端，并且保证横向缩放页脚始终居中，分别改变了marginTop和width
         $('#page_footer').load('../../include/html/footer.html', function() {
@@ -97,6 +115,7 @@
             $('.footer').css('marginTop', '0').css('width', '100%').css('height','60px');
             $('.footer-content').css('font-size','14px');
         });
+        get_province();
     </script>
 </body>
 </html>

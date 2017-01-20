@@ -223,6 +223,27 @@
     border-radius: 6px;
     padding-left: 8px;
 }
+.old-pw span{
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    top: 40px;
+    left: 180px;
+}
+.set-pw span{
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    top: 40px;
+    left: 180px;
+}
+.sure-pw span{
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    top: 40px;
+    left: 170px;
+}
 .group .gain{
     width: 100px;
     height: 40px;
@@ -370,6 +391,8 @@
     width: 100%;
 }
 .change_pwd .group{
+    position: relative;
+    top: 0;
     margin-top: 30px;
 }
 .cont{

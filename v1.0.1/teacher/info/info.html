@@ -22,22 +22,23 @@
         <div class="personal_information index">个人信息</div>
         <div class="change_password">修改密码</div>
         <div class="main">
+            <!--修改个人信息-->
             <div class="change_info">
                 <div id="crop-avatar">
                     <div class="avatar-view">
-                        <img data-toggle="tooltip" title="修改头像" id="headimg" src="../../../assets/img/student/info/1.png" alt="Logo">
+                        <img data-toggle="tooltip" title="修改头像" id="headimg" src="" alt="Logo">
                         <div class="btn" id="modify_avatar">修改头像</div>
                     </div>
                 </div>
                 <div class="info_list">
                     <div class="group id">考拉阅读账号: <span class="none">s100000</span></div>
-                    <div class="group name">姓名: <span class="none">苏琪</span><input type="text"/></div>
+                    <div class="group name">姓名: <span class="none"></span><input type="text"/></div>
                     <div class="group sex">性别:
                         <input id="boy" type="radio" disabled="disabled" value="男" name="auto" checked="checked">男
                         <input id="girl" type="radio" disabled="disabled" value="女" name="auto">女
                     </div>
                     <div class="group city ">城市:
-                        <span class="city_cont none">北京市丰台区</span>
+                        <span class="city_cont none"></span>
                         <span class="select_open" style="display: none">
                             <label for="select_province"></label>
                             <select id="select_province"></select>省
@@ -48,13 +49,13 @@
                         </span>
                     </div>
                     <div class="group school">学校:
-                        <span class="school_cont none">北京市丰台区小学</span>
+                        <span class="school_cont none"></span>
                         <span  class="select_open" style="display: none">
                             <label for="select_school"></label>
                             <select id="select_school"></select>
                         </span>
                     </div>
-                    <div class="group phone">手机号: <span>18888888888</span><p> 绑定新的手机</p></div>
+                    <div class="group phone">手机号: <span></span><p> 绑定新的手机</p></div>
                     <div class="group mail">邮箱: <span>邮箱未绑定</span><p>绑定邮箱</p></div>
                     <div id="back">取消</div>
                     <div id="change">修改</div>
@@ -124,17 +125,20 @@
             <!--修改密码-->
             <div class="change_pwd" style="display: none">
                 <div class="cont">
-                    <div class="group">
-                        <span class="tit">当前密码</span>
-                        <input  class="ipt" type="password" placeholder="请输入当前密码"/>
+                    <div class="group old-pw">
+                        <p class="tit">当前密码</p>
+                        <input  class="ipt" id="password-1" type="password" placeholder="请输入当前密码"/>
+                        <span style="display: none">请输入正确格式的原始密码</span>
                     </div>
-                    <div class="group">
-                        <span class="tit">设置新密码</span>
-                        <input  class="ipt" type="password" placeholder="请输入新密码"/>
+                    <div class="group set-pw">
+                        <p class="tit">设置新密码</p>
+                        <input  class="ipt" id="password-2" type="password" placeholder="请输入新密码"/>
+                        <span style="display: none">请输入正确格式的新密码</span>
                     </div>
-                    <div class="group">
-                        <span class="tit">确认新密码</span>
-                        <input  class="ipt" type="password" placeholder="请输入新密码"/>
+                    <div class="group sure-pw">
+                        <p class="tit">确认新密码</p>
+                        <input  class="ipt" id="password-3" type="password" placeholder="请输入新密码"/>
+                        <span style="display: none">新密码输入不一致，请重新输入</span>
                     </div>
                     <div id="sure_change_pwd">确认</div>
                 </div>
@@ -205,12 +209,13 @@
 <script src="../../../assets/js/login.js"></script>
 <script src="../../../libs/select2-4.0.3/dist/js/select2.full.js"></script>
 <script src="../../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
+<script src="../../../libs/sitelogo/sitelogo.js"></script>
 <script src="../../../assets/js_v1.0.1/teacher/info/info.js"></script>
-<script src="../../../assets/js_v1.0.1/student/info/sitelogo.js"></script>
 <script>
     load('../../../include/html/', 'teacher');
     $(document).ready(function () {
         $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
+        load_info();
     });
     $(window).resize(window_resize_teacher);
 

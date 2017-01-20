@@ -22,6 +22,7 @@
         <div class="personal_information index">个人信息</div>
         <div class="change_password">修改密码</div>
         <div class="main">
+            <!--修改个人信息-->
             <div class="change_info">
                 <div id="crop-avatar">
                     <div class="avatar-view">
@@ -229,15 +230,16 @@
 <script src="../../../libs/select2-4.0.3/dist/js/select2.full.js"></script>
 <script src="../../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
 <script src="../../../assets/js_v1.0.1/student/info/info.js"></script>
-<script src="../../../assets/js_v1.0.1/student/info/sitelogo.js"></script>
+<script src="../../../libs/sitelogo/sitelogo.js"></script>
 
 <script>
     load('../../../include/html/');
     $(document).ready(function () {
         $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
+        load_info();
     });
     $(window).resize(window_resize);
-    load_info();
+
 
     function header_cb() {
         $('#info_button').addClass('header-nav-selected').css('color', '#3c97cf');
