@@ -143,3 +143,15 @@ function get_current_semester() {
 function rand_ER() {
     return Math.ceil((Math.random() * 600000) % 600) + 600;
 }
+
+// 检测一个区域是否滚动到了底部
+function gen_scroll_to_end_handler(selector, func) {
+    $(selector).scroll(function () {
+        var scroll_top = $(this).scrollTop();
+        var height = $(this).height();
+        var scroll_height = $(this)[0].scrollHeight;
+        if (scroll_height == height + scroll_top) {
+            func();
+        }
+    })
+}

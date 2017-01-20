@@ -118,7 +118,7 @@ function load_info(){
             $('.info-account').append(data.id);
             $('.info-school').html(data.school.name);
             $('.modal-avatar img').attr('src', data.headimg);
-            if (data.classes.length > 0) {
+            if (data.classes[0]) {
                 // 如果有班级
                 $('.info-class').html(data.classes[0].name).off('click').css('cursor', 'text');
             }

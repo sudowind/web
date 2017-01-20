@@ -43,30 +43,7 @@ function load_grade_class(grade) {
                     '<td><u value="{0}" onclick="show_class_info(this)">查看</u></td>'.format(data[i].id) +
                     '</tr>';
             }
-            $('.select-class').html(html).find('.option').click(function () {
-                // $.ajax({
-                //     xhrFields: {
-                //         withCredentials: true
-                //     },
-                //     type: 'get',
-                //     url: URL_BASE + '/users/web/class/{0}'.format($(this).attr('value')),
-                //     success: function (data) {
-                //         // 获取班级信息
-                //         $('#class_no').html(data.id);
-                //         $('#class_teacher').html();
-                //         $('#class_name').html(data.name);
-                //         $('#teacher_no').html();
-                //         // 获取班级学生
-                //         $('#student_count').html();
-                //     },
-                //     error: error_handler()
-                // });
-                // $(this).addClass('index');
-                // $(this).siblings().removeClass('index');
-                // $('.class-info').hide();
-                // $('.class_detail').show();
-                // $('.student-list').show();
-            });
+            $('.select-class').html(html).find('.option');
             $('#class_detail_part .class-info').find('tbody').html(table_html).show();
             $('.class_detail').hide();
             $('.student-list').hide();
@@ -137,11 +114,11 @@ function load_unauth_class() {
             var html = '';
             for (var i in data) {
                 html += '<tr>' +
-                    '<td>一年级一班</td>' +
-                    '<td>{0}</td>'.format(data[i].joinerId) +
-                    '<td>张三</td>' +
-                    '<td>T123456</td>' +
-                    '<td><img class="single-select" value="0" request_id="{0}" src="../../../assets/img/school_master/unchecked.png" alt=""></td>'.format(data[i].id) +
+                    '<td>{0}</td>'.format(data[i].className) +
+                    '<td>{0}</td>'.format(data[i].classId) +
+                    '<td>{0}</td>'.format(data[i].teacherName) +
+                    '<td>{0}</td>'.format(data[i].teacherAccount) +
+                    '<td><img class="single-select" value="0" request_id="{0}" src="../../../assets/img/school_master/unchecked.png" alt=""></td>'.format(data[i].requestId) +
                     '</tr>';
             }
             $('#claim_class_part').find('tbody').html(html);

@@ -279,11 +279,16 @@ function load_class_info(class_id) {
                     console.log(data);
                     var html = '';
                     for (var i = 0; i < data.length; ++i) {
+                        var gender;
+                        if (data[i].studentGender == 1)
+                            gender = '男';
+                        else
+                            gender = '女';
                         html += '<tr>' +
-                            '<td><img class="single-selector" onclick="on_single_select_click(this);" type="pending" student_id="{0}" request_id="{1}" src="../../../assets/img/teacher/single_unselected.png" alt="" value="0"></td>'.format(data[i].joinerId, data[i].id) +
-                            '<td>S {0}</td>'.format(data[i].joinerId) +
-                            '<td></td>' +
-                            '<td></td>' +
+                            '<td><img class="single-selector" onclick="on_single_select_click(this);" type="pending" student_id="{0}" request_id="{1}" src="../../../assets/img/teacher/single_unselected.png" alt="" value="0"></td>'.format(data[i].studentId, data[i].requestId) +
+                            '<td>{0}</td>'.format(data[i].studentAccount) +
+                            '<td>{0}</td>'.format(data[i].studentName) +
+                            '<td>{0}</td>'.format(gender) +
                             '<td>待审核</td>' +
                             '</tr>';
                     }

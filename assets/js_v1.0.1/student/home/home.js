@@ -3,6 +3,7 @@
  */
 (function init() {
     var join_class = function () {
+        $('#join_class_modal').find('.modal-info div:nth-child(5)').html('');
         $('#join_class_modal').modal('show');
     };
 
