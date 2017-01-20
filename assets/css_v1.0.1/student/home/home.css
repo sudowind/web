@@ -181,6 +181,9 @@
     color: #fb9e1d;
     font-weight: bold;
 }
+.top-list {
+    display: none;
+}
 .top-list .me{
     width: 230px;
     height: 60px;

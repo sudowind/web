@@ -38,8 +38,8 @@ function load_grade_class(grade) {
                 table_html += '<tr>' +
                     '<td>{0}</td>'.format(data[i].name) +
                     '<td>{0}</td>'.format(data[i].id) +
-                    '<td></td>' +
-                    '<td></td>' +
+                    '<td>{0}</td>'.format(data[i].teacherName) +
+                    '<td>{0}</td>'.format(data[i].teacherAccount) +
                     '<td><u value="{0}" onclick="show_class_info(this)">查看</u></td>'.format(data[i].id) +
                     '</tr>';
             }
@@ -66,7 +66,7 @@ function init_grade() {
     $('.select-grade').html(html).find('.option').click(function () {
         $(this).siblings().removeClass('index');
         $(this).addClass('index');
-        curr_grade = $(this).attr('value')
+        curr_grade = $(this).attr('value');
         load_grade_class(curr_grade);
         $('#class_detail_part .class-info').show();
         $('.class_detail').hide();
@@ -86,11 +86,36 @@ function show_class_info(e) {
         success: function (data) {
             // 获取班级信息
             $('#class_no').html(data.id);
-            $('#class_teacher').html();
+            $('#class_teacher').html(data.teacherName);
             $('#class_name').html(data.name);
-            $('#teacher_no').html();
+            $('#teacher_no').html(data.teacherAccount);
             // 获取班级学生，待完善
-            $('#student_count').html();
+            $.ajax({
+                xhrFields: {
+                    withCredentials: true
+                },
+                type: 'get',
+                url: URL_BASE + '/users/web/class/{0}/students'.format(data.id),
+                success: function (data) {
+                    var html = '';
+                    for (var i in data) {
+                        var gender;
+                        if (data[i].gender == 1)
+                            gender = '男';
+                        else
+                            gender = '女';
+                        html += '<tr>' +
+                            '<td>S{0}</td>'.format(data[i].id) +
+                            '<td>{0}</td>'.format(data[i].name) +
+                            '<td>{0}</td>'.format(gender) +
+                            '<td><u onclick="window.open(\'../report/student_report.html?student_id={0}\')">查看</u></td>'.format(data[i].id) +
+                            '</tr>';
+                    }
+                    $('.student-list').find('tbody').html(html);
+                    $('#student_count').html(data.length);
+                },
+                error: error_handler()
+            })
         },
         error: error_handler()
     });

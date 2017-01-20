@@ -40,6 +40,7 @@
                     success: function (data) {
                         $('#join_class_modal').modal('hide');
                         my_tip.alert('你的加入班级申请已发送，老师审核通过后即可加入班级');
+                        check_join_status();
                     },
                     error: error_handler()
                 });

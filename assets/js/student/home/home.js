@@ -115,12 +115,14 @@ function load_info(){
             $(".head-img img").attr('src',data.headimg);
             $('.name').html(data.name);
             $('.info-name').html(data.name);
-            $('.info-account').append(data.id);
+            $('.info-account').append(data.account);
             $('.info-school').html(data.school.name);
             $('.modal-avatar img').attr('src', data.headimg);
             if (data.classes[0]) {
                 // 如果有班级
                 $('.info-class').html(data.classes[0].name).off('click').css('cursor', 'text');
+                $('.top-list').show();
+                $('.no-top-list').hide();
             }
         },
         error: error_handler()
@@ -143,6 +145,28 @@ function check_in() {
     });
 }
 
+function check_join_status() {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/join/checkJoinClassRequest',
+        success: function (data) {
+            // 应该是两种状态：有 无
+            var flag = data.hasRequest;
+            if (flag) {
+                // 正在审核
+                $('.top-list').hide();
+                $('.no-top-list').show();
+                $('.info-class').html('加入班级<span style="color: #3c97cf">审核中</span>');
+                $('.no-top-list .btn').html('正在审核').addClass('disabled');
+            }
+        },
+        error: error_handler()
+    });
+}
+
 function init() {
     // 从服务器获取是否进行过阅读能力测试，提醒用户进行阅读能力测试，同时利用cookie存储是否提醒过进行阅读能力测试
     $.ajax({
@@ -159,27 +183,29 @@ function init() {
         },
         error: error_handler()
     });
-    // 获取签到信息
-    $.ajax({
-        xhrFields: {
-            withCredentials: true
-        },
-        type: 'get',
-        url: URL_BASE + '/statistic/web/signIn',
-        success: function (data) {
-            var obj = $('#check_in');
-            if (data.hasSignIn) {
-                obj.html('已签到').addClass('has-checked disabled');
-                $('#checked_info').show();
-                $('#continue_count').html(data.continueCount);
-            }
-            else {
-                obj.html('签到').addClass('has-not-checked');
-                obj.click(check_in);
-            }
-        },
-        error: error_handler()
-    });
+    // // 获取签到信息
+    // $.ajax({
+    //     xhrFields: {
+    //         withCredentials: true
+    //     },
+    //     type: 'get',
+    //     url: URL_BASE + '/statistic/web/signIn',
+    //     success: function (data) {
+    //         var obj = $('#check_in');
+    //         if (data.hasSignIn) {
+    //             obj.html('已签到').addClass('has-checked disabled');
+    //             $('#checked_info').show();
+    //             $('#continue_count').html(data.continueCount);
+    //         }
+    //         else {
+    //             obj.html('签到').addClass('has-not-checked');
+    //             obj.click(check_in);
+    //         }
+    //     },
+    //     error: error_handler()
+    // });
+    // 获取加入班级信息
+    check_join_status();
     // 获取排行榜信息
     load_rank_list('student');
 
