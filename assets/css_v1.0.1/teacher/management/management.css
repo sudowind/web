@@ -35,6 +35,7 @@
 }
 .classes-part table tr td:nth-child(2){
     width: 550px;
+    min-height: 38px;
 }
 
 .classes-part img {
@@ -48,6 +49,7 @@
 }
 
 .class-info {
+    display: none;
     padding: 10px 20px;
     font-size: 16px;
     line-height: 30px;
@@ -63,6 +65,7 @@
 }
 
 .student-part {
+    display: none;
     /*padding: 10px 20px;*/
     font-size: 16px;
 }

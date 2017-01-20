@@ -263,9 +263,9 @@ $('#add_teacher_confirm_button').click(function () {
                     obj.addClass('index');
                     load_grade_class(obj.attr('value'));
                 },
-                error: ajax_error_handler
+                error: error_handler()
             });
         },
-        error: ajax_error_handler
+        error: error_handler()
     })
 });

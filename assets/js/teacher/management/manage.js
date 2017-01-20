@@ -7,6 +7,8 @@ var grade_name = '';
 var class_name = '';
 var grade_num;
 
+var curr_class;
+
 $(document).ready(function () {
     $('.total-selector').click(function () {
         if ($(this).attr('value') == '1') {
@@ -94,10 +96,128 @@ $(document).ready(function () {
         }
     });
 
+    $('#class_submit_button').click(function () {
+        var name = grade_name + class_name;
+        var grade = Number(grade_num);
+        // var teacher_list = [getCookie('USER')];
+
+        console.log();
+
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'post',
+            url: URL_BASE + '/users/web/class',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                createTime: 0,
+                grade: grade,
+                id: 0,
+                name: name,
+                schoolId: 0
+            }),
+            success: function (data) {
+                my_tip.alert('创建成功！');
+                init_class();
+                // $.ajax({
+                //     xhrFields: {
+                //         withCredentials: true
+                //     },
+                //     type: 'put',
+                //     url: URL_BASE + '/users/web/class/{0}/teachers'.format(data.id),
+                //     contentType: 'application/json',
+                //     data: JSON.stringify(teacher_list.map(function(e){return Number(e);})),
+                //     success: function (data) {
+                //         var obj = $('.select-grade .option[value={0}]'.format(grade));
+                //         obj.siblings().removeClass('index');
+                //         obj.addClass('index');
+                //         load_grade_class(obj.attr('value'));
+                //     },
+                //     error: error_handler()
+                // });
+            },
+            error: error_handler()
+        })
+    });
+
     // 首次创建班级
     $('#has_no_class').find('.btn').click(function () {
         $('#has_no_class').hide();
         $('#has_class').show();
+    });
+
+    // 允许学生加入班级
+    $('#allow').click(function () {
+        var elem = $('[type=pending]');
+        for (var i = 0; i < elem.length; ++i) {
+            if ($(elem[i]).attr('value') == 1) {
+                console.log($(elem[i]).attr('request_id'));
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    url: URL_BASE + '/users/web/join/processRequest',
+                    type: 'post',
+                    data: {
+                        requestId: $(elem[i]).attr('request_id'),
+                        accept: true
+                    },
+                    success: function (data) {
+                        my_tip.alert('成功通过加入班级请求');
+                        load_class_info(curr_class);
+                    },
+                    error: error_handler()
+                });
+            }
+        }
+    });
+
+    // 拒绝学生加入班级
+    $('#refuse').click(function () {
+        var elem = $('[type=pending]');
+        for (var i = 0; i < elem.length; ++i) {
+            if ($(elem[i]).attr('value') == 1) {
+                console.log($(elem[i]).attr('request_id'));
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    url: URL_BASE + '/users/web/join/processRequest',
+                    type: 'post',
+                    data: {
+                        requestId: $(elem[i]).attr('request_id'),
+                        accept: false
+                    },
+                    success: function (data) {
+                        my_tip.alert('成功拒绝加入班级请求！');
+                        load_class_info(curr_class);
+                    },
+                    error: error_handler()
+                });
+            }
+        }
+    });
+
+    // 删除已加入班级的学生
+    $('#delete').click(function () {
+        var elem = $('[type=passed]');
+        for (var i = 0; i < elem.length; ++i) {
+            if ($(elem[i]).attr('value') == 1) {
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    url: URL_BASE + '/users/web/class/{0}/student/{1}/delete'.format(curr_class, $(elem[i]).attr('student_id')),
+                    type: 'post',
+                    success: function (data) {
+                        my_tip.alert('成功删除学生！');
+                        load_class_info(curr_class);
+                    },
+                    error: error_handler()
+                });
+            }
+        }
     });
 
 });
@@ -121,6 +241,86 @@ function clear_rows() {
     $('.book-part table').hide();
 }
 
+function load_class_info(class_id) {
+    // 获取班级名字
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/class/{0}'.format(class_id),
+        success: function (data) {
+            $('#class_name').html(data.name);
+        },
+        error: error_handler()
+    });
+    // 获取班级学生
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/class/{0}/students'.format(class_id),
+        success: function (data) {
+            $('#student_count').html(data.length);
+            var joined_student = data;
+
+            // 获取待加入学生
+            $.ajax({
+                xhrFields: {
+                    withCredentials: true
+                },
+                type: 'get',
+                url: URL_BASE + '/users/web/join/getAllStudentJoinRequest',
+                data: {
+                    classId: class_id
+                },
+                success: function (data) {
+                    console.log(data);
+                    var html = '';
+                    for (var i = 0; i < data.length; ++i) {
+                        html += '<tr>' +
+                            '<td><img class="single-selector" onclick="on_single_select_click(this);" type="pending" student_id="{0}" request_id="{1}" src="../../../assets/img/teacher/single_unselected.png" alt="" value="0"></td>'.format(data[i].joinerId, data[i].id) +
+                            '<td>S {0}</td>'.format(data[i].joinerId) +
+                            '<td></td>' +
+                            '<td></td>' +
+                            '<td>待审核</td>' +
+                            '</tr>';
+                    }
+                    for (var i = 0; i < joined_student.length; ++i) {
+                        var gender;
+                        if (joined_student[i].gender == 1)
+                            gender = '男';
+                        else
+                            gender = '女';
+                        html += '<tr>' +
+                            '<td><img class="single-selector" onclick="on_single_select_click(this);" type="passed" student_id="{0}" src="../../../assets/img/teacher/single_unselected.png" alt="" value="0"></td>'.format(joined_student[i].id) +
+                            '<td>S {0}</td>'.format(joined_student[i].id) +
+                            '<td>{0}</td>'.format(joined_student[i].name) +
+                            '<td>{0}</td>'.format(gender) +
+                            '<td>已加入班级</td>' +
+                            '</tr>';
+                    }
+                    $('#student_table').find('tbody').html(html);
+                }
+            })
+        },
+        error: error_handler()
+    });
+    // 获取班级代码
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/join/class/{0}/joinCode'.format(class_id),
+        success: function (data) {
+            $('#class_code').html(data[0].joinCode);
+        },
+        error: error_handler()
+    });
+}
+
 function init_class() {
     $.ajax({
         xhrFields: {
@@ -133,8 +333,11 @@ function init_class() {
             if (data.length > 0) {
                 $('#has_class').show();
                 $('#has_no_class').hide();
+                $('.student-part').show();
+                $('.class-info').show();
             }
             else {
+                $('.classes-part img').css('margin-top', '3px');
                 $('#has_class').hide();
                 $('#has_no_class').show();
                 return;
@@ -143,11 +346,12 @@ function init_class() {
             var html = '<td>所带班级：</td>';
             html += '<td>';
             var index = 'index';
+            var class_id;
             for (var i = 0; i < data.length; ++i) {
                 if (i != 0)
                     index = '';
                 else {
-                    CLASS_ID = data[i].id;
+                    class_id = data[i].id;
                 }
                 html += '<span class="' + index + ' option" value="' + data[i].id + '">' + data[i].name + '</span>';
             }
@@ -161,8 +365,12 @@ function init_class() {
                 $(this).addClass('index');
                 clear_rows();
                 has_load_page = false;
+                curr_class = $(this).attr('value')
+                load_class_info(curr_class);
             });
-            // load_tasks(CLASS_ID, 1);
+            curr_class = class_id
+            load_class_info(curr_class);
+            // load_tasks(class_id, 1);
         },
         error: error_handler()
     });

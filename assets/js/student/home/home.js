@@ -115,10 +115,13 @@ function load_info(){
             $(".head-img img").attr('src',data.headimg);
             $('.name').html(data.name);
             $('.info-name').html(data.name);
-            $('.info-account').html(data.id);
+            $('.info-account').append(data.id);
             $('.info-school').html(data.school.name);
-            if (data.classes.length > 0)
+            $('.modal-avatar img').attr('src', data.headimg);
+            if (data.classes.length > 0) {
+                // 如果有班级
                 $('.info-class').html(data.classes[0].name).off('click').css('cursor', 'text');
+            }
         },
         error: error_handler()
     });

@@ -15,3 +15,9 @@ body {
     position: relative;
     top: 0;
 }
+
+#my_tip_modal #modal_confirm_button, #my_tip_modal #modal_quit {
+    background: #3c97cf;
+    color: #ffffff;
+    margin: auto 10px;
+}

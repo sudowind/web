@@ -442,6 +442,10 @@
     border-radius: 50%;
     overflow: hidden;
 }
+#join_class_modal .modal-avatar img {
+    width: 80px;
+    height: 80px;
+}
 #join_class_modal .close-modal {
     position: absolute;
     right: 10px;
@@ -450,8 +454,9 @@
 }
 #join_class_modal .modal-info div:nth-child(5) {
     text-align: right;
-    color: #3c97cf;
+    color: red;
     width: 250px;
     margin: auto;
     font-size: 12px;
+    height: 17px;
 }
