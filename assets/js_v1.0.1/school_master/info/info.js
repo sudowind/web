@@ -2,12 +2,10 @@
  * Created by yilong on 2017/1/12.
  */
 
-
-
-
 $('#modify_avatar').click(function () {
         $('#avatar-modal').modal('show');
     });
+
 $('#select_year').select2({
     data: 2010,
     language: 'zh-CN'
@@ -70,7 +68,7 @@ $(".change_password").on('click',function(){
 $("#change").on('click',function(){
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
-    $(".gray").css('display','none');
+    $(".none").css('display','none');
     $(".select_open").css('display','inline-block');
     $(".name input").css('display','inline-block');
     $("#change").css('display','none');
@@ -81,7 +79,7 @@ $("#change").on('click',function(){
 $("#back").on('click',function(){
     document.getElementById("boy").disabled = true;
     document.getElementById("girl").disabled = true;
-    $(".gray").css('display','inline-block');
+    $(".none").css('display','inline-block');
     $(".select_open").css('display','none');
     $(".name input").css('display','none');
     $("#change").css('display','inline-block');
@@ -173,7 +171,7 @@ function load_info() {
             $(".name span").html(data.name);
             $(".mail span").html(data.email);
             $(".school .gray").html(data.school.name);
-            $(".class-name span").html(data.classes[0].name);
+            $(".phone span").html(data.tel);
             $(".city .gray").html(data.school.address);
             $("#headimg").attr('src', data.headimg);
             if(data.gender == 1 ){
