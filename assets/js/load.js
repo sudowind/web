@@ -191,7 +191,7 @@ function load_teacher_info() {
         success: function(data) {
             $('.info-name').html(data.name);
             $('.info-school').html(data.school.name);
-            $('.info-account').append(data.id);
+            $('.info-account').append(data.account);
             $('.head-img img').attr('src', data.headimg);
             if (data.classes != null && data.classes.length > 0) {
                 var html = '';
@@ -205,6 +205,13 @@ function load_teacher_info() {
             else {
                 $('.own-class-info').hide();
                 $('.no-class').show();
+            }
+            // 判断老师是否被认证
+            if (data.masterResourceStatus == 3) {
+                $('.info-certification').html(
+                    '已认证&nbsp;<img src="../../../assets/img/v1.0.1/icon-blue.png">'
+                );
+                $('.certi-img').show();
             }
         },
         error: error_handler()

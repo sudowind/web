@@ -86,6 +86,7 @@
 
 /*班级信息展示部分*/
 .class-info {
+    /*display: none;*/
     height: 700px;
 }
 
@@ -107,7 +108,7 @@
     overflow: auto;
 }
 
-/*班级详情表格*/
+/*班级列表表格*/
 .class-info thead {
     font-weight: bold;
 }
@@ -143,6 +144,10 @@
     width: 150px;
 }
 
+.class-info div:nth-child(2) td:nth-child(5) * {
+    cursor: pointer;
+}
+
 .class-info .btn {
     float: right;
     color: #ffffff;
@@ -151,4 +156,58 @@
 }
 .class-info .btn:hover {
     color: #ffffff;
+}
+
+/*班级详细信息*/
+.class_detail {
+    display: none;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.class_detail table{
+    width: 100%;
+    font-size: 16px;
+}
+.class_detail table td {
+    width: 50%;
+    padding: 5px;
+}
+
+/*班级学生列表*/
+.student-list {
+    display: none;
+    height: 700px;
+}
+
+.student-list td{
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+}
+
+.student-list table {
+    width: 100%;
+}
+
+.student-list div:nth-child(2) {
+    height: 600px;
+    width: 100%;
+    border-top: 1px dotted #97a9c8;
+    border-bottom: 1px dotted #97a9c8;
+    overflow: auto;
+}
+
+.student-list thead {
+    font-weight: bold;
+}
+.student-list thead td {
+    width: 25%;
+}
+
+.student-list div:nth-child(2) td {
+    width: 25%;
+}
+
+.student-list div:nth-child(2) td:nth-child(4) * {
+    cursor: pointer;
 }

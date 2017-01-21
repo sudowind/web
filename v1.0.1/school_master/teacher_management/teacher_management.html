@@ -33,7 +33,7 @@
             <div class="head-img">
                 <img src="" alt="">
             </div>
-            <div class="info-account">考拉阅读账号：H</div>
+            <div class="info-account">考拉阅读账号：</div>
             <div class="info-name"></div>
             <br>
             <div class="info-school"></div>
@@ -46,22 +46,22 @@
                 <span class="button">
                     <input type="submit" value="搜索一下"/>
                 </span>
-                <span class="add-task"  data-toggle="modal" data-target="#myModal">
-                    <p>
-                        <img src="../../../assets/img/student/tasks/add.png" alt=""/>添加老师
-                    </p>
-                </span>
+                <!--<span class="add-task"  data-toggle="modal" data-target="#myModal">-->
+                    <!--<p>-->
+                        <!--<img src="../../../assets/img/student/tasks/add.png" alt=""/>添加老师-->
+                    <!--</p>-->
+                <!--</span>-->
             </div>
             <div class="class-name">
-                <p>所带年级：</p>
-                <p class="grade"></p>
+                <div>所带年级：</div>
+                <div class="grade"></div>
             </div>
             <div  class="information">
                 <ol class="head">
-                    <li>账号</li>
+                    <li>考拉阅读账号</li>
                     <li>姓名</li>
                     <li>性别</li>
-                    <li>所带班级</li>
+                    <!--<li>所带班级</li>-->
                     <li>操作</li>
                 </ol>
             </div>
@@ -165,7 +165,9 @@
 <script>
     $(document).ready(function () {
         load('../../../include/html/', 'school_master');
-
+        //切分年级的函数
+        init_grade();
+        load_teacher(1);
         load_teacher_info();
         window_resize_teacher();
     });

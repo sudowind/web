@@ -169,11 +169,12 @@ function load_info() {
             }else{
                 $(".birthday .gray").html(data.info.birthday);
             }
-            $(".id span").html(data.id);
+            $(".id span").html('S' + data.id);
             $(".name span").html(data.name);
             $(".mail span").html(data.email);
             $(".school .gray").html(data.school.name);
-            $(".class-name span").html(data.classes[0].name);
+            if (data.classes[0])
+                $(".class-name span").html(data.classes[0].name);
             $(".city .gray").html(data.school.address);
             $("#headimg").attr('src', data.headimg);
             if(data.gender == 1 ){

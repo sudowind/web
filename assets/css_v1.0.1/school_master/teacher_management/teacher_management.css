@@ -12,7 +12,7 @@
 .title h3{
     width: 81px;
     height: 36px;
-    border-bottom: 4px solid #f99d32;
+    border-bottom: 4px solid #8176c8;
     font-size: 15px;
     float: left;
 }
@@ -33,13 +33,13 @@
 .seek .frame input{
     width: 398px;
     height: 42px;
-    border: 1px solid #f99d32;
+    border: 1px solid #44435b;
     float: left;
     font-size: 16px;
     padding-left: 10px;
 }
 .seek .button input{
-    background: #f99d32;
+    background: #44435b;
     border: none;
     padding: 10px 18px;
     font-size: 16px;
@@ -51,7 +51,7 @@
     margin-right: 3px;
     width: 98px;
     height: 40px;
-    border: 1px solid #f99d32;
+    border: 1px solid #8176c8;
     border-radius: 6px;
     cursor: pointer;
 }
@@ -59,7 +59,7 @@
 .seek .add-task p{
     line-height: 40px;
     padding-left: 10px;
-    color: #f99d32;
+    color: #8176c8;
 }
 .seek .add-task p img{
     margin-right: 6px;
@@ -68,31 +68,32 @@
 /*选择班级的css*/
 .content .class-name{
     width: 728px;
-    height: 78px;
-    line-height: 78px;
+    height: 103px;
+    line-height: 50px;
     border: 1px solid #e8e8e8;
     background: #f9f9f9;
     margin-top: 15px;
 }
-.content .class-name p{
+.content .class-name div{
     font-size: 18px;
     margin-left: 15px;
     float: left;
 }
-.content .class-name p:nth-child(2){
-    margin-left: 0px;
+.content .class-name div:nth-child(2){
+    margin-left: 0;
+    width: 610px;
 }
-.content .class-name p span{
-    border: 1px solid #f99d32;
+.content .class-name div span{
+    border: 1px solid #8176c8;
     border-radius: 8px;
     font-size: 16px;
     padding: 7px 10px;
     margin-left: 14px;
     cursor: pointer;
 }
-.content .class-name p .index{
+.content .class-name div .index{
     color: #FFFFFF;
-    background: #f99d32;
+    background: #8176c8;
 }
 /*学生个人具体信息*/
 .information {
@@ -108,39 +109,36 @@
     font-size: 17px;
     font-weight: bold;
     margin-top: 20px;
-    border-bottom: 1px dashed #f99d32;
+    border-bottom: 1px dashed #8176c8;
 }
 .information .head li{
     float: left;
-    margin-left: 84px;
+    /*margin-left: 84px;*/
+    width: 180px;
+    text-align: center;
 }
 .information .teacher-information{
     font-size: 16px;
     height: 44px;
-    padding: 0 36px;
+    /*padding: 0 36px;*/
 }
 .information .teacher-information li{
     float: left;
     color: #000000;
     line-height: 44px;
-    width: 135px;
     text-align: center;
 }
 .information .teacher-information > li:nth-of-type(1){
-    width: 128px;
+    width: 180px;
 }
 .information .teacher-information > li:nth-of-type(2){
-    width: 110px;
+    width: 180px;
 }
 .information .teacher-information > li:nth-of-type(3){
-    width: 128px;
+    width: 180px;
 }
 .information .teacher-information > li:nth-of-type(4){
-    width: 138px;
-    margin-right: 30px;
-}
-.information .teacher-information > li:nth-of-type(5){
-    width: 76px;
+    width: 180px;
     cursor: pointer;
 }
 
@@ -198,7 +196,7 @@
     line-height: 45px;
     text-align: center;
     color: #FFFFFF;
-    background: #f99d32;
+    background: #8176c8;
     border-radius: 8px;
     margin-top: 58px;
     margin-left: 188px;
@@ -238,7 +236,7 @@
     line-height: 45px;
     text-align: center;
     color: #FFFFFF;
-    background: #f99d32;
+    background: #8176c8;
     border-radius: 8px;
     position: absolute;
     top: 280px;

@@ -65,7 +65,7 @@
     float: left;
     width: 534px;
     height: 750px;
-    border: 1px solid #e8e8e8;
+    /*border: 1px solid #e8e8e8;*/
 
 }
 .right-part .title{
@@ -156,13 +156,13 @@
 }
 
 embed, iframe, .txt-reader {
-    width: 498px;
-    height: 696px;
+    width: 533px;
+    height: 750px;
     margin: auto;
 }
 
 .reader-content {
-    height: 666px;
+    height: 715px;
 }
 
 iframe {

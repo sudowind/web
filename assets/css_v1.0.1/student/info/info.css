@@ -72,7 +72,7 @@
     float: left;
     margin-left: 54px;
     font-size: 16px;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 .main .info_list .group{
     height: 42px;
@@ -136,7 +136,7 @@
     text-align: center;
     color: #ffffff;
     font-size: 14px;
-    font-weight: normal;
+    /*font-weight: normal;*/
     margin-left: 130px;
     margin-top: 20px;
     cursor: pointer;
@@ -152,7 +152,7 @@
     text-align: center;
     color: #ffffff;
     font-size: 14px;
-    font-weight: normal;
+    /*font-weight: normal;*/
     margin-left: 60px;
     margin-top: 20px;cursor: pointer;
 
@@ -168,7 +168,7 @@
     text-align: center;
     color: #ffffff;
     font-size: 14px;
-    font-weight: normal;
+    /*font-weight: normal;*/
     margin-top: 20px;
     margin-left: 60px;
     cursor: pointer;

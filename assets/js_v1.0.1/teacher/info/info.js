@@ -167,7 +167,7 @@ function load_info() {
             }else{
                 $(".birthday .gray").html(data.info.birthday);
             }
-            $(".id span").html(data.id);
+            $(".id span").html('T' + data.id);
             $(".name span").html(data.name);
             $(".mail span").html(data.email);
             $(".phone span").html(data.tel);

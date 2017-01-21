@@ -19,6 +19,7 @@ body {
 }
 
 .teacher-info {
+    position: relative;
     float: left;
     width: 215px;
     min-height: 530px;
@@ -40,6 +41,13 @@ body {
     height: 100%;
     border-radius: 50%;
 
+}
+
+.certi-img {
+    display: none;
+    top: 30px;
+    left: 59px;
+    position: absolute;
 }
 
 .info-school {
@@ -76,4 +84,10 @@ body {
 .no-class div {
     color: #999999;
     margin-top: 10px;
+}
+
+#my_tip_modal #modal_confirm_button, #my_tip_modal #modal_quit {
+    background: #365a97;
+    color: #ffffff;
+    margin: auto 10px;
 }

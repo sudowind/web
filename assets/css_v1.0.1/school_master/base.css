@@ -77,3 +77,9 @@ body {
     color: #999999;
     margin-top: 10px;
 }
+
+#my_tip_modal #modal_confirm_button, #my_tip_modal #modal_quit {
+    background: #44435b;
+    color: #ffffff;
+    margin: auto 10px;
+}

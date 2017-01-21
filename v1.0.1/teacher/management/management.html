@@ -28,10 +28,11 @@
 <div class="main-container">
     <div>
         <div class="teacher-info" style="background: url(../../../assets/img/teacher/teacher_without_class.png) no-repeat;">
+            <div class="certi-img"><img src="../../../assets/img/v1.0.1/crown.png" alt=""></div>
             <div class="head-img">
                 <img src="" alt="">
             </div>
-            <div class="info-account">考拉阅读账号：T</div>
+            <div class="info-account">考拉阅读账号：</div>
             <div class="info-name"></div>
             <div class="info-school"></div>
             <div class="info-certification">未认证&nbsp;<img src="../../../assets/img/teacher/no_ceti.png"></div>
@@ -45,9 +46,9 @@
                 </table>
             </div>
             <div class="part-basis class-info">
-                <div>班级代码：<span>123456</span><small>（学生添加此班级代码即可加入班级）</small><div><u>转让班级</u></div></div>
-                <div>班级：<span>三年级1班</span></div>
-                <div>班级人数：<span>45</span>人<div><u>解散班级</u></div></div>
+                <div>班级代码：<span id="class_code"></span><small>（学生添加此班级代码即可加入班级）</small><div><u>转让班级</u></div></div>
+                <div>班级：<span id="class_name"></span></div>
+                <div>班级人数：<span id="student_count"></span>人<div><u>解散班级</u></div></div>
             </div>
             <div class="part-basis student-part">
                 <table id="head_table">
@@ -82,9 +83,9 @@
                     </table>
                 </div>
                 <div class="btn-part">
-                    <div class="btn">允许加入班级</div>
-                    <div class="btn">拒绝加入班级</div>
-                    <div class="btn disabled">删除学生</div>
+                    <div class="btn" id="allow">允许加入班级</div>
+                    <div class="btn" id="refuse">拒绝加入班级</div>
+                    <div class="btn" id="delete">删除学生</div>
                 </div>
             </div>
 

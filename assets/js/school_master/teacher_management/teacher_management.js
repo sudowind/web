@@ -63,13 +63,14 @@ function init_grade() {
     for (var i = 1; i < 6; ++i) {
         html += '<span class="option" value="{0}">{1}</span>'.format((base_year + i).toString(), gn[i]);
     }
-    html = '<span class="index option" value="1">全部</span>' + html;
+    html = '<span class="index option" value="1">全部</span>' + html + '<span class="option" value="0">未带班</span>';
     $('.class-name .grade').html(html).on('click','span',function (){
         $(this).addClass('index').siblings().removeClass('index');
         //$(this);
         $(".information ul").remove();
         has_load_page = false;
-        if($(this).attr('value') == 1){
+        // 全部和未带班都会进入同一个加载函数
+        if($(this).attr('value') <= 1){
             $("#teacher_list_all").css("display","block");
             $("#teacher_list_class").css("display","none");
             load_teacher(1);
@@ -97,6 +98,21 @@ function load_teacher(page){
         url: URL_BASE + '/users/web/school/current/teacher/list',
         success: function(data) {
             //console.log(data);
+
+            var flag = Number($(".grade .index").attr('value'));
+            // console.log(flag);
+            if (!flag) {
+                // 只保留没有班级的老师
+                var tmp_data = [];
+                for (var i = 0; i < data.length; ++i) {
+                    if (data[i].classes.length == 0) {
+                        tmp_data.push(data[i]);
+                    }
+                }
+                data = tmp_data;
+                // console.log(data);
+            }
+
             var element_count = 18;
             var start_id = (page - 1) * element_count;
             var end_id = start_id + element_count;
@@ -252,31 +268,31 @@ function fill_teacher(data){
     }
     //console.log(classes_list);
     return      '<ul class="teacher-information" value="' + data.id + '">'
-        +'<li class="account">'+ data.id+'</li>'
+        +'<li class="account">T'+ data.id+'</li>'
         +'<li class="name">'+ data.name+'</li>'
         +'<li class="gender">'+ gender +'</li>'
-        +'<li class="className">'
-        +'<div class="dropdown">'
-        +'<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">' + data.classes[0].name + '<span class="caret"></span></button>'
-        +'<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" teacher_id="'+ data.id + '">' + classes_list + '</ul>'
-        +'</div>'
-        +'</li>'
-        +'<li id="del" class="delete" value="' + data.id + '">删除</li>'
+        // +'<li class="className">'
+        // +'<div class="dropdown">'
+        // +'<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">' + data.classes[0].name + '<span class="caret"></span></button>'
+        // +'<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" teacher_id="'+ data.id + '">' + classes_list + '</ul>'
+        // +'</div>'
+        // +'</li>'
+        +'<li id="del" value="' + data.id + '"></li>'
         +'</ul>'
 }
 //生成不带班级的教师list
 function fill_teacher_null(data){
     //console.log(data.classes);
     return      '<ul class="teacher-information" value="' + data.id + '">'
-        +'<li class="account">'+ data.id+'</li>'
+        +'<li class="account">T'+ data.id+'</li>'
         +'<li class="name">'+ data.name+'</li>'
         +'<li class="gender">'+ gender +'</li>'
-        +'<li class="className">'
-        +'<div class="dropdown">'
-        +'<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">' + ' 无分配班级 '+ '</button>'
-        +'</div>'
-        +'</li>'
-        +'<li id="del" class="delete" value="' + data.id + '">删除</li>'
+        // +'<li class="className">'
+        // +'<div class="dropdown">'
+        // +'<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">' + ' 无分配班级 '+ '</button>'
+        // +'</div>'
+        // +'</li>'
+        +'<li id="del" class="delete" value="' + data.id + '"><u>删除</u></li>'
         +'</ul>'
 }
 //生成教师所带班级下拉菜单的li
@@ -292,7 +308,7 @@ $(".button").on("click",function(){
     if(search == ''){
         my_tip.alert(hint);
         return;
-    };
+    }
     $("#teacher_list_all").css("display","none");
     $("#teacher_list_class").css("display","none");
     //$("#teacher_list_search").css("display","block");

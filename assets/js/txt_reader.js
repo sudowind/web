@@ -7,6 +7,8 @@
 
         var obj = $(this);
 
+        var current_para = 0;
+
         var height = obj.height();
         var width = obj.width();
         obj.html('');
@@ -15,9 +17,9 @@
             '<div class="btn save-progress">书签</div>' +
             '<div class="btn change-option" data-container="body" data-toggle="popover" data-placement="bottom"' +
             ' data-content="" data-html="true">A</div>' +
-            '</div>';
+            '</div><div class="select-pop"><div class="color-panel color-yellow"></div></div>';
 
-        var content = '<div class="reader-content"><div class="color-choose-div"><canvas id="color_canvas" width="430px" height="430px"></canvas></div></div>';
+        var content = '<div class="reader-content">{0}</div>'.format(options.data);
 
         obj.append(tool_bar);
         obj.append(content);
@@ -37,6 +39,47 @@
         $('.reader-content').click(function () {
             $('[data-toggle=popover]').popover('hide');
             // $('.color-choose-div').hide();
+        }).scroll(function () {
+            // console.log($(this).scrollTop());
+            // console.log($('.reader-content p:nth-child(19)').position().top);
+            var elem = $(this).find('p');
+            for (var i = 1; i < elem.length; ++i) {
+                if ($('.reader-content p:nth-child({0})'.format(i)).position().top < 10 && $('.reader-content p:nth-child({0})'.format(i + 1)).position().top >= 10) {
+                    current_para = i + 1;
+                }
+            }
+            if ($('.reader-content p:nth-child(1)').position().top == 44) {
+                current_para = 1;
+            }
+        }).mouseup(function (e) {
+            e = e || window.event;
+            var left = e.clientX;
+            var top = e.clientY;
+
+            console.log(left);
+            console.log(top);
+
+            var select_text;
+            var select_obj;
+            if(document.selection){ //IE浏览器下
+                select_text = document.selection.createRange().text;//返回选中的文字
+                select_obj = document.selection.createRange();
+            }
+            else{  //非IE浏览器下
+                select_text = window.getSelection().toString();//返回选中的文字
+                select_obj = window.getSelection();
+            }
+
+            if (select_text.length > 0){}
+                // $('.select-pop').css('top', top).css('left', left).css('display', 'block');
+            else
+                $('.select-pop').css('display', 'none');
+
+            console.log(select_obj);
+        });
+
+        $('.save-progress').click(function () {
+            console.log(current_para);
         });
 
         // $('.reader-content').append('<p>123</p>');
@@ -48,6 +91,10 @@
         //     var c = ctx.getImageData(e.clientX, e.clientY, 480, 480).data;
         //     console.log(c);
         // });
+
+        // 如果有存在的阅读进度，跳转到这个位置，大致是这样的写法
+        // $('.reader-content').scrollTop($('.reader-content p:nth-child(18)').position().top-44);
+
 
         return this;
     };
