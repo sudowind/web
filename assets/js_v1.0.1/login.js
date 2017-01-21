@@ -356,5 +356,20 @@ $('.rotate-div').click(function() {
             $(this).attr('value', curr_value);
         })
     }
-    console.log(user_type);
 });
+//根据登录端口注册
+function select_sign_in(){
+    getCookie(user_type);
+    switch (user_type) {
+        case 2:
+            window.open('../../../v1.0.1/student/sign_in.html', '_self');
+            break;
+        case 3:
+            window.open('../../../v1.0.1/teacher/sign_in.html', '_self');
+            break;
+        case 4:
+            window.open('../../../v1.0.1/school_master/sign_in.html', '_self');
+            break;
+    }
+}
+//忘记密码

@@ -78,6 +78,9 @@
 .select2-container--default .select2-selection--single .select2-selection__arrow{
     height: 36px;
 }
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: 34px;
+}
 .error{
     color: red;
     font-size: 12px;
@@ -130,8 +133,7 @@
     margin-right: 6px;
 }
 #select_school{
-    width: 248px;
-
+    width: 320px;
 }
 .select2-container--default .select2-selection--single{
     border: 1px solid #cbc8c8;
@@ -163,6 +165,7 @@
 }
 #sign_in_success .word p:nth-of-type(2){
     line-height: 39px;
+    margin-top: 10px;
 }
 #sign_in_success .word p img{
     vertical-align: bottom;
