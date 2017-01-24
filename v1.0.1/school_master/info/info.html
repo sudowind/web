@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link href="../../../libs/cropper/cropper.min.css" rel="stylesheet">
     <link href="../../../libs/sitelogo/sitelogo.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../libs/select2-4.0.3/dist/css/select2.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/header.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/school_master/base.css">
@@ -30,31 +31,31 @@
                     </div>
                 </div>
                 <div class="info_list">
-                    <div class="group id">考拉阅读账号: <span class="none">s100000</span></div>
-                    <div class="group name">姓名: <span class="none">苏琪</span><input type="text"/></div>
+                    <div class="group id">考拉阅读账号: <span></span></div>
+                    <div class="group name">姓名: <span class="gray"></span><input type="text"/></div>
                     <div class="group sex">性别:
                         <input id="boy" type="radio" disabled="disabled" value="男" name="auto" checked="checked">男
                         <input id="girl" type="radio" disabled="disabled" value="女" name="auto">女
                     </div>
                     <div class="group city ">城市:
-                        <span class="city_cont none">北京市丰台区</span>
+                        <span class="city_cont gray"></span>
                         <span class="select_open" style="display: none">
-                            <label for="select_province"></label>
-                            <select id="select_province"></select>省
-                            <label for="select_city"></label>
-                            <select id="select_city"></select>市
-                            <label for="select_district"></label>
-                            <select id="select_district"></select>区
+                            <!--<label for="select_province"></label>-->
+                            <select id="select_province" style="width: 100px;"></select>省
+                            <!--<label for="select_city"></label>-->
+                            <select id="select_city"  style="width: 120px;"></select>市
+                            <!--<label for="select_district"></label>-->
+                            <select id="select_district" style="width: 120px;"></select>区
                         </span>
                     </div>
                     <div class="group school">学校:
-                        <span class="school_cont none">北京市丰台区小学</span>
+                        <span class="school_cont gray"></span>
                         <span  class="select_open" style="display: none">
                             <label for="select_school"></label>
-                            <select id="select_school"></select>
+                            <select id="select_school" style="width: 300px;"></select>
                         </span>
                     </div>
-                    <div class="group phone">手机号: <span>18888888888</span><p> 绑定新的手机</p></div>
+                    <div class="group phone">手机号: <span></span><p> 绑定新的手机</p></div>
                     <div class="group mail">邮箱: <span>邮箱未绑定</span><p>绑定邮箱</p></div>
                     <div id="back">取消</div>
                     <div id="change">修改</div>
@@ -71,23 +72,23 @@
                     <div class="group">
                         <span class="tit">当前密码</span>
                         <input  class="ipt" type="password" placeholder="请输入密码"/>
-                        <span class="error">密码输入错误，请重新输入</span>
+                        <!--<span class="error">密码输入错误，请重新输入</span>-->
                     </div>
                     <div class="up">上一步</div>
                     <div class="down">下一步</div>
                 </div>
                 <div class="phone_num" style="display: none">
                     <div class="group">
-                        <span class="tit">新的手机密码</span>
-                        <input  class="ipt" type="password" placeholder="请输入11位新的手机号"/>
+                        <span class="tit">新的手机号码</span>
+                        <input  class="ipt new_phone_num" type="text" placeholder="请输入11位新的手机号"/>
                         <div class="gain">获取验证码</div>
-                        <span class="error">手机格式错误，请输入新的手机号码</span>
+                        <span class="error" style="display: none">手机格式错误，请输入新的手机号码</span>
                     </div>
                     <div class="group">
                         <span class="tit">验证码</span>
-                        <input  class="ipt" type="password" placeholder="请输入验证码"/>
+                        <input  class="ipt new_phone_check_num" type="text" placeholder="请输入验证码"/>
                     </div>
-                    <div class="up">上一步</div>i
+                    <div class="up">上一步</div>
                     <div id="sure_new_phone">绑定</div>
                 </div>
             </div>
@@ -101,7 +102,7 @@
                     <div class="group">
                         <span class="tit">当前密码</span>
                         <input  class="ipt" type="password" placeholder="请输入密码"/>
-                        <span class="error">密码输入错误，请重新输入</span>
+                        <!--<span class="error">密码输入错误，请重新输入</span>-->
                     </div>
                     <div class="up">上一步</div>
                     <div class="down">下一步</div>
@@ -109,13 +110,13 @@
                 <div class="mail_num" style="display: none">
                     <div class="group">
                         <span class="tit">邮箱</span>
-                        <input  class="ipt" type="password" placeholder="请输入邮箱地址"/>
+                        <input  class="ipt new_mail_num" type="text" placeholder="请输入邮箱地址"/>
                         <div class="gain">获取验证码</div>
-                        <span class="error">邮箱格式错误，请输入新的邮箱</span>
+                        <span class="error" style="display: none">邮箱格式错误，请输入新的邮箱</span>
                     </div>
                     <div class="group">
                         <span class="tit">验证码</span>
-                        <input  class="ipt" type="password" placeholder="请输入验证码"/>
+                        <input  class="ipt new_mail_check_num" type="text" placeholder="请输入验证码"/>
                     </div>
                     <div class="up">上一步</div>
                     <div id="sure_new_mail">绑定</div>
@@ -193,6 +194,7 @@
         </div>
     </div>
     <div style="clear: both;"></div>
+    <div id="tmp_modal"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 
@@ -214,6 +216,7 @@
     $(document).ready(function () {
         $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
         load_info();
+        get_province();
     });
     $(window).resize(window_resize_teacher);
 

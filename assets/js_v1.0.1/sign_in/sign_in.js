@@ -1,7 +1,6 @@
 /**
  * Created by yilong on 2017/1/6.
  */
-
 //年月日下拉三联
 function YYYYMMDDstart() {
     MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -269,14 +268,12 @@ function sign_in() {
                 $("#sign_in_success").css("display",'block');
                 $("#sign_in_success .word .user_id").html(data.account);
                 $("#sign_in_success .word p img").on('click',function(){
-                    window.open('../login.html');
+                    window.open('../login.html','_self');
                 })
             },
             error: ajax_error_handler
         });
     }
 }
-
-
 
 

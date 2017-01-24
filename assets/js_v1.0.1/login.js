@@ -71,8 +71,8 @@ window.onload = function() {
         flake        = document.createElement("CANVAS"),
         flakeContext = flake.getContext("2d");
 
-    console.log(width);
-    console.log(height);
+    //console.log(width);
+    //console.log(height);
 
     // create flake grafic
     flake.width = 8;
@@ -166,12 +166,12 @@ function login() {
             userType: user_type
         },
         success: function (data) {
+            console.log(data.success);
             if (data.success) {
                 console.log(user_type);
                 // alert(data.loginCount);
                 switch (user_type) {
                     case 2:
-
                         if (data.loginCount == 0)
                             window.open('../../../v1.0.1/student/home/first.html', '_self');
                         else
@@ -190,7 +190,7 @@ function login() {
                 setCookie('USER', data.userId);
                 //判断是否记住密码,设置cookie
                 if($('#remember_password').is(':checked')){
-                    setCookie('username', $('#user_name').val().trim(),7);
+                    setCookie('username', $('#account').val().trim(),7);
                     setCookie('userpassword', $('#password').val().trim(),7);
                     setCookie('usertype',data.userType,7);
                 }else{
@@ -318,8 +318,27 @@ $('.rotate-div').click(function() {
             $('#login_part').show();
             $('#login_button').css('background', color);
         });
+        //根据点击端口存cookie
         user_type = Number($(this).attr('type'));
         setCookie('user_type',user_type);
+
+        //记住密码功能
+        var usertype = getCookie('usertype');
+        if(user_type == usertype){
+
+            //判断cookie中是否有帐号密码
+            $(function(){
+                //获取cookie
+                var username = getCookie('username');
+                var userpassword = getCookie('userpassword');
+                var usertype = getCookie('usertype');
+                if(username != "" && userpassword != ""){
+                    $("#account").val(username);
+                    $("#password").val(userpassword);
+                    $('#remember_password').attr('checked','true');
+                }
+            });
+        }
     }
     else if (value == 4) {
 
@@ -373,3 +392,6 @@ function select_sign_in(){
     }
 }
 //忘记密码
+function forget_pwd(){
+    window.open('../../../v1.0.1/student/find_pwd.html', '_self');
+}

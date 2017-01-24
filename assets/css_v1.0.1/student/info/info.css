@@ -40,7 +40,6 @@
     line-height: 38px;
     margin-top: 0px;
     font-size: 16px;
-
 }
 #crop-avatar{
     width: 230px;
@@ -103,8 +102,28 @@
     padding-left: 10px;
 }
 .info_list .group select{
-    width: 48px;
+    width: 56px;
 }
+.info_list .group .date{
+    float: right;
+    margin-right: 76px;
+    /*margin-top: -8px;*/
+}
+.info_list .group .date select{
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 28px;
+    border: 1px solid #cbc8c8;
+    border-radius: 4px;
+    margin-right: 6px;
+    text-align: center;
+    font-size: 14px;
+}
+.info_list .group .date select option{
+    padding-left: 100px;
+    text-align: center;
+}
+
 .select2-container .select2-selection--single{
     height: 28px;
 }
@@ -123,6 +142,8 @@
 }
 .main .info_list .star_sign{
     height: 50px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 #change{
@@ -260,7 +281,6 @@
 .error{
     color: red;
     font-size: 12px;
-    margin-left: 160px;
 }
 .pwd .up{
     width: 100px;
@@ -318,7 +338,7 @@
     color: #eeeeee;
     position: absolute;
     top: 180px;
-    left: 330px;
+    left: 188px;
     cursor: pointer;
 }
 
@@ -381,7 +401,7 @@
     color: #eeeeee;
     position: absolute;
     top: 180px;
-    left: 330px;
+    left: 188px;
     cursor: pointer;
 }
 
@@ -417,4 +437,17 @@
 }
 .gray{
     color: #cccccc;
+}
+.phone_num .error{
+    position: absolute;
+    top: 44px;
+    left: 156px;
+}
+.mail_num .error{
+    position: absolute;
+    top: 44px;
+    left: 156px;
+}
+.mail_num .group{
+    margin-top: 30px;
 }

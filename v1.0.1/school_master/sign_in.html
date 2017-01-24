@@ -2,15 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>完善个人信息校长</title>
+    <title>完善个人信息</title>
     <link rel=icon href="../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../assets/css/students/library/reset.css">
+    <link rel="stylesheet" href="../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../assets/css/footer.css">
     <link rel="stylesheet" href="../../libs/select2-4.0.3/dist/css/select2.css">
-    <link rel="stylesheet" href="../../assets/css_v1.0.1/sign_in/sign_in.css">
+    <link rel="stylesheet" href="../../assets/css_v1.0.1/school_master/sign_in/sign_in.css">
+
 </head>
 <body>
 <div class="air">
+    <div id="school_num">
+        <div class="title">
+            <h2>立即注册</h2>
+            <p></p>
+        </div>
+        <div class="school_num">
+            <div>
+                <img src="../../assets/img/v1.0.1/school_master_sign_in.png" alt=""/>
+            </div>
+            <input type="text" placeholder="输入学校代码"/>
+            <p style="display: none">学校代码错误请重新输入</p>
+            <div class="sign_in_master" onclick="school_num()">注册校长账号</div>
+            <div class="get_school_num" onclick="how_to_get_school_num()">获取学校代码？</div>
+        </div>
+    </div>
     <div id="main">
         <div class="title">
             <h2>完善个人信息</h2>
@@ -27,47 +45,12 @@
                 <input id="girl" type="radio" value="女" name="auto">女
             </div>
             <div class="group">
-                <span class="tit">出生年月</span>
-                <div class="date">
-                    <form name="reg_testdate">
-                        <select name="YYYY" onchange="YYYYDD(this.value)">
-                            <!--<option value="">请选择 年</option>-->
-                        </select>年
-                        <select name="MM" onchange="MMDD(this.value)">
-                            <!--<option value="">选择 月</option>-->
-                        </select>月
-                        <select name="DD">
-                            <!--<option value="">选择 日</option>-->
-                        </select>日
-                    </form>
-                </div>
-            </div>
-            <!--<div class="group">-->
-            <!--<span class="tit">出生年月</span>-->
-            <!--<span>-->
-            <!--<label for="select_year"></label>-->
-            <!--<select id="select_year"></select>年-->
-            <!--<label for="select_month"></label>-->
-            <!--<select id="select_month"></select>月-->
-            <!--<label for="select_day"></label>-->
-            <!--<select id="select_day"></select>日-->
-            <!--</span>-->
-            <!--</div>-->
-            <div class="group">
                 <span class="tit">地址</span>
-                    <span>
-                        <!--<label for="select_province"></label>-->
-                        <select id="select_province" style="width: 156px;"></select>省
-                        <!--<label for="select_city"></label>-->
-                        <select id="select_city"  style="width: 150px;"></select>市
-                        <!--<label for="select_district"></label>-->
-                        <select id="select_district" style="width: 130px;"></select>区
-                    </span>
+                <span class="address">1111</span>
             </div>
             <div class="group">
                 <span class="tit">学校</span>
-                <label for="select_school"></label>
-                <select  class="ipt" id="select_school"></select>
+                <span class="school">2222</span>
             </div>
             <div class="group set-pw">
                 <p class="tit">密码</p>
@@ -100,22 +83,27 @@
             <p>请熟记你的考拉账号，快去登录吧 <img src="../../assets/img/v1.0.1/go_login.png" alt=""/></p>
         </div>
     </div>
+    <div id="tmp_modal"></div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 <script src="../../libs/jquery-3.1.1.min.js"></script>
+<script src="../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../libs/select2-4.0.3/dist/js/select2.full.js"></script>
 <script src="../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
-<script src="../../assets/js_v1.0.1/sign_in/sign_in.js"></script>
 <script src="../../assets/js/base.js"></script>
 <script src="../../assets/js/load.js"></script>
+<script src="../../assets/js/tip_modal.js"></script>
+<script src="../../assets/js/cookie.js"></script>
+<script src="../../assets/js_v1.0.1/school_master/sign_in/sign_in.js"></script>
+
 <script>
     // 为了保证页脚始终在低端，并且保证横向缩放页脚始终居中，分别改变了marginTop和width
     $('#page_footer').load('../../include/html/footer.html', function() {
         $('.qrcode').attr('src', '../../assets/img/qrcode.png');
-        $('.footer').css('marginTop', '0').css('width', '100%').css('height','60px');
+        $('.footer').css('marginTop', '0').css('width', '100%').css('height','100px');
         $('.footer-content').css('font-size','14px');
     });
-    get_province();
+
 </script>
 </body>
 </html>

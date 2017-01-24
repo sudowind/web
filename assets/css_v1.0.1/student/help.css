@@ -1,0 +1,43 @@
+.main{
+    height: 600px;
+    background: #ffffff;
+    float: left;
+    width: 100%;
+    padding: 40px;
+}
+.feedback{
+    width: 138px;
+    height: 28px;
+    background: #3c97cf;
+    color: #ffffff;
+    line-height: 28px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    float: left;
+    font-size: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.handbook{
+    width: 138px;
+    height: 28px;
+    background: #3c97cf;
+    color: #ffffff;
+    line-height: 28px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    float: left;
+    margin-top: 10px;
+    margin-left: 28px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.index{
+    height: 38px;
+    background: #f89d32;
+    line-height: 38px;
+    margin-top: 0px;
+    font-size: 16px;
+}

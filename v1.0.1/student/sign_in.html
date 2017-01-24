@@ -6,8 +6,9 @@
     <link rel=icon href="../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../assets/css/students/library/reset.css">
     <link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../libs/select2-4.0.3/dist/css/select2.css">
-    <link rel="stylesheet" href="../../assets/css_v1.0.1/sign_in/sign_in.css">
+    <link rel="stylesheet" href="../../assets/css_v1.0.1/student/sign_in/sign_in.css">
 </head>
 <body>
     <div class="air">
@@ -30,15 +31,9 @@
                         <span class="tit">出生年月</span>
                         <div class="date">
                             <form name="reg_testdate">
-                                <select name="YYYY" onchange="YYYYDD(this.value)">
-                                    <!--<option value="">请选择 年</option>-->
-                                </select>年
-                                <select name="MM" onchange="MMDD(this.value)">
-                                    <!--<option value="">选择 月</option>-->
-                                </select>月
-                                <select name="DD">
-                                    <!--<option value="">选择 日</option>-->
-                                </select>日
+                                <select name="YYYY" onchange="YYYYDD(this.value)"></select>年
+                                <select name="MM" onchange="MMDD(this.value)"></select>月
+                                <select name="DD"></select>日
                             </form>
                         </div>
                 </div>
@@ -100,11 +95,13 @@
                 <p>请熟记你的考拉账号，快去登录吧 <img src="../../assets/img/v1.0.1/go_login.png" alt=""/></p>
             </div>
         </div>
+        <div id="tmp_modal"></div>
     </div>
     <div id="page_footer" style="background: #edeef0"></div>
     <script src="../../libs/jquery-3.1.1.min.js"></script>
     <script src="../../libs/select2-4.0.3/dist/js/select2.full.js"></script>
     <script src="../../libs/select2-4.0.3/dist/js/i18n/zh-CN.js"></script>
+    <script src="../../assets/js/tip_modal.js"></script>
     <script src="../../assets/js_v1.0.1/sign_in/sign_in.js"></script>
     <script src="../../assets/js/base.js"></script>
     <script src="../../assets/js/load.js"></script>
