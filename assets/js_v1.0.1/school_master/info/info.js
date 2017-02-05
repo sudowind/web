@@ -184,7 +184,7 @@ $("#change").on('click',function(){
     document.getElementById("girl").disabled = false;
     $(".gray").css('display','none');
     $(".select_open").css('display','inline-block');
-    $(".name input").css('display','inline-block');
+    $(".name input").css('display','inline-block').val($('.name .gray').html());
     $("#change").css('display','none');
     $("#back").css('display','block');
     $("#sure").css('display','block');
@@ -440,10 +440,7 @@ $("#sure").click(function() {
         },
         contentType: 'application/json',
         data: JSON.stringify({
-            "info": {
-                "name":name
-                //"birthday": birthday
-            },
+            "name":name,
             "gender": gender
         }),
         type: 'PUT',

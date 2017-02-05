@@ -183,7 +183,7 @@ $("#change").on('click',function(){
     document.getElementById("girl").disabled = false;
     $(".gray").css('display','none');
     $(".select_open").css('display','inline-block');
-    $(".name input").css('display','inline-block');
+    $(".name input").css('display','inline-block').val($('.name .gray').html());
     $("#change").css('display','none');
     $("#back").css('display','block');
     $("#sure").css('display','block');
@@ -391,6 +391,7 @@ function load_info() {
         type: 'GET',
         url: URL_BASE + '/users/web/user/current',
         success: function(data) {
+            console.log(data)
             //console.log(data.school.address);
             $(".id span").html(data.account);
             $(".name span").html(data.name);
@@ -421,9 +422,7 @@ $("#sure").click(function() {
     $(".info_list .group p").css('display','none');
 
 
-    //var birthday = $(".laydate").val();
     var name = $(".name input").val();
-    //console.log(name)
     if ($("#boy").is(":checked")) {
         var gender = 1;
     } else if ($("#girl").is(":checked")) {
@@ -436,10 +435,7 @@ $("#sure").click(function() {
         },
         contentType: 'application/json',
         data: JSON.stringify({
-            "info": {
-                "name":name
-                //"birthday": birthday
-            },
+            "name":name,
             "gender": gender
         }),
         type: 'PUT',

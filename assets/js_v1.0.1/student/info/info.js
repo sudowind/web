@@ -22,7 +22,7 @@ function YYYYMMDDstart() {
     document.reg_testdate.YYYY.value = y;
     document.reg_testdate.MM.value = new Date().getMonth() + 1;
     var n = MonHead[new Date().getMonth()];
-    if (new Date().getMonth() ==1 && IsPinYear(YYYYvalue)) n++;
+    //if (new Date().getMonth() ==1 && IsPinYear(YYYYvalue)) n++;
     writeDay(n); //赋日期下拉框
     document.reg_testdate.DD.value = new Date().getDate();
 }
@@ -173,8 +173,9 @@ function get_district(parentId){
 }
 
 //获取区域的学校
+var school_list = [];
 function get_school(addrCode){
-    var school = [];
+    school_list = [];
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -185,22 +186,20 @@ function get_school(addrCode){
             addrCode:addrCode
         },
         success: function(data) {
-            //console.log(data);
-            for(var i = 0;i < data.length;i++){
-                school.push({
+
+            for(var i = 0;i <  data.length;i++){
+                school_list.push({
                     id: data[i].id,
                     text:data[i].name
                 });
             }
             $('#select_school').select2({
-                data: school,
+                data: school_list,
                 language: 'zh-CN'
             });
             $("#select_school").on('change',function(){
 
                 $("#select_class").empty();
-
-
 
             });
         },
@@ -472,8 +471,6 @@ $(".mail p").on('click',function(){
 });
 
 
-
-
 //获取星座
 function getConstellation(m,d){
     var s="魔羯水瓶双鱼牧羊金牛双子巨蟹狮子处女天枰天蝎射手魔羯";
@@ -491,7 +488,7 @@ function load_info() {
         type: 'GET',
         url: URL_BASE + '/users/web/user/current',
         success: function(data) {
-            //console.log(data.info.birthday);
+            console.log(data);
             var strObj = data.info.birthday;
             var star_sign = getConstellation(strObj.substring(5,7),strObj.substring(8,10));
             switch (star_sign){
@@ -591,6 +588,8 @@ $("#sure").click(function() {
 
     var birthday = year+'-'+month+'-'+day;
 
+    //var school_id = $("#select_school").select2('val');
+
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -607,7 +606,7 @@ $("#sure").click(function() {
         type: 'PUT',
         url: URL_BASE + '/users/web/user/current',
         success: function (data) {
-            console.log(data);
+            //console.log(data);
             load_info();
         },
         error: ajax_error_handler

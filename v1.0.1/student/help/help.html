@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>我的主页</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/help.css"/>
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="feedback index">意见反馈</div>
+        <div class="handbook">操作手册</div>
+        <div class="main">
+            <div class="feedback_main">
+                <div class="suggestion"><span>您的意见：</span><textarea  placeholder="请输入您的宝贵意见（必填）"></textarea></div>
+                <div class="phone"><span>手机号码/邮箱：</span><input type="text" placeholder="请输入手机号码或者邮箱"/></div>
+                <div class="button">提交</div>
+            </div>
+            <div class="handbook_main">
+
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/base.js"></script>
+<script src="../../../assets/js_v1.0.1/student/help.js"></script>
+
+<script>
+    load('../../../include/html/');
+    $(document).ready(function () {
+        $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
+    });
+    $(window).resize(window_resize);
+
+</script>
+</body>
+</html>

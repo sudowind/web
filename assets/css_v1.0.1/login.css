@@ -55,6 +55,10 @@ body {
     cursor: pointer;
 }
 
+.rotate-div div{
+    margin-top: 40px;
+}
+
 .rotate-1 {
     /*transition: 1s;*/
 
