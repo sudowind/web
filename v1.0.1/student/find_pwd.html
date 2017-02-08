@@ -24,15 +24,8 @@
                 <p><img src="../../assets/img/v1.0.1/find_heng.png" alt=""/></p>
                 <p class="three"><img src="../../assets/img/v1.0.1/find_three_unselect.png" alt=""/></p>
                 <p class="three_font">重置密码</p>
-                <!--<p><img src="../../assets/img/v1.0.1/find_heng.png" alt=""/></p>-->
-                <!--<p class="four"><img src="../../assets/img/v1.0.1/find_four_unselect.png" alt=""/></p>-->
-                <!--<p class="four_font">成功</p>-->
             </div>
-            <!--<div class="ipt_id">-->
-                <!--<span>考拉阅读学号、绑定手机号或邮箱</span>-->
-                <!--<input type="text" placeholder="输入考拉阅读学号、绑定手机或邮箱"/>-->
-                <!--<div class="btn">下一步</div>-->
-            <!--</div>-->
+
             <!--选择找回密码的方式-->
             <div class="test_info">
                 <div class="phone_find">
@@ -46,14 +39,15 @@
             <div class="phone_reset_pwd clear" style="display: none">
                 <div class="top">
                     <span>手机号</span>
-                    <input type="text"placeholder="请输入手机号码"/>
+                    <input type="text" id="phone_num" placeholder="请输入手机号码"/>
+                    <span class="index phone_num_no" style="display: none">请输入正确格式的手机号</span>
                 </div>
                 <div class="left">
                     <span>请输入短信验证码</span>
                     <input type="text" placeholder="请输入短信验证码"/>
                 </div>
-                <div class="right"><span>60</span>s后重新发送</div>
-                <p>验证码已发送，如未收到，请稍等片刻</p>
+                <input class="right get_phone_pwd" onclick="phone_sendCode(this)" value="获取验证码"/>
+                <p style="display: none">验证码已发送，如未收到，请稍等片刻</p>
                 <div class="back">返回</div>
                 <div class="phone_next_step">下一步</div>
             </div>
@@ -61,22 +55,23 @@
             <div class="mail_reset_pwd clear" style="display: none">
                 <div class="top">
                     <span>邮箱</span>
-                    <input type="text"placeholder="请输入邮箱"/>
+                    <input type="text" id="mail" placeholder="请输入邮箱"/>
+                    <span class="index mail_num_no" style="display: none">请输入正确格式的邮箱</span>
                 </div>
                 <div class="left">
                     <span>请输入邮箱验证码</span>
                     <input type="text" placeholder="请输入邮箱验证码"/>
                 </div>
-                <div class="right"><span>60</span>s后重新发送</div>
+                <input class="right get_mail_pwd" onclick="mail_sendCode(this)" value="获取验证码"/>
                 <p>验证码已发送，如未收到，请稍等片刻</p>
                 <div class="back">返回</div>
                 <div class="mail_next_step">下一步</div>
             </div>
             <!--重置密码成功-->
             <div class="success_reset_pwd" style="display: none">
-                <div class="new_pwd">重置新密码 <input type="text" placeholder="输入新密码"/></div>
-                <div class="sure_pwd">确认新密码 <input type="text" placeholder="输入新密码"/></div>
-                <p>新密码与原密码不一致，请重新输入</p>
+                <div class="new_pwd">重置新密码 <input id="password-1" type="password" placeholder="输入新密码"/></div>
+                <div class="sure_pwd">确认新密码 <input id="password-2" type="password" placeholder="输入新密码"/></div>
+                <p class="pass_no">两次输入不一致，请重新输入</p>
                 <div id="success_login">重置成功并登陆</div>
             </div>
         </div>
@@ -84,6 +79,7 @@
 <div id="page_footer" style="background: #edeef0"></div>
 <script src="../../libs/jquery-3.1.1.min.js"></script>
 <script src="../../assets/js_v1.0.1/find_pwd/find_pwd.js"></script>
+    <script src="../../assets/js/load.js"></script>
 <script>
     // 为了保证页脚始终在低端，并且保证横向缩放页脚始终居中，分别改变了marginTop和width
     $('#page_footer').load('../../include/html/footer.html', function() {

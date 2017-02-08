@@ -118,13 +118,14 @@
     width: 130px;
     height: 40px;
     border-radius: 6px;
-    background: #e8ecef;
-    color: #999999;
+    background: #3f8ebe;
+    color: #ffffff;
     font-size: 14px;
     line-height: 40px;
     text-align: center;
     margin-left: 20px;
     cursor: pointer;
+    border: none;
 }
 .phone_reset_pwd .top{
     margin-bottom: 30px;
@@ -139,10 +140,11 @@
     padding-left: 10px;
 }
 .phone_reset_pwd p{
-    float: right;
+    position: absolute;
     font-size: 12px;
     color: #bbbbbb;
-    margin: 6px 10px;
+    top: 500px;
+    left: 702px;
 }
 .phone_reset_pwd .back{
     width: 138px;
@@ -164,7 +166,7 @@
     text-align: center;
     float: right;
     color: #ffffff;
-    margin-top: 76px;
+    margin-top: 100px;
     margin-left: 80px;
     cursor: pointer;
 }
@@ -174,7 +176,7 @@
     width: 600px;
     height: 200px;
     margin-top: 70px;
-    margin-left: 84px;
+    margin-left: 112px;
 }
 .mail_reset_pwd .top{
     margin-bottom: 30px;
@@ -204,13 +206,14 @@
     width: 130px;
     height: 40px;
     border-radius: 6px;
-    background: #e8ecef;
-    color: #999999;
+    background: #3f8ebe;
+    color: #ffffff;
     font-size: 14px;
     line-height: 40px;
     text-align: center;
     margin-left: 20px;
     cursor: pointer;
+    border: none;
 }
 .mail_reset_pwd p{
     float: right;
@@ -260,11 +263,13 @@
     padding-left: 10px;
     margin-top: 20px;
 }
-.success_reset_pwd p{
+.success_reset_pwd .pass_no{
+    position: absolute;
+    top: 500px;
+    left: 500px;
     font-size: 12px;
     color: red;
-    margin-left: 82px;
-    margin-top: 10px;
+    display: none;
 }
 #success_login{
     width: 170px;
@@ -274,8 +279,13 @@
     color: #ffffff;
     background: #3f8ebe;
     margin-left: 80px;
-    margin-top: 40px;
+    margin-top: 50px;
     border-radius: 6px;
     cursor: pointer;
 }
+.index{
+    font-size: 12px;
+    color: red;
+    margin-left: 12px;
 
+}

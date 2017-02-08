@@ -463,3 +463,31 @@
     font-size: 12px;
     height: 17px;
 }
+
+.first_comein{
+    float: right;
+    width: 482px;
+    height: 990px;
+    background: #f9f9f9;
+    margin-top: 30px;
+    border: 20px solid #fff;
+    text-align: center;
+}
+.first_comein .img{
+    margin-bottom: 40px;
+}
+.first_comein p{
+    color: #fb9e1d;
+    margin-top: 20px;
+}
+#go_library{
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    color: #ffffff;
+    background: #fb9e1d;
+    border-radius: 8px;
+    margin-left: 154px;
+    margin-top: 50px;
+    cursor: pointer;
+}

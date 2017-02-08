@@ -81,7 +81,7 @@
                     <div class="group">
                         <span class="tit">新的手机号码</span>
                         <input  class="ipt new_phone_num" type="text" placeholder="请输入11位新的手机号"/>
-                        <div class="gain">获取验证码</div>
+                        <input class="gain" type="button" onclick="phone_sendCode(this)" value="获取验证码"/>
                         <span class="error" style="display: none">手机格式错误，请输入新的手机号码</span>
                     </div>
                     <div class="group">
@@ -111,7 +111,7 @@
                     <div class="group">
                         <span class="tit">邮箱</span>
                         <input  class="ipt new_mail_num" type="text" placeholder="请输入邮箱地址"/>
-                        <div class="gain">获取验证码</div>
+                        <input class="gain" type="button" onclick="mail_sendCode(this)" value="获取验证码"/>
                         <span class="error" style="display: none">邮箱格式错误，请输入新的邮箱</span>
                     </div>
                     <div class="group">

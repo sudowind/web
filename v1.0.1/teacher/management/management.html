@@ -7,10 +7,8 @@
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
-
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/header.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/base.css">
-
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
@@ -18,7 +16,6 @@
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/question.css">
-
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/management/management.css">
 
@@ -46,9 +43,9 @@
                 </table>
             </div>
             <div class="part-basis class-info">
-                <div>班级代码：<span id="class_code"></span><small>（学生添加此班级代码即可加入班级）</small><div><u>转让班级</u></div></div>
+                <div>班级代码：<span id="class_code"></span><small>（学生添加此班级代码即可加入班级）</small><div class="give_class"><u>转让班级</u></div></div>
                 <div>班级：<span id="class_name"></span></div>
-                <div>班级人数：<span id="student_count"></span>人<div><u>解散班级</u></div></div>
+                <div>班级人数：<span id="student_count"></span>人<div class="dismiss_class" onclick="dismiss_class()"><u>解散班级</u></div></div>
             </div>
             <div class="part-basis student-part">
                 <table id="head_table">
@@ -148,7 +145,6 @@
 <script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
 <script src="../../../libs/laydate/laydate.js"></script>
 <script src="../../../libs/echarts.min.js"></script>
-
 <script src="../../../assets/js/test.js"></script>
 <script src="../../../assets/js/plot.js"></script>
 <script src="../../../assets/js/note.js"></script>
@@ -160,8 +156,6 @@
 <script src="../../../assets/js/cookie.js"></script>
 <script src="../../../assets/js/login.js"></script>
 <script src="../../../libs/progressbar.js"></script>
-
-<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
 <script src="../../../assets/js/teacher/management/manage.js"></script>
 <script>
     $(document).ready(function () {

@@ -262,6 +262,7 @@ function load_class_info(class_id) {
         type: 'get',
         url: URL_BASE + '/users/web/class/{0}/students'.format(class_id),
         success: function (data) {
+            console.log(data)
             $('#student_count').html(data.length);
             var joined_student = data;
 
@@ -276,7 +277,6 @@ function load_class_info(class_id) {
                     classId: class_id
                 },
                 success: function (data) {
-                    console.log(data);
                     var html = '';
                     for (var i = 0; i < data.length; ++i) {
                         var gender;
@@ -370,13 +370,45 @@ function init_class() {
                 $(this).addClass('index');
                 clear_rows();
                 has_load_page = false;
-                curr_class = $(this).attr('value')
+                curr_class = $(this).attr('value');
                 load_class_info(curr_class);
             });
-            curr_class = class_id
+            curr_class = class_id;
             load_class_info(curr_class);
             // load_tasks(class_id, 1);
         },
         error: error_handler()
     });
+}
+//解散班级
+function dismiss_class(){
+    var class_name = $('#class_name').html();
+    var class_code = $('#class_code').html();
+    var class_id = $('.classes-part table tbody tr td .index').attr('value');
+    my_tip.bind('您确定解散' + class_name + '(班级代码：'+ class_code +') ',function(){
+
+        my_tip.bind('班级解散后数据将不可恢复，是否确认解散该班级？',function(){
+            $.ajax({
+                xhrFields: {
+                    withCredentials: true
+                },
+                type: 'post',
+                url: URL_BASE + '/users/web/class/'+class_id+'/delete',
+                success: function (data) {
+                    my_tip.alert(''+ class_name +'解散成功！');
+                    init_class();
+                },
+                error: function() {
+                    if(XMLHttpRequest.status == 400){
+                        my_tip.alert('已被认证班级无法解散');
+                    }
+                }
+            });
+        })
+
+    })
+}
+//转让班级
+function give_class(){
+
 }

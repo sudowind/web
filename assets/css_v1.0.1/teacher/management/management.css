@@ -233,3 +233,7 @@ td input {
 #has_no_class div .btn img {
     margin-top: -4px;
 }
+
+.give_class ,.dismiss_class{
+    cursor: pointer;
+}

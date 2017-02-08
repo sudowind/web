@@ -37,25 +37,11 @@
                             </form>
                         </div>
                 </div>
-                <!--<div class="group">-->
-                    <!--<span class="tit">出生年月</span>-->
-                        <!--<span>-->
-                            <!--<label for="select_year"></label>-->
-                            <!--<select id="select_year"></select>年-->
-                            <!--<label for="select_month"></label>-->
-                            <!--<select id="select_month"></select>月-->
-                            <!--<label for="select_day"></label>-->
-                            <!--<select id="select_day"></select>日-->
-                        <!--</span>-->
-                <!--</div>-->
                 <div class="group">
                     <span class="tit">地址</span>
                     <span>
-                        <!--<label for="select_province"></label>-->
                         <select id="select_province" style="width: 156px;"></select>省
-                        <!--<label for="select_city"></label>-->
                         <select id="select_city"  style="width: 150px;"></select>市
-                        <!--<label for="select_district"></label>-->
                         <select id="select_district" style="width: 130px;"></select>区
                     </span>
                 </div>
@@ -71,17 +57,17 @@
                 <div class="group sure-pw">
                     <p class="tit">确认密码</p>
                     <input  class="ipt" id="password-2" type="password" placeholder="请输入密码"/>
-                    <!--<span class="error pass_no">密码与原密码不一致，请重新输入</span>-->
+                    <span class="error pass_no">密码与原密码不一致，请重新输入</span>
                 </div>
                 <div class="group">
                     <p class="tit">绑定手机号码</p>
                     <input class="ipt" id="phone_num" type="text" placeholder="请输入手机号"/>
-                    <span class="error">手机号输入有误，请重新输入</span>
+                    <span class="error phone_num_no">手机号输入有误，请重新输入</span>
                     <p>可通过该手机快速找回密码</p>
                 </div>
                 <div class="group">
                     <input class="note_pwd" type="text" placeholder="请输入短信验证码"/>
-                    <span class="get_pwd">获取验证码</span>
+                    <input class="get_pwd" type="button" onclick="sendCode(this)" value="获取验证码"/>
                     <span class="error">短信验证码失效，请重新获取验证码</span>
                 </div>
                 <div id="sign_in" onclick="sign_in()">注册</div>

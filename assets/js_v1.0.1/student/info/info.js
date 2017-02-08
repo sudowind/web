@@ -295,6 +295,7 @@ $("#back").on('click',function(){
     $(".info_list .group p").css('display','none');
 });
 //绑定手机号
+var new_phone;
 $(".phone p").on('click',function(){
     $(".change_info").css('display','none');
     $(".new_phone").css('display','block');
@@ -313,7 +314,7 @@ $(".phone p").on('click',function(){
         $(".new_phone .pwd").css('display','none');
 
         $(".new_phone_num").blur(function(){
-            var new_phone = $(".new_phone .phone_num .new_phone_num").val();
+            new_phone = $(".new_phone .phone_num .new_phone_num").val();
             var reg = /^1(3|4|5|7|8)\d{9}$/;
             console.log(new_phone);
             if(!reg.test(new_phone)){
@@ -322,56 +323,6 @@ $(".phone p").on('click',function(){
             $(this).focus(function(){
                 $(".phone_num .error").css("display","none");
             })
-        });
-
-        //获取绑定手机号验证码
-        $(".new_phone .phone_num .group .gain").on('click',function(){
-            new_phone = $(".new_phone .phone_num .new_phone_num").val();
-            //console.log(new_phone)
-
-            $.ajax({
-                xhrFields: {
-                    withCredentials: true
-                },
-                data: {
-                    newAccount : new_phone,
-                    accountType : 3
-                },
-                type: 'POST',
-                url: URL_BASE + '/users/web/user/current/account/preChange',
-                success: function (data) {
-                    console.log(data);
-                    //确定绑定手机号事件
-                    $("#sure_new_phone").on('click',function(){
-
-                        var authId = data,
-                            authCode = $(".new_phone .phone_num .new_phone_check_num").val();
-
-                        $.ajax({
-                            xhrFields: {
-                                withCredentials: true
-                            },
-                            data: {
-                                authId : authId,
-                                authCode : authCode,
-                                newAccount : new_phone,
-                                accountType : 3
-                            },
-                            type: 'POST',
-                            url: URL_BASE + '/users/web/user/current/account/doChange',
-                            success: function (data) {
-                                var text = '恭喜您，手机绑定成功！';
-                                my_tip.bind(text,function(){
-                                    window.open('info.html','_self');
-                                });
-
-                            },
-                            error: ajax_error_handler
-                        });
-                    });
-                },
-                error: ajax_error_handler
-            });
         });
 
         //输入新的手机号码 上一步
@@ -384,7 +335,95 @@ $(".phone p").on('click',function(){
 });
 
 
+//绑定新的手机号获取验证码倒计时
+var clock = '';
+var nums = 60;
+var btn;
+function phone_sendCode(thisBtn)
+{
+
+    new_phone = $(".new_phone .phone_num .new_phone_num").val();
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        data: {
+            newAccount : new_phone,
+            accountType : 3
+        },
+        type: 'POST',
+        url: URL_BASE + '/users/web/user/current/account/preChange',
+        success: function (data) {
+            console.log(data);
+            //确定绑定手机号事件
+            $("#sure_new_phone").on('click',function(){
+
+                var authId = data,
+                    authCode = $(".new_phone .phone_num .new_phone_check_num").val();
+
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: {
+                        authId : authId,
+                        authCode : authCode,
+                        newAccount : new_phone,
+                        accountType : 3
+                    },
+                    type: 'POST',
+                    url: URL_BASE + '/users/web/user/current/account/doChange',
+                    success: function (data) {
+                        var text = '恭喜您，手机绑定成功！';
+                        my_tip.bind(text,function(){
+                            window.open('info.html','_self');
+                        });
+
+                    },
+                    error: ajax_error_handler
+                });
+            });
+        },
+        error: ajax_error_handler
+    });
+
+
+    btn = thisBtn;
+    btn.disabled = true; //将按钮置为不可点击
+    btn.value = nums+'秒后可重新获取';
+    clock = setInterval(doLoop, 1000); //一秒执行一次
+    $(btn).css({
+        'background':'#e8ecef',
+        'color':'#999',
+        'cursor':'not-allowed'
+    });
+}
+
+
+function doLoop()
+{
+    nums--;
+    if(nums > 0){
+        btn.value = nums+'秒后可重新获取';
+    }else{
+        clearInterval(clock); //清除js定时器
+        btn.disabled = false;
+        btn.value = '获取验证码';
+        nums = 60; //重置时间
+
+        $(btn).css({
+            'background':'#f89d32',
+            'color':'#fff',
+            'cursor':'pointer'
+        });
+
+    }
+}
+
+
+
 //绑定邮箱
+var new_mail;
 $(".mail p").on('click',function(){
     $(".change_info").css('display','none');
     $(".new_mail").css('display','block');
@@ -404,7 +443,7 @@ $(".mail p").on('click',function(){
 
 
         $(".new_mail_num").blur(function(){
-            var new_mail = $(".new_mail .mail_num .new_mail_num").val();
+            new_mail = $(".new_mail .mail_num .new_mail_num").val();
             var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
             console.log(new_mail);
             if(!reg.test(new_mail)){
@@ -415,52 +454,6 @@ $(".mail p").on('click',function(){
             })
         });
 
-        //获取绑定邮箱验证码
-        $(".new_mail .mail_num .group .gain").on('click',function(){
-            new_mail = $(".new_mail .mail_num .new_mail_num").val();
-
-            $.ajax({
-                xhrFields: {
-                    withCredentials: true
-                },
-                data: {
-                    newAccount : new_mail,
-                    accountType : 4
-                },
-                type: 'POST',
-                url: URL_BASE + '/users/web/user/current/account/preChange',
-                success: function (data) {
-                    //console.log(data);
-
-                    //确定绑定邮箱事件
-                    $("#sure_new_mail").on('click',function(){
-
-                        var authId = data,
-                            authCode = $(".new_mail .mail_num .new_mail_check_num").val();
-
-                        $.ajax({
-                            xhrFields: {
-                                withCredentials: true
-                            },
-                            data: {
-                                authId : authId,
-                                authCode : authCode,
-                                newAccount : new_mail,
-                                accountType : 4
-                            },
-                            type: 'POST',
-                            url: URL_BASE + '/users/web/user/current/account/doChange',
-                            success: function (data) {
-                                my_tip.alert('恭喜您，邮箱绑定成功！');
-                            },
-                            error: ajax_error_handler
-                        });
-                    });
-                },
-                error: ajax_error_handler
-            });
-        });
-
         //输入新的邮箱  上一步
         $(".mail_num .up").on('click',function(){
             $(".new_mail").css('display','block');
@@ -469,6 +462,66 @@ $(".mail p").on('click',function(){
         });
     });
 });
+
+//绑定新的邮箱获取验证码倒计时
+function mail_sendCode(thisBtn)
+{
+    new_mail = $(".new_mail .mail_num .new_mail_num").val();
+
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        data: {
+            newAccount : new_mail,
+            accountType : 4
+        },
+        type: 'POST',
+        url: URL_BASE + '/users/web/user/current/account/preChange',
+        success: function (data) {
+            //console.log(data);
+
+            //确定绑定邮箱事件
+            $("#sure_new_mail").on('click',function(){
+
+                var authId = data,
+                    authCode = $(".new_mail .mail_num .new_mail_check_num").val();
+
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: {
+                        authId : authId,
+                        authCode : authCode,
+                        newAccount : new_mail,
+                        accountType : 4
+                    },
+                    type: 'POST',
+                    url: URL_BASE + '/users/web/user/current/account/doChange',
+                    success: function (data) {
+                        my_tip.bind('恭喜您，邮箱绑定成功！',function(){
+                            window.open('info.html','_self');
+                        });
+                    },
+                    error: ajax_error_handler
+                });
+            });
+        },
+        error: ajax_error_handler
+    });
+
+    btn = thisBtn;
+    btn.disabled = true; //将按钮置为不可点击
+    btn.value = nums+'秒后可重新获取';
+    clock = setInterval(doLoop, 1000); //一秒执行一次
+    $(btn).css({
+        'background':'#e8ecef',
+        'color':'#999',
+        'cursor':'not-allowed'
+    });
+}
+
 
 
 //获取星座
@@ -537,13 +590,28 @@ function load_info() {
                 $(".birthday .gray").html(data.info.birthday);
             }
 
+
+            if(data.classes[0] == null ){
+                $(".class_name span").html('未加入班级');
+            }else{
+                $(".class_name span").html(data.classes[0].name)
+            }
+
+            if(data.email !==  null){
+                $(".mail span").html(data.email);
+            }else{
+                $(".mail span").html('未绑定邮箱');
+            }
+
+            if(data.tel !==  null){
+                $(".phone span").html(data.tel);
+            }else{
+                $(".phone span").html('未绑定手机号');
+            }
+
             $(".id span").html(data.account);
             $(".name span").html(data.name);
-            $(".mail span").html(data.email);
             $(".school .gray").html(data.school.name);
-            $(".phone span").html(data.tel);
-            if (data.classes[0])
-                $(".class-name span").html(data.classes[0].name);
             $(".city .gray").html(data.school.address);
             $("#headimg").attr('src', data.headimg);
             if(data.gender == 1 ){
@@ -618,8 +686,6 @@ $("#sure").click(function() {
 $("#password-1").blur(function(){
     var oldPassword = $("#password-1").val();
     var reg = /^[0-9]*$/;
-    //if(!verification(oldPassword)){
-    console.log(oldPassword);
     if(!reg.test(oldPassword)){
         $(".old-pw span").css("display","block");
     }
@@ -630,7 +696,6 @@ $("#password-1").blur(function(){
 $("#password-2").blur(function(){
     var newPassword = $("#password-2").val();
     var reg = /^[0-9]*$/;
-    //if(!verification(newPassword)){
     if(!reg.test(newPassword)){
         $(".set-pw span").css("display","block");
     }
