@@ -591,10 +591,10 @@ function load_info() {
             }
 
 
-            if(data.classes[0] == null ){
+            if(data.schoolClass == null ){
                 $(".class_name span").html('未加入班级');
             }else{
-                $(".class_name span").html(data.classes[0].name)
+                $(".class_name span").html(data.schoolClass.name)
             }
 
             if(data.email !==  null){

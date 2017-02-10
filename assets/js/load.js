@@ -5,7 +5,7 @@
 var URL_BASE = 'http://debian8-01.internal.enjoyreading.com';
 
 function load(src, type) {
-
+    // 加载页眉页脚，绑定事件，然后查询未查看消息数量
     if (typeof type == 'undefined') {
         type = 'student';
     }
@@ -14,6 +14,7 @@ function load(src, type) {
         if (typeof header_cb != 'undefined') {
             header_cb();
         }
+        check_unread_message_count();
         $('.exit-button').click(function () {
 
             $.ajax({
@@ -65,7 +66,7 @@ function load(src, type) {
                     $('.right-photo img').attr('src', data.headimg);
                     $('#teacher_name').html(data.name);
                 },
-                error: ajax_error_handler
+                error: error_handler()
             })
         }
     });
@@ -216,4 +217,22 @@ function load_teacher_info() {
         },
         error: error_handler()
     })
+}
+
+function check_unread_message_count() {
+    $.ajax({
+        url: 'http://icing.internal.enjoyreading.com:8090/messages/web/message/unchecked/count',
+        type: 'get',
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (data) {
+            var length = data;
+            console.log('未读消息数量：{0}'.format(data.length));
+            if (length > 0) {
+                $('.badge').html(length);
+            }
+        },
+        error: error_handler()
+    });
 }

@@ -262,7 +262,7 @@ function load_class_info(class_id) {
         type: 'get',
         url: URL_BASE + '/users/web/class/{0}/students'.format(class_id),
         success: function (data) {
-            console.log(data)
+            console.log(data);
             $('#student_count').html(data.length);
             var joined_student = data;
 
@@ -340,10 +340,13 @@ function init_class() {
             html += '<td>';
             var index = 'index';
             var class_id;
+            var default_class = data[0].id || Number($.getUrlParam('class_id'));
+            console.log(default_class);
             for (var i = 0; i < data.length; ++i) {
-                if (i != 0)
+                if (data[i].id != default_class)
                     index = '';
                 else {
+                    index = 'index';
                     class_id = data[i].id;
                 }
                 html += '<span class="' + index + ' option" value="' + data[i].id + '">' + data[i].name + '</span>';

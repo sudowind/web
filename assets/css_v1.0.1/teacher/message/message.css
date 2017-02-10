@@ -12,16 +12,18 @@
     font-size: 16px;
 }
 .main{
+    overflow: auto;
     width: 100%;
     height: 800px;
     background: #fff;
     float: left;
 }
 .list{
-    width: 900px;
+    width: 100%;
     height: 119px;
+    padding: 6px 30px;
     border-bottom: 1px solid #e8e8e8;
-    margin: 30px auto;
+    /*margin: 20px auto;*/
     position: relative;
 }
 .list .head-img{
@@ -45,7 +47,7 @@
     background: #eaebee;
     position: absolute;
     top: 16px;
-    left: 112px;
+    left: 133px;
     padding: 0 4px;
     color: #999999;
 }
@@ -57,13 +59,18 @@
     color: #a8a8a8;
 }
 .list .right-content .cont {
+    width: 840px;
     position: absolute;
-    top: 70px;
-    left: 114px;
+    top: 55px;
+    left: 133px;
     font-size: 15px;
 }
 .list .right-content .cont span{
     color: red;
+}
+
+.unread {
+    background: #dae7ff;
 }
 
 /*.system_message {*/

@@ -1,3 +1,8 @@
+/*没有班级的初始状态*/
+#has_no_class {
+    display: none;
+}
+
 /*选择班级部分*/
 .classes-part {
     clear: both;
