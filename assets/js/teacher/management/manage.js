@@ -354,18 +354,6 @@ function init_class() {
         url: URL_BASE + '/users/web/class/teacher/current/list',
         success: function(data) {
             console.log(data);
-            if (data.length > 0) {
-                $('#has_class').show();
-                $('#has_no_class').hide();
-                $('.student-part').show();
-                $('.class-info').show();
-            }
-            else {
-                $('.classes-part img').css('margin-top', '3px');
-                $('#has_class').hide();
-                $('#has_no_class').show();
-                return;
-            }
 
             var html = '<td>所带班级：</td>';
             html += '<td>';
@@ -394,6 +382,18 @@ function init_class() {
             });
             curr_class = class_id;
             load_class_info(curr_class);
+
+            if (data.length > 0) {
+                $('#has_class').show();
+                $('#has_no_class').hide();
+                $('.student-part').show();
+                $('.class-info').show();
+            }
+            else {
+                $('.classes-part img').css('margin-top', '3px');
+                $('#has_class').hide();
+                $('#has_no_class').show();
+            }
             // load_tasks(class_id, 1);
         },
         error: error_handler()
