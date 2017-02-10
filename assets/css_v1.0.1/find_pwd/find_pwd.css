@@ -101,6 +101,8 @@
     height: 200px;
     margin-top: 70px;
     margin-left: 130px;
+    position: relative;
+    top: 0;
 }
 .phone_reset_pwd .left{
     float: left;
@@ -143,8 +145,8 @@
     position: absolute;
     font-size: 12px;
     color: #bbbbbb;
-    top: 500px;
-    left: 702px;
+    top: 120px;
+    left: 335px;
 }
 .phone_reset_pwd .back{
     width: 138px;
@@ -287,5 +289,9 @@
     font-size: 12px;
     color: red;
     margin-left: 12px;
-
+}
+.error{
+    position: absolute;
+    top: 120px;
+    left: 152px;
 }

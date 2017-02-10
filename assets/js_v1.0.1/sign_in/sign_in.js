@@ -7,7 +7,7 @@ function YYYYMMDDstart() {
 
     //先给年下拉框赋内容
     var y = new Date().getFullYear();
-    for (var i = (y - 17); i < (y + 1); i++) { //以今年为准
+    for (var i = (y - 67); i < (y + 1); i++) { //以今年为准
         document.reg_testdate.YYYY.options.add(new Option(i, i));
     }
     //赋月份的下拉框
@@ -256,8 +256,6 @@ function sign_in() {
 //获取验证码   验证码倒计时
 
 var telAuthId = '';
-
-
     var clock = '';
     var nums = 60;
     var btn;

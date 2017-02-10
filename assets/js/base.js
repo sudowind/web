@@ -155,3 +155,408 @@ function gen_scroll_to_end_handler(selector, func) {
         }
     })
 }
+
+
+
+//个人中心绑定新的手机号获取验证码倒计时
+function phone_sendCode(thisBtn)
+{
+
+    new_phone = $(".new_phone .phone_num .new_phone_num").val();
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        data: {
+            newAccount : new_phone,
+            password : password,
+            accountType : 3
+        },
+        type: 'POST',
+        url: URL_BASE + '/users/web/user/current/account/preChange',
+        success: function (data) {
+            console.log(data);
+            //确定绑定手机号事件
+            $("#sure_new_phone").on('click',function(){
+
+                var authId = data,
+                    authCode = $(".new_phone .phone_num .new_phone_check_num").val();
+
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: {
+                        password : password,
+                        authId : authId,
+                        authCode : authCode,
+                        newAccount : new_phone,
+                        accountType : 3
+                    },
+                    type: 'POST',
+                    url: URL_BASE + '/users/web/user/current/account/doChange',
+                    success: function (data) {
+                        var text = '恭喜您，手机绑定成功！';
+                        my_tip.bind(text,function(){
+                            window.open('info.html','_self');
+                        });
+
+                    },
+                    error: ajax_error_handler
+                });
+            });
+        },
+        error: ajax_error_handler
+    });
+
+
+    btn = thisBtn;
+    btn.disabled = true; //将按钮置为不可点击
+    btn.value = nums+'秒后可重新获取';
+    clock = setInterval(doLoop, 1000); //一秒执行一次
+    $(btn).css({
+        'background':'#e8ecef',
+        'color':'#999',
+        'cursor':'not-allowed'
+    });
+}
+
+
+function doLoop()
+{
+    nums--;
+    if(nums > 0){
+        btn.value = nums+'秒后可重新获取';
+    }else{
+        clearInterval(clock); //清除js定时器
+        btn.disabled = false;
+        btn.value = '获取验证码';
+        nums = 60; //重置时间
+
+        $(btn).css({
+            'background':'#f89d32',
+            'color':'#fff',
+            'cursor':'pointer'
+        });
+
+    }
+}
+
+
+//绑定新的邮箱获取验证码倒计时
+function mail_sendCode(thisBtn)
+{
+    new_mail = $(".new_mail .mail_num .new_mail_num").val();
+
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        data: {
+            newAccount : new_mail,
+            password : password,
+            accountType : 4
+        },
+        type: 'POST',
+        url: URL_BASE + '/users/web/user/current/account/preChange',
+        success: function (data) {
+            //console.log(data);
+
+            //确定绑定邮箱事件
+            $("#sure_new_mail").on('click',function(){
+
+                var authId = data,
+                    authCode = $(".new_mail .mail_num .new_mail_check_num").val();
+
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: {
+                        password : password,
+                        authId : authId,
+                        authCode : authCode,
+                        newAccount : new_mail,
+                        accountType : 4
+                    },
+                    type: 'POST',
+                    url: URL_BASE + '/users/web/user/current/account/doChange',
+                    success: function (data) {
+                        my_tip.bind('恭喜您，邮箱绑定成功！',function(){
+                            window.open('info.html','_self');
+                        });
+                    },
+                    error: ajax_error_handler
+                });
+            });
+        },
+        error: ajax_error_handler
+    });
+
+    btn = thisBtn;
+    btn.disabled = true; //将按钮置为不可点击
+    btn.value = nums+'秒后可重新获取';
+    clock = setInterval(doLoop, 1000); //一秒执行一次
+    $(btn).css({
+        'background':'#e8ecef',
+        'color':'#999',
+        'cursor':'not-allowed'
+    });
+}
+
+//个人中心绑定手机号
+function bind_phone(){
+    $(".change_info").css('display','none');
+    $(".new_phone").css('display','block');
+    $(".new_phone .pwd").css('display','block');
+    //确认当前密码页面 上一步
+    $(".new_phone .pwd .up").on('click',function(){
+        $(".change_info").css('display','block');
+        $(".new_phone").css('display','none');
+        $(".new_phone .pwd").css('display','none');
+    });
+    //确认当前密码页面 验证密码 下一步
+    $(".new_phone .pwd .down").on('click',function(){
+        password = $(".new_phone .pwd .group input").val();
+        //console.log(password);
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            data: {
+                password:password
+            },
+            type: 'POST',
+            url: URL_BASE + '/users/web/user/current/checkPassword',
+            success: function (data) {
+                if(data == false){
+                    my_tip.alert('密码错误，请重新输入。');
+                    return;
+                }
+
+                $(".phone_num").css('display','block');
+                $(".new_phone .pwd").css('display','none');
+
+                $(".new_phone_num").blur(function(){
+                    new_phone = $(".new_phone .phone_num .new_phone_num").val();
+                    var reg = /^1(3|4|5|7|8)\d{9}$/;
+                    //console.log(new_phone);
+                    if(!reg.test(new_phone)){
+                        $(".phone_num .error").css('display','block');
+                    }
+                    $(this).focus(function(){
+                        $(".phone_num .error").css("display","none");
+                    })
+                });
+
+                //输入新的手机号码 上一步
+                $(".phone_num .up").on('click',function(){
+                    $(".new_phone").css('display','block');
+                    $(".new_phone .pwd").css('display','block');
+                    $(".phone_num").css('display','none');
+                });
+
+
+
+            },
+            error: ajax_error_handler
+        });
+    });
+}
+
+//个人中心绑定邮箱
+function bind_email(){
+    $(".change_info").css('display','none');
+    $(".new_mail").css('display','block');
+    $(".new_mail .pwd").css('display','block');
+    //确认当前密码页面 上一步
+    $(".new_mail .pwd .up").on('click',function(){
+        $(".change_info").css('display','block');
+        $(".new_mail").css('display','none');
+        $(".new_mail .pwd").css('display','none');
+    });
+    //确认当前密码页面 验证当前密码 下一步
+    $(".new_mail .pwd .down").on('click',function(){
+        password = $(".new_mail .pwd .group .ipt").val();
+
+        //console.log(password);
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            data: {
+                password:password
+            },
+            type: 'POST',
+            url: URL_BASE + '/users/web/user/current/checkPassword',
+            success: function (data) {
+                if(data == false){
+                    my_tip.alert('密码错误，请重新输入。');
+                    return;
+                }
+
+                $(".mail_num").css('display','block');
+                $(".new_mail .pwd").css('display','none');
+
+
+                $(".new_mail_num").blur(function(){
+                    new_mail = $(".new_mail .mail_num .new_mail_num").val();
+                    var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                    console.log(new_mail);
+                    if(!reg.test(new_mail)){
+                        $(".mail_num .error").css('display','block');
+                    }
+                    $(this).focus(function(){
+                        $(".mail_num .error").css("display","none");
+                    })
+                });
+
+                //输入新的邮箱  上一步
+                $(".mail_num .up").on('click',function(){
+                    $(".new_mail").css('display','block');
+                    $(".new_mail .pwd").css('display','block');
+                    $(".mail_num").css('display','none');
+                });
+
+            },
+            error: ajax_error_handler
+        });
+    });
+}
+
+
+//获取省市区三联
+function get_province(){
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/users/open/region/topRegions',
+        success: function(data) {
+            //console.log(data.length);
+            for(var i = 0;i < data.length;i++){
+                province.push({
+                    id: data[i].id,
+                    text:data[i].regionName
+                });
+            }
+            $('#select_province').select2({
+                data: province,
+                language: 'zh-CN'
+            });
+            //初始默认显示
+            get_city($("#select_province").val());
+
+            $("#select_province").on('change',function(){
+
+                $("#select_city").empty();
+                $("#select_district").empty();
+
+                get_city($("#select_province").val());
+
+            });
+        },
+        error: ajax_error_handler
+    });
+}
+//市
+function get_city(parentId){
+    var city = [];
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/users/open/region/'+ parentId +'/subRegions',
+        success: function(data) {
+            //console.log(data);
+            for(var i = 0;i < data.length;i++){
+                city.push({
+                    id: data[i].id,
+                    text:data[i].regionName
+                });
+            }
+            $('#select_city').select2({
+                data: city,
+                language: 'zh-CN'
+            });
+            //初始默认显示
+            get_district($("#select_city").val());
+
+            $("#select_city").on('change',function(){
+
+                $("#select_district").empty();
+
+                get_district($("#select_city").val());
+
+            });
+        },
+        error: ajax_error_handler
+    });
+}
+//区
+function get_district(parentId){
+    var district = [];
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/users/open/region/'+ parentId +'/subRegions',
+        success: function(data) {
+            //console.log(data)
+            for(var i = 0;i < data.length;i++){
+                district.push({
+                    id: data[i].regionCode,
+                    text:data[i].regionName
+                });
+            }
+            $('#select_district').select2({
+                data: district,
+                language: 'zh-CN'
+            });
+            $("#select_district").on('change',function(){
+
+                $("#select_school").empty();
+
+                get_school($("#select_district").val());
+
+            });
+        },
+        error: ajax_error_handler
+    });
+}
+//获取区域的学校
+function get_school(addrCode){
+    var school = [];
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'GET',
+        url: URL_BASE + '/users/open/school/region/list',
+        data:{
+            addrCode:addrCode
+        },
+        success: function(data) {
+            //console.log(data);
+            for(var i = 0;i < data.length;i++){
+                school.push({
+                    id: data[i].id,
+                    text:data[i].name
+                });
+            }
+            $('#select_school').select2({
+                data: school,
+                language: 'zh-CN'
+            });
+            $("#select_school").on('change',function(){
+
+                $("#select_class").empty();
+
+            });
+        },
+        error: ajax_error_handler
+    });
+}

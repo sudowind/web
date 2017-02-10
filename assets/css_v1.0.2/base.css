@@ -1,0 +1,22 @@
+body {
+    background-color: #eaebee;
+}
+.main-container {
+    width: 1460px;
+    margin: 0 auto;
+    padding: 65px 60px 15px 60px;
+    background-color: rgba(116, 178, 194, 0.2);
+}
+
+.content{
+    background: #ffffff;
+    padding:21px 20px;
+    position: relative;
+    top: 0;
+}
+
+#my_tip_modal #modal_confirm_button, #my_tip_modal #modal_quit {
+    background: #3c97cf;
+    color: #ffffff;
+    margin: auto 10px;
+}

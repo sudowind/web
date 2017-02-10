@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>我的主页</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.2/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/home/home.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+</head>
+<body>
+    <div id="page_header"></div>
+    <div class="main-container">
+        <div>
+            <div class="sign-in">
+                <div class="cont">
+                    <div class="head-img">
+                        <img src="" alt=""/>
+                    </div>
+                    <br />
+                    <div class="info-account">考拉学号：</div>
+                    <div class="info-name"></div>
+                    <br />
+                    <div class="info-class"><img src="../../../assets/img/student/home/add_class.png" alt="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入班级</div>
+                    <div class="info-school"></div>
+                </div>
+            </div>
+            <div class="statistics">
+                <div class="list">
+                    <div class="list-details">
+                        <p>目前为止阅读了</p>
+                        <p><strong id="book_count">0</strong>本读物</p>
+                    </div>
+                    <div class="list-details">
+                        <p>共阅读了</p>
+                        <p><strong id="word_count">0</strong>万字</p>
+                    </div>
+                    <div class="list-details">
+                        <p>总阅读时间</p>
+                        <p><strong id="time_count">0</strong>分钟</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="top">
+                <h3 class="title">
+                    <img src="../../../assets/img/student/home/cup.png" alt=""/><span>学霸榜</span>
+                </h3>
+                <div class="top-list">
+                </div>
+                <div class="no-top-list">
+                    <img src="../../../assets/img/cry.png" alt="">
+                    <div>你还没有加入班级，快加入班级看看学霸还有谁！</div>
+                    <div class="btn">加入班级</div>
+                </div>
+            </div>
+
+            <div class="cla-ranking" style="display: none;">
+                <h3>
+                    <img src="../../../assets/img/student/home/title_blue.png" alt=""/>班级排名
+                </h3>
+                <div class="progress" >
+                    <div class="progress-bar" id="reading_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
+                    <div class="rank-message"><img src="../../../assets/img/student/home/read.png" alt=""/>阅读量排名&nbsp&nbsp&nbsp<span class="current-page">0</span>&nbsp/&nbsp<span class="page">0</span></div>
+                </div>
+                <div class="progress" >
+                    <div class="progress-bar" id="exam_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
+                    <div class="rank-message"><img src="../../../assets/img/student/home/pass.png" alt=""/>测试正确率排名&nbsp&nbsp&nbsp<span class="current-page">0</span>&nbsp/&nbsp<span class="page">0</span></div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" id="ability_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
+                    <div class="rank-message"><img src="../../../assets/img/student/home/ability.png" alt=""/>阅读能力排名&nbsp&nbsp&nbsp<span class="current-page">0</span>&nbsp/&nbsp<span class="page">0</span></div>
+                </div>
+            </div>
+            <div class="term-plan" style="display: none">
+                <h3>
+                    <img src="../../../assets/img/student/home/plan_blue.png" alt=""/>
+                    本学年阅读进度
+                    <span>(万字)</span>
+                </h3>
+
+                <div class="school-year-plan">
+                    <p>本学年阅读目标</p>
+                    <p><strong></strong>万字</p>
+                </div>
+                <!--饼状图-->
+                <div id="progress_bar"></div>
+                <div class="already-read">
+                    <p>已完成阅读量</p>
+                    <p><strong></strong>万字</p>
+                </div>
+            </div>
+            <div class="dimensionality" style="display: none">
+                <h3>
+                    <img src="../../../assets/img/student/home/dimensionality_blue.png" alt=""/>
+                    阅读能力维度解析
+                </h3>
+                <!--维度图-->
+                <div id="main"></div>
+            </div>
+
+            <!--初次登录界面-->
+            <div class="first_comein">
+                <div class="img"><img src="../../../assets/img/student/home/first.png" alt=""/></div>
+                <p>你还没有开始阅读，没有产生相关的阅读数据，</p>
+                <p>快去图书馆阅读吧！</p>
+                <div id="go_library" onclick="window.open('../library/index.html', '_self')">去图书馆</div>
+            </div>
+            <div class="right_content">
+                <div class="right_img"><img src="../../../assets/img/student/home/first.png" alt=""/></div>
+                <div class="text">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="name">苏苏</span>同学你好，欢迎来参加我们的「ER（享阅中文分级标准）阅读能力诊断测试」。做完这个测试后就能知道我们的ER值啦。如果测出来的ER值越高，说明我们阅读的能力就越强，读高ER值的书也不会觉得难。这套测试题有25-30个单项选择构成，要花费大约半个小时间，相信你一定是个有耐心的好孩子，可以认真把它们做完。</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;知道我们的ER值后，系统就会生成专门给我们的「个性化」阅读计划了。而且，之后有的测评难度也会随着这次的结果自动调整。</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;做题的时候不要查字典也不要问别人哦，这样才会得到专门给我们的结果。</p>
+                </div>
+                <div class="buttons">
+                    <div class="open_read" onclick="window.open('../ability/ability.html', '_self')">开始测试</div>
+                    <div class="go-to-library" onclick="window.open('../library/index.html', '_self')">暂不测试，开启阅读之旅</div>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+        <div class="modal fade" id="join_class_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 400px; margin-top: 200px;">
+                <div class="modal-content">
+                    <div class="modal-body" style="height: 150px;">
+                        <div class="modal-info">
+                            <div class="close-modal" data-dismiss="modal"><img src="../../../assets/img/close_modal.png" alt=""></div>
+                            <div class="modal-avatar"><img src="" alt=""></div>
+                            <label for="class_code"></label><input type="text" id="class_code" placeholder="请输入班级代码，可向老师询问">
+                            <div>&nbsp;</div>
+                        </div>
+                        <div class="modal-confirm-button btn" id="send_apply">申请加入班级</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tmp_modal"></div>
+    <div id="page_footer" style="background: #edeef0"></div>
+
+    <script src="../../../libs/jquery-2.2.4.js"></script>
+    <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+    <script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+    <script src="../../../libs/select2-4.0.3/dist/js/select2.full.js"></script>
+    <script src="../../../libs/echarts.min.js"></script>
+    <script src="../../../libs/progressbar.js"></script>
+    <script src="../../../assets/js/load.js"></script>
+    <script src="../../../assets/js/base.js"></script>
+    <script src="../../../assets/js/plot.js"></script>
+    <script src="../../../assets/js/tip_modal.js"></script>
+    <script src="../../../assets/js/cookie.js"></script>
+    <script src="../../../assets/js/login.js"></script>
+    <!--<script src="../../../assets/js/student/home/home.js"></script>-->
+    <!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
+    <script>
+        load('../../../include/html/');
+        $(document).ready(function () {
+//            window_resize();
+            bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+            bar.text.style.fontSize = '2rem';
+
+//            //加载个人信息
+//            load_info();
+//            init();
+        });
+        $(window).resize(window_resize);
+
+        function header_cb() {
+            $('#home_button').addClass('header-nav-selected').css('color', '#3c97cf');
+        }
+    </script>
+</body>
+</html>
