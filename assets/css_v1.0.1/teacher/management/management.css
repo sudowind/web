@@ -237,3 +237,24 @@ td input {
 .give_class ,.dismiss_class{
     cursor: pointer;
 }
+/*转让班级的模态框*/
+.modal-list{
+    height: 40px;
+    line-height: 30px;
+    border-bottom: 1px dashed #ccc;
+    padding:6px 0;
+    color: #CCCCCC;
+}
+.modal-list span{
+    margin-left: 10px;
+}
+#myModalLabel{
+    color: #fb9e1d;text-align: center;margin-top: 10px;
+}
+.modal-dialog{
+    margin-top: 300px;
+    width: 330px;
+}
+#my_tip_modal #modal_info{
+    padding: 20px 30px ;
+}

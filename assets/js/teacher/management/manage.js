@@ -220,6 +220,12 @@ $(document).ready(function () {
         }
     });
 
+    //转让班级
+    $("#sure_give").on('click',function(){
+        var classId = $('.index').attr('value');
+        //var newteacherId = 已认证的老师只可以装让给已认证的老师，没认证同理；
+    })
+
 });
 
 function on_single_select_click(e) {
@@ -231,6 +237,19 @@ function on_single_select_click(e) {
     else {
         $(e).attr('src', '../../../assets/img/teacher/single_selected.png');
         $(e).attr('value', '1');
+    }
+}
+function on_modal_select_click(e) {
+    if ($(e).attr('value') == '1') {
+        $(e).attr('src', '../../../assets/img/teacher/single_unselected.png');
+        $(e).attr('value', '0');
+        $('#total_selector').attr('src', '../../../assets/img/teacher/total_unselected.png').attr('value', '0');
+        $(e).parent().css('color','#ccc');
+    }
+    else {
+        $(e).attr('src', '../../../assets/img/teacher/single_selected.png');
+        $(e).attr('value', '1');
+        $(e).parent().css('color','#000');
     }
 }
 
@@ -405,10 +424,15 @@ function dismiss_class(){
                 }
             });
         })
-
     })
 }
 //转让班级
 function give_class(){
+    var class_name = $('#class_name').html();
+    var class_code = $('#class_code').html();
+    var class_id = $('.classes-part table tbody tr td .index').attr('value');
+    my_tip.bind('确定把' + class_name + '(班级代码：'+ class_code +')转让出去？ ',function(){
 
+    })
 }
+//data-toggle="modal" data-target="#myModal"

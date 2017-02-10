@@ -43,7 +43,7 @@
                 </table>
             </div>
             <div class="part-basis class-info">
-                <div>班级代码：<span id="class_code"></span><small>（学生添加此班级代码即可加入班级）</small><div class="give_class"><u>转让班级</u></div></div>
+                <div>班级代码：<span id="class_code"></span><small>（学生添加此班级代码即可加入班级）</small><div class="give_class" data-toggle="modal" data-target="#myModal"><u>转让班级</u></div></div>
                 <div>班级：<span id="class_name"></span></div>
                 <div>班级人数：<span id="student_count"></span>人<div class="dismiss_class" onclick="dismiss_class()"><u>解散班级</u></div></div>
             </div>
@@ -138,6 +138,43 @@
     </div>
     <div style="clear: both"></div>
 </div>
+
+<!-- 转让班级模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="border: none;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">选择被转让的老师</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-list">
+                    <img class="modal-selector" onclick="on_modal_select_click(this);" src="../../../assets/img/teacher/single_unselected.png" alt=" value="0">
+                    <span class="name">郭靖</span>
+                    <span class="coalaId">（考拉账号：T000230）</span>
+                    <span class="prove">已认证</span>
+                </div>
+                <div class="modal-list">
+                    <img class="modal-selector" onclick="on_modal_select_click(this);" src="../../../assets/img/teacher/single_unselected.png" alt="" value="0">
+                    <span class="name">郭靖</span>
+                    <span class="coalaId">（考拉账号：T000230）</span>
+                    <span class="prove">已认证</span>
+                </div>
+                <div class="modal-list">
+                    <img class="modal-selector" onclick="on_modal_select_click(this);" src="../../../assets/img/teacher/single_unselected.png" alt="" value="0">
+                    <span class="name">郭靖</span>
+                    <span class="coalaId">（考拉账号：T000230）</span>
+                    <span class="prove">已认证</span>
+                </div>
+            </div>
+            <div class="modal-footer" style="border: none;">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="sure_give">下一步</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
 <div id="page_footer" style="background: #edeef0"></div>
 
 <script src="../../../libs/jquery-2.2.4.js"></script>
