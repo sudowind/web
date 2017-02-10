@@ -317,6 +317,8 @@ $('.rotate-div').click(function() {
         $('#select_part').hide(0, function () {
             $('#login_part').show();
             $('#login_button').css('background', color);
+            // $('#my_tip_modal').find('button').css('background', color);
+            // console.log(color);
         });
         //根据点击端口存cookie
         user_type = Number($(this).attr('type'));

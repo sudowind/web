@@ -144,6 +144,7 @@
     height: 760px;
     position: absolute;
     /*float: left;*/
+    background: #ffffff;
     top: 410px;
     box-shadow: 1px 1px 3px #ccc;
     border-radius: 6px;

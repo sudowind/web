@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>阅读能力测试</title>
+    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../libs/TimePicki-master/css/timepicki.css">
+
+    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/ability/ability.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/tasks/test.css">
+
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+</head>
+<body>
+<div id="page_header"></div>
+<div class="main-container">
+    <div>
+        <div class="content">
+            <div id="question_body" class="part-basis">
+                <div class="question">
+                </div>
+                <div class="btn-part">
+                    <div class="progress" >
+                        <div class="progress-bar" id="exam_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
+                    </div>
+                    <div class="btn" id="last">上一题</div>
+                    <div class="btn disabled" id="next">下一题</div>
+                </div>
+                <div id="finish_test" style="display: none;">
+                    <img src="../../../assets/img/er_background.png" alt="">
+                    <div>你的ER等级<span class="er-score">0</span>ER</div>
+                    <br>
+                    恭喜你完成了ER阅读能力测试！阅读难度为<span id="er_range"></span>的读物最适合你哦！<br>
+                    <div class="btn" onclick="window.open('../library/index.html', '_self')">前往图书馆</div>
+                </div>
+                <div id="has_done">
+                    <img src="../../../assets/img/er_background.png" alt="">
+                    <div>你的ER等级<span class="er-score">0</span>ER</div>
+                    <div><br />您好：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为保证测试的准确性，两次测试间隔时间为两个月，您上次测试时间为<span id="last_test_date"></span>，请<span id="wait_date"></span>天之后再参与测试。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+<div id="page_footer" style="background: #edeef0"></div>
+
+<script src="../../../libs/jquery-2.2.4.js"></script>
+<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../../../libs/laydate/laydate.js"></script>
+<script src="../../../libs/TimePicki-master/js/timepicki.js"></script>
+<script src="../../../libs/progressbar.js"></script>
+<script src="../../../assets/js/load.js"></script>
+<script src="../../../assets/js/tip_modal.js"></script>
+<script src="../../../libs/jquery.page.js"></script>
+<script src="../../../assets/js/comment.js"></script>
+<script src="../../../assets/js/cookie.js"></script>
+<script src="../../../assets/js/note.js"></script>
+<script src="../../../assets/js/test.js"></script>
+<script src="../../../assets/js/base.js"></script>
+
+<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
+<script src="../../../assets/js/student/ability/ability.js"></script>
+<script>
+    $(document).ready(function () {
+        load('../../../include/html/');
+
+
+        window_resize();
+    });
+    $(window).resize(window_resize);
+
+    function header_cb() {
+        $('#home_button').addClass('header-nav-selected').css('color', '#3c97cf');
+    }
+</script>
+</body>
+</html>
