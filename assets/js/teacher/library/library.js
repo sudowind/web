@@ -6,6 +6,7 @@ var curr_type = 0;
 var curr_start_score = 600;
 var curr_end_score = 1200;
 var has_load_book = false;
+var BOOK_PER_PAGE = 9;
 
 function left_bar_cb() {
     $('#library_button').attr('class', 'side-button-selected left-side-button');
@@ -73,7 +74,7 @@ function load_book(type,page,classId) {
         data: {
             page: page - 1,
             typeId: type,
-            itemPerPage: 8,
+            itemPerPage: BOOK_PER_PAGE,
             classId : classId,
             startLevelScore: curr_start_score,
             endLevelScore: curr_end_score
@@ -156,6 +157,19 @@ function load_classname(){
         type: 'GET',
         url: URL_BASE + '/users/web/class/teacher/current/list',
         success: function(data) {
+            if (data && data.length > 0) {
+                var html = '';
+                var i = 0;
+                for (i = 0; i < data.length; ++i) {
+                    html += '<div class="class_elem">{0}</div>'.format(data[i].name);
+                }
+                $('.own-class-info').append(html).show();
+                $('.no-class').hide();
+            }
+            else {
+                $('.own-class-info').hide();
+                $('.no-class').show();
+            }
             //console.log(data);
             for(var i = 0; i < data.length; ++i){
                 html += fill_classname(data[i]);
@@ -180,7 +194,7 @@ function load_class_books(classId,page){
         data:{
             classId : classId,
             page : page - 1,
-            itemPerPage: 8
+            itemPerPage: BOOK_PER_PAGE
         },
         type: 'GET',
         url: URL_BASE + '/tasks/web/task/teacher/current/list',

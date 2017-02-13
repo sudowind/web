@@ -6,6 +6,7 @@ var curr_type = 0;
 var curr_start_score = 600;
 var curr_end_score = 1200;
 var has_load_book = false;
+var BOOK_PER_PAGE = 9;
 
 function left_bar_cb() {
     $('#library_button').attr('class', 'side-button-selected left-side-button');
@@ -72,7 +73,7 @@ function load_book(type,page,classId) {
         data: {
             page: page - 1,
             typeId: type,
-            itemPerPage: 8,
+            itemPerPage: BOOK_PER_PAGE,
             classId : classId,
             startLevelScore: curr_start_score,
             endLevelScore: curr_end_score

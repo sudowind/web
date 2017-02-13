@@ -121,7 +121,7 @@ function load_student_info(class_id) {
                         '<div class="progress-message percent">进度' + percent + '%</div>' +
                         '</div>' +
                         '<!--<div class="progress-message page">200页/200页</div>-->' +
-                        '</td><td></td>';
+                        '</td><td><img src="../../../assets/img/teacher/single_unselected.png" alt="" class="single-select" onclick="on_single_select_click(this)" value="0" student_id="' + data[i].user.id + '"></td>';
                 }
                 html += '<tr><td>' + class_id2name[class_id] + '</td>' +
                     '<td>' + data[i].user.name + '</td>' +

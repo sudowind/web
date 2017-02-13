@@ -137,22 +137,22 @@ body {
 }
 .list .list-book{
     margin-top:17px;
-    margin-left: 14px;
-    margin-right: 8px;
+    margin-left: 31px;
+    margin-right: 1px;
     position: relative;
     top: 0;
     box-shadow:2px 2px 2px #ccc;
 }
 .list .list-book .image {
-    width: 156px;
-    height: 300px;
+    width: 200px;
+    height: 277px;
     border: 1px solid #e8e8e8;
     padding: 18px 13px 30px 16px ;
     background: #ffffff;
 }
 .list .list-book .image img{
-    width: 122px;
-    height: 168px;
+    width: 166px;
+    height: 166px;
 }
 .list .list-book .image .end_time{
     font-size: 12px;
@@ -179,15 +179,15 @@ body {
     margin-top: 9px;
     font-size: 13px;
     font-weight: bold;
-    width: 120px;
-    height: 60px;
+    width: 166px;
+    height: 40px;
 
     display: table-cell;
     vertical-align: middle;
 }
 .list .list-book .plan{
     position: absolute;
-    top: 254px;
+    top: 229px;
     left: 9px;
     font-size: 12px;
     width: 140px;
@@ -195,7 +195,7 @@ body {
     text-align: center;
 }
 .list .list-book .progress-index{
-    top: 245px;
+    top: 220px;
 }
 .list .list-book .pages{
     position: absolute;
@@ -216,8 +216,8 @@ body {
     border-radius: 4px;
     font-size: 12px;
     position: absolute;
-    top: 270px;
-    left:6px;
+    top: 245px;
+    left:17px;
     cursor:pointer;
 }
 .list .list-book .reading .appraisal{
@@ -230,8 +230,8 @@ body {
     border-radius: 4px;
     font-size: 12px;
     position: absolute;
-    top: 270px;
-    left:96px;
+    top: 245px;
+    left:129px;
     cursor:pointer;
 }
 .appraisal .btn:hover {

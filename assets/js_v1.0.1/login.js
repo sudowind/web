@@ -40,6 +40,7 @@
 //
 // });
 
+var tip_modal_color;
 window.onload = function() {
 
     $('.rotate-div').css('left', ($(window).get(0).innerWidth - 300) / 2);
@@ -151,7 +152,7 @@ function login() {
     // user_type = 5;
 
     if (!account || !password) {
-        my_tip.alert('请填写用户名和密码！');
+        my_tip.alert('请填写用户名和密码！', {'color': tip_modal_color});
         return;
     }
     $.ajax({
@@ -200,7 +201,7 @@ function login() {
                 }
             }
             else {
-                my_tip.alert(data.message);
+                my_tip.alert(data.message, {'color': tip_modal_color});
             }
         }
     });
@@ -313,12 +314,11 @@ $('.rotate-div').click(function() {
         })
     }
     else if (value == 5) {
-        var color = $(this).css('background');
+        var color = $(this).css('background-color');
+        tip_modal_color = color;
         $('#select_part').hide(0, function () {
             $('#login_part').show();
             $('#login_button').css('background', color);
-            // $('#my_tip_modal').find('button').css('background', color);
-            // console.log(color);
         });
         //根据点击端口存cookie
         user_type = Number($(this).attr('type'));
