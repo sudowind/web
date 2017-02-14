@@ -255,6 +255,7 @@ $("#sure").click(function() {
     $("#sure").css('display','none');
     $(".info_list .group p").css('display','none');
 
+    //判断是否认证
     if(schoolAuthType == 5){
         var school_id = $("#select_school").select2('val');
         console.log($("#select_school").select2('val'));

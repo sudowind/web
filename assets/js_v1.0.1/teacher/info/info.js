@@ -40,6 +40,7 @@ $(".change_password").on('click',function(){
 });
 //点击修改个人信息事件
 $("#change").on('click',function(){
+    console.log(schoolAuthType)
     if(schoolAuthType == 2){
         $(".select_close").css('display','none');
         $('.name_close').css('display','none');
@@ -59,6 +60,7 @@ $("#change").on('click',function(){
 $("#back").on('click',function(){
     document.getElementById("boy").disabled = true;
     document.getElementById("girl").disabled = true;
+    $('.select_close').css('display','none');
     $(".gray").css('display','inline-block');
     $(".select_open").css('display','none');
     $(".name input").css('display','none');
@@ -93,6 +95,7 @@ function load_info() {
             $(".id span").html(data.account);
             $(".name span").html(data.name);
             $(".school .school_cont").html(data.school.name);
+            $(".city .gray").html(data.school.address);
             $("#headimg").attr('src', data.headimg);
             if(data.gender == 1 ){
                 $("#boy").attr("checked","checked");
@@ -120,6 +123,7 @@ function load_info() {
 $("#sure").click(function() {
     document.getElementById("boy").disabled = true;
     document.getElementById("girl").disabled = true;
+    $('.select_close').css('display','none');
     $(".gray").css('display','inline-block');
     $(".select_open").css('display','none');
     $(".name input").css('display','none');
@@ -127,6 +131,29 @@ $("#sure").click(function() {
     $("#back").css('display','none');
     $("#sure").css('display','none');
     $(".info_list .group p").css('display','none');
+
+    //判断是否认证
+    if(schoolAuthType == 4){
+        var school_id = $("#select_school").select2('val');
+        console.log($("#select_school").select2('val'));
+
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            //contentType: 'application/json',
+            data: {
+                schoolId : school_id
+            },
+            type: 'PUT',
+            url: URL_BASE + '/users/web/user/current/school',
+            success: function (data) {
+                console.log(data);
+                load_info();
+            },
+            error: ajax_error_handler
+        });
+    }
 
 
     var name = $(".name input").val();
