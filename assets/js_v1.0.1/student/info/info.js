@@ -101,9 +101,16 @@ $(".change_password").on('click',function(){
 });
 //点击修改个人信息事件
 $("#change").on('click',function(){
+    if(schoolAuthType == 3){
+        $(".select_close").css('display','none');
+        $('.birthday_close').css('display','none');
+        $('.name_close').css('display','none');
+    }else{
+        $(".select_close").css('display','inline-block');
+        $(".gray").css('display','none');
+    }
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
-    $(".gray").css('display','none');
     $(".select_open").css('display','inline-block');
     $(".name input").css('display','inline-block').val($('.name .gray').html());
     $("#change").css('display','none');
@@ -116,6 +123,7 @@ $("#back").on('click',function(){
     document.getElementById("boy").disabled = true;
     document.getElementById("girl").disabled = true;
     $(".gray").css('display','inline-block');
+    $(".select_close").css('display','none');
     $(".select_open").css('display','none');
     $(".name input").css('display','none');
     $("#change").css('display','inline-block');
@@ -142,6 +150,7 @@ function getConstellation(m,d){
 
 
 //载入读取个人信息
+var schoolAuthType ;
 function load_info() {
     $.ajax({
         xhrFields: {
@@ -151,6 +160,7 @@ function load_info() {
         url: URL_BASE + '/users/web/user/current',
         success: function(data) {
             console.log(data);
+            schoolAuthType = data.schoolAuthType;
             var strObj = data.info.birthday;
             var star_sign = getConstellation(strObj.substring(5,7),strObj.substring(8,10));
             switch (star_sign){
@@ -236,6 +246,7 @@ function load_info() {
 $("#sure").click(function() {
     document.getElementById("boy").disabled = true;
     document.getElementById("girl").disabled = true;
+    $(".select_close").css('display','none');
     $(".gray").css('display','inline-block');
     $(".select_open").css('display','none');
     $(".name input").css('display','none');
@@ -243,6 +254,28 @@ $("#sure").click(function() {
     $("#back").css('display','none');
     $("#sure").css('display','none');
     $(".info_list .group p").css('display','none');
+
+    if(schoolAuthType == 5){
+        var school_id = $("#select_school").select2('val');
+        console.log($("#select_school").select2('val'));
+
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            //contentType: 'application/json',
+            data: {
+                schoolId : school_id
+            },
+            type: 'PUT',
+            url: URL_BASE + '/users/web/user/current/school',
+            success: function (data) {
+                console.log(data);
+                load_info();
+            },
+            error: ajax_error_handler
+        });
+    }
 
     if ($("#boy").is(":checked")) {
         var gender = 1;
@@ -264,7 +297,7 @@ $("#sure").click(function() {
 
     var birthday = year+'-'+month+'-'+day;
 
-    //var school_id = $("#select_school").select2('val');
+
 
     $.ajax({
         xhrFields: {
@@ -277,7 +310,6 @@ $("#sure").click(function() {
                 "birthday": birthday
             },
             "gender": gender
-
         }),
         type: 'PUT',
         url: URL_BASE + '/users/web/user/current',
@@ -287,6 +319,7 @@ $("#sure").click(function() {
         },
         error: ajax_error_handler
     });
+
 });
 
 

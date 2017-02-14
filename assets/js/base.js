@@ -158,6 +158,12 @@ function gen_scroll_to_end_handler(selector, func) {
 
 
 
+
+
+
+
+
+
 //个人中心绑定新的手机号获取验证码倒计时
 function phone_sendCode(thisBtn)
 {
@@ -427,6 +433,7 @@ function bind_email(){
 
 //获取省市区三联
 function get_province(){
+    var province = [];
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -452,6 +459,7 @@ function get_province(){
 
                 $("#select_city").empty();
                 $("#select_district").empty();
+                $("#select_school").empty();
 
                 get_city($("#select_province").val());
 
@@ -487,6 +495,7 @@ function get_city(parentId){
             $("#select_city").on('change',function(){
 
                 $("#select_district").empty();
+                $("#select_school").empty();
 
                 get_district($("#select_city").val());
 
@@ -516,6 +525,9 @@ function get_district(parentId){
                 data: district,
                 language: 'zh-CN'
             });
+
+            get_school($("#select_district").val());
+
             $("#select_district").on('change',function(){
 
                 $("#select_school").empty();

@@ -40,9 +40,15 @@ $(".change_password").on('click',function(){
 });
 //点击修改个人信息事件
 $("#change").on('click',function(){
+    if(schoolAuthType == 2){
+        $(".select_close").css('display','none');
+        $('.name_close').css('display','none');
+    }else{
+        $(".select_close").css('display','inline-block');
+        $(".gray").css('display','none');
+    }
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
-    $(".gray").css('display','none');
     $(".select_open").css('display','inline-block');
     $(".name input").css('display','inline-block').val($('.name .gray').html());
     $("#change").css('display','none');
@@ -73,6 +79,7 @@ var nums = 60;
 var btn;
 
 //载入读取个人信息
+var schoolAuthType ;
 function load_info() {
     $.ajax({
         xhrFields: {
@@ -82,7 +89,7 @@ function load_info() {
         url: URL_BASE + '/users/web/user/current',
         success: function(data) {
             console.log(data);
-            //console.log(data.school.address);
+            schoolAuthType = data.schoolAuthType;
             $(".id span").html(data.account);
             $(".name span").html(data.name);
             $(".school .school_cont").html(data.school.name);

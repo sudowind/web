@@ -44,8 +44,7 @@ $(".change_password").on('click',function(){
 $("#change").on('click',function(){
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
-    $(".gray").css('display','none');
-    $(".select_open").css('display','inline-block');
+    $(".name_close").css('display','none');
     $(".name input").css('display','inline-block').val($('.name .gray').html());
     $("#change").css('display','none');
     $("#back").css('display','block');
@@ -55,8 +54,7 @@ $("#change").on('click',function(){
 $("#back").on('click',function(){
     document.getElementById("boy").disabled = true;
     document.getElementById("girl").disabled = true;
-    $(".gray").css('display','inline-block');
-    $(".select_open").css('display','none');
+    $(".name_close").css('display','inline-block');
     $(".name input").css('display','none');
     $("#change").css('display','inline-block');
     $("#back").css('display','none');
@@ -115,8 +113,7 @@ function load_info() {
 $("#sure").click(function() {
     document.getElementById("boy").disabled = true;
     document.getElementById("girl").disabled = true;
-    $(".gray").css('display','inline-block');
-    $(".select_open").css('display','none');
+    $(".name_close").css('display','inline-block');
     $(".name input").css('display','none');
     $("#change").css('display','inline-block');
     $("#back").css('display','none');
