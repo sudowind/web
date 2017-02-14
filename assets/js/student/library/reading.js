@@ -38,7 +38,7 @@ $('.left .book .down').click(function () {
 });
 
 $(document).ready(function () {
-    load_pdf_page(1);
+    // load_pdf_page(1);
 });
 
 function load_pdf_page(page) {

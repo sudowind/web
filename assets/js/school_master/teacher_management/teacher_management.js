@@ -89,29 +89,33 @@ var html = '';
 var classes = '';
 var classes_list = '';
 function load_teacher(page){
+    var with_class = Number($('.index').attr('value'));
     $.ajax({
         xhrFields: {
             withCredentials: true
         },
-        contentType: 'application/json',
         type: 'GET',
         url: URL_BASE + '/users/web/school/current/teacher/list',
+        data: {
+            isAuth: true,
+            withClass: with_class
+        },
         success: function(data) {
             //console.log(data);
 
             var flag = Number($(".grade .index").attr('value'));
             // console.log(flag);
-            if (!flag) {
-                // 只保留没有班级的老师
-                var tmp_data = [];
-                for (var i = 0; i < data.length; ++i) {
-                    if (data[i].classes.length == 0) {
-                        tmp_data.push(data[i]);
-                    }
-                }
-                data = tmp_data;
-                // console.log(data);
-            }
+            // if (!flag) {
+            //     // 只保留没有班级的老师
+            //     var tmp_data = [];
+            //     for (var i = 0; i < data.length; ++i) {
+            //         if (data[i].classes.length == 0) {
+            //             tmp_data.push(data[i]);
+            //         }
+            //     }
+            //     data = tmp_data;
+            //     // console.log(data);
+            // }
 
             var element_count = 18;
             var start_id = (page - 1) * element_count;
@@ -127,7 +131,7 @@ function load_teacher(page){
                 }else if(data[i].gender == '2'){
                     gender = '女';
                 }
-                if( data[i].classes == '' ){
+                if(!with_class){
                     html = fill_teacher_null(data[i]);
                     $(".information").append(html);
                 }else{
@@ -262,10 +266,10 @@ function grade_teacher(page){
 function fill_teacher(data){
     //console.log(data.classes);
     classes_list = '';
-    for(var j = 0;j < data.classes.length;j++){
-        classes = fill_class(data.classes[j]);
-        classes_list += classes;
-    }
+    // for(var j = 0;j < data.classes.length;j++){
+    //     classes = fill_class(data.classes[j]);
+    //     classes_list += classes;
+    // }
     //console.log(classes_list);
     return      '<ul class="teacher-information" value="' + data.id + '">'
         +'<li class="account">T'+ data.id+'</li>'
@@ -314,6 +318,10 @@ $(".button").on("click",function(){
     //$("#teacher_list_search").css("display","block");
     $('.information ul').remove();
     //var search_page = 1;
+    var with_auth = Number($('.index').attr('value'));
+    if (with_auth > 0) {
+        with_auth = 1;
+    }
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -337,7 +345,7 @@ $(".button").on("click",function(){
                     }else if(data[i].gender == '2'){
                         gender = '女';
                     }
-                    if( data[i].classes == '' ){
+                    if(!with_auth){
                         html = fill_teacher_null(data[i]);
                         $(".information").append(html);
                     }else{

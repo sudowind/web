@@ -17,7 +17,7 @@
             '<div class="btn save-progress">书签</div>' +
             '<div class="btn change-option" data-container="body" data-toggle="popover" data-placement="bottom"' +
             ' data-content="" data-html="true">A</div>' +
-            '</div><div class="select-pop"><div class="color-panel color-yellow"></div></div>';
+            '</div><hr/><div class="select-pop"><div class="color-panel color-yellow"></div></div>';
 
         var content = '<div class="reader-content">{0}</div>'.format(options.data);
 
@@ -95,6 +95,18 @@
         // 如果有存在的阅读进度，跳转到这个位置，大致是这样的写法
         // $('.reader-content').scrollTop($('.reader-content p:nth-child(18)').position().top-44);
 
+        if (options.remote_url) {
+            console.log(options.remote_url);
+            $.ajax({
+                url: options.remote_url,
+                type: 'get',
+                contentType: 'application/x-www-form-urlencoded; charset=GBK',
+                success: function (data) {
+                    $('.reader-content').html('<p>{0}</p>'.format(data));
+                }
+            });
+            // $('.reader-content').load(options.remote_url);
+        }
 
         return this;
     };
@@ -103,6 +115,9 @@
 function set_attr(attr, e) {
     var size = $(e).css(attr);
     $('.reader-content').css(attr, size);
+    if (attr == 'background') {
+        $('.txt-reader').css(attr, size);
+    }
 }
 
 // function choose_color() {

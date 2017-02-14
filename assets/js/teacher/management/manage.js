@@ -355,38 +355,39 @@ function init_class() {
         success: function(data) {
             console.log(data);
 
-            var html = '<td>所带班级：</td>';
-            html += '<td>';
-            var index = 'index';
-            var class_id;
-            var default_class = data[0].id || Number($.getUrlParam('class_id'));
-            console.log(default_class);
-            for (var i = 0; i < data.length; ++i) {
-                if (data[i].id != default_class)
-                    index = '';
-                else {
-                    index = 'index';
-                    class_id = data[i].id;
-                }
-                html += '<span class="' + index + ' option" value="' + data[i].id + '">' + data[i].name + '</span>';
-            }
-            html += '<span><img src="../../../assets/img/plus.png" alt=""></span></td>';
-            $('.classes-part table tr').html(html);
-            $('.classes-part img').click(function () {
-                $('#install_modal').modal('toggle');
-            });
-            $('.option').click(function () {
-                $(this).siblings().removeClass('index');
-                $(this).addClass('index');
-                clear_rows();
-                has_load_page = false;
-                curr_class = $(this).attr('value');
-                load_class_info(curr_class);
-            });
-            curr_class = class_id;
-            load_class_info(curr_class);
-
             if (data.length > 0) {
+
+                var html = '<td>所带班级：</td>';
+                html += '<td>';
+                var index = 'index';
+                var class_id;
+                var default_class = data[0].id || Number($.getUrlParam('class_id'));
+                console.log(default_class);
+                for (var i = 0; i < data.length; ++i) {
+                    if (data[i].id != default_class)
+                        index = '';
+                    else {
+                        index = 'index';
+                        class_id = data[i].id;
+                    }
+                    html += '<span class="' + index + ' option" value="' + data[i].id + '">' + data[i].name + '</span>';
+                }
+                html += '<span><img src="../../../assets/img/plus.png" alt=""></span></td>';
+                $('.classes-part table tr').html(html);
+                $('.classes-part img').click(function () {
+                    $('#install_modal').modal('toggle');
+                });
+                $('.option').click(function () {
+                    $(this).siblings().removeClass('index');
+                    $(this).addClass('index');
+                    clear_rows();
+                    has_load_page = false;
+                    curr_class = $(this).attr('value');
+                    load_class_info(curr_class);
+                });
+                curr_class = class_id;
+                load_class_info(curr_class);
+
                 $('#has_class').show();
                 $('#has_no_class').hide();
                 $('.student-part').show();

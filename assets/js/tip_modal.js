@@ -8,9 +8,14 @@ var TipModal = function() {};
 var my_tip = new TipModal();
 
 // 仅作为提示
-TipModal.prototype.alert = function (a, b) {
+TipModal.prototype.alert = function (a, opt, b) {
+    opt = opt || {};
+    console.log(opt);
     // alert(a);
     $('#tmp_modal').load('../../../include/html/modal_base.html', function () {
+        if (opt['color']) {
+            $('#my_tip_modal #modal_confirm_button, #my_tip_modal #modal_quit').css('background', opt['color']);
+        }
         $('#modal_info').html(a);
         $('#my_tip_modal').modal('show');
         if (b != undefined) {

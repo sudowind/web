@@ -56,7 +56,7 @@
 /*图书分类部分*/
 .book{
     width: 728px;
-    height: 1017px;
+    min-height: 1017px;
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
     margin-top:15px;
@@ -123,56 +123,68 @@
 }
 /*图书列表部分*/
 .list{
-    margin-top:11px;
+    /*margin-top:11px;*/
     float: left;
 }
 .list .list-book{
     margin-top:17px;
-    margin-left: 14px;
-    margin-right: 8px;
+    margin-left: 31px;
+    margin-right: 1px;
     position: relative;
     top: 0;
     box-shadow:2px 2px 2px #ccc;
 }
-.list .list-book .image {
+.list .list-book .already-reading{
     width: 156px;
-    height: 270px;
+    height: 32px;
+    background: #febc3c;
+    position: absolute;
+    top: 92px;
+    left: 0;
+    color: #ffffff;
+    line-height: 32px;
+    text-align: center;
+}
+.list .list-book .image {
+    width: 200px;
+    height: 245px;
     border: 1px solid #e8e8e8;
     padding: 15px 13px 30px 16px ;
     background: #ffffff;
 }
 .list .list-book .image img{
     cursor:pointer;
-    width: 122px;
-    height: 172px;
+    width: 166px;
+    height: 166px;
 }
 .list .list-book .image span {
     position: absolute;
-    top: 160px;
-    left: 75px;
+    top: 154px;
+    left: 119px;
     width: 64px;
     height: 28px;
     line-height: 28px;
     text-align: center;
-    background: #f99d32;
+    background: #3c97cf;
     color: #ffffff;
     font-size: 15px;
     font-weight: bold;
 }
 .list .list-book .book-name{
     text-align: center;
-    height: 60px;
-    width: 122px;
+    /*margin-top: 13px;*/
     font-size: 13px;
     font-weight: bold;
     cursor:pointer;
+    width: 166px;
+    height: 40px;
 
     display: table-cell;
     vertical-align: middle;
 }
 .list .list-book .type{
     position: absolute;
-    top: 245px;
+    top: 220px;
     left: 16px;
     font-size: 12px;
     color: #999999;
@@ -180,15 +192,11 @@
 }
 .list .list-book p{
     position: absolute;
-    top: 245px;
-    left: 118px;
+    top: 220px;
+    left: 158px;
     font-size: 12px;
-    color: #f99d32;
+    color: #365a97;
     cursor:pointer;
-}
-
-#book_list {
-    height: 600px;
 }
 
 /*分页部分*/

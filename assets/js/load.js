@@ -79,7 +79,17 @@ function load(src, type) {
         if (r != null)
             return r[2];
         return null;
-    }
+    };
+    $('head').append(
+        '<script>' +
+        'var _hmt = _hmt || [];' +
+        '(function() {' +
+        'var hm = document.createElement("script");' +
+        'hm.src = "https://hm.baidu.com/hm.js?003aabbbd7a7a31873365dfb79a6d688";' +
+        'var s = document.getElementsByTagName("script")[0];' +
+        's.parentNode.insertBefore(hm, s);' +
+        '})();' +
+        '</script>');
 })(jQuery);
 
 function fill_data(data) {
@@ -194,19 +204,19 @@ function load_teacher_info() {
             $('.info-school').html(data.school.name);
             $('.info-account').append(data.account);
             $('.head-img img').attr('src', data.headimg);
-            if (data.classes != null && data.classes.length > 0) {
-                var html = '';
-                var i = 0;
-                for (i = 0; i < data.classes.length; ++i) {
-                    html += '<div class="class_elem">{0}</div>'.format(data.classes[i].name);
-                }
-                $('.own-class-info').append(html).show();
-                $('.no-class').hide();
-            }
-            else {
-                $('.own-class-info').hide();
-                $('.no-class').show();
-            }
+            // if (data.classes != null && data.classes.length > 0) {
+            //     var html = '';
+            //     var i = 0;
+            //     for (i = 0; i < data.classes.length; ++i) {
+            //         html += '<div class="class_elem">{0}</div>'.format(data.classes[i].name);
+            //     }
+            //     $('.own-class-info').append(html).show();
+            //     $('.no-class').hide();
+            // }
+            // else {
+            //     $('.own-class-info').hide();
+            //     $('.no-class').show();
+            // }
             // 判断老师是否被认证
             if (data.masterResourceStatus == 3) {
                 $('.info-certification').html(

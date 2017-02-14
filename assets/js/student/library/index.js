@@ -15,6 +15,7 @@ var recommend_start_score = 0;
 var recommend_end_score = 0;
 
 var has_load_book = false;
+var BOOK_PER_PAGE = 9;
 
 function gen_book_type() {
     var promise = new Promise(function(resolve, reject) {
@@ -123,7 +124,7 @@ function load_book(type, page) {
         data: {
             page: page - 1,
             typeId: type,
-            itemPerPage: 8,
+            itemPerPage: BOOK_PER_PAGE,
             startLevelScore: curr_start_score,
             endLevelScore: curr_end_score
         },
