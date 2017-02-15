@@ -213,6 +213,7 @@ $(document).ready(function () {
                     success: function (data) {
                         my_tip.alert('成功删除学生！');
                         load_class_info(curr_class);
+
                     },
                     error: error_handler()
                 });
@@ -220,10 +221,29 @@ $(document).ready(function () {
         }
     });
 
-    //转让班级
+
+    //选择老师确认转让班级
     $("#sure_give").on('click',function(){
         var classId = $('.index').attr('value');
-        //var newteacherId = 已认证的老师只可以装让给已认证的老师，没认证同理；
+        var newTeacherId = $(".modal-selector[value='1']").next().next()[0].title;
+        //console.log($(".modal-selector[value='1']").next().next()[0].title);
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'post',
+            data:{
+                newTeacherId : newTeacherId
+            },
+            url: URL_BASE + '/users/web/class/'+ classId + '/transfer',
+            success: function (data) {
+                $('#myModal').modal('hide');
+                my_tip.alert("班级转让成功");
+                init_class();
+            },
+            error: error_handler()
+        });
+
     })
 
 });
@@ -435,9 +455,63 @@ function dismiss_class(){
 function give_class(){
     var class_name = $('#class_name').html();
     var class_code = $('#class_code').html();
-    var class_id = $('.classes-part table tbody tr td .index').attr('value');
-    my_tip.bind('确定把' + class_name + '(班级代码：'+ class_code +')转让出去？ ',function(){
-
-    })
+    load_teacher();
+    //my_tip.bind('确定把' + class_name + '(班级代码：'+ class_code +')转让出去？ ',function(){
+    //
+    //})
+    //console.log(class_id)
 }
-//data-toggle="modal" data-target="#myModal"
+
+function load_teacher(){
+    $(".modal-mean").empty();
+    var html = '';
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/users/web/school/current/teacher/list',
+        type: 'get',
+        success: function (data) {
+            //console.log(data.length);
+            for(var i = 0 ; i<data.length; i++){
+                html += fill_teacher_list(data[i]);
+            }
+            $(".modal-mean").append(html);
+
+        },
+        error: error_handler()
+    });
+}
+var self_id = getCookie('USER');
+function fill_teacher_list(data){
+    //转让教师List排除自己
+    //console.log(self_id+'   '+data.id);
+    console.log(data);
+    if(data.id == self_id){
+        return '';
+    }
+
+    //判断教师认证状态
+    var schoolAuthType = '';
+    if(data.schoolAuthType == 2){
+        schoolAuthType = '已认证';
+    }else if(data.schoolAuthType == 4)
+        schoolAuthType = '未认证';
+    return      '<div class="modal-list">'
+                    +'<img class="modal-selector" onclick="on_modal_select_click(this);" src="../../../assets/img/teacher/single_unselected.png" alt="" value="0">'
+                    +'<span class="name">'+ data.name +'</span>'
+                    +'<span class="coalaId" title="'+ data.id +'">（考拉账号：'+ data.account +'）</span>'
+                    +'<span class="prove">'+ schoolAuthType +'</span>'
+                +'</div>'
+}
+
+
+
+
+
+
+
+
+
+
+
