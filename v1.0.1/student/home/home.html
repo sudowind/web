@@ -6,7 +6,6 @@
     <title>我的主页</title>
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
-
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
@@ -47,7 +46,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="top">
                 <h3 class="title">
                     <img src="../../../assets/img/student/home/cup.png" alt=""/><span>学霸榜</span>
@@ -60,51 +58,51 @@
                     <div class="btn">加入班级</div>
                 </div>
             </div>
+            <div class="all">
+                <div class="cla-ranking">
+                    <h3>
+                        <img src="../../../assets/img/student/home/title_blue.png" alt=""/>班级排名
+                    </h3>
+                    <div class="progress" >
+                        <div class="progress-bar" id="reading_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
+                        <div class="rank-message"><img src="../../../assets/img/student/home/read.png" alt=""/>阅读量排名&nbsp&nbsp&nbsp<span class="current-page">0</span>&nbsp/&nbsp<span class="page">0</span></div>
+                    </div>
+                    <div class="progress" >
+                        <div class="progress-bar" id="exam_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
+                        <div class="rank-message"><img src="../../../assets/img/student/home/pass.png" alt=""/>测试正确率排名&nbsp&nbsp&nbsp<span class="current-page">0</span>&nbsp/&nbsp<span class="page">0</span></div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" id="ability_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
+                        <div class="rank-message"><img src="../../../assets/img/student/home/ability.png" alt=""/>阅读能力排名&nbsp&nbsp&nbsp<span class="current-page">0</span>&nbsp/&nbsp<span class="page">0</span></div>
+                    </div>
+                </div>
+                <div class="term-plan">
+                    <h3>
+                        <img src="../../../assets/img/student/home/plan_blue.png" alt=""/>
+                        本学年阅读进度
+                        <span>(万字)</span>
+                    </h3>
 
-            <div class="cla-ranking">
-                <h3>
-                    <img src="../../../assets/img/student/home/title_blue.png" alt=""/>班级排名
-                </h3>
-                <div class="progress" >
-                    <div class="progress-bar" id="reading_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
-                    <div class="rank-message"><img src="../../../assets/img/student/home/read.png" alt=""/>阅读量排名&nbsp&nbsp&nbsp<span class="current-page">0</span>&nbsp/&nbsp<span class="page">0</span></div>
+                    <div class="school-year-plan">
+                        <p>本学年阅读目标</p>
+                        <p><strong></strong>万字</p>
+                    </div>
+                    <!--饼状图-->
+                    <div id="progress_bar"></div>
+                    <div class="already-read">
+                        <p>已完成阅读量</p>
+                        <p><strong></strong>万字</p>
+                    </div>
                 </div>
-                <div class="progress" >
-                    <div class="progress-bar" id="exam_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
-                    <div class="rank-message"><img src="../../../assets/img/student/home/pass.png" alt=""/>测试正确率排名&nbsp&nbsp&nbsp<span class="current-page">0</span>&nbsp/&nbsp<span class="page">0</span></div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar" id="ability_rank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;"></div>
-                    <div class="rank-message"><img src="../../../assets/img/student/home/ability.png" alt=""/>阅读能力排名&nbsp&nbsp&nbsp<span class="current-page">0</span>&nbsp/&nbsp<span class="page">0</span></div>
+                <div class="dimensionality">
+                    <h3>
+                        <img src="../../../assets/img/student/home/dimensionality_blue.png" alt=""/>
+                        阅读能力维度解析
+                    </h3>
+                    <!--维度图-->
+                    <div id="main"></div>
                 </div>
             </div>
-            <div class="term-plan">
-                <h3>
-                    <img src="../../../assets/img/student/home/plan_blue.png" alt=""/>
-                    本学年阅读进度
-                    <span>(万字)</span>
-                </h3>
-
-                <div class="school-year-plan">
-                    <p>本学年阅读目标</p>
-                    <p><strong></strong>万字</p>
-                </div>
-                <!--饼状图-->
-                <div id="progress_bar"></div>
-                <div class="already-read">
-                    <p>已完成阅读量</p>
-                    <p><strong></strong>万字</p>
-                </div>
-            </div>
-            <div class="dimensionality">
-                <h3>
-                    <img src="../../../assets/img/student/home/dimensionality_blue.png" alt=""/>
-                    阅读能力维度解析
-                </h3>
-                <!--维度图-->
-                <div id="main"></div>
-            </div>
-
             <!--初次登录界面-->
             <div class="first_comein" style="display: none;">
                 <div class="img"><img src="../../../assets/img/student/home/first.png" alt=""/></div>

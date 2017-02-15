@@ -152,9 +152,9 @@ var telAuthId = '';
         btn = thisBtn;
         btn.disabled = true; //将按钮置为不可点击
         btn.value = nums+'秒后可重新获取';
-        clock = setInterval(doLoop, 1000); //一秒执行一次
+        clock = setInterval(sign_in_doLoop, 1000); //一秒执行一次
     }
-    function doLoop()
+    function sign_in_doLoop()
     {
         nums--;
         if(nums > 0){
@@ -165,23 +165,21 @@ var telAuthId = '';
             btn.value = '获取验证码';
             nums = 60; //重置时间
             var user_type = getCookie('user_type');
+            console.log(user_type);
             if(user_type == '3' ){
                 $('.get_pwd').css({
                     'background':'#3b5a97',
-                    'color':'#fff',
-                    'cursor':'pointer'
+                    'color':'#fff'
                 });
             }else if(user_type == '2'){
                 $('.get_pwd').css({
                     'background':'#3f8ebe',
-                    'color':'#fff',
-                    'cursor':'pointer'
+                    'color':'#fff'
                 });
             }else if(user_type == '4'){
                 $('.get_pwd').css({
                     'background':'#44435b',
-                    'color':'#fff',
-                    'cursor':'pointer'
+                    'color':'#fff'
                 });
             }
 

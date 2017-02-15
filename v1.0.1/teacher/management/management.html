@@ -43,7 +43,7 @@
                 </table>
             </div>
             <div class="part-basis class-info">
-                <div>班级代码：<span id="class_code"></span><small>（学生添加此班级代码即可加入班级）</small><div class="give_class" onclick="give_class();" data-toggle="modal" data-target="#myModal"><u>转让班级</u></div></div>
+                <div>班级代码：<span id="class_code"></span><small>（学生添加此班级代码即可加入班级）</small><div class="give_class" onclick="load_teacher();" data-toggle="modal" data-target="#myModal"><u>转让班级</u></div></div>
                 <div>班级：<span id="class_name"></span></div>
                 <div>班级人数：<span id="student_count"></span>人<div class="dismiss_class" onclick="dismiss_class()"><u>解散班级</u></div></div>
             </div>
@@ -144,7 +144,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" style="border: none;">
-                <button type="button" class="close" onclick="give_class();" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">选择被转让的老师</h4>
             </div>
             <div class="modal-body modal-mean">

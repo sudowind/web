@@ -54,7 +54,8 @@
     </div>
 
     <div id="login_part">
-        <img src="../assets/img/login_logo.png" alt="logo">
+        <img class="out" src="../assets/img/v1.0.1/login_out.png" onclick="out_login();" alt=""/>
+        <img class="logo" src="../assets/img/login_logo.png" alt="logo">
         <div>
             <label for="account"></label><input type="text" id="account" placeholder="请输入账号/手机号/邮箱" onkeydown="if(event.keyCode == 13){login();}"><br>
             <label for="password"></label><input type="password" id="password" placeholder="请输入密码" onkeydown="if(event.keyCode == 13){login();}">

@@ -451,16 +451,6 @@ function dismiss_class(){
     })
 }
 //转让班级
-function give_class(){
-    var class_name = $('#class_name').html();
-    var class_code = $('#class_code').html();
-    load_teacher();
-    //my_tip.bind('确定把' + class_name + '(班级代码：'+ class_code +')转让出去？ ',function(){
-    //
-    //})
-    //console.log(class_id)
-}
-
 function load_teacher(){
     $(".modal-mean").empty();
     var html = '';

@@ -4,10 +4,11 @@
     height: 1250px;
     float: left;
 }
-.content{
-    padding:21px 20px;
-    position: relative;
-    top: 0;
+.all{
+    width: 650px;
+    height: 1000px;
+    float: right;
+
 }
 .sign-in{
     width: 230px;
@@ -70,7 +71,7 @@
     display: none;
 }
 .statistics {
-    width: 483px;
+    width: 650px;
     height: 88px;
     border: 1px solid #e8e8e8;
     float: right;
@@ -82,7 +83,7 @@
 
 }
 .statistics .list .list-details{
-    width: 160px;
+    width: 216px;
     height: 60px;
     float: left;
     border-right: 1px solid #e8e8e8;
@@ -96,12 +97,12 @@
     color: #3c97cf;
 }
 .cla-ranking{
-    width: 483px;
+    width: 650px;
     height: 282px;
-    border: 1px solid #e8e8e8;
     background: #ffffff;
     float: right;
     margin-top: 19px;
+    border-bottom: none;
 }
 .cla-ranking h3{
     height: 56px;border-bottom: 1px solid #e8e8e8;line-height: 56px;font-size: 17px;font-weight: bold;
@@ -114,9 +115,9 @@
     position: relative;
     border-radius: 16px;
     background: #ebeef3;
-    margin-top:30px;
-    margin-left: 14px;
-    width: 450px;
+    margin-top:34px;
+    margin-left: 46px;
+    width: 520px;
     top: 0;
     left: 0;
 }
@@ -141,11 +142,11 @@
 }
 .top{
     width: 230px;
-    height: 760px;
+    height: 780px;
     position: absolute;
     /*float: left;*/
     background: #ffffff;
-    top: 410px;
+    top: 400px;
     box-shadow: 1px 1px 3px #ccc;
     border-radius: 6px;
 
@@ -246,10 +247,8 @@
 }
 .term-plan{
     float: right;
-    width: 483px;
+    width: 650px;
     height: 228px;
-    border: 1px solid #e8e8e8;
-    margin-top: 9px;
     background: #ffffff;
 }
 .term-plan h3{
@@ -271,10 +270,11 @@
     float: left;
     width: 140px;
     height: 60px;
-    margin-top: 50px;
+    margin-top: 60px;
     text-align: center;
     line-height: 30px;
-    margin-left: 10px;
+    margin-left: 54px;
+    font-size: 18px;
 }
 .term-plan p strong{
     color: #3c97cf;
@@ -284,18 +284,16 @@
     float: left;
     width: 140px;
     height: 60px;
-    margin-top: 50px;
     text-align: center;
     line-height: 30px;
+    margin-top: 60px;
+    margin-left: 42px;
+    font-size: 18px;
 }
-
-
 .dimensionality{
     float: right;
-    width: 483px;
+    width: 650px;
     height: 500px;
-    border: 1px solid #e8e8e8;
-    margin-top: 9px;
     background: #ffffff;
 }
 .dimensionality h3{
@@ -318,8 +316,8 @@
 #progress_bar{
     width: 160px;
     height: 160px;
-    margin-left: 10px;
-    margin-top: 6px;
+    margin-left: 44px;
+    margin-top: 20px;
     position: relative;
     float: left;
 }

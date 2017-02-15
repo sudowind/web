@@ -3,9 +3,9 @@ body {
 }
 
 .main-container {
-    width: 890px;
+    width: 1000px;
     margin: 0 auto -70px auto;
-    padding: 65px 60px 15px 60px;
+    padding: 65px 50px 50px 50px;
     background-color: rgba(116, 178, 194, 0.2);
 }
 

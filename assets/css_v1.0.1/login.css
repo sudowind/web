@@ -132,7 +132,8 @@ body {
     margin: -100px auto;
     padding: 30px;
     background-color: rgba(51, 55, 65, 0.2);
-
+    position: relative;
+    top:0;
     border-radius: 10px;
 
     text-align: center;
@@ -143,11 +144,17 @@ body {
     /*filter: alpha(opacity=40);*/
 }
 
-#login_part img {
+#login_part .logo {
     margin-bottom: 20px;
 }
+#login_part .out {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    cursor: pointer;
+}
 
-#login_part div:nth-child(2) input {
+#login_part div:nth-child(3) input {
     background-color: rgba(232, 232, 232, 0.2);
     border: none;
     height: 50px;
