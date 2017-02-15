@@ -162,3 +162,10 @@ function set_progress(id) {
     var percent = (id + 1) * 100 / max_index;
     $('.progress-bar').css('width', '{0}%'.format(percent));
 }
+
+//做题倒计时
+(function ($) {
+    $.fn.init_count_down = function (options) {
+        console.log(options);
+    }
+})(jQuery);

@@ -375,13 +375,13 @@ function init_class() {
         success: function(data) {
             console.log(data);
 
-            if (data.length > 0) {
+            var html = '<td>所带班级：</td>';
+            html += '<td>';
 
-                var html = '<td>所带班级：</td>';
-                html += '<td>';
+            if (data.length > 0) {
                 var index = 'index';
                 var class_id;
-                var default_class = data[0].id || Number($.getUrlParam('class_id'));
+                var default_class =  Number($.getUrlParam('class_id')) || data[0].id;
                 console.log(default_class);
                 for (var i = 0; i < data.length; ++i) {
                     if (data[i].id != default_class)
@@ -392,11 +392,13 @@ function init_class() {
                     }
                     html += '<span class="' + index + ' option" value="' + data[i].id + '">' + data[i].name + '</span>';
                 }
-                html += '<span><img src="../../../assets/img/plus.png" alt=""></span></td>';
-                $('.classes-part table tr').html(html);
-                $('.classes-part img').click(function () {
-                    $('#install_modal').modal('toggle');
-                });
+            }
+            html += '<span><img src="../../../assets/img/plus.png" alt=""></span></td>';
+            $('.classes-part table tr').html(html);
+            $('.classes-part img').click(function () {
+                $('#install_modal').modal('toggle');
+            });
+            if (data.length > 0) {
                 $('.option').click(function () {
                     $(this).siblings().removeClass('index');
                     $(this).addClass('index');
@@ -407,7 +409,6 @@ function init_class() {
                 });
                 curr_class = class_id;
                 load_class_info(curr_class);
-
                 $('#has_class').show();
                 $('#has_no_class').hide();
                 $('.student-part').show();

@@ -34,17 +34,35 @@
     width: 730px;
     height: 600px;
     margin: auto;
-    padding: 38px;
+    padding: 20px;
     position: relative;
 }
 
 .question-q {
+    margin-top: 30px;
     font-size: 16px;
     line-height: 1.5;
 }
 
 .select-option {
-    margin: 5px 0;
+    margin: 10px 0;
+    padding: 4px 0 4px 10px;
+    /*margin: 5px 10px 5px 15px;*/
+    background: #d3eefe;
+    color: #000000;
+}
+
+.selectable {
+    cursor: pointer;
+}
+.selectable:hover {
+    color: #FFFFFF;
+    background: #7abce4;
+}
+
+.option-selected {
+    color: #FFFFFF;
+    background: #7abce4;
 }
 
 .btn-part {
@@ -55,7 +73,7 @@
 }
 
 #question_body .btn {
-    background: #fb9e1d;
+    background: #3c97cf;
     color: #ffffff;
     margin: 20px;
     width: 96px;
@@ -65,7 +83,7 @@
 }
 
 .progress {
-    top: -10px;
+    top: 0;
     width: 640px;
     height: 10px;
 }
@@ -88,4 +106,14 @@
 
 #has_done div:nth-child(3) {
     text-align: left;
+}
+
+/*倒计时*/
+#counter {
+    border: 1px solid #3d98d0;
+    border-radius: 5px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin: auto;
 }

@@ -11,7 +11,7 @@ $(document).ready(function () {
     });
 
     $.ajax({
-        url: MESSAGE_BASE + '/messages/web/message/list',
+        url: URL_BASE + '/messages/web/message/list',
         xhrFields: {
             withCredentials: true
         },
@@ -32,7 +32,7 @@ $(document).ready(function () {
                         withCredentials: true
                     },
                     type: 'post',
-                    url: MESSAGE_BASE + '/messages/web/message/{0}/check'.format(id),
+                    url: URL_BASE + '/messages/web/message/{0}/check'.format(id),
                     data: {
                         newStatus: 1
                     },

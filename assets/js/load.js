@@ -124,6 +124,9 @@ function load_page() {
             success: function (data) {
                 // my_tip.alert(data.id);
                 fill_data(data);
+                if (data.examStatus == '无题') {
+                    $('#test_button').hide().siblings().css('width', '33.33%');
+                }
             },
             error: ajax_error_handler
         });
@@ -231,16 +234,19 @@ function load_teacher_info() {
 
 function check_unread_message_count() {
     $.ajax({
-        url: 'http://icing.internal.enjoyreading.com:8090/messages/web/message/unchecked/count',
+        url: URL_BASE + '/messages/web/message/unchecked/count',
         type: 'get',
         xhrFields: {
             withCredentials: true
         },
         success: function (data) {
             var length = data;
-            console.log('未读消息数量：{0}'.format(data.length));
-            if (length > 0) {
+            console.log('未读消息数量：{0}'.format(data));
+            if (length > 0 && getCookie('user_type') != '2') {
                 $('.badge').html(length);
+            }
+            else if (length > 0) {
+                $('.header .badge').html(length);
             }
         },
         error: error_handler()
