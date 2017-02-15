@@ -159,17 +159,17 @@ body {
     text-align: center;
     position: absolute;
     top:3px;
-    left: 20px;
+    left: 42px;
 }
 .list .list-book .image .book-meta-info span {
     position: absolute;
-    top: 159px;
-    left: 75px;
+    top: 157px;
+    left: 119px;
     width: 64px;
     height: 28px;
     line-height: 28px;
     text-align: center;
-    background: #f99d32;
+    background: #3c97cf;
     color: #ffffff;
     font-size: 15px;
     font-weight: bold;
@@ -190,12 +190,16 @@ body {
     top: 229px;
     left: 9px;
     font-size: 12px;
-    width: 140px;
+    width: 184px;
     color: #999999;
     text-align: center;
 }
 .list .list-book .progress-index{
     top: 220px;
+}
+.progress {
+    width: 164px;
+    left: 18px;
 }
 .list .list-book .pages{
     position: absolute;
@@ -252,16 +256,16 @@ body {
     border-radius: 4px;
     font-size: 12px;
     position: absolute;
-    top: 270px;
-    left:28px;
+    top: 250px;
+    left:50px;
     cursor:pointer;
 }
 
 .list .list-book .remove{
     display: none;
     position: absolute;
-    top: 8px;
-    left: 118px;
+    top: -14px;
+    left: 186px;
     cursor:pointer;
 }
 

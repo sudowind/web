@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/ability/ability.css">
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/tasks/test.css">
+    <!--<link rel="stylesheet" href="../../../assets/css_v1.0.1/student/tasks/test.css">-->
 
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
@@ -28,6 +28,11 @@
     <div>
         <div class="content">
             <div id="question_body" class="part-basis">
+                <div class="count-down">
+                    <div id="counter">
+
+                    </div>
+                </div>
                 <div class="question">
                 </div>
                 <div class="btn-part">
@@ -77,13 +82,13 @@
     $(document).ready(function () {
         load('../../../include/html/');
 
-
+        $('.count-down').init_count_down('123');
         window_resize();
     });
     $(window).resize(window_resize);
 
     function header_cb() {
-        $('#home_button').addClass('header-nav-selected').css('color', '#3c97cf');
+        $('#ability_button').addClass('header-nav-selected').css('color', '#3c97cf');
     }
 </script>
 </body>

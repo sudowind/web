@@ -1,5 +1,5 @@
 .recommend_read_btn{
-    width: 138px;
+    width: 150px;
     height: 28px;
     background: #3c97cf;
     color: #ffffff;
@@ -35,6 +35,7 @@
     font-size: 16px;
 }
 .main{
+    overflow: auto;
     width: 100%;
     height: 800px;
     background: #fff;
@@ -45,10 +46,11 @@
 }
 
 .list{
-    width: 684px;
+    width: 100%;
     height: 119px;
+    padding: 6px 30px;
     border-bottom: 1px solid #e8e8e8;
-    margin: 20px auto;
+    /*margin: 20px auto;*/
     position: relative;
 }
 .list .head-img{
@@ -65,14 +67,14 @@
     font-size: 21px;
     float: left;
     margin-top: 15px;
-    margin-left: 30px;
+    margin-left: 21px;
 }
 .list .right-content .tit{
     height: 20px;
     background: #eaebee;
     position: absolute;
     top: 16px;
-    left: 112px;
+    left: 133px;
     padding: 0 4px;
     color: #999999;
 }
@@ -84,11 +86,15 @@
     color: #a8a8a8;
 }
 .list .right-content .cont {
+    width: 600px;
     position: absolute;
-    top: 70px;
-    left: 114px;
+    top: 55px;
+    left: 133px;
     font-size: 15px;
 }
 .list .right-content .cont span{
     color: red;
+}
+.unread {
+    background: #dae7ff;
 }

@@ -156,14 +156,6 @@ function gen_scroll_to_end_handler(selector, func) {
     })
 }
 
-
-
-
-
-
-
-
-
 //个人中心绑定新的手机号获取验证码倒计时
 function phone_sendCode(thisBtn)
 {
@@ -247,7 +239,6 @@ function doLoop()
 
     }
 }
-
 
 //绑定新的邮箱获取验证码倒计时
 function mail_sendCode(thisBtn)

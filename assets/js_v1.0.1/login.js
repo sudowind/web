@@ -174,7 +174,8 @@ function login() {
                 switch (user_type) {
                     case 2:
                         if (data.loginCount == 0)
-                            window.open('../../../v1.0.1/student/home/first.html', '_self');
+                            // window.open('../../../v1.0.1/student/home/first.html', '_self');
+                            window.open('../../../v1.0.1/student/home/home.html', '_self');
                         else
                             window.open('../../../v1.0.1/student/home/home.html', '_self');
                         break;
