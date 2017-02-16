@@ -18,7 +18,7 @@ Date.prototype.getFullDate = function(type) {
     if (day.length < 2)
         day = '0' + day;
     if (type == 'zh') {
-        return '{0}年{1}月{2}'.format(year, month, day);
+        return '{0}年{1}月{2}日'.format(year, month, day);
     }
     else
         return '{0}-{1}-{2}'.format(year, month, day);

@@ -3,7 +3,8 @@
     text-align: left;
     margin: auto;
     /*border: solid 1px #e8e8e8;*/
-    background-color: rgb(245,245,245)
+    background-color: rgb(245,245,245);
+    /*overflow: hidden;*/
 }
 
 .txt-reader .tool_bar {
@@ -42,6 +43,62 @@
     height: 100px;
     background: rgba(0,0,0,0.1);
     /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/
+}
+
+.txt-reader .right-tool-bar {
+    position: absolute;
+    /*background: #000;*/
+    width: 55px;
+    /*height: 50px;*/
+    top: 60px;
+    right: -55px;
+    font-size: 16px;
+}
+
+.txt-reader .right-tool-bar .right-button {
+    width: 55px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s;
+    height: 50px;
+    display: table-cell;
+    vertical-align: middle;
+    background: #3c97cf;
+    color: #ffffff;
+}
+/*.txt-reader .right-tool-bar .right-button:hover {*/
+    /*background: #3c97cf;*/
+    /*color: #ffffff;*/
+/*}*/
+
+.txt-reader .reader-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.txt-reader .slide-menu {
+    position: absolute;
+    width: 600px;
+    background: #fbfaf8;
+    transition: 0.7s;
+    /*z-index: 10;*/
+    top: 0;
+    right: -603px;
+    /*right: 0;*/
+
+    padding: 40px;
+    box-shadow: #d5d5d5 -3px 0 3px;
+}
+
+.txt-reader .slide-menu div {
+    border-bottom: 1px dotted grey;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.txt-reader .slide-menu div:hover {
+    color: #fb9e1d;
 }
 
 .option-small {

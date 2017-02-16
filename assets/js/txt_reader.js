@@ -14,12 +14,12 @@
         obj.html('');
 
         var tool_bar = '<div class="tool_bar">' +
-            '<div class="btn save-progress">书签</div>' +
+            '<div class="btn save-progress">保存</div>' +
             '<div class="btn change-option" data-container="body" data-toggle="popover" data-placement="bottom"' +
             ' data-content="" data-html="true">A</div>' +
             '</div><hr/><div class="select-pop"><div class="color-panel color-yellow"></div></div>';
 
-        var content = '<div class="reader-content">{0}</div>'.format(options.data);
+        var content = '<div class="reader-wrapper"><div class="reader-content">{0}</div><div class="slide-menu"></div></div><div class="right-tool-bar"><div class="right-button menu-button">目录</div></div>'.format(options.data);
 
         obj.append(tool_bar);
         obj.append(content);
@@ -89,9 +89,42 @@
                 var top = $(elem[i]).position().top;
                 if (top >= 44) {
                     console.log($(elem[i]).attr('start'));
-                    console.log(top);
-                    console.log(scroll_top);
+                    // console.log(top);
+                    // console.log(scroll_top);
                     break;
+                }
+            }
+        });
+
+        $('.menu-button').click(function () {
+            var right = $('.slide-menu').css('right');
+            // console.log(right);
+            if (right == '0px') {
+                $('.slide-menu').css('right', '-603px');
+            }
+            else if (right == '-603px'){
+                $('.slide-menu').css('right', '0px');
+            }
+        });
+
+        // 获取目录内容
+        $.ajax({
+            url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'get',
+            data: {
+                page: 0
+            },
+            success: function (data) {
+                if (data.status == 'withTxt') {
+                    var index_html = '';
+                    for (var i in data.bookIndex) {
+                        index_html += '<div value="{0}" onclick="load_content({0});">{1}</div>'.format(Number(i) + 1, data.bookIndex[i].title);
+                    }
+                    $('.slide-menu').html(index_html);
+                    load_content(1);
                 }
             }
         });
@@ -109,35 +142,10 @@
         // 如果有存在的阅读进度，跳转到这个位置，大致是这样的写法
         // $('.reader-content').scrollTop($('.reader-content p:nth-child(18)').position().top-44);
 
-        if (options.remote_url) {
-            console.log(options.remote_url);
-            $.ajax({
-                url: options.remote_url,
-                type: 'get',
-                contentType: 'application/x-www-form-urlencoded; charset=GBK',
-                success: function (data) {
-
-                    data = data.replace(/\n/g, '</p><p>&nbsp;</p><p>');
-                    $('.reader-content').html('<p>{0}</p>'.format(data));
-                    var elem = $('.reader-content').find('p');
-                    var total = 0;
-                    for (var i in elem) {
-                        if ($(elem[i])) {
-                            // console.log($(elem[i]).html());
-                            var tmp_content = $(elem[i]).html();
-                            var current_length = tmp_content.length;
-                            if (tmp_content == '&nbsp;') {
-                                current_length -= 6;
-                            }
-
-                            $(elem[i]).attr('start', total);
-                            total += current_length;
-                        }
-                    }
-                }
-            });
-            // $('.reader-content').load(options.remote_url);
-        }
+        // if (options.remote_url) {
+        //     load_txt(options.remote_url);
+        //     // $('.reader-content').load(options.remote_url);
+        // }
 
         return this;
     };
@@ -149,6 +157,63 @@ function set_attr(attr, e) {
     if (attr == 'background') {
         $('.txt-reader').css(attr, size);
     }
+}
+
+function load_txt(url) {
+    // console.log(url);
+    $.ajax({
+        // xhrFields: {
+        //     withCredentials: true
+        // },
+        url: url,
+        type: 'get',
+        // contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        success: function (data) {
+            // console.log(data);
+            data = data.replace(/\n/g, '</p><p>&nbsp;</p><p>');
+            $('.reader-content').html('<p>{0}</p>'.format(data));
+            var elem = $('.reader-content').find('p');
+            var total = 0;
+            for (var i in elem) {
+                if ($(elem[i])) {
+                    // console.log($(elem[i]).html());
+                    var tmp_content = $(elem[i]).html();
+                    if (tmp_content) {
+                        var current_length = tmp_content.length + 1;
+                        if (tmp_content == '&nbsp;') {
+                            current_length -= 7;
+                        }
+
+                        $(elem[i]).attr('start', total);
+                        total += current_length;
+                    }
+                    else {
+                        break;
+                    }
+                }
+            }
+            $('.reader-content').scrollTop(0);
+        }
+    });
+}
+
+function load_content(page) {
+    console.log(page);
+    $.ajax({
+        url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        data: {
+            page: page
+        },
+        success: function (data) {
+            // console.log(data.url);
+            load_txt(data.url);
+            $('.slide-menu').css('right', '-603px');
+        }
+    });
 }
 
 // function choose_color() {
