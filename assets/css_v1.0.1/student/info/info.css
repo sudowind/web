@@ -42,7 +42,7 @@
     font-size: 16px;
 }
 #crop-avatar{
-    width: 230px;
+    width: 310px;
     height: 520px;
     border-right: 2px solid #e8e8e8;
     position: relative;
@@ -56,7 +56,7 @@
     border-radius: 50%;
     overflow: hidden;
     float: left;
-    margin: 120px 0 20px 40px;
+    margin: 120px 0 20px 80px;
     cursor: pointer;
 }
 
@@ -64,20 +64,19 @@
     background: #3f8ebe;
     color: #ffffff;
     position: absolute;
-    top: 250px;
-    left: 52px;
+    top: 280px;
+    left: 92px;
 }
 .main .info_list{
     float: left;
-    margin-left: 54px;
+    margin-left: 170px;
     font-size: 16px;
-    /*font-weight: bold;*/
 }
 .main .info_list .group{
     height: 42px;
     line-height: 44px;
     /*word-spacing:10px;*/
-    letter-spacing: 1px;
+    letter-spacing: 3px;
 }
 .main .info_list .group p{
     /*display: inline-block;*/
@@ -202,7 +201,7 @@
     width: 100%;
 }
 .new_phone .title div{
-    width: 190px;
+    width: 240px;
     height: 60px;
     padding-top: 20px;
     margin-left: 20px;
@@ -212,14 +211,14 @@
 }
 .new_phone .title p{
     float: left;
-    width: 540px;
+    width: 750px;
     margin-top: 54px;
     border-bottom: 6px solid #CCCCCC;
 }
 .new_phone .pwd{
     width: 400px;
     height: 160px;
-    margin: 160px 0 0 180px;
+    margin: 160px auto 0;
     position: relative;
     top: 0px;
 }
@@ -312,7 +311,7 @@
 .phone_num{
     width: 500px;
     height: 160px;
-    margin: 200px 0 0 160px;
+    margin: 200px auto 0;
     position: relative;
     top: 0px;
 }
@@ -351,7 +350,7 @@
     width: 100%;
 }
 .new_mail .title div{
-    width: 190px;
+    width: 240px;
     height: 60px;
     padding-top: 20px;
     margin-left: 20px;
@@ -361,21 +360,21 @@
 }
 .new_mail .title p{
     float: left;
-    width: 540px;
+    width: 750px;
     margin-top: 54px;
     border-bottom: 6px solid #CCCCCC;
 }
 .new_mail .pwd{
     width: 400px;
     height: 160px;
-    margin: 160px 0 0 180px;
+    margin: 160px auto 0;
     position: relative;
     top: 0px;
 }
 .mail_num{
     width: 518px;
     height: 160px;
-    margin: 200px 0 0 130px;
+    margin: 200px auto 0;
     position: relative;
     top: 0px;
 }
@@ -420,7 +419,8 @@
 .cont{
     width: 400px;
     height: 300px;
-    margin: 140px 0 0 186px;
+    /*margin: 140px 0 0 186px;*/
+    margin: 140px auto;
     position: relative;
 }
 #sure_change_pwd{

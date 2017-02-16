@@ -5,7 +5,7 @@
     float: left;
 }
 .all{
-    width: 650px;
+    width: 780px;
     height: 1000px;
     float: right;
 
@@ -28,7 +28,7 @@
     width: 150px;
     height: 240px;
     position: absolute;
-    top: 52px;
+    top: 6px;
     left: 40px;
     text-align: center;
     font-size: 16px;
@@ -71,7 +71,7 @@
     display: none;
 }
 .statistics {
-    width: 650px;
+    width: 780px;
     height: 88px;
     border: 1px solid #e8e8e8;
     float: right;
@@ -83,7 +83,7 @@
 
 }
 .statistics .list .list-details{
-    width: 216px;
+    width: 254px;
     height: 60px;
     float: left;
     border-right: 1px solid #e8e8e8;
@@ -97,7 +97,7 @@
     color: #3c97cf;
 }
 .cla-ranking{
-    width: 650px;
+    width: 780px;
     height: 282px;
     background: #ffffff;
     float: right;
@@ -115,11 +115,14 @@
     position: relative;
     border-radius: 16px;
     background: #ebeef3;
-    margin-top:34px;
+    margin-top:26px;
     margin-left: 46px;
-    width: 520px;
+    width: 600px;
     top: 0;
     left: 0;
+}
+.progress:nth-of-type(1){
+    margin-top: 42px;
 }
 .progress .progress-bar {
     line-height: 35px;
@@ -142,7 +145,7 @@
 }
 .top{
     width: 230px;
-    height: 780px;
+    height: 740px;
     position: absolute;
     /*float: left;*/
     background: #ffffff;
@@ -247,7 +250,7 @@
 }
 .term-plan{
     float: right;
-    width: 650px;
+    width: 780px;
     height: 228px;
     background: #ffffff;
 }
@@ -273,7 +276,7 @@
     margin-top: 60px;
     text-align: center;
     line-height: 30px;
-    margin-left: 54px;
+    margin-left: 88px;
     font-size: 18px;
 }
 .term-plan p strong{
@@ -287,13 +290,13 @@
     text-align: center;
     line-height: 30px;
     margin-top: 60px;
-    margin-left: 42px;
+    margin-left: 90px;
     font-size: 18px;
 }
 .dimensionality{
     float: right;
-    width: 650px;
-    height: 500px;
+    width: 780px;
+    height: 460px;
     background: #ffffff;
 }
 .dimensionality h3{
@@ -311,12 +314,12 @@
 #main{
     height: 400px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 #progress_bar{
     width: 160px;
     height: 160px;
-    margin-left: 44px;
+    margin-left: 80px;
     margin-top: 20px;
     position: relative;
     float: left;
