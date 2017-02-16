@@ -35,7 +35,7 @@ $('.modal-footer .btn').one("click",function(){
 });
 
 $('#online_read').click(function () {
-    window.open('reading.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
+    window.open('reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
 });
 
 $('#offline_read').click(function () {
