@@ -1,3 +1,18 @@
+/*未做测试*/
+.first {
+    text-align: center;
+}
+.test-info {
+    text-align: left;
+    width: 80%;
+    margin: 30px auto 0 auto;
+    line-height: 30px;
+    font-size: 16px;
+}
+.test-info p {
+    margin: 10px;
+}
+
 /*头部信息*/
 #info{
     background: #fff;
@@ -10,36 +25,37 @@
     position: relative;
     top: 0;
 }
-.title h3{
-    width: 90px;
-    height: 36px;
-    border-bottom: 4px solid #f99d32;
-    font-size: 15px;
-    float: left;
-}
+
 .title{
+    color: #3c97cf;
     display: inline-block;
     padding-bottom: 10px;
+    float: left;
 }
-.title .down{
-    width: 640px;
-    height: 30px;
-    margin-top: 6px;
-    border-bottom: 4px solid #e8e8e8;
+.line-left {
+    float: left;
+    width: 20%;
+    border: 2px solid #3c97cf;
+    margin-bottom: 5px;
+}
+.line-right {
     float: right;
+    width: 80%;
+    border: 2px solid #75c1f0;
+    margin-bottom: 5px;
 }
 
 /*问题部分*/
 #question_body {
-    width: 730px;
-    height: 600px;
+    width: 800px;
+    height: 714px;
     margin: auto;
-    padding: 20px;
+    /*padding: 20px;*/
     position: relative;
 }
 
 .question-q {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     font-size: 16px;
     line-height: 1.5;
 }
@@ -67,7 +83,7 @@
 
 .btn-part {
     position: absolute;
-    width: 654px;
+    width: 780px;
     bottom: 30px;
     text-align: center;
 }
@@ -75,16 +91,20 @@
 #question_body .btn {
     background: #3c97cf;
     color: #ffffff;
-    margin: 20px;
+    margin: 30px 10px 0 10px;
     width: 96px;
 }
 #question_body .btn:hover {
     color: #ffffff;
 }
 
+.submit-message {
+    color: darkgrey;
+}
+
 .progress {
-    top: 0;
-    width: 640px;
+    top: 27px;
+    width: 780px;
     height: 10px;
 }
 
@@ -95,14 +115,20 @@
     text-align: center;
 }
 
-#finish_test div:nth-child(2), #has_done div:nth-child(2) {
-    position: absolute;
-    top: 36px;
-    left: 274px;
-    width: 100px;
-    color: #ffffff;
-    z-index:10;
+#finish_test p, #has_done div {
+    text-align: left;
+    width: 80%;
+    margin: 30px auto 0 auto;
 }
+
+/*#finish_test div:nth-child(2), #has_done div:nth-child(2) {*/
+    /*position: absolute;*/
+    /*top: 36px;*/
+    /*left: 274px;*/
+    /*width: 100px;*/
+    /*color: #ffffff;*/
+    /*z-index:10;*/
+/*}*/
 
 #has_done div:nth-child(3) {
     text-align: left;
@@ -110,10 +136,39 @@
 
 /*倒计时*/
 #counter {
+    font-size: 16px;
     border: 1px solid #3d98d0;
     border-radius: 5px;
     text-align: center;
-    width: 100px;
-    height: 100px;
-    margin: auto;
+    width: 150px;
+    height: 87px;
+    padding: 8px;
+    margin: 15px auto;
+
+    position: relative;
+}
+
+#counter img {
+    position: absolute;
+    top: 35px;
+    left: 18px;
+}
+
+#counter .digital {
+    position: absolute;
+    font-size: 32px;
+    color: #ffffff;
+}
+
+#counter .min1 {
+    left: 20px;
+}
+#counter .min2 {
+    left: 44px;
+}
+#counter .sec1 {
+    left: 85px;
+}
+#counter .sec2 {
+    left: 109px;
 }

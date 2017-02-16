@@ -258,10 +258,11 @@ function load_grade() {
     if (date.getMonth() >= 7) {
         base_year += 1;
     }
+    base_year += 5;
     var gn = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
     var html = '<option value="{0}">{1}</option>'.format(base_year.toString(), gn[0]);
     for (var i = 1; i < 6; ++i) {
-        html += '<option value="{0}">{1}</option>'.format((base_year + i).toString(), gn[i]);
+        html += '<option value="{0}">{1}</option>'.format((base_year - i).toString(), gn[i]);
     }
     $('#grade_selector').html(html).select2({
         language: 'zh-CN'

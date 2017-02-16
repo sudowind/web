@@ -188,9 +188,10 @@ function init_class() {
         base_year += 1;
     }
     var html = '';
+    base_year += 5;
     var gn = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
     for (var i = 0; i < 6; ++i) {
-        html += '<option value="{0}">{1}</option>'.format((base_year + i).toString(), gn[i]);
+        html += '<option value="{0}">{1}</option>'.format((base_year - i).toString(), gn[i]);
     }
     $('#grade_selector').html(html).unbind().change(function () {
         $('#class_selector').html('<option></option>');

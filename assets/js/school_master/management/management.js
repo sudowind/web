@@ -55,10 +55,11 @@ function init_grade() {
     if (date.getMonth() >= 7) {
         base_year += 1;
     }
+    base_year += 5;
     var gn = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
     var html = '<span class="option" value="{0}">一年级</span>'.format((base_year).toString());
     for (var i = 1; i < 6; ++i) {
-        html += '<span class="option" value="{0}">{1}</span>'.format((base_year + i).toString(), gn[i]);
+        html += '<span class="option" value="{0}">{1}</span>'.format((base_year - i).toString(), gn[i]);
     }
     html = '<span class="index option" value="1">全部</span>' + html;
     $('.class-name .grade').html(html).on('click','span',function (){

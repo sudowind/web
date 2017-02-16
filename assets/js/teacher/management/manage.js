@@ -30,8 +30,8 @@ $(document).ready(function () {
         base_year += 1;
     }
     var table_html = '';
-    var gn = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
-    for (var i = 0; i < 6; ++i) {
+    var gn = ['六年级', '五年级', '四年级', '三年级', '二年级', '一年级'];
+    for (var i = 5; i >= 0; --i) {
         var year = (base_year + i).toString();
         table_html += '<td class="grade-option" value="' + year + '">' + gn[i] + '</td>'
     }
