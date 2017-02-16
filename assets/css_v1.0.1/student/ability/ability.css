@@ -47,7 +47,7 @@
 
 /*问题部分*/
 #question_body {
-    width: 800px;
+    width: 730px;
     height: 714px;
     margin: auto;
     /*padding: 20px;*/
@@ -83,7 +83,7 @@
 
 .btn-part {
     position: absolute;
-    width: 780px;
+    width: 730px;
     bottom: 30px;
     text-align: center;
 }
@@ -104,7 +104,7 @@
 
 .progress {
     top: 27px;
-    width: 780px;
+    width: 712px;
     height: 10px;
 }
 

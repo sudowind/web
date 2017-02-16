@@ -26,6 +26,19 @@
 <div id="page_header"></div>
 <div class="main-container">
     <div>
+        <div class="student-info">
+            <div class="certi-img"><img src="../../../assets/img/v1.0.1/crown.png" alt=""></div>
+            <div class="head-img">
+                <img src="" alt="">
+            </div>
+            <br />
+            <div class="info-account">考拉阅读账号：</div>
+            <div class="info-name"></div>
+            <br />
+            <div class="info-class"><img src="../../../assets/img/student/home/add_class.png" alt="">&nbsp;&nbsp;加入班级</div>
+            <br/>
+            <div class="info-school"></div>
+        </div>
         <div class="content">
             <div id="question_body" class="part-basis">
                 <div class="first" style="display: none;">
@@ -112,9 +125,8 @@
     $(document).ready(function () {
         load('../../../include/html/');
 
-
-
-
+        load_info();
+        check_join_status();
 
         window_resize();
     });
