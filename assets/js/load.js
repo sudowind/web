@@ -184,7 +184,7 @@ var window_resize = function () {
     var height = document.body.scrollHeight;
     $('.header').css('width', width);
     $('.main-container').css('min-height', height - 100)
-        .css('margin-left', (width - 1000) / 2);
+        .css('margin-left', (width - 1135) / 2);
 };
 
 var window_resize_teacher = function () {

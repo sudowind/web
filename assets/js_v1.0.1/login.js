@@ -396,7 +396,7 @@ function select_sign_in(){
 }
 //忘记密码
 function forget_pwd(){
-    window.open('../../../v1.0.1/student/find_pwd.html', '_self');
+    window.open('../../../v1.0.1/find_pwd.html', '_self');
 }
 //返回选择端口界面
 function out_login(){

@@ -7,13 +7,10 @@
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../libs/TimePicki-master/css/timepicki.css">
-
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
-
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/tasks/index.css">
-
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
@@ -22,6 +19,19 @@
 <div id="page_header"></div>
 <div class="main-container">
     <div>
+        <div class="student-info">
+            <div class="certi-img"><img src="../../../assets/img/v1.0.1/crown.png" alt=""></div>
+            <div class="head-img">
+                <img src="" alt="">
+            </div>
+            <br />
+            <div class="info-account">考拉阅读账号：</div>
+            <div class="info-name"></div>
+            <br />
+            <div class="info-class"><img src="../../../assets/img/student/home/add_class.png" alt="">&nbsp;&nbsp;加入班级</div>
+            <br/>
+            <div class="info-school"></div>
+        </div>
         <div class="content">
             <div class="seek">
                 <!--<span class="frame">-->
@@ -64,26 +74,43 @@
     </div>
     <div id="tmp_modal"></div>
     <div style="clear: both"></div>
+    <div class="modal fade" id="join_class_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 400px; margin-top: 200px;">
+            <div class="modal-content">
+                <div class="modal-body" style="height: 150px;">
+                    <div class="modal-info">
+                        <div class="close-modal" data-dismiss="modal"><img src="../../../assets/img/close_modal.png" alt=""></div>
+                        <div class="modal-avatar"><img src="" alt=""></div>
+                        <label for="class_code"></label><input type="text" id="class_code" placeholder="请输入班级代码，可向老师询问">
+                        <div>&nbsp;</div>
+                    </div>
+                    <div class="modal-confirm-button btn" id="send_apply">申请加入班级</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="page_footer" style="background: #edeef0"></div>
 
 <script src="../../../libs/jquery-2.2.4.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
-
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../libs/jquery.page.js"></script>
 <script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/cookie.js"></script>
 <script src="../../../assets/js/tip_modal.js"></script>
-
-<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
 <script src="../../../assets/js/student/tasks/tasks.js"></script>
 <script>
     $(document).ready(function () {
         load('../../../include/html/');
         init_teachers();
         window_resize();
+
+        //加载个人信息
+        load_info();
+        check_join_status();
+        init();
     });
     $(window).resize(window_resize);
 

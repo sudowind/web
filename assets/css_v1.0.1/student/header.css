@@ -37,7 +37,7 @@
 
 .header-nav-button {
     cursor: pointer;
-    padding: 14px 10px;
+    padding: 14px;
 }
 .header-nav-button:hover {
     color: #3c97cf;

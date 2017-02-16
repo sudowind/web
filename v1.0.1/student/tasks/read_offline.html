@@ -8,11 +8,9 @@
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../libs/TimePicki-master/css/timepicki.css">
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
-
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/tasks/read_offline.css">
-
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
@@ -24,6 +22,19 @@
 <div id="page_header"></div>
 <div class="main-container">
     <div>
+        <div class="student-info">
+            <div class="certi-img"><img src="../../../assets/img/v1.0.1/crown.png" alt=""></div>
+            <div class="head-img">
+                <img src="" alt="">
+            </div>
+            <br />
+            <div class="info-account">考拉阅读账号：</div>
+            <div class="info-name"></div>
+            <br />
+            <div class="info-class"><img src="../../../assets/img/student/home/add_class.png" alt="">&nbsp;&nbsp;加入班级</div>
+            <br/>
+            <div class="info-school"></div>
+        </div>
         <div class="content">
             <div class="book-info-box">
                 <div class="book-image">
@@ -133,8 +144,6 @@
 <script src="../../../assets/js/cookie.js"></script>
 <script src="../../../assets/js/note.js"></script>
 <script src="../../../assets/js/base.js"></script>
-
-<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
 <script src="../../../assets/js/student/tasks/read_offline.js"></script>
 <script>
     $(document).ready(function () {
@@ -155,6 +164,11 @@
         load_notes(1);
         set_online_status('false');
         window_resize();
+
+        //加载个人信息
+        load_info();
+        check_join_status();
+        init();
     });
     $(window).resize(window_resize);
 
