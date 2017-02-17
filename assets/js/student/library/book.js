@@ -58,5 +58,27 @@ $('#add_to_task').click(function () {
 });
 //在线阅读
 $('#online_read').click(function() {
-    window.open('reading.html?book_id=' + $.getUrlParam('book_id'), '_self');
+    window.open('../tasks/reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id'), '_self');
+});
+
+$(document).ready(function () {
+    $.ajax({
+        type: 'GET',
+        xhrFields: {
+            withCredentials: true
+        },
+        url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
+        data: {
+            bookId: Number($.getUrlParam('book_id')),
+            page: 0
+        },
+        success: function (data) {
+            var online_text = '在线阅读';
+            if (data.status == 'empty') {
+                online_text = '暂无线上资源';
+                $('#online_read').addClass('disabled');
+            }
+            $('#online_read').html(online_text);
+        }
+    });
 });

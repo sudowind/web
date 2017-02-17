@@ -76,7 +76,7 @@ $('#add_to_task').click(function() {
     window.open('assign_task.html?book_id=' + $.getUrlParam('book_id'), '_self');
 });
 $('#online_read').click(function() {
-    window.open('reading.html?book_id=' + $.getUrlParam('book_id'), '_self');
+    window.open('../../reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id'), '_self');
 });
 
 function clear_rows() {

@@ -41,8 +41,9 @@
 // });
 
 var tip_modal_color;
-window.onload = function() {
+var int;
 
+function start_snowing() {
     $('.rotate-div').css('left', ($(window).get(0).innerWidth - 300) / 2);
 
     $('#snowCanvas').attr("width", $(window).get(0).innerWidth).attr("height", $(window).get(0).innerHeight);
@@ -89,7 +90,7 @@ window.onload = function() {
     }
 
     // start tick at specified fps
-    window.setInterval(tick, Math.floor(1000 / framerate));
+    int = window.setInterval(tick, Math.floor(1000 / framerate));
 
     // main routine
     function tick() {
@@ -139,6 +140,10 @@ window.onload = function() {
     function range(start, end) {
         return Math.random() * (end - start) + start;
     }
+}
+
+window.onload = function() {
+    start_snowing();
 
     $('#login_button').click(function () {
         login();
@@ -217,8 +222,10 @@ function resizeCanvas() {
 //            context.fillRect(0, 0, canvas.width(),canvas.height());
     $('.rotate-div').css('left', ($(window).get(0).innerWidth - 300) / 2);
     $('body').css('padding-top', ($(window).get(0).innerHeight - 400) / 2);
+    window.clearInterval(int);
+    start_snowing();
 }
-resizeCanvas();
+// resizeCanvas();
 
 var r = 300;
 var user_type;

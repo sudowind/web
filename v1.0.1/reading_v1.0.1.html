@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>线上阅读</title>
-    <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
-    <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../../libs/TimePicki-master/css/timepicki.css">
+    <link rel=icon href="../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../libs/TimePicki-master/css/timepicki.css">
 
-    <link rel="stylesheet" href="../../../include/css/tip_modal.css">
+    <link rel="stylesheet" href="../include/css/tip_modal.css">
 
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/header.css">
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/base.css">
-    <!--<link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">-->
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/tasks/reading_v1.0.1.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/student/header.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/student/base.css">
+    <!--<link rel="stylesheet" href="../assets/css_v1.0.1/student/library/index.css">-->
+    <link rel="stylesheet" href="../assets/css_v1.0.1/student/tasks/reading_v1.0.1.css">
 
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/base.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/reset.css">
 
-    <link rel="stylesheet" href="../../../assets/css_v1.0.1/txt_reader.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/txt_reader.css">
 </head>
 <body>
 <!--<div id="page_header"></div>-->
@@ -31,7 +31,7 @@
         <div class="reading-content">
             <div class="left">
                 <div class="out">
-                    <img src="../../../assets/img/student/tasks/out.png" alt=""/><span>退出阅读</span>
+                    <img src="../assets/img/student/tasks/out.png" alt=""/><span>退出阅读</span>
                 </div>
                 <div class="book-info">
                     <div class="img">
@@ -56,40 +56,27 @@
 <!--</div>-->
 <!--<div id="page_footer" style="background: #edeef0"></div>-->
 
-<script src="../../../libs/jquery-2.2.4.js"></script>
-<script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
-<script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+<script src="../libs/jquery-2.2.4.js"></script>
+<script src="../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
 
-<script src="../../../assets/js/load.js"></script>
-<script src="../../../assets/js/base.js"></script>
-<script src="../../../libs/jquery.page.js"></script>
-<script src="../../../assets/js/tip_modal.js"></script>
-<script src="../../../assets/js/cookie.js"></script>
-<script src="../../../assets/js/login.js"></script>
+<script src="../assets/js/load.js"></script>
+<script src="../assets/js/base.js"></script>
+<script src="../libs/jquery.page.js"></script>
+<script src="../assets/js/tip_modal.js"></script>
+<script src="../assets/js/cookie.js"></script>
+<script src="../assets/js/login.js"></script>
 
-<script src="../../../assets/js/comment.js"></script>
-<script src="../../../assets/js/note.js"></script>
-<script src="../../../assets/js/txt_reader.js"></script>
+<script src="../assets/js/comment.js"></script>
+<script src="../assets/js/note.js"></script>
+<script src="../assets/js/txt_reader.js"></script>
 
-<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
-<script src="../../../assets/js/student/library/reading.js"></script>
+<!--<script src="../assets/js_v1.0.1/student/home/home.js"></script>-->
+<script src="../assets/js/student/library/reading.js"></script>
 <script>
     $(document).ready(function () {
-        load('../../../include/html/');
+        load('../include/html/');
         load_page();
-//        load_comments(1);
-
-//        var pop_content =
-//            '<div>' +
-//                '&nbsp;<span class="option-small" onclick="set_attr(\'font-size\', this);">A</span>&nbsp;&nbsp;&nbsp;&nbsp;' +
-//                '<span class="option-medium" onclick="set_attr(\'font-size\', this);">A</span>&nbsp;&nbsp;&nbsp;&nbsp;' +
-//                '<span class="option-large" onclick="set_attr(\'font-size\', this);">A</span><hr>' +
-//            '<div class="color-panel color-grey" onclick="set_attr(\'background\', this);"></div>' +
-//            '<div class="color-panel color-green" onclick="set_attr(\'background\', this);"></div>' +
-//            '<div class="color-panel color-yellow" onclick="set_attr(\'background\', this);"></div>' +
-//            '</div>';
-//        $('.change-option').attr('data-content', pop_content);
-//        $('[data-toggle=popover]').popover();
 
         $('.txt-reader').init_reader(
             {

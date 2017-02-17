@@ -13,7 +13,27 @@ $(".title img").click(function(){
     $(this).attr("src","../../../assets/img/student/tasks/label.png");
 });
 $(".out").on('click',function(){
-    window.open('book.html?book_id=' + $.getUrlParam('book_id'),'_self');
+    // 先判断端口
+    var user_type = Number(getCookie('user_type'));
+
+    switch (user_type) {
+        case 2:
+            if ($.getUrlParam('task_id')) {
+                window.open('student/tasks/read.html?book_id={0}&task_id={1}'.format($.getUrlParam('book_id'), $.getUrlParam('task_id')),'_self');
+            }
+            else {
+                window.open('student/library/book.html?book_id={0}'.format($.getUrlParam('book_id')),'_self');
+            }
+            break;
+        case 3:
+            window.open('teacher/library/book.html?book_id={0}'.format($.getUrlParam('book_id')),'_self');
+            break;
+        case 4:
+            window.open('school_master/library/book.html?book_id={0}'.format($.getUrlParam('book_id')),'_self');
+            break;
+    }
+
+
 });
 
 function left_bar_cb() {

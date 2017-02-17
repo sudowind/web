@@ -29,7 +29,7 @@
 }
 .left{
     width: 230px;
-    height: 840px;
+    height: 795px;
     float: left;
 }
 .right {
@@ -75,7 +75,8 @@
 }
 .tab{
     width: 485px;
-    height: 720px;
+    /*height: 720px;*/
+    height: 688px;
     background: #f9f9f9;
     margin-top: 9px;
     border: 1px solid #e8e8e8;
@@ -104,7 +105,8 @@
 }
 .tab .cla-rank {
     border-bottom: 1px dashed #febc3c;
-    height: 258px;
+    /*height: 258px;*/
+    height: 200px;
 }
 .tab .cla-rank h3{
     font-size: 15px;

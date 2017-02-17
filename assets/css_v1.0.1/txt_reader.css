@@ -158,6 +158,7 @@
     width: 100%;
     word-break:break-all;
     line-height: 170%;
+    margin: 20px 0;
 }
 
 .reader-content p::selection {

@@ -13,8 +13,14 @@
         var width = obj.width();
         obj.html('');
 
+        var save_button = '';
+
+        if ($.getUrlParam('task_id')) {
+            save_button = '<div class="btn save-progress">保存</div>'
+        }
+
         var tool_bar = '<div class="tool_bar">' +
-            '<div class="btn save-progress">保存</div>' +
+            save_button +
             '<div class="btn change-option" data-container="body" data-toggle="popover" data-placement="bottom"' +
             ' data-content="" data-html="true">A</div>' +
             '</div><hr/><div class="select-pop"><div class="color-panel color-yellow"></div></div>';
@@ -170,7 +176,7 @@ function load_txt(url) {
         // contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         success: function (data) {
             // console.log(data);
-            data = data.replace(/\n/g, '</p><p>&nbsp;</p><p>');
+            data = data.replace(/\n/g, '</p><p>');
             $('.reader-content').html('<p>{0}</p>'.format(data));
             var elem = $('.reader-content').find('p');
             var total = 0;
@@ -180,9 +186,9 @@ function load_txt(url) {
                     var tmp_content = $(elem[i]).html();
                     if (tmp_content) {
                         var current_length = tmp_content.length + 1;
-                        if (tmp_content == '&nbsp;') {
-                            current_length -= 7;
-                        }
+                        // if (tmp_content == '&nbsp;') {
+                        //     current_length -= 7;
+                        // }
 
                         $(elem[i]).attr('start', total);
                         total += current_length;
