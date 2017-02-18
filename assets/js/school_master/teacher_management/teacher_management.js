@@ -102,7 +102,34 @@ function load_teacher(page){
             withClass: with_class
         },
         success: function(data) {
-            //console.log(data);
+            for (var i in data) {
+                if (with_class)
+                    data[i]['has_class'] = true;
+                else
+                    data[i]['has_class'] = false;
+            }
+            if (with_class == 1) {
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    type: 'GET',
+                    async: false,
+                    url: URL_BASE + '/users/web/school/current/teacher/list',
+                    data: {
+                        isAuth: true,
+                        withClass: 0
+                    },
+                    success: function (_data) {
+                        for (var i in _data) {
+                            _data[i]['has_class'] = false;
+                        }
+                        data = data.concat(_data);
+                        // console.log(_data);
+                    }
+                })
+            }
+            console.log(data);
 
             var flag = Number($(".grade .index").attr('value'));
             // console.log(flag);
@@ -132,7 +159,7 @@ function load_teacher(page){
                 }else if(data[i].gender == '2'){
                     gender = '女';
                 }
-                if(!with_class){
+                if(!data[i]['has_class']){
                     html = fill_teacher_null(data[i]);
                     $(".information").append(html);
                 }else{
@@ -157,7 +184,8 @@ function load_teacher(page){
 
             //删除老师的函数
             $(".delete").on('click',function(){
-                var teacherId = this.value;
+                var teacherId = $(this).attr('value');
+                var schoolId = $(this).attr('school_id');
                 var teacher_name = $(this).parent().children().eq(1).text();
                 var text = '<p>'+'确定删除老师  '+'<span>'+ teacher_name +'</span>'+'  的个人信息么？'+'</p>';
 
@@ -167,7 +195,7 @@ function load_teacher(page){
                             withCredentials: true
                         },
                         type: 'POST',
-                        url: URL_BASE + '/users/web/teacher/'+ teacherId + '/delete',
+                        url: URL_BASE + '/users/web/school/{0}/teacher/{1}/delete'.format(schoolId, teacherId),
                         success: function() {
                             $(".teacher-information").remove();
                             console.log(has_load_page);
@@ -297,7 +325,7 @@ function fill_teacher_null(data){
         // +'<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">' + ' 无分配班级 '+ '</button>'
         // +'</div>'
         // +'</li>'
-        +'<li id="del" class="delete" value="' + data.id + '"><u>删除</u></li>'
+        +'<li id="del" class="delete" value="' + data.id + '" school_id="' + data.school.id + '"><u>删除</u></li>'
         +'</ul>'
 }
 //生成教师所带班级下拉菜单的li

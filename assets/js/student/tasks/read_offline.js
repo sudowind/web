@@ -144,6 +144,6 @@ function load_progress() {
             $('#today_page').attr('placeholder', curr_page).attr('min', curr_page).attr('max', total_page).val(curr_page);
             today_start_at = curr_page;
         },
-        error: ajax_error_handler
+        error: error_handler()
     });
 }

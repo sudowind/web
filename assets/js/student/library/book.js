@@ -58,7 +58,7 @@ $('#add_to_task').click(function () {
 });
 //在线阅读
 $('#online_read').click(function() {
-    window.open('../tasks/reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id'), '_self');
+    window.open('../../reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id'), '_self');
 });
 
 $(document).ready(function () {

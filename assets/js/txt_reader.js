@@ -97,6 +97,9 @@
                     console.log($(elem[i]).attr('start'));
                     // console.log(top);
                     // console.log(scroll_top);
+                    $.ajax({
+                        
+                    });
                     break;
                 }
             }

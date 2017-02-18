@@ -173,14 +173,14 @@ function load_table(page, elem_per_page, sort_by,  order, type) {
             html += '<tr><td class="sort">{0}</td>'.format(i + 1) +
                 '<td class="classes">{0}</td>'.format(data[i].className) +
                 '<td class="read-num">{0}</td>'.format((data[i].wordCount / 10000).toFixed(2)) +
-                '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
+                // '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
                 '<td class="accuracy">{0}</td></tr>'.format(examScore);
         }
         else {
             html += '<tr><td class="sort">{0}</td>'.format(data[i].studentId) +
                 '<td class="name">{0}</td>'.format(data[i].studentName) +
                 '<td class="read-num">{0}</td>'.format((data[i].wordCount / 10000).toFixed(2)) +
-                '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
+                // '<td class="book-num">{0}</td>'.format(data[i].bookCount) +
                 '<td class="accuracy">{0}</td>'.format(examScore) +
                 '<td class="operation" style="cursor: pointer;" onclick="window.open(\'../report/student_report.html?student_id={0}\')">{1}</td></tr>'.format(data[i].studentId, '查看');
         }

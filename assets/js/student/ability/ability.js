@@ -109,7 +109,7 @@ $('.first .btn').click(function () {
     $('#has_done').hide();
 
     $('.count-down').init_count_down({
-        total_second: 2 * 60
+        total_second: 30 * 60
     });
 
     var tmp_date = new Date();

@@ -106,7 +106,8 @@
     line-height: 25px;
     font-weight: bold;
     text-align: center;
-    width: 138px;
+    /*width: 138px;*/
+    width: 178px;
 }
 #choose_part table thead tr td:nth-child(4) {
     padding: 15px;
@@ -168,5 +169,6 @@ td img {
     position: static;
     border: 1px solid #febc3c;
     margin-bottom:0;
+    width: 145px;
 }
 

@@ -296,7 +296,7 @@ function init() {
         success: function (data) {
             $('#student_name').html(data.name);
             $('#school_name').html(data.school.name);
-            $('#class_name').html(data.classes[0].name);
+            $('#class_name').html(data.schoolClass.name);
             $('.student-img').find('img').attr('src', data.headimg);
         }
     });

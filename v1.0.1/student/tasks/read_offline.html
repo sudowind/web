@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="book-detail-content" id="intro_part">
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;鸭子骑车？这可真是个疯狂的想法！但有一只鸭子真的办到了！农场里的马、牛、羊、鸡、狗、老鼠……对鸭子骑车这件事有什么看法呢？在一个平平常常的下午，动物们干了一件很不平凡的事情…作者通过这个让人兴奋又愉悦的故事，生动地描绘出孩子勇于探险的心理特征，让孩子读后产生极大的满足感。书中各种动物的语言和表情都十分传神，和孩子一起朗读，会让孩子兴致勃勃地融入其中。而大胆的笔触和鲜艳的色彩，既吸引孩子的目光，更深入孩子的心灵，让他们萌发大胆尝试的勇气。</p>
+                    <p></p>
                 </div>
 
                 <div class="book-comment" style="display: none;" id="comment_part">
@@ -164,6 +164,26 @@
         load_notes(1);
         set_online_status('false');
         window_resize();
+
+        var online_text;
+        $.ajax({
+            type: 'GET',
+            xhrFields: {
+                withCredentials: true
+            },
+            url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
+            data: {
+                bookId: Number($.getUrlParam('book_id')),
+                page: 0
+            },
+            success: function (data) {
+                if (data.status == 'empty') {
+                    online_text = '暂无线上资源';
+                    $('#online_read').addClass('disabled');
+                }
+                $('#online_read').html(online_text);
+            }
+        });
 
         //加载个人信息
         load_info();
