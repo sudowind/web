@@ -62,6 +62,7 @@ $(".right .option span").click(function(){
 
 function load_class_performance(class_id) {
     class_has_load_page = false;
+    var semester = get_current_semester();
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -69,8 +70,8 @@ function load_class_performance(class_id) {
         url: URL_BASE + '/statistic/web/timeline/class/{0}/classInfoInGrade'.format(class_id),
         type: 'get',
         data: {
-            startTime: 0,
-            endTime: 0
+            startTime: semester[0],
+            endTime: semester[1]
         },
         success: function(data) {
             // 将数据加载到变量中
@@ -86,6 +87,7 @@ function load_class_performance(class_id) {
 
 function load_student_performance(class_id) {
     student_has_load_page = false;
+    var semester = get_current_semester();
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -93,8 +95,8 @@ function load_student_performance(class_id) {
         url: URL_BASE + '/statistic/web/timeline/class/{0}/studentInfoList'.format(class_id),
         type: 'get',
         data: {
-            startTime: 0,
-            endTime: 0
+            startTime: semester[0],
+            endTime: semester[1]
         },
         success: function (data) {
             for (var i = 0; i < data.length; ++i) {
@@ -237,7 +239,7 @@ function load_class(grade) {
             }
             $('#class_selector').html(html).select2({
                 language: 'zh-CN'
-            }).on('select2:select', function(evt){
+            }).off('select2:select').on('select2:select', function(evt){
                 load_class_performance($(this).val());
                 load_student_performance($(this).val());
                 load_student_class_rank('school_master', $(this).val());
@@ -266,7 +268,7 @@ function load_grade() {
     }
     $('#grade_selector').html(html).select2({
         language: 'zh-CN'
-    }).on('select2:select', function (evt) {
+    }).off('select2:select').on('select2:select', function (evt) {
         load_class($(this).val());
         load_rank_list('school_master', $(this).val());
     });

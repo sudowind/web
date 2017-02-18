@@ -79,6 +79,12 @@ function load_book(task_status, reporter_id, page, item_per_page, cb_func) {
         },
         success: function(data) {
             //console.log(data.data[0].endTime)
+            console.log(data.data);
+            data.data.sort(function (a, b) {
+                return a.userCreateTime < b.userCreateTime;
+            });
+            console.log(data.data);
+
             for (var i = 0; i < data.data.length; ++i) {
 
                 if($(".grade span").attr('value') == 0){

@@ -113,7 +113,7 @@ function load_student_info(class_id, page) {
             withCredentials: true
         },
         type: 'get',
-        url: URL_BASE + '/tasks/web/task/teacher/current/' + $.getUrlParam('book_id') + '/list',
+        url: URL_BASE + '/tasks/web/task/teacher/current/' + $.getUrlParam('book_id') + '/list/all',
         data: {
             classId: class_id
         },

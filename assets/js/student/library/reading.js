@@ -64,3 +64,25 @@ function pdf_or_txt(){
         }
     });
 }
+
+function load_progress() {
+    var task_id = $.getUrlParam('task_id');
+    if (task_id) {
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'GET',
+            url: URL_BASE + '/tasks/web/task/' + task_id,
+
+            success: function (data) {
+                var curr_page = data.currentPage;
+                var total_page = data.totalPage;
+                var percent = Math.round(curr_page * 100.0 / total_page);
+                $('.progress-bar').css('width', percent.toString() + '%');
+                $('.progress-message').find('span').html(percent);
+            },
+            error: error_handler()
+        });
+    }
+}

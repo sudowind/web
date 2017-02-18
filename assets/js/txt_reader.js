@@ -19,7 +19,7 @@
             save_button = '<div class="btn save-progress">保存</div>'
         }
 
-        var tool_bar = '<div class="tool_bar">' +
+        var tool_bar = '<div class="tool_bar"><span class="chapter-title"></span>' +
             save_button +
             '<div class="btn change-option" data-container="body" data-toggle="popover" data-placement="bottom"' +
             ' data-content="" data-html="true">A</div>' +
@@ -84,6 +84,8 @@
             // console.log(select_obj);
         });
 
+        var start_time = new Date();
+
         $('.save-progress').click(function () {
             // console.log(current_para);
             var obj = $('.reader-content');
@@ -97,8 +99,31 @@
                     console.log($(elem[i]).attr('start'));
                     // console.log(top);
                     // console.log(scroll_top);
+                    var end_time = new Date();
                     $.ajax({
-
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        type: 'POST',
+                        url: URL_BASE + '/tasks/web/task/student/current/' + $.getUrlParam('task_id') + '/record',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            "createTime": 0,
+                            "currentPage": $(elem[i]).attr('start'),
+                            "endTime": end_time.getTime(),
+                            "id": 0,
+                            "onlineStatus": "1",
+                            "startTime": start_time.getTime(),
+                            "taskId": 0
+                        }),
+                        success: function () {
+                            // my_tip.alert('haha');
+                            load_progress();
+                            my_tip.alert('记录成功！');
+                        },
+                        error: error_handler({400: function(){
+                            my_tip.alert('保存进度不能小于当前已读进度！');
+                        }})
                     });
                     break;
                 }
@@ -116,6 +141,9 @@
             }
         });
 
+        var index = [];
+        // 获取当前阅读进度
+        var task_id = $.getUrlParam('task_id');
         // 获取目录内容
         $.ajax({
             url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
@@ -130,13 +158,54 @@
                 if (data.status == 'withTxt') {
                     var index_html = '';
                     for (var i in data.bookIndex) {
-                        index_html += '<div value="{0}" onclick="load_content({0});">{1}</div>'.format(Number(i) + 1, data.bookIndex[i].title);
+                        index_html += '<div value="{0}" offset="{2}" onclick="load_content({0}, {2}, \'{1}\');">{1}</div>'.format(Number(i) + 1, data.bookIndex[i].title, data.bookIndex[i].startOffset);
+                        index.push({
+                            title: data.bookIndex[i].title,
+                            chapter: Number(i) + 1,
+                            offset: data.bookIndex[i].startOffset
+                        });
                     }
                     $('.slide-menu').html(index_html);
-                    load_content(1);
+                    //首次加载，并不一定是第一页
+                    if (!task_id) {
+                        load_content(index[0].chapter, index[0].offset, index[0].title);
+                    }
+                    else {
+                        $('.progress').show();
+                        $('.progress-message').show();
+                        $.ajax({
+                            xhrFields: {
+                                withCredentials: true
+                            },
+                            type: 'GET',
+                            url: URL_BASE + '/tasks/web/task/' + task_id,
+
+                            success: function (data) {
+                                var curr_page = data.currentPage;
+                                var total_page = data.totalPage;
+                                TOTAL_PAGE = total_page;
+                                var percent = Math.round(curr_page * 100.0 / total_page);
+                                $('.progress-bar').css('width', percent.toString() + '%');
+                                $('.progress-message').find('span').html(percent);
+
+                                for (var i = 0; i < index.length - 1; ++i) {
+                                    if (curr_page >= index[i].offset && curr_page < index[i + 1].offset) {
+
+                                        load_content(index[i].chapter, index[i].offset, index[i].title, curr_page);
+                                    }
+                                }
+                            },
+                            error: error_handler()
+                        });
+                    }
                 }
             }
         });
+
+
+        // if (task_id) {
+        //
+        // }
 
         // $('.reader-content').append('<p>123</p>');
 
@@ -160,6 +229,8 @@
     };
 })(jQuery);
 
+var TOTAL_PAGE = 0;
+
 function set_attr(attr, e) {
     var size = $(e).css(attr);
     $('.reader-content').css(attr, size);
@@ -168,8 +239,49 @@ function set_attr(attr, e) {
     }
 }
 
-function load_txt(url) {
+var st = new Date();
+function finish_read() {
+    var et = new Date();
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'POST',
+        url: URL_BASE + '/tasks/web/task/student/current/' + $.getUrlParam('task_id') + '/record',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            "createTime": 0,
+            "currentPage": TOTAL_PAGE,
+            "endTime": et.getTime(),
+            "id": 0,
+            "onlineStatus": "1",
+            "startTime": st.getTime(),
+            "taskId": 0
+        }),
+        success: function () {
+            // my_tip.alert('haha');
+            load_progress();
+            my_tip.alert('恭喜你已读完全书！');
+        },
+        error: error_handler({400: function(){
+            my_tip.alert('进度已保存，请勿重复点击！');
+        }})
+    });
+}
+
+function load_txt(page, url, offset, current) {
+    //offset是起始偏移
     // console.log(url);
+    var next_page = $('.slide-menu').find('[value={0}]'.format(page + 1)).attr('onclick');
+    var next_page_html = '<div style="border-top: solid 1px #3c97cf">全书已读完，点击<a style="cursor: pointer" onclick="finish_read();">确认</a>完成阅读</div>';
+    if (next_page) {
+        console.log(next_page);
+        next_page_html = '<div style="border-top: solid 1px #3c97cf">本章已读完，点击前往<a style="cursor: pointer" onclick="{0}">下一章</a></div>'.format(next_page);
+    }
+    else if (!$.getUrlParam('task_id')) {
+        next_page_html = '<div style="border-top: solid 1px #3c97cf">全书已读完</div>';
+    }
+
     $.ajax({
         // xhrFields: {
         //     withCredentials: true
@@ -180,9 +292,10 @@ function load_txt(url) {
         success: function (data) {
             // console.log(data);
             data = data.replace(/\n/g, '</p><p>');
-            $('.reader-content').html('<p>{0}</p>'.format(data));
+            $('.reader-content').html('<p>{0}</p>{1}'.format(data, next_page_html));
             var elem = $('.reader-content').find('p');
-            var total = 0;
+            var total = offset;
+            var top = 0;
             for (var i in elem) {
                 if ($(elem[i])) {
                     // console.log($(elem[i]).html());
@@ -194,6 +307,13 @@ function load_txt(url) {
                         // }
 
                         $(elem[i]).attr('start', total);
+                        if (current) {
+                            if (total <= current && total + current_length > current) {
+                                console.log(current);
+                                if (i > 0)
+                                    top = $(elem[i - 1]).position().top;
+                            }
+                        }
                         total += current_length;
                     }
                     else {
@@ -201,12 +321,13 @@ function load_txt(url) {
                     }
                 }
             }
-            $('.reader-content').scrollTop(0);
+            console.log(top);
+            $('.reader-content').scrollTop(top);
         }
     });
 }
 
-function load_content(page) {
+function load_content(page, offset, title, current) {
     console.log(page);
     $.ajax({
         url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
@@ -218,13 +339,16 @@ function load_content(page) {
             page: page
         },
         success: function (data) {
+            $('.chapter-title').html(title);
             // console.log(data.url);
-            load_txt(data.url);
+            if (current) {
+                load_txt(page, data.url, offset, current);
+            }
+            else {
+                load_txt(page, data.url, offset);
+            }
             $('.slide-menu').css('right', '-603px');
         }
     });
 }
 
-// function choose_color() {
-//     $('.color-choose-div').toggle();
-// }

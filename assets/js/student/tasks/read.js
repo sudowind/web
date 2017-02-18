@@ -44,30 +44,46 @@ $('#online_read').click(function () {
         data: {
             isOnline: true
         },
+        success: function () {
+            //判断书籍类型
+            $.ajax({
+                url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
+                xhrFields: {
+                    withCredentials: true
+                },
+                type: 'get',
+                data: {
+                    page: 0
+                },
+                success: function (data) {
+                    if (data.status == 'withTxt') {
+                        window.open('../../reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
+                    } else if(data.status == 'withPdf'){
+                        window.open('../../reading_pdf_v1.0.1.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
+                    }
+                }
+            });
+        },
         error: error_handler()
     });
-    //判断书籍类型
-    $.ajax({
-        url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
-        xhrFields: {
-            withCredentials: true
-        },
-        type: 'get',
-        data: {
-            page: 0
-        },
-        success: function (data) {
-            if (data.status == 'withTxt') {
-                window.open('../../reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
-            } else if(data.status == 'withPdf'){
-                window.open('../../reading_pdf_v1.0.1.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
-            }
-        }
-    });
+
 });
 
 $('#offline_read').click(function () {
-    window.open('read_offline.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
+    $.ajax({
+        url: URL_BASE + '/tasks/web/task/student/current/{0}/onlineStatus'.format($.getUrlParam('task_id')),
+        type: 'put',
+        xhrFields: {
+            withCredentials: true
+        },
+        data: {
+            isOnline: false
+        },
+        success: function () {
+            window.open('read_offline.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
+        },
+        error: error_handler()
+    });
 });
 
 function load_page() {
