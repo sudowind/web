@@ -46,7 +46,6 @@ iframe {
     width: 50px;
     height: 30px;
     background: #BBBBBB;
-    border: 1px solid #BBBBBB;
     line-height: 30px;
     text-align: center;
     cursor: pointer;
@@ -61,7 +60,6 @@ iframe {
     width: 50px;
     height: 30px;
     background: #BBBBBB;
-    border: 1px solid #BBBBBB;
     line-height: 30px;
     text-align: center;
     cursor: pointer;
@@ -83,5 +81,8 @@ iframe {
     cursor: pointer;
     background: #BBBBBB;
     color: #FFFFFF;
+}
+#my_tip_modal #modal_confirm_button, #my_tip_modal #modal_quit {
+    background: #3f8ebe;
 }
 

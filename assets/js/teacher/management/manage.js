@@ -267,6 +267,7 @@ function on_modal_select_click(e) {
         $(e).parent().css('color','#ccc');
     }
     else {
+        $(".modal-selector").attr('src','../../../assets/img/teacher/single_unselected.png').parent().css('color','#ccc');
         $(e).attr('src', '../../../assets/img/teacher/single_selected.png');
         $(e).attr('value', '1');
         $(e).parent().css('color','#000');

@@ -48,7 +48,24 @@ $('#online_read').click(function () {
         },
         error: error_handler()
     });
-    window.open('../../reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
+    //判断书籍类型
+    $.ajax({
+        url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        data: {
+            page: 0
+        },
+        success: function (data) {
+            if (data.status == 'withTxt') {
+                window.open('../../reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
+            } else if(data.status == 'withPdf'){
+                window.open('../../reading_pdf_v1.0.1.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
+            }
+        }
+    });
 });
 
 $('#user_note').bind('input propertychange', function () {

@@ -165,21 +165,24 @@ var telAuthId = '';
             btn.value = '获取验证码';
             nums = 60; //重置时间
             var user_type = getCookie('user_type');
-            console.log(user_type);
+            //console.log(user_type);
             if(user_type == '3' ){
                 $('.get_pwd').css({
                     'background':'#3b5a97',
-                    'color':'#fff'
+                    'color':'#fff',
+                    'cursor':'pointer'
                 });
             }else if(user_type == '2'){
                 $('.get_pwd').css({
                     'background':'#3f8ebe',
-                    'color':'#fff'
+                    'color':'#fff',
+                    'cursor':'pointer'
                 });
             }else if(user_type == '4'){
                 $('.get_pwd').css({
                     'background':'#44435b',
-                    'color':'#fff'
+                    'color':'#fff',
+                    'cursor':'pointer'
                 });
             }
 

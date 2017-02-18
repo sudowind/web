@@ -4,8 +4,8 @@
 
 
 var curr_page = 1;
-var total_page = 0;//×ÜÒ³Êı
-var max_page = 0;   // ÒÑ¶Áµ½µÄÒ³Ãæ
+var total_page = 0;//æ€»é¡µæ•°
+var max_page = 0;   // å·²è¯»åˆ°çš„é¡µé¢
 
 $('.up').click(function () {
     curr_page -= 1;
@@ -21,11 +21,6 @@ $('.down').click(function () {
     load_pdf_page(curr_page);
 });
 
-//Ò³Ãæ¼ÓÔØ¶ÁÈ¡½ø¶È
-$(document).ready(function () {
-    load_task_info();
-});
-
 function load_task_info() {
     var task_id = $.getUrlParam('task_id');
     if (task_id != null) {
@@ -36,7 +31,7 @@ function load_task_info() {
             type: 'GET',
             url: URL_BASE + '/tasks/web/task/' + task_id,
             success: function(data) {
-                // my_tip.alert(data.id);
+                 //console.log(data)
                 // do some thing
                 max_page = data.currentPage;
                 if (max_page == 0)
@@ -46,12 +41,14 @@ function load_task_info() {
             },
             error: error_handler()
         });
+    }else{
+        $(".save").css('display','none');
     }
 }
 
-//¶ÁÈ¡pdf
+//è¯»å–pdf
 function load_pdf_page(page) {
-    console.log(page)
+    //console.log(page)
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -69,10 +66,11 @@ function load_pdf_page(page) {
 }
 
 
-//±£´æpdfÔÄ¶Á½ø¶È
+//ä¿å­˜pdfé˜…è¯»è¿›åº¦
 function record() {
+    //console.log(curr_page+' | '+ max_page);
     if (curr_page <= max_page) {
-        my_tip.alert('µ±Ç°Ò³Ò³ÂëĞè´óÓÚÉÏ´Î±£´æÒ³Âë');
+        my_tip.alert('å½“å‰é¡µé¡µç éœ€å¤§äºä¸Šæ¬¡ä¿å­˜é¡µç ');
         return;
     }
     var end_time = new Date();
@@ -96,11 +94,12 @@ function record() {
             "taskId": 0
         }),
         success: function (data) {
+            //console.log(data)
             $('.title img').attr("src","../../../assets/img/student/tasks/label.png");
             var progress = curr_page / total_page;
             $('.progress-bar').css('width', '{0}%'.format(Math.ceil(progress * 100)));
             $('.ratio span').html(Math.ceil(progress * 100));
-            my_tip.alert('ÔÄ¶Á½ø¶È±£´æ³É¹¦');
+            my_tip.alert('é˜…è¯»è¿›åº¦ä¿å­˜æˆåŠŸ');
         },
         error: error_handler()
     })
