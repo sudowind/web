@@ -563,3 +563,24 @@ function get_school(addrCode){
         error: ajax_error_handler
     });
 }
+function check_join_status() {
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/users/web/join/checkJoinClassRequest',
+        success: function (data) {
+            // 应该是两种状态：有 无
+            var flag = data.hasRequest;
+            if (flag) {
+                // 正在审核
+                $('.top-list').hide();
+                $('.no-top-list').show();
+                $('.info-class').html('加入班级<span style="color: #3c97cf">审核中</span>');
+                $('.no-top-list .btn').html('正在审核').addClass('disabled');
+            }
+        },
+        error: error_handler()
+    });
+}

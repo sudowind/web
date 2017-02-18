@@ -1,0 +1,87 @@
+.reading-content{
+    margin: auto;
+    background: #ffffff;
+    position: relative;
+    top: 0;
+}
+.out{
+    position: absolute;
+    border: 1px solid #e8e8e8;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    color: #FFFFFF;
+    width: 80px;
+    height: 42px;
+    background: #CCCCCC;
+    line-height: 42px;
+    cursor: pointer;
+    top: 88px;
+    left: 0px;
+}
+.out img{
+    margin-bottom: 2px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+embed, iframe, .txt-reader {
+    width: 100%;
+    height: 970px;
+    margin: auto;
+}
+
+.reader-content {
+    height: 850px;
+    background: rgb(245,245,245);
+}
+
+iframe {
+    border: 1px solid #e8e8e8;
+}
+.pdf{
+    width: 100%;
+    height: 974px;
+}
+.up{
+    width: 50px;
+    height: 30px;
+    background: #BBBBBB;
+    border: 1px solid #BBBBBB;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 158px;
+    left: 14px;
+    color: #FFFFFF;
+    border-radius: 4px;
+
+}
+.down{
+    width: 50px;
+    height: 30px;
+    background: #BBBBBB;
+    border: 1px solid #BBBBBB;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 200px;
+    left: 14px;
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+.save{
+    position: absolute;
+    top: 250px;
+    left: 18px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+    text-align: center;
+    cursor: pointer;
+    background: #BBBBBB;
+    color: #FFFFFF;
+}
+

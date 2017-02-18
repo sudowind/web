@@ -75,8 +75,26 @@ function load_table_line (row_selector, data) {
 $('#add_to_task').click(function() {
     window.open('assign_task.html?book_id=' + $.getUrlParam('book_id'), '_self');
 });
+//在线阅读
 $('#online_read').click(function() {
-    window.open('../../reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id'), '_self');
+    //判断书籍类型
+    $.ajax({
+        url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        data: {
+            page: 0
+        },
+        success: function (data) {
+            if (data.status == 'withTxt') {
+                window.open('../../reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id'), '_self');
+            } else if(data.status == 'withPdf'){
+                window.open('../../reading_pdf_v1.0.1.html?book_id=' + $.getUrlParam('book_id'), '_self');
+            }
+        }
+    });
 });
 
 function clear_rows() {
