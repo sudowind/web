@@ -125,7 +125,7 @@ function load_student_info(class_id) {
                 }
                 html += '<tr><td>' + class_id2name[class_id] + '</td>' +
                     '<td>' + data[i].user.name + '</td>' +
-                    '<td>' + rand_ER() + '</td>' +
+                    // '<td>' + rand_ER() + '</td>' +
                     progress_html;
             }
             $('#table_content').find('table tbody').html(html);

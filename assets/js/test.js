@@ -34,6 +34,8 @@ function init_value() {
     question_id = 0;
 }
 
+var EXAM_ID;
+
 function generate_question_for_teacher(data) {
 
 }
@@ -266,6 +268,7 @@ function load_exam() {
                 });
                 var exam_id = data[0].id;
                 // 默认加载第一次的测试题
+                EXAM_ID = exam_id;
                 load_questions(exam_id);
             }
         }
@@ -290,6 +293,10 @@ $('#test_submit').click(function () {
             return;
         }
         else {
+            question_answer[key]['statisticInfo'] = {
+                modifyCount: 0,
+                usedTime: 0
+            };
             res.push(question_answer[key]);
         }
     }
@@ -299,12 +306,12 @@ $('#test_submit').click(function () {
             withCredentials: true
         },
         type: 'post',
-        url: URL_BASE + '/tasks/web/exam/' + $('#chapter_selector').val() + '/record',
+        url: URL_BASE + '/tasks/web/exam/' + EXAM_ID.toString() + '/record',
         contentType: 'application/json',
         data: JSON.stringify(res),
         success: function(data) {
             my_tip.alert('提交成功！');
-            load_questions($('#chapter_selector').val());
+            load_questions(EXAM_ID);
         },
         error: ajax_error_handler
     });

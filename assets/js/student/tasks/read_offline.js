@@ -46,8 +46,12 @@ $('#online_read').click(function () {
         data: {
             isOnline: true
         },
+        success: function () {
+            window.open('../../reading_v1.0.1.html?book_id=' + $.getUrlParam('book_id') + '&task_id=' + $.getUrlParam('task_id'), '_self');
+        },
         error: error_handler()
     });
+<<<<<<< HEAD
     //判断书籍类型
     $.ajax({
         url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
@@ -66,6 +70,8 @@ $('#online_read').click(function () {
             }
         }
     });
+=======
+>>>>>>> 1e156f581b77f49ff8cdf5c197e5a63eda7a9234
 });
 
 $('#user_note').bind('input propertychange', function () {
@@ -145,22 +151,25 @@ $('#record_button').click(function () {
 
 function load_progress() {
     var task_id = $.getUrlParam('task_id');
-    $.ajax({
-        xhrFields: {
-            withCredentials: true
-        },
-        type: 'GET',
-        url: URL_BASE + '/tasks/web/task/' + task_id,
+    if (task_id) {
+        $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'GET',
+            url: URL_BASE + '/tasks/web/task/' + task_id,
 
-        success: function (data) {
-            var curr_page = data.currentPage;
-            var total_page = data.totalPage;
-            var percent = Math.round(curr_page * 100.0 / total_page);
-            $('.plan').find('span').html(percent);
-            $('.progress-bar').css('width', percent.toString() + '%');
-            $('#today_page').attr('placeholder', curr_page).attr('min', curr_page).attr('max', total_page).val(curr_page);
-            today_start_at = curr_page;
-        },
-        error: ajax_error_handler
-    });
+            success: function (data) {
+                var curr_page = data.currentPage;
+                var total_page = data.totalPage;
+                var percent = Math.round(curr_page * 100.0 / total_page);
+                $('.plan').find('span').html(percent);
+                $('.progress-bar').css('width', percent.toString() + '%');
+                $('#today_page').attr('placeholder', curr_page).attr('min', curr_page).attr('max', total_page).val(curr_page);
+                today_start_at = curr_page;
+
+            },
+            error: error_handler()
+        });
+    }
 }

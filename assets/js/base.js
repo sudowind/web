@@ -115,8 +115,8 @@ function get_current_semester() {
     var end_time = 0;
     var start = now, end = now;
     //console.log(curr_month);
-    if (curr_month >= 2 && curr_month <= 7) {
-        start.setMonth(2);
+    if (curr_month >= 1 && curr_month <= 7) {
+        start.setMonth(1);
         start_time = start.setDate(0);
         end.setMonth(8);
         end_time = end.setDate(0);
@@ -126,14 +126,14 @@ function get_current_semester() {
             start.setMonth(8);
             start_time = start.setDate(0);
             end.setYear(now.getYear() + 1 + 1900);
-            end.setMonth(2);
+            end.setMonth(1);
             end_time = end.setDate(0);
         }
         else {
             start.setYear(now.getYear() - 1 + 1900);
             start.setMonth(8);
             start_time = start.setDate(0);
-            end.setMonth(2);
+            end.setMonth(1);
             end_time = end.setDate(0);
         }
     }

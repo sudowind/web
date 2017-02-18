@@ -178,7 +178,7 @@ function load_classname(){
             $(".className span").eq(0).addClass("index");
             $(".books .statistics span").html(data.totalItem);
             gen_book_type();
-            load_book(0,1,data[0].id);
+            load_book(0,1);
         }
     });
 }

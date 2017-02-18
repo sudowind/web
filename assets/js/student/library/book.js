@@ -58,6 +58,7 @@ $('#add_to_task').click(function () {
 });
 //在线阅读
 $('#online_read').click(function() {
+
     //判断书籍类型
     $.ajax({
         url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
@@ -76,6 +77,7 @@ $('#online_read').click(function() {
             }
         }
     });
+
 });
 
 $(document).ready(function () {

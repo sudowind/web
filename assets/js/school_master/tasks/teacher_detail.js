@@ -3,6 +3,7 @@
  */
 var circles = [];
 var has_load_page = false;
+var current_grade;
 
 function left_bar_cb() {
     $('#tasks_button').attr('class', 'side-button-selected left-side-button');
@@ -150,6 +151,14 @@ function load_teacher_class(teacher_id) {
             type: 'get',
             url: URL_BASE + '/users/web/class/teacher/{0}/list'.format(teacher_id),
             success: function (data) {
+                // 只显示现在的班级
+                var tmp_data = [];
+                for (var i in data) {
+                    if (data[i].grade == current_grade) {
+                        tmp_data.push(data[i]);
+                    }
+                }
+                data = tmp_data;
                 var html = '<span class="index option" value="{0}">{1}</span>'.format(data[0].id, data[0].name);
                 for (var i = 1; i < data.length; ++i) {
                     html += '<span class="option" value="{0}">{1}</span>'.format(data[i].id, data[i].name);
@@ -169,6 +178,7 @@ function load_teacher_class(teacher_id) {
 }
 
 function load_grade_teacher(grade) {
+    current_grade = grade;
     $.ajax({
         xhrFields: {
             withCredentials: true
