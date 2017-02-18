@@ -70,14 +70,14 @@
 }
 .main .info_list{
     float: left;
-    margin-left: 100px;
-    font-size: 16px;
+    margin-left: 166px;
+    font-size: 18px;
     /*font-weight: bold;*/
 }
 .main .info_list .group{
     height: 42px;
     line-height: 44px;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
     margin-top: 20px;
 }
 .main .info_list .group p{
@@ -117,7 +117,7 @@
     margin-left: 8px;
 }
 .main .info_list .name span,.birthday span,.city span ,.school span ,.class_name span{
-    font-size: 14px;
+    font-size: 16px;
     /*color: #cccccc;*/
 }
 .main .info_list .star_sign{
@@ -137,7 +137,7 @@
     font-size: 14px;
     font-weight: normal;
     margin-left: 130px;
-    margin-top: 20px;
+    margin-top: 32px;
     cursor: pointer;
 }
 #back{
@@ -413,9 +413,6 @@
     top: 230px;
     left: 160px;
     cursor: pointer;
-}
-.gray{
-    color: #cccccc;
 }
 .phone_num .error{
     position: absolute;

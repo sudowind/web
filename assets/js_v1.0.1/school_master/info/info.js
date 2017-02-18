@@ -83,7 +83,7 @@ function load_info() {
         type: 'GET',
         url: URL_BASE + '/users/web/user/current',
         success: function(data) {
-            //console.log(data.email);
+            //console.log(data);
             if(data.email !== null){
                 $(".mail span").css('display','none').html(data.email);
             }

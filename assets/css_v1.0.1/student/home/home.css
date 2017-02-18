@@ -54,6 +54,11 @@
     left: 30px;
     top: 3px;
 }
+.info-account{
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
 .info-school {
     color: #999999;
 }

@@ -13,7 +13,7 @@ $(".title img").click(function(){
     $(this).attr("src","../../../assets/img/student/tasks/label.png");
 });
 $(".out").on('click',function(){
-    // 先判断端口
+    // 鍏堝垽鏂鍙�
     var user_type = Number(getCookie('user_type'));
 
     switch (user_type) {
@@ -33,51 +33,34 @@ $(".out").on('click',function(){
             break;
     }
 
-
 });
 
 function left_bar_cb() {
     $('#library_button').attr('class', 'side-button-selected left-side-button');
 }
 
-var curr_page = 1;
-var total_page = 0;
 
-$('.left .book .up').click(function () {
-    curr_page -= 1;
-    if (curr_page == 0)
-        curr_page = 1;
-    load_pdf_page(curr_page);
-});
-
-$('.left .book .down').click(function () {
-    curr_page += 1;
-    if (curr_page > total_page)
-        curr_page = total_page;
-    load_pdf_page(curr_page);
-});
-
-$(document).ready(function () {
-    // load_pdf_page(1);
-});
-
-function load_pdf_page(page) {
+//判断图书类型
+function pdf_or_txt(){
     $.ajax({
+        url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
         xhrFields: {
             withCredentials: true
         },
         type: 'get',
-        url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
         data: {
-            page: page
+            page: 0
         },
         success: function (data) {
-            // $('#pdf1').html('<iframe src="{0}#toolbar=0&navpanes=0&scrollbar=0"></iframe>'.format(data.url));
-            $('iframe').attr('src', '{0}#toolbar=0&navpanes=0&scrollbar=0'.format(data.url));
-            total_page = data.totalPage;
-        },
-        error: error_handler({404: function () {
-            console.log('tedst');
-        }})
-    })
+            if (data.status == 'withTxt') {
+                var index_html = '';
+                for (var i in data.bookIndex) {
+                    index_html += '<div value="{0}" onclick="load_content({0});">{1}</div>'.format(Number(i) + 1, data.bookIndex[i].title);
+                }
+                $('.slide-menu').html(index_html);
+                load_content(1);
+
+            }
+        }
+    });
 }

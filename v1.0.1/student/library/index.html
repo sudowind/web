@@ -21,8 +21,7 @@
             <div class="head-img">
                 <img src="" alt="">
             </div>
-            <br />
-            <div class="info-account">考拉阅读账号：</div>
+            <div class="info-account"></div>
             <div class="info-name"></div>
             <br />
             <div class="info-class"><img src="../../../assets/img/student/home/add_class.png" alt="">&nbsp;&nbsp;加入班级</div>
@@ -56,12 +55,14 @@
                 <div class="grade">
                     <p>阅读等级：</p>
                     <span class="index" value="0">全部</span>
-                    <span value="600">600-700ER</span>
-                    <span value="700">700-800ER</span>
-                    <span value="800">800-900ER</span>
-                    <span value="900">900-1000ER</span>
-                    <span value="1000">1000-1100ER</span>
-                    <span value="1100">1100-1200ER</span>
+                    <span value="600">150-300ER</span>
+                    <span value="700">300-500ER</span>
+                    <span value="800">400-600ER</span>
+                    <span value="900">450-700ER</span>
+                    <span value="1000">550-800ER</span>
+                    <span value="1100">600-900ER</span>
+                    <span value="1100">900-1000ER</span>
+                    <span value="1100">1000-1100ER</span>
                     <img src="../../../assets/img/more_info.png" alt="" data-html="true" data-toggle="tooltip" title="" id="level_more_info">
                 </div>
                 <div id="book_list">
@@ -100,10 +101,11 @@
 <script src="../../../assets/js/cookie.js"></script>
 <script src="../../../assets/js/login.js"></script>
 <script src="../../../assets/js/student/library/index.js"></script>
+<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>
 <script>
     $(document).ready(function () {
         load('../../../include/html/');
-        var html = '<div align="left">推荐阅读等级：<br />一年级→600-700ER<br />二年级→700-800ER<br />三年级→800-900ER<br />四年级→900-1000ER<br />五年级→1000-1100ER<br />六年级→1100-1200ER</div>';
+        var html = '<div align="left">推荐阅读等级：<br />一年级→150-300ER<br />二年级→300-500ER<br />三年级→400-600ER<br />四年级→450-700ER<br />五年级→550-800ER<br />六年级→600-900ER</div>';
         $('#level_more_info').attr('title', html);
         $('[data-toggle=tooltip]').tooltip();
         gen_book_type();

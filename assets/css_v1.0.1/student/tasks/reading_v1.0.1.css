@@ -166,7 +166,7 @@
 
 embed, iframe, .txt-reader {
     width: 750px;
-    height: 950px;
+    height: 970px;
     margin: auto;
 }
 
@@ -177,7 +177,6 @@ embed, iframe, .txt-reader {
 
 iframe {
     border: 1px solid #e8e8e8;
-    margin-top: 10px;
 }
 
 .book-info {
@@ -186,8 +185,35 @@ iframe {
     width: 194px;
     text-align: center;
 }
-.book-info img {
-    width: 170px;
-    height: 200px;
-    margin: auto;
+.book-info .img {
+     width: 170px;
+     height: 200px;
+     margin: auto;
+ }
+.book-info .img img{
+    width: 100%;
+    height: 100%;
+}
+.book-info .up{
+    width: 38px;
+    border: 1px solid #fb9e1d;
+    border-radius: 6px;
+    margin-top: 14px;
+    margin-left: 130px;
+    padding: 25px 6px;
+    cursor: pointer;
+}
+.book-info .down{
+    width: 38px;
+    border: 1px solid #fb9e1d;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-left: 130px;
+    padding: 25px 6px;
+    cursor: pointer;
+}
+.pdf{
+    float: right;
+    width: 800px;
+    height: 974px;
 }

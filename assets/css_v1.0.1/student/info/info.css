@@ -136,7 +136,7 @@
     margin-left: 8px;
 }
 .main .info_list .name span,.birthday span,.city span ,.school span ,.class_name span{
-    font-size: 14px;
+    /*font-size: 14px;*/
     /*color: #cccccc;*/
 }
 .main .info_list .star_sign{
@@ -156,9 +156,8 @@
     text-align: center;
     color: #ffffff;
     font-size: 14px;
-    /*font-weight: normal;*/
     margin-left: 130px;
-    margin-top: 20px;
+    margin-top: 28px;
     cursor: pointer;
 }
 #back{
@@ -435,9 +434,6 @@
     top: 260px;
     left: 160px;
     cursor: pointer;
-}
-.gray{
-    color: #cccccc;
 }
 .phone_num .error{
     position: absolute;

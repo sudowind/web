@@ -44,6 +44,11 @@
     border: 2px solid #75c1f0;
     margin-bottom: 5px;
 }
+.info-account{
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
 
 /*问题部分*/
 #question_body {

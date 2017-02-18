@@ -160,8 +160,7 @@
                                 <input class="avatar-src" name="avatar_src" type="hidden">
                                 <input class="avatar-data" name="avatar_data" type="hidden">
                                 <label for="avatarInput">图片上传(文件大小不能超过200kB)</label>
-                                <input class="avatar-input" id="avatarInput" name="img" type="file">
-                                <div id="alert_msg">文件过大，请重新选取</div>
+                                <input class="avatar-input" id="avatarInput" name="img" type="file" style="outline: none">
                             </div>
 
                             <div class="row">
@@ -216,7 +215,6 @@
     $(document).ready(function () {
         $('.main-container').css('min-height', $(window).get(0).innerHeight - 100);
         load_info();
-        get_province();
     });
     $(window).resize(window_resize_teacher);
 

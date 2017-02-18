@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>线上阅读</title>
+    <link rel=icon href="../include/img/favicon.ico" type=image/x-icon />
+    <link rel="stylesheet" href="../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../libs/TimePicki-master/css/timepicki.css">
+    <link rel="stylesheet" href="../include/css/tip_modal.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/student/header.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/footer.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/intro.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/comment.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/pagination.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/reset.css">
+    <link rel="stylesheet" href="../assets/css_v1.0.1/pdf_reader.css">
+</head>
+<body>
+<!--<div id="page_header"></div>-->
+<!--<div class="main-container">-->
+<!--<div>-->
+<div class="reading-content">
+    <div class="out">
+        <img src="../assets/img/student/tasks/out.png" alt=""/><span>退出</span>
+    </div>
+    <div class="pdf">
+        <object id="pdf1" name="pdf1">
+            <iframe src=""></iframe>
+        </object>
+    </div>
+    <div class="up">上一页</div>
+    <div class="down">下一页</div>
+    <div class="save" onclick="record();">保存</div>
+    <div style="clear: both;"></div>
+</div>
+<!--</div>-->
+<!--<div style="clear: both"></div>-->
+<!--</div>-->
+<!--<div id="page_footer" style="background: #edeef0"></div>-->
+
+<script src="../libs/jquery-2.2.4.js"></script>
+<script src="../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+<script src="../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
+<script src="../assets/js/load.js"></script>
+<script src="../assets/js/base.js"></script>
+<script src="../libs/jquery.page.js"></script>
+<script src="../assets/js/tip_modal.js"></script>
+<script src="../assets/js/cookie.js"></script>
+<script src="../assets/js/login.js"></script>
+<script src="../assets/js/comment.js"></script>
+<script src="../assets/js/note.js"></script>
+<script src="../assets/js/txt_reader.js"></script>
+<script src="../assets/js/student/library/reading.js"></script>
+<script src="../assets/js/pdf_reader.js"></script>
+<script>
+    $(document).ready(function () {
+        load('../../../include/html/');
+        load_pdf_page(1);
+
+
+    });
+    var start_time = new Date();
+    start_time.setMinutes(start_time.getMinutes() - 1);
+    start_time.setSeconds(0);
+
+//    var my_resize = function () {
+//        var height = $(window).height();
+//        $('.txt-reader').css('height', height);
+//        $('.reader-content').css('height', height - 102);
+//        $('.reading-content').css('height', height);
+//        $('.slide-menu').css('height', height - 60);
+//        window_resize();
+//    };
+
+//    $(window).resize(my_resize);
+
+    function header_cb() {
+        $('#library_button').addClass('header-nav-selected').css('color', '#3c97cf');
+    }
+</script>
+</body>
+</html>
