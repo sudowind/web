@@ -443,7 +443,7 @@ function dismiss_class(){
                     my_tip.alert(''+ class_name +'解散成功！');
                     init_class();
                 },
-                error: function() {
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
                     if(XMLHttpRequest.status == 400){
                         my_tip.alert('已被认证班级无法解散');
                     }
