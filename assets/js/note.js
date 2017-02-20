@@ -105,3 +105,11 @@ $('#submit_note').click(function () {
     });
 });
 
+$('#user_note').bind('input propertychange', function () {
+    if ($(this).val().length > 0) {
+        $('#submit_note').removeClass('disabled button-disabled').addClass('button-able');
+    }
+    else {
+        $('#submit_note').addClass('disabled button-disabled').removeClass('button-able');
+    }
+});

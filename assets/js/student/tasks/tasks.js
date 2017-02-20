@@ -6,6 +6,7 @@ var has_load_book = false;
 var BOOK_STATUS = 2;    // 2表示阅读中，4表示已读完
 var TASK_FINISH = 5;
 var REPORTER = getCookie('USER');
+var ELEMENT_PER_PAGE = 9;
 
 function left_bar_cb() {
     $('#tasks_button').attr('class', 'side-button-selected left-side-button');
@@ -48,7 +49,7 @@ $(".book .sort .read").click(function(){
     }
     has_load_book = false;
     BOOK_STATUS = TASK_FINISH;
-    load_book(TASK_FINISH, reporter_id, 0, 8, book_handler);
+    load_book(TASK_FINISH, reporter_id, 0, ELEMENT_PER_PAGE, book_handler);
 });
 $(".book .sort .reading").click(function(){
     var reporter_id = $(".grade .index").attr('value');
@@ -57,7 +58,7 @@ $(".book .sort .reading").click(function(){
     }
     has_load_book = false;
     BOOK_STATUS = 2;
-    load_book(2, reporter_id, 0, 8, book_handler);
+    load_book(2, reporter_id, 0, ELEMENT_PER_PAGE, book_handler);
 });
 
 var is_load_time = false;
@@ -165,13 +166,19 @@ function fill_book(data) {
 
     var can_read = '';
     var can_test = '';
+    var read_text = '';
 
     switch (data.status) {
         case 2:
+            can_test = 'disabled';
+            read_text = '开始阅读';
+            break;
         case 3:
+            read_text = '继续阅读';
             can_test = 'disabled';
             break;
         case 4:
+            read_text = '继续阅读';
             can_read = 'disabled';
             break;
     }
@@ -195,7 +202,7 @@ function fill_book(data) {
         // '<div class="pages"><span>' + curr_page + '</span>页/<span>' + total_page + '</span>页</div>' +
         '<div class="reading">' +
         '<p  class="continue-read">' +
-        '<btn class="btn ' + can_read + '" onclick="window.open(\'read.html?book_id=' + data.bookId + '&task_id=' + data.id + '\')">继续阅读</btn>' +
+        '<btn class="btn ' + can_read + '" onclick="window.open(\'read.html?book_id=' + data.bookId + '&task_id=' + data.id + '\')">' + read_text + '</btn>' +
         '</p>' +
         '<p class="appraisal">' +
         '<btn class="btn ' + can_test + '" onclick="window.open(\'test.html?book_id=' + data.bookId + '&task_id=' + data.id + '\');">做测评</btn>' +
@@ -238,9 +245,9 @@ function init_teachers() {
                 var book_status = $('.sort .index').attr('value');
                 BOOK_STATUS = book_status;
                 has_load_book = false;
-                load_book(book_status, reporter_id, 0, 8, book_handler);
+                load_book(book_status, reporter_id, 0, ELEMENT_PER_PAGE, book_handler);
             });
-            load_book(2, getCookie('USER'), 0, 8, function(){});
+            load_book(2, getCookie('USER'), 0, ELEMENT_PER_PAGE, function(){});
         },
         error: error_handler()
     });

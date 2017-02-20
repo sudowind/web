@@ -131,6 +131,13 @@ function load_page() {
                     online_text = '转线上阅读';
                     break;
             }
+            if (data.status == 2) {
+                offline_text = '开始线下阅读';
+                online_text = '开始线上阅读';
+                $('#note_part').hide();
+                $('#note_button').hide();
+                $('.nav-button').css('width', '50%');
+            }
             $.ajax({
                 type: 'GET',
                 xhrFields: {

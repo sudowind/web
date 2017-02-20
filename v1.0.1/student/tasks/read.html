@@ -71,6 +71,9 @@
                     <div class="nav-button" id="comment_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="comments">
                         <img src="../../../assets/img/student/book/comment_unselected.png" alt="">评论(<span id="comment_count"></span>)
                     </div>
+                    <div class="nav-button" id="note_button" style="background: #f9f9f9" onclick="on_button_click(this);" value="0" btn-type="note">
+                        <img src="../../../assets/img/student/book/note_unselected.png" alt="">我的笔记
+                    </div>
                 </div>
                 <div class="book-detail-content" id="intro_part">
                     <p></p>
@@ -90,6 +93,15 @@
                 </div>
 
                 <div id="note_part">
+
+                    <div class="note-title"><b>写读书笔记：</b></div>
+
+                    <label for="user_note"></label><textarea id="user_note"></textarea>
+                    <p class="btn disabled button-disabled" id="submit_note">确定</p>
+
+                    <div class="note-title"><b>我的读书笔记：</b></div>
+
+                    <div id="note_container"></div>
 
                 </div>
             </div>
@@ -118,7 +130,6 @@
 
         load_page();
         load_comments(1);
-
 
         //加载个人信息
         load_info();
