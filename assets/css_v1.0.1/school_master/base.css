@@ -17,7 +17,11 @@ body {
     top: 0;
     float: left;
 }
-
+.info-account{
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
 .teacher-info {
     float: left;
     width: 215px;

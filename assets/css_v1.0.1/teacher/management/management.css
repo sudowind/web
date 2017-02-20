@@ -247,7 +247,7 @@ td input {
     height: 40px;
     line-height: 30px;
     border-bottom: 1px dashed #ccc;
-    padding:6px 0;
+    padding:6px 0 6px 80px;
     color: #CCCCCC;
 }
 .modal-list span{
@@ -258,7 +258,7 @@ td input {
 }
 .modal-dialog{
     margin-top: 300px;
-    width: 330px;
+    width: 480px;
 }
 #my_tip_modal #modal_info{
     padding: 20px 30px ;

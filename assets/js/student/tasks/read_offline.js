@@ -51,7 +51,6 @@ $('#online_read').click(function () {
         },
         error: error_handler()
     });
-<<<<<<< HEAD
     //判断书籍类型
     $.ajax({
         url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
@@ -70,8 +69,6 @@ $('#online_read').click(function () {
             }
         }
     });
-=======
->>>>>>> 1e156f581b77f49ff8cdf5c197e5a63eda7a9234
 });
 
 $('#user_note').bind('input propertychange', function () {
@@ -84,9 +81,7 @@ $('#user_note').bind('input propertychange', function () {
 });
 
 $('#record_button').click(function () {
-
     if ($('#start_read_time').val() && $('#finish_read_time').val() && $('#today_page').val()) {
-
         var start_time = new Date();
         var start_time_array = $('#start_read_time').val().split(':');
         start_time.setHours(start_time_array[0]);
@@ -167,7 +162,6 @@ function load_progress() {
                 $('.progress-bar').css('width', percent.toString() + '%');
                 $('#today_page').attr('placeholder', curr_page).attr('min', curr_page).attr('max', total_page).val(curr_page);
                 today_start_at = curr_page;
-
             },
             error: error_handler()
         });

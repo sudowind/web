@@ -112,7 +112,7 @@ $("#change").on('click',function(){
     document.getElementById("boy").disabled = false;
     document.getElementById("girl").disabled = false;
     $(".select_open").css('display','inline-block');
-    $(".name input").css('display','inline-block').val($('.name .gray').html());
+    $(".name input").css('display','inline').val($('.name .gray').html());
     $("#change").css('display','none');
     $("#back").css('display','block');
     $("#sure").css('display','block');
