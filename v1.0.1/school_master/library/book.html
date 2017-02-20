@@ -98,12 +98,12 @@
                 </div>
 
                 <div id="test_part" style="display: none">
-                    <div class="progress-part">
-                        <label for="chapter_selector"></label>
-                        <select id="chapter_selector"></select>
-                        <hr />
+                    <!--<div class="progress-part">-->
+                        <!--<label for="chapter_selector"></label>-->
+                        <!--<select id="chapter_selector"></select>-->
+                        <!--<hr />-->
 
-                    </div>
+                    <!--</div>-->
                     <div class="question-part">
 
                         <div id="question_type_1" class="hide">
@@ -295,6 +295,7 @@
         load_page();
         load_comments(1);
         load_teacher_info();
+        load_exam();
         window_resize_teacher();
     });
     $(window).resize(window_resize_teacher);

@@ -90,7 +90,7 @@ function load_table_row(row_selector, data, class_id, teacher_id) {
         obj.find('.finish_date').html(finish_date.getFullDate());
         // 绑定查看书本详情的事件
         obj.find('.book-detail').click(function () {
-            window.open('book_detail.html?book_id=' + data.bookId + '&class_id=' + class_id + '&teacher_id=' + teacher_id, '_self');
+            window.open('book_detail.html?book_id=' + data.bookId + '&class_id=' + class_id + '&teacher_id=' + teacher_id);
         });
 
     });

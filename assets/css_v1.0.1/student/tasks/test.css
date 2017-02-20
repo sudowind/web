@@ -102,6 +102,14 @@
 }
 
 /*答案解析部分*/
+#progress_bar {
+    width: 172px;
+    height: 172px;
+    margin: 10px;
+    left: 257px;
+    position: relative;
+}
+
 .answer {
     padding: 7px 0 7px 10px;
     margin: 10px 10px 10px 15px;

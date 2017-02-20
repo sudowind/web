@@ -301,7 +301,7 @@ function fill_teacher(data){
     // }
     //console.log(classes_list);
     return      '<ul class="teacher-information" value="' + data.id + '">'
-        +'<li class="account">T'+ data.id+'</li>'
+        +'<li class="account">'+ data.account+'</li>'
         +'<li class="name">'+ data.name+'</li>'
         +'<li class="gender">'+ gender +'</li>'
         // +'<li class="className">'
@@ -317,7 +317,7 @@ function fill_teacher(data){
 function fill_teacher_null(data){
     //console.log(data.classes);
     return      '<ul class="teacher-information" value="' + data.id + '">'
-        +'<li class="account">T'+ data.id+'</li>'
+        +'<li class="account">'+ data.account +'</li>'
         +'<li class="name">'+ data.name+'</li>'
         +'<li class="gender">'+ gender +'</li>'
         // +'<li class="className">'

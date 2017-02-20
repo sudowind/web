@@ -36,8 +36,32 @@ function init_value() {
 
 var EXAM_ID;
 
-function generate_question_for_teacher(data) {
-
+function generate_question_for_teacher(exam_id) {
+    // 老师、校长在图书馆页面查看书的测试题
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        type: 'get',
+        url: URL_BASE + '/tasks/web/exam/' + exam_id + '/question/list',
+        success: function (data) {
+            var i = 0;
+            for (i = 0; i < data.length; ++i) {
+                questions[data[i].type].push(data[i]);
+            }
+            for (i = 1; i <= 3; ++i) {  // 遍历三个类别，i代表类别
+                var html = '';
+                for (var j = 0; j < questions[i].length; ++j) {
+                    html += generate_question(questions[i][j]);
+                }
+                if (question_type[i]) {
+                    $('#question_type_' + i.toString()).append(html).removeClass('hide');
+                }
+            }
+            $('#test_submit').removeClass('hide');
+        },
+        error: error_handler()
+    });
 }
 
 function generate_question(data) {
@@ -61,7 +85,14 @@ function generate_question(data) {
             // 单选题
             var options = '';
             for (var i = 0; i < data.content.options.length; ++i) {
-                options += '<div class="select-option ' + selectable + '" value="' + data.content.options[i].id + '" ' + click + '>' + String.fromCharCode(0x41 + i) + '. ' + data.content.options[i].content + '</div>'
+                var highlight = '';
+                if (getCookie('user_type') != '2') {
+                    if (data.answer) {
+                        if (data.content.options[i].id == data.answer.correctId)
+                            highlight = 'option-selected'
+                    }
+                }
+                options += '<div class="select-option ' + selectable + ' ' + highlight + '" value="' + data.content.options[i].id + '" ' + click + '>' + String.fromCharCode(0x41 + i) + '. ' + data.content.options[i].content + '</div>'
             }
             html = '<div class="question" value="' + data.questionId + '">' +
                 '<div class="question-res">' +
@@ -172,7 +203,11 @@ function load_questions(exam_id) {
         },
         success: function (data) {
             if (data.hasResult) {
-                // 已经做过这次测试，则加载结果
+                if(getCookie('user_type') == 2 && location.href.indexOf('test') > 0) {
+                    $('.question-part').css('height', '784px');
+                    $('#progress_bar').show();
+                }
+                // 已经做过这次测试，则加载结果 显示成绩环，缩短下方展示区域高度
                 // my_tip.alert('已经做过了！');
                 $('#test_submit').addClass('hide');
                 var i = 0;
@@ -193,7 +228,40 @@ function load_questions(exam_id) {
                 }
                 // 加载成绩环的回调函数
                 if (typeof load_answer_cb != 'undefined') {
-                    load_answer_cb(data.examRecord.score / 100);
+                    load_answer_cb(data.examRecord.score);
+                }
+                else {
+                    if (typeof bar == 'undefined') {
+                        var bar = new ProgressBar.Circle('#progress_bar', {
+                            color: '#fb9e1d',
+                            // This has to be the same size as the maximum width to
+                            // prevent clipping
+                            strokeWidth: 12,
+                            trailWidth: 8,
+                            easing: 'easeInOut',
+                            duration: 1400,
+                            text: {
+                                autoStyleContainer: false
+                            },
+                            from: { color: '#fb9e1d', width: 8 },
+                            to: { color: '#fb9e1d', width: 12 },
+                            // Set default step function for all animate calls
+                            step: function(state, circle) {
+                                circle.path.setAttribute('stroke', state.color);
+                                circle.path.setAttribute('stroke-width', state.width);
+
+                                var value = Math.round(circle.value() * 100);
+                                if (value == 0) {
+                                    circle.setText('0%');
+                                } else {
+                                    circle.setText(value + '%');
+                                }
+
+                            }
+                        });
+                        // test 页面显示测试题正确率
+                        bar.animate(data.examRecord.score);
+                    }
                 }
             }
             else {
@@ -254,7 +322,7 @@ function load_exam() {
         success: function (data) {
             var html = '';
             for (var i = 0; i < data.length; ++i) {
-                html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+                html += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                 // EXAM_STATUS[data[i].id] =
             }
 
@@ -269,7 +337,10 @@ function load_exam() {
                 var exam_id = data[0].id;
                 // 默认加载第一次的测试题
                 EXAM_ID = exam_id;
-                load_questions(exam_id);
+                if (getCookie('user_type') == '2' || $.getUrlParam('student_id'))
+                    load_questions(exam_id);
+                else
+                    generate_question_for_teacher(exam_id);
             }
         }
     });

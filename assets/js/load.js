@@ -85,7 +85,7 @@ function load(src, type) {
         'var _hmt = _hmt || [];' +
         '(function() {' +
         'var hm = document.createElement("script");' +
-        'hm.src = "https://hm.baidu.com/hm.js?003aabbbd7a7a31873365dfb79a6d688";' +
+        'hm.src = "https://hm.baidu.com/hm.js?95db2e3e5bb28adc42d27b3a3b3ed9f4";' +
         'var s = document.getElementsByTagName("script")[0];' +
         's.parentNode.insertBefore(hm, s);' +
         '})();' +

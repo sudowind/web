@@ -155,14 +155,15 @@ function set_ability_analysis_option(data) {
 function load_student_class_rank(current, class_id) {
     var url;
     var data = {};
+    var semester = get_current_semester();
     if (current == 'student') {
         url = '/statistic/web/timeline/student/current/studentClassRank';
     }
     else {
         url = '/statistic/web/timeline/class/{0}/classInfoInGrade'.format(class_id);
         data = {
-            startTime: 0,
-            endTime: 0
+            startTime: semester[0],
+            endTime: semester[1]
         }
     }
     // console.log(url);

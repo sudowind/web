@@ -163,6 +163,19 @@ function fill_book(data) {
         time_html = '<p class="end_time">结束时间:<span>'+ date.getFullDate() +'</span></p>';
     }
 
+    var can_read = '';
+    var can_test = '';
+
+    switch (data.status) {
+        case 2:
+        case 3:
+            can_test = 'disabled';
+            break;
+        case 4:
+            can_read = 'disabled';
+            break;
+    }
+
     return '<div class="list">' +
         '<div class="list-book">' +
         '<div class="image">' +
@@ -182,14 +195,14 @@ function fill_book(data) {
         // '<div class="pages"><span>' + curr_page + '</span>页/<span>' + total_page + '</span>页</div>' +
         '<div class="reading">' +
         '<p  class="continue-read">' +
-        '<span onclick="window.open(\'read.html?book_id=' + data.bookId + '&task_id=' + data.id + '\', \'_self\')">继续阅读</span>' +
+        '<btn class="btn ' + can_read + '" onclick="window.open(\'read.html?book_id=' + data.bookId + '&task_id=' + data.id + '\')">继续阅读</btn>' +
         '</p>' +
         '<p class="appraisal">' +
-        '<btn class="btn" onclick="window.open(\'test.html?book_id=' + data.bookId + '&task_id=' + data.id + '\', \'_self\');">做测评</btn>' +
+        '<btn class="btn ' + can_test + '" onclick="window.open(\'test.html?book_id=' + data.bookId + '&task_id=' + data.id + '\');">做测评</btn>' +
         '</p>' +
         '</div>' +
         '<div class="check" style="display: none">' +
-        '<p onclick="window.open(\'book.html?book_id=' + data.bookId + '&task_id=' + data.id + '\', \'_self\')">查看</p>' +
+        '<p onclick="window.open(\'book.html?book_id=' + data.bookId + '&task_id=' + data.id + '\')">查看</p>' +
         '</div>' +
         '<div class="remove" task-id="' + data.id + '">' +
         '<img src="../../../assets/img/student/tasks/remove.png" alt=""/>' +

@@ -50,28 +50,29 @@ function gen_book_type() {
         });
     })
         .then(function () {
-            $.ajax({
-                xhrFields: {
-                    withCredentials: true
-                },
-                url: URL_BASE + '/tasks/web/erTest/latest',
-                type: 'get',
-                success: function (data) {
-                    if (data.hasTest) {
-                        has_recommend_result = true;
-                        recommend_start_score = data.erTestRecord.erScore  - 100;
-                        recommend_end_score = data.erTestRecord.erScore  + 50;
-                        if (recommend_start_score < 150)
-                            recommend_start_score = 150;
-                        if (recommend_end_score > 1100)
-                            recommend_end_score = 1100;
-                        curr_start_score = recommend_start_score;
-                        curr_end_score = recommend_end_score;
-                        $('.grade span:nth-child(2)').html('推荐');
-                    }
+            // 计算学生的推荐阅读等级
+            // $.ajax({
+            //     xhrFields: {
+            //         withCredentials: true
+            //     },
+            //     url: URL_BASE + '/tasks/web/erTest/latest',
+            //     type: 'get',
+            //     success: function (data) {
+            //         if (data.hasTest) {
+            //             has_recommend_result = true;
+            //             recommend_start_score = data.erTestRecord.erScore  - 100;
+            //             recommend_end_score = data.erTestRecord.erScore  + 50;
+            //             if (recommend_start_score < 150)
+            //                 recommend_start_score = 150;
+            //             if (recommend_end_score > 1100)
+            //                 recommend_end_score = 1100;
+            //             curr_start_score = recommend_start_score;
+            //             curr_end_score = recommend_end_score;
+            //             $('.grade span:nth-child(2)').html('推荐');
+            //         }
                     load_book(0, 1);
-                }
-            });
+            //     }
+            // });
         })
         .then(function () {
             // load_book(0, 1);
@@ -123,7 +124,7 @@ function load_book(type, page) {
 function fill_book(data) {
     return  '<div class="list">' +
                 '<div class="list-book">'+
-                    '<a href="book.html?book_id=' + data.id + '">'+
+                    '<a onclick="window.open(\'book.html?book_id=' + data.id + '\');">'+
                         '<div class="image">'+
                             '<img src="' + data.coverUri + '" alt=""/>'+
                             '<span>' + data.levelScore + 'ER</span>'+
