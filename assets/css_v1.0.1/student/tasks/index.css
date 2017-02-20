@@ -72,7 +72,7 @@ body {
 
 .book{
     width: 728px;
-    height: 1017px;
+    min-height: 1017px;
     background: #f9f9f9;
     border: 1px solid #e8e8e8;
     margin-top: 50px;

@@ -51,7 +51,6 @@ $('#online_read').click(function () {
         },
         error: error_handler()
     });
-<<<<<<< HEAD
     //判断书籍类型
     $.ajax({
         url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
@@ -70,8 +69,6 @@ $('#online_read').click(function () {
             }
         }
     });
-=======
->>>>>>> 1e156f581b77f49ff8cdf5c197e5a63eda7a9234
 });
 
 $('#user_note').bind('input propertychange', function () {

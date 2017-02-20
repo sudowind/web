@@ -66,7 +66,8 @@ function load_rank_list(current, grade) {
 }
 
 function set_ability_analysis_option(data) {
-    var u_data = [0, 0, 0, 0, 0], c_data = [0, 0, 0, 0, 0], g_data = [0, 0, 0, 0, 0];
+    var len = data.studentAbility.length;
+    var u_data = new Array(len), c_data = new Array(len), g_data = new Array(len);
     var col_name = ['', '', '', '', ''];
     for (var i in data.studentAbility) {
         u_data[data.studentAbility[i].id - 1] = Math.ceil(data.studentAbility[i].score * 100);

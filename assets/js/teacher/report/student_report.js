@@ -161,8 +161,8 @@ var sort_func = function(a, b) {
 };
 
 function set_option(chart_type, data, index) {
-    console.log(index);
     if (chart_type == 'line') {
+        console.log(index);
         var student_list = [];
         var class_list = [];
         var school_list = [];
