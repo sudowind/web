@@ -7,8 +7,10 @@
 }
 
 .header-content {
-    width: 70%;
-    margin: auto;
+    margin: 0 auto;
+    width: 1170px;
+    padding: 0 40px;
+    min-width: 1170px;
 }
 
 .logo {
@@ -18,7 +20,7 @@
 }
 
 .header-nav-bar {
-    /*width: 80%;*/
+    width: 70%;
     float: right;
 }
 

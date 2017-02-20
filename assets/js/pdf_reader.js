@@ -43,6 +43,7 @@ function load_task_info() {
         });
     }else{
         $(".save").css('display','none');
+        load_pdf_page(1);
     }
 }
 
