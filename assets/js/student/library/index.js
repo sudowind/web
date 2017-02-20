@@ -7,8 +7,8 @@ function left_bar_cb() {
 }
 
 var curr_type = 0;
-var curr_start_score = 600;
-var curr_end_score = 1200;
+var curr_start_score = 150;
+var curr_end_score = 1100;
 
 var has_recommend_result;
 var recommend_start_score = 0;
@@ -61,10 +61,10 @@ function gen_book_type() {
                         has_recommend_result = true;
                         recommend_start_score = data.erTestRecord.erScore  - 100;
                         recommend_end_score = data.erTestRecord.erScore  + 50;
-                        if (recommend_start_score < 600)
-                            recommend_start_score = 600;
-                        if (recommend_end_score > 1200)
-                            recommend_end_score = 1200;
+                        if (recommend_start_score < 150)
+                            recommend_start_score = 150;
+                        if (recommend_end_score > 1100)
+                            recommend_end_score = 1100;
                         curr_start_score = recommend_start_score;
                         curr_end_score = recommend_end_score;
                         $('.grade span:nth-child(2)').html('推荐');
@@ -79,37 +79,6 @@ function gen_book_type() {
         .catch(function (error) {
             console.log('error: ', error);
         });
-
-    // $.ajax({
-    //     xhrFields: {
-    //         withCredentials: true
-    //     },
-    //     url: URL_BASE + '/books/open/tag/type/list',
-    //     type: 'get',
-    //     success: function (data) {
-    //         var html = '<span class="index" value="0">全部</span>';
-    //         for (var i in data) {
-    //             if (data[i].id != '0')
-    //                 html += '<span value="{0}">{1}</span>'.format(data[i].id, data[i].name);
-    //         }
-    //         $('.book .sort').append(html);
-    //         $(".book .sort span").click(function(){
-    //             $(this).siblings().attr("class","");
-    //             $(this).attr("class","index");
-    //
-    //             has_load_book = false;
-    //             load_book(Number($(this).attr('value')), 1);
-    //
-    //         });
-    //
-    //         $.ajax({
-    //
-    //         });
-    //
-    //         load_book(0, 1);
-    //     },
-    //     error: error_handler()
-    // })
 }
 
 function load_book(type, page) {
@@ -171,7 +140,8 @@ $(".book .grade span").click(function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
 
-    var start_score = Number($(this).attr('value'));
+    var start_score = Number($(this).attr('start'));
+    var end_score = Number($(this).attr('end'));
     // console.log(start_score);
     if (start_score == 0) {
         if (has_recommend_result) {
@@ -179,13 +149,13 @@ $(".book .grade span").click(function(){
             curr_end_score = recommend_end_score;
         }
         else {
-            curr_start_score = 600;
-            curr_end_score = 1200;
+            curr_start_score = 150;
+            curr_end_score = 1100;
         }
     }
     else {
         curr_start_score = start_score;
-        curr_end_score = start_score + 100;
+        curr_end_score = end_score;
     }
     has_load_book = false;
     load_book(curr_type, 1);

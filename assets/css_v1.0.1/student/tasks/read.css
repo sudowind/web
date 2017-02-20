@@ -33,10 +33,10 @@
 
 .book-info-box .book-info {
     width: 450px;
+    height: 189px;
     margin: 25px 40px 0 0;
     float: left;
 }
-
 
 /*文章详细信息部分*/
 .book-detail-box {

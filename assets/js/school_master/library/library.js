@@ -3,8 +3,8 @@
  */
 
 var curr_type = 0;
-var curr_start_score = 600;
-var curr_end_score = 1200;
+var curr_start_score = 150;
+var curr_end_score = 1100;
 var has_load_book = false;
 var BOOK_PER_PAGE = 9;
 
@@ -30,15 +30,16 @@ $(".book .grade span").click(function(){
     $(this).siblings().attr("class","");
     $(this).attr("class","index");
 
-    var start_score = Number($(this).attr('value'));
-    console.log(start_score);
+    var start_score = Number($(this).attr('start'));
+    var end_score = Number($(this).attr('end'));
+    // console.log(start_score);
     if (start_score == 0) {
-        curr_start_score = 600;
-        curr_end_score = 1200;
+        curr_start_score = 150;
+        curr_end_score = 1100;
     }
     else {
         curr_start_score = start_score;
-        curr_end_score = start_score + 100;
+        curr_end_score = end_score;
     }
     has_load_book = false;
     load_book(curr_type, 1);

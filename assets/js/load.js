@@ -93,6 +93,7 @@ function load(src, type) {
 })(jQuery);
 
 function fill_data(data) {
+    $('.book-info h3').css('font-size', '19px');
     $('#book_name').html(data.name);
     $('#display_type').html(data.displayTypeName);
     $('#author').html(data.author);
