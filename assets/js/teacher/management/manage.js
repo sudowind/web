@@ -374,7 +374,7 @@ function init_class() {
         type: 'get',
         url: URL_BASE + '/users/web/class/teacher/current/list',
         success: function(data) {
-            console.log(data);
+            //console.log(data);
 
             var html = '<td>所带班级：</td>';
             html += '<td>';

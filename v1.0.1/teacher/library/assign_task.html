@@ -7,17 +7,14 @@
     <link rel=icon href="../../../include/img/favicon.ico" type=image/x-icon />
     <link rel="stylesheet" href="../../../libs/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../../include/css/tip_modal.css">
-
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/header.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/base.css">
-
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/footer.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/intro.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/comment.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/pagination.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/base.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/reset.css">
-
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/student/library/index.css">
     <link rel="stylesheet" href="../../../assets/css_v1.0.1/teacher/library/assign_task.css">
 
@@ -71,8 +68,8 @@
                     <img src="../../../assets/img/teacher/library/set_time.png" alt=""><div>设定阅读时间</div>
                 </div>
                 <div class="info-content">
-                    <span>开始日期：</span><input id="start_date" class="laydate-icon" onclick="laydate()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span>结束日期：</span><input id="end_date" class="laydate-icon" onclick="laydate()">
+                    <span>开始日期：</span><input id="start_date" class="laydate-icon" onclick="layui.laydate({elem: this,min: laydate.now()})">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>结束日期：</span><input id="end_date" class="laydate-icon" onclick="layui.laydate({elem: this,min: laydate.now(+1)})">
                 </div>
                 <div class="set_info_title">
                     <img src="../../../assets/img/teacher/library/set_class.png" alt=""><div>选择班级</div>
@@ -123,8 +120,7 @@
 <script src="../../../libs/jquery-2.2.4.js"></script>
 <script src="../../../libs/bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
 <script src="../../../libs/GreenSock-JS-master/src/uncompressed/TweenMax.js"></script>
-<script src="../../../libs/laydate/laydate.js"></script>
-
+<script src="../../../libs/layui-v1.0.7/layui/layui.js" charset="utf-8"></script>
 <script src="../../../assets/js/load.js"></script>
 <script src="../../../assets/js/base.js"></script>
 <script src="../../../assets/js/comment.js"></script>
@@ -132,8 +128,6 @@
 <script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../assets/js/cookie.js"></script>
 <script src="../../../assets/js/login.js"></script>
-
-<!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
 <script src="../../../assets/js/teacher/library/assign_task.js"></script>
 <script>
     $(document).ready(function () {
@@ -148,6 +142,10 @@
     function header_cb() {
         $('#library_button').addClass('header-nav-selected').css('color', '#365a97');
     }
+
+    layui.use('laydate', function(){
+
+    });
 </script>
 </body>
 </html>

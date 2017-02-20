@@ -58,7 +58,9 @@
 #set_info_part .info-content {
     padding: 10px 20px;
 }
-
+#set_info_part .info-content input{
+    text-align: center;
+}
 .set_info_title {
     border-bottom: solid 1px #e8e8e8;
     height: 50px;
