@@ -210,7 +210,7 @@ body {
     width: 100px;
     text-align: right;
 }
-.list .list-book .reading .continue-read{
+.list .list-book .reading .continue-read btn{
     width: 54px;
     height: 20px;
     line-height: 20px;
@@ -223,8 +223,9 @@ body {
     top: 245px;
     left:17px;
     cursor:pointer;
+    padding: 0;
 }
-.list .list-book .reading .appraisal{
+.list .list-book .reading .appraisal btn{
     width: 54px;
     height: 20px;
     line-height: 20px;

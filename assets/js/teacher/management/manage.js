@@ -340,7 +340,7 @@ function load_class_info(class_id) {
                             gender = '女';
                         html += '<tr>' +
                             '<td><img class="single-selector" onclick="on_single_select_click(this);" type="passed" student_id="{0}" src="../../../assets/img/teacher/single_unselected.png" alt="" value="0"></td>'.format(joined_student[i].id) +
-                            '<td>S {0}</td>'.format(joined_student[i].id) +
+                            '<td>{0}</td>'.format(joined_student[i].account) +
                             '<td>{0}</td>'.format(joined_student[i].name) +
                             '<td>{0}</td>'.format(gender) +
                             '<td>已加入班级</td>' +

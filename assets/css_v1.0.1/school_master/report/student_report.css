@@ -264,6 +264,7 @@
 }
 
 .book-name {
+    width: 124px;
     height: 40px;
     text-align: center;
     display: table-cell;

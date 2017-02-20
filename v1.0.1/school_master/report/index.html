@@ -54,18 +54,10 @@
                 <div class="option">
                     <div class="selector">
                         <label for="grade_selector">年级：&nbsp;&nbsp;</label><select id="grade_selector">
-                        <option value="1">2013</option>
-                        <option value="1">2013</option>
-                        <option value="1">2013</option>
-                        <option value="1">2013</option>
                     </select>
                     </div>
                     <div class="selector">
                         <label for="class_selector">班级：&nbsp;&nbsp;</label><select id="class_selector">
-                        <option value="1">2013</option>
-                        <option value="1">2013</option>
-                        <option value="1">2013</option>
-                        <option value="1">2013</option>
                     </select>
                     </div>
 
@@ -214,7 +206,9 @@
     $(document).ready(function () {
         load('../../../include/html/', 'school_master');
         init();
-        $('select').select2();
+        $('select').select2({
+            language: 'zh-CN'
+        });
         load_teacher_info();
         window_resize_teacher();
     });

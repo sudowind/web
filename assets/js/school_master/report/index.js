@@ -28,6 +28,11 @@ var class_order = 'reverse';
 //简介与评论之间的tab切换函数
 var button_ids = ['classes', 'student'];
 
+function clear_table() {
+    $('.classes-info-part table tbody').html();
+    $('.student-show-list table tbody').html();
+}
+
 function on_button_click(e) {
     //alert($(e).attr('id'));
     if ($(e).attr('value') == '0') {
@@ -194,15 +199,15 @@ $('.sortable-column').click(function () {
     var obj = $(this);
     var img_src = obj.find('img').attr('src');
     if (img_src.indexOf('up') > 0) {
-        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png')
+        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png');
         order = 'reverse';
     }
     else if (img_src.indexOf('down') > 0) {
-        obj.find('img').attr('src', '../../../assets/img/teacher/up_triangle.png')
+        obj.find('img').attr('src', '../../../assets/img/teacher/up_triangle.png');
         order = 'no-reverse';
     }
     else {
-        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png')
+        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png');
         order = 'reverse';
     }
 
@@ -240,6 +245,7 @@ function load_class(grade) {
             $('#class_selector').html(html).select2({
                 language: 'zh-CN'
             }).off('select2:select').on('select2:select', function(evt){
+                clear_table();
                 load_class_performance($(this).val());
                 load_student_performance($(this).val());
                 load_student_class_rank('school_master', $(this).val());
@@ -269,6 +275,7 @@ function load_grade() {
     $('#grade_selector').html(html).select2({
         language: 'zh-CN'
     }).off('select2:select').on('select2:select', function (evt) {
+        clear_table();
         load_class($(this).val());
         load_rank_list('school_master', $(this).val());
     });

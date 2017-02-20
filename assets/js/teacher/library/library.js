@@ -107,7 +107,7 @@ function load_book(type,page,classId) {
 function fill_book(data) {
     return  '<div class="list">' +
                 '<div class="list-book">'+
-                    '<a href="book.html?book_id=' + data.id + '">'+
+                    '<a onclick="window.open(\'book.html?book_id=' + data.id + '\');">'+
                         '<div class="image">'+
                             '<img src="' + data.coverUri + '" alt=""/>'+
                             '<span>'+ data.levelScore +'ER</span>'+
@@ -127,7 +127,7 @@ function fill_book(data) {
 function fill_class_books(data){
     return  '<div class="list">' +
             '<div class="list-book">'+
-            '<a href="book.html?book_id=' + data.id + '">'+
+            '<a onclick="window.open(\'book.html?book_id=' + data.id + '\');">'+
             '<div class="image">'+
             '<img src="" alt=""/>'+
             '<span>'+ data.levelScore +'</span>'+

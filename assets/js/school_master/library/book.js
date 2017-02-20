@@ -215,6 +215,6 @@ function init_class() {
         $('#class_selector').html('<option></option>');
         load_class($(this).val());
     });
-    // load_class(base_year);
+    load_class(base_year);
 
 }

@@ -96,11 +96,11 @@
                 </div>
 
                 <div id="test_part" style="display: none">
-                    <div class="progress-part">
-                        <label for="chapter_selector"></label>
-                        <select id="chapter_selector"></select>
-                        <hr />
-                    </div>
+                    <!--<div class="progress-part">-->
+                        <!--<label for="chapter_selector"></label>-->
+                        <!--<select id="chapter_selector"></select>-->
+                        <!--<hr />-->
+                    <!--</div>-->
                     <div class="question-part">
 
                         <div id="question_type_1" class="hide">
@@ -225,6 +225,7 @@
 <script src="../../../assets/js/tip_modal.js"></script>
 <script src="../../../assets/js/cookie.js"></script>
 <script src="../../../assets/js/login.js"></script>
+<script src="../../../assets/js/test.js"></script>
 <!--<script src="../../../assets/js_v1.0.1/student/home/home.js"></script>-->
 <script src="../../../assets/js/teacher/library/book.js"></script>
 <script>
@@ -234,6 +235,7 @@
         load_page();
         load_comments(1);
         load_teacher_info();
+        load_exam();
         window_resize_teacher();
     });
     $(window).resize(window_resize_teacher);

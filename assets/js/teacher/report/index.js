@@ -5,6 +5,11 @@ function right_bar_cb() {
     $('#report_button').attr('class', 'side-button-selected left-side-button');
 }
 
+function clear_table() {
+    $('.classes-info-part table tbody').html();
+    $('.student-show-list table tbody').html();
+}
+
 //自动生成列表
 function init() {
 
@@ -83,6 +88,7 @@ function on_button_click(e) {
 
 //选择班级的 tab 切换
 $(".right .option span").click(function(){
+    clear_table();
     $(this).siblings().removeClass("index");
     $(this).addClass("index");
     load_student_class_rank('teacher', $(this).attr('value'));
@@ -90,6 +96,7 @@ $(".right .option span").click(function(){
 
 function load_class_performance(class_id) {
     class_has_load_page = false;
+    var semester = get_current_semester();
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -97,8 +104,8 @@ function load_class_performance(class_id) {
         url: URL_BASE + '/statistic/web/timeline/class/{0}/classInfoInGrade'.format(class_id),
         type: 'get',
         data: {
-            startTime: 0,
-            endTime: 0
+            startTime: semester[0],
+            endTime: semester[1]
         },
         success: function(data) {
             // 将数据加载到变量中
@@ -114,6 +121,7 @@ function load_class_performance(class_id) {
 
 function load_student_performance(class_id) {
     student_has_load_page = false;
+    var semester = get_current_semester();
     $.ajax({
         xhrFields: {
             withCredentials: true
@@ -121,8 +129,8 @@ function load_student_performance(class_id) {
         url: URL_BASE + '/statistic/web/timeline/class/{0}/studentInfoList'.format(class_id),
         type: 'get',
         data: {
-            startTime: 0,
-            endTime: 0
+            startTime: semester[0],
+            endTime: semester[1]
         },
         success: function (data) {
             for (var i = 0; i < data.length; ++i) {
@@ -220,15 +228,15 @@ $('.sortable-column').click(function () {
     var obj = $(this);
     var img_src = obj.find('img').attr('src');
     if (img_src.indexOf('up') > 0) {
-        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png')
+        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png');
         order = 'reverse';
     }
     else if (img_src.indexOf('down') > 0) {
-        obj.find('img').attr('src', '../../../assets/img/teacher/up_triangle.png')
+        obj.find('img').attr('src', '../../../assets/img/teacher/up_triangle.png');
         order = 'no-reverse';
     }
     else {
-        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png')
+        obj.find('img').attr('src', '../../../assets/img/teacher/down_triangle.png');
         order = 'reverse';
     }
 
