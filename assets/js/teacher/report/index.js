@@ -185,7 +185,7 @@ function load_table(page, elem_per_page, sort_by,  order, type) {
                 '<td class="accuracy">{0}</td></tr>'.format(examScore);
         }
         else {
-            html += '<tr><td class="sort">{0}</td>'.format(data[i].studentId) +
+            html += '<tr><td class="sort">{0}</td>'.format(data[i].studentAccount) +
                 '<td class="name">{0}</td>'.format(data[i].studentName) +
                 '<td class="read-num">{0}</td>'.format((data[i].wordCount / 10000).toFixed(2)) +
                 // '<td class="book-num">{0}</td>'.format(data[i].bookCount) +

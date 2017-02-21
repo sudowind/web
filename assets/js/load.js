@@ -3,6 +3,7 @@
  */
 
 var URL_BASE = 'http://debian8-01.internal.enjoyreading.com';
+// var URL_BASE = '';
 
 function load(src, type) {
     // 加载页眉页脚，绑定事件，然后查询未查看消息数量

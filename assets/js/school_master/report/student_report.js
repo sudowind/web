@@ -115,7 +115,7 @@ function load_chart(element_id) {
     var curr_semester = get_current_semester();
     if (element_id.indexOf('count') >= 0) {
         // var start_time = curr_semester[0];
-        var step = 86400000 * 2;
+        var step = 86400000 * 1;
         var end_time = new Date();
         var end_time_stamp = end_time.getTime() - 2400000;
         var start_time_stamp = end_time_stamp - step * 11;

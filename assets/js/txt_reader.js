@@ -46,17 +46,7 @@
             $('[data-toggle=popover]').popover('hide');
             // $('.color-choose-div').hide();
         }).scroll(function () {
-            // console.log($(this).scrollTop());
-            // console.log($('.reader-content p:nth-child(19)').position().top);
-            // var elem = $(this).find('p');
-            // for (var i = 1; i < elem.length; ++i) {
-            //     if ($('.reader-content p:nth-child({0})'.format(i)).position().top < 10 && $('.reader-content p:nth-child({0})'.format(i + 1)).position().top >= 10) {
-            //         current_para = i + 1;
-            //     }
-            // }
-            // if ($('.reader-content p:nth-child(1)').position().top == 44) {
-            //     current_para = 1;
-            // }
+
         }).mouseup(function (e) {
             e = e || window.event;
             var left = e.clientX;
@@ -96,7 +86,7 @@
                 count += 1;
                 var top = $(elem[i]).position().top;
                 if (top >= 44) {
-                    console.log($(elem[i]).attr('start'));
+                    // console.log($(elem[i]).attr('start'));
                     // console.log(top);
                     // console.log(scroll_top);
                     var end_time = new Date();
@@ -275,7 +265,7 @@ function load_txt(page, url, offset, current) {
     var next_page = $('.slide-menu').find('[value={0}]'.format(page + 1)).attr('onclick');
     var next_page_html = '<div style="border-top: solid 1px #3c97cf">全书已读完，点击<a style="cursor: pointer" onclick="finish_read();">确认</a>完成阅读</div>';
     if (next_page) {
-        console.log(next_page);
+        // console.log(next_page);
         next_page_html = '<div style="border-top: solid 1px #3c97cf">本章已读完，点击前往<a style="cursor: pointer" onclick="{0}">下一章</a></div>'.format(next_page);
     }
     else if (!$.getUrlParam('task_id')) {
@@ -309,7 +299,7 @@ function load_txt(page, url, offset, current) {
                         $(elem[i]).attr('start', total);
                         if (current) {
                             if (total <= current && total + current_length > current) {
-                                console.log(current);
+                                // console.log(current);
                                 if (i > 0)
                                     top = $(elem[i - 1]).position().top;
                             }
@@ -321,14 +311,14 @@ function load_txt(page, url, offset, current) {
                     }
                 }
             }
-            console.log(top);
+            // console.log(top);
             $('.reader-content').scrollTop(top);
         }
     });
 }
 
 function load_content(page, offset, title, current) {
-    console.log(page);
+    // console.log(page);
     $.ajax({
         url: URL_BASE + '/books/web/book/{0}/content'.format($.getUrlParam('book_id')),
         xhrFields: {

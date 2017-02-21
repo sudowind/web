@@ -82,6 +82,7 @@
 }
 
 .txt-reader .slide-menu {
+    overflow: auto;
     position: absolute;
     width: 600px;
     background: #fbfaf8;

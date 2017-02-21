@@ -111,10 +111,7 @@ function load_page() {
         },
         url: URL_BASE + '/tasks/web/task/' + $.getUrlParam('task_id'),
         success: function (data) {
-            // if (data.status == 3) {
-            //     $('#offline_read').html('继续线下阅读');
-            //     $('#online_read').html('转线上阅读');
-            // }
+
             var online_text = '';
             var offline_text = '';
             switch (data.onlineStatus) {

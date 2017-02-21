@@ -5,9 +5,8 @@
  */
 
 var MessageHandler = function () {
-    this.log = function(data) {
-        console.log(data);
-    };
+
+    this.MESSAGE_PER_PAGE = 8;
 
     this._reference_type = {
         ClassTransfer: {
@@ -105,7 +104,7 @@ var MessageHandler = function () {
                 '</div>';
         }
         else {
-            console.log(content_html);
+            // console.log(content_html);
             return '<div class="list{0}" value="{1}">'.format(unread, data.id) +
                 '<p class="head-img">' +
                 '<img src="{0}" alt=""/>'.format(this._reference_type[data.referenceType].img) +

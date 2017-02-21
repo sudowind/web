@@ -71,6 +71,10 @@ $('#online_read').click(function () {
     });
 });
 
+$('#go_to_test').click(function () {
+    window.open('test.html?book_id={1}&task_id={0}'.format($.getUrlParam('task_id'), $.getUrlParam('book_id')), '_self');
+});
+
 $('#user_note').bind('input propertychange', function () {
     if ($(this).val().length > 0) {
         $('#submit_note').removeClass('disabled button-disabled').addClass('button-able');
@@ -162,6 +166,23 @@ function load_progress() {
                 $('.progress-bar').css('width', percent.toString() + '%');
                 $('#today_page').attr('placeholder', curr_page).attr('min', curr_page).attr('max', total_page).val(curr_page);
                 today_start_at = curr_page;
+
+                if (data.status == 4) {
+                    // 书已读完，可以选择去做测试
+                    $.ajax({
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        type: 'GET',
+                        url: URL_BASE + '/books/web/book/{0}'.format($.getUrlParam('book_id')),
+
+                        success: function (data) {
+                            if (data.examStatus == '有题') {
+                                $('#go_to_test').removeClass('disabled');
+                            }
+                        }
+                    })
+                }
             },
             error: error_handler()
         });

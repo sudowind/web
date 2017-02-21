@@ -31,9 +31,10 @@ function init() {
 
 function load_table_line (row_selector, data) {
     var name = data.user.name;
+    var account = data.user.account;
     var number = data.user.id;
     var percentage = Math.ceil(data.currentPage * 100.0 / data.totalPage);
-    var grade = data.examScore * 100;
+    var grade = Math.round(data.examScore * 100, 0);
     if (grade < 0)
         grade = '未做测试';
     else
@@ -41,7 +42,7 @@ function load_table_line (row_selector, data) {
     var note_count = data.noteCount;
     var task_id = data.id;
     $(row_selector).load('../../../include/html/teacher/task_student_table_line.html', function () {
-        $(row_selector + ' .student-number').html(number);
+        $(row_selector + ' .student-number').html(account);
         $(row_selector + ' .student-name').html(name);
         $(row_selector + ' .grade').html(grade);
         $(row_selector + ' .note-count').html(note_count.toString() + '条');

@@ -23,43 +23,52 @@ function load_rank_list(current, grade) {
         type: 'get',
         data: data,
         success: function (data) {
-            //console.log(data)
-            var html = '';
-            var list_data;
-            if (current == 'student') {
-                var my_data = data.myRank;
-                html = '<div class="me">' +
-                    '<div class="me-rank">' + my_data.rank + '</div>' +
-                    '<img src="' + my_data.user.headimg + '" alt=""/>' +
-                    '<div class="me-right">' +
-                    '<p class="me-name">' + my_data.user.name + '</p>' +
-                    '<strong><span>' + (my_data.rankValue / 10000).toFixed(2) + '</span>万字</strong>' +
-                    '</div>' +
-                    '</div>';
-                list_data = data.topList;
+            // if (current != 'student') {
+            //     list_data = data;
+            // }
+            if (data.hasRank || current != 'student') {
+                //console.log(data)
+                var html = '';
+                var list_data;
+                if (current == 'student') {
+                    var my_data = data.myRank;
+                    html = '<div class="me">' +
+                        '<div class="me-rank">' + my_data.rank + '</div>' +
+                        '<img src="' + my_data.user.headimg + '" alt=""/>' +
+                        '<div class="me-right">' +
+                        '<p class="me-name">' + '我' + '</p>' +
+                        '<strong><span>' + (my_data.rankValue / 10000).toFixed(2) + '</span>万字</strong>' +
+                        '</div>' +
+                        '</div>';
+                    list_data = data.topList;
+                }
+                else {
+                    list_data = data;
+                }
+
+                html += '<ul>';
+                for (var i in list_data) {
+                    var tmp = list_data[i];
+                    var onclick_html = '';
+                    if (current !== 'student') {
+                        onclick_html = 'style="cursor: pointer;" onclick="window.open(\'../report/student_report.html?student_id={0}\', \'_self\')"'.format(tmp.user.id);
+                    }
+                    html += '<li ' + onclick_html + '>' +
+                        '<div class="rank" >' + tmp.rank + '</div>' +
+                        '<img class="head" src="' + tmp.user.headimg + '" alt=""/>' +
+                        '<div class="right">' +
+                        '<p class="name">' + tmp.user.name + '</p>' +
+                        '<strong><span>' + (tmp.rankValue / 10000).toFixed(2) + '</span>万字</strong>' +
+                        '</div>' +
+                        '</li>';
+                }
+                html += '</ul>';
+                $('.top-list').html(html);
             }
             else {
-                list_data = data;
-            }
+                // 进入到这里说明已经加入了班级，只不过是学霸榜没有数据
 
-            html += '<ul>';
-            for (var i in list_data) {
-                var tmp = list_data[i];
-                var onclick_html = '';
-                if (current !== 'student') {
-                    onclick_html = 'style="cursor: pointer;" onclick="window.open(\'../report/student_report.html?student_id={0}\', \'_self\')"'.format(tmp.user.id);
-                }
-                html += '<li ' + onclick_html + '>' +
-                    '<div class="rank" >' + tmp.rank + '</div>' +
-                    '<img class="head" src="' + tmp.user.headimg + '" alt=""/>' +
-                    '<div class="right">' +
-                    '<p class="name">' + tmp.user.name + '</p>' +
-                    '<strong><span>' + (tmp.rankValue / 10000).toFixed(2)  + '</span>万字</strong>' +
-                    '</div>' +
-                    '</li>';
             }
-            html += '</ul>';
-            $('.top-list').html(html);
         },
         error: error_handler()
     });
