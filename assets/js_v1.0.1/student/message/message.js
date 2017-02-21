@@ -1,7 +1,7 @@
 /**
  * Created by yilong on 2017/1/17.
  */
-//选择修改个人信息还是修改密码
+//选择推荐阅读还是系统消息
 $(".recommend_read_btn").on('click',function(){
     $(this).addClass('index');
     $(".system_message_btn").removeClass('index');
