@@ -136,8 +136,8 @@
 #girl{
     margin-left: 8px;
 }
-.main .info_list .name span,.birthday span,.city span ,.school span ,.class_name span{
-    /*font-size: 14px;*/
+.main .info_list .birthday .select_close,.city .select_close,.school .select_close,.class_name .select_close{
+    font-size: 14px;
     /*color: #cccccc;*/
 }
 .main .info_list .star_sign{
