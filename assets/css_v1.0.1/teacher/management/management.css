@@ -104,6 +104,8 @@
 }
 
 #student_table {
+    overflow-y: auto;
+    overflow-x: hidden;
     height: 600px;
     border-top: 1px dotted #97a9c8;
     border-bottom: 1px dotted #97a9c8;

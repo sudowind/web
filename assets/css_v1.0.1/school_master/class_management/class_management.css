@@ -105,7 +105,8 @@
     width: 100%;
     border-top: 1px dotted #97a9c8;
     border-bottom: 1px dotted #97a9c8;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /*班级列表表格*/

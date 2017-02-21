@@ -15,13 +15,17 @@ function load_table_line (row_selector, data) {
     var name = data.user.name;
     var number = data.user.id;
     var percentage = Math.ceil(data.currentPage * 100.0 / data.totalPage);
-    var grade = 90;
+    var grade = data.examScore * 100;
+    if (grade < 0)
+        grade = '未做测试';
+    else
+        grade = grade.toString() + '分';
     var note_count = data.noteCount;
     var task_id = data.id;
     $(row_selector).load('../../../include/html/teacher/task_student_table_line.html', function () {
         $(row_selector + ' .student-number').html(number);
         $(row_selector + ' .student-name').html(name);
-        $(row_selector + ' .grade').html(grade.toString() + '分');
+        $(row_selector + ' .grade').html(grade);
         $(row_selector + ' .note-count').html(note_count.toString() + '条');
         $(row_selector + ' .progress div').css('width', percentage.toString() + '%');
         $(row_selector + ' .progress-message').html('进度' + percentage + '%');

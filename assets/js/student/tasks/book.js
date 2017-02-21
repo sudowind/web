@@ -74,14 +74,7 @@ $('.modal-footer .btn').one("click",function(){
 function load_answer_cb(value) {
     bar.animate(value);
 }
-$('#user_note').bind('input propertychange', function () {
-    if ($(this).val().length > 0) {
-        $('#submit_note').removeClass('disabled button-disabled').addClass('button-able');
-    }
-    else {
-        $('#submit_note').addClass('disabled button-disabled').removeClass('button-able');
-    }
-});
+
 
 
 
