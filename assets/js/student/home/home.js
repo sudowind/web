@@ -218,6 +218,7 @@ function init() {
         url: URL_BASE + '/statistic/web/timeline/student/current/studentCurrentInfo',
         type: 'get',
         success: function (data) {
+            console.log(data);
             $('#book_count').html(data.studentReadingInfo.bookCount);
             $('#word_count').html((data.studentReadingInfo.wordCount / 10000).toFixed(2));
             $('#time_count').html(Math.ceil(Number(data.studentReadingInfo.timeCount) / 60000));
